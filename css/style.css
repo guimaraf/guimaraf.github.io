@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+}
+
+img {
+    opacity: .8;
+    max-width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+img:hover {
+    opacity: 1;
+}
+
+h1 {
+    align-content: center;
+    font-family: sans-serif;
+}
+
+p {
+    font-size: 14pt;
+}
