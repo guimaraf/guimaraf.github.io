@@ -2,14 +2,15 @@ body {
     background-color: lightblue;
 }
 
-img {
+
+.img-circle {
     opacity: .8;
-    max-width: 80%;
+    max-width: 60%;
     height: auto;
     border-radius: 50%;
 }
 
-img:hover {
+.img-circle:hover {
     opacity: 1;
 }
 
