@@ -1,6 +1,29 @@
+/*Tútulo da página*/
+.titulo-pagina {
+    align-content: center;
+    font-family: sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.sub-titulo{
+    font-family: sans-serif;
+    font-size: 14pt;
+
+}
+
+.tiluto-programa {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14pt;
+    
+}
+
 body {
     background-color: lightblue;
 }
+
+
 
 /*Tratando as imagens*/
 .img-circle {
@@ -25,13 +48,14 @@ body {
     opacity: 1;
 }
 
-h1 {
-    align-content: center;
-    font-family: sans-serif;
+.img-download{
+    opacity: .8;
+    width: 150px;
+    height: auto;
 }
 
-p {
-    font-size: 14pt;
+.img-download:hover{
+    opacity: 1;
 }
 
 section a{
