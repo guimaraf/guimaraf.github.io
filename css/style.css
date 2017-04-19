@@ -23,8 +23,6 @@ body {
     background-color: lightblue;
 }
 
-
-
 /*Tratando as imagens*/
 .img-circle {
     opacity: .8;
@@ -61,4 +59,15 @@ body {
 section a{
     font-family: sans-serif;
     font-size: 14pt;
+}
+
+/*Formatando políticas temp*/
+div{
+    font-family: sans-serif;
+    font-size: 14pt;
+    margin: 0 auto;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
 }
