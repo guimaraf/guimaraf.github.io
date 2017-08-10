@@ -40,10 +40,10 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="work.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Trabalhos</a></li>
+            <li><a href="about.html">Sobre</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contato</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,15 +54,60 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
-					<p><img src="assets/img/user.png" width="50px" height="50px"> <ba>Stanley Stinson</ba></p>
-					<p><bd>January 3, 2014</bd></p>
-					<h4>An Image Post</h4>
-					<p><img class="img-responsive" src="assets/img/blog/blog01.jpg" alt=""></p>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-					<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p><img src="assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+					<p><bd>10 de Agosto, 2017</bd></p>
+					<h4>Matar processo do NWjs.exe</h4>
+          <!--p><img class="img-responsive" src="assets/img/blog/blog01.jpg" alt=""></p-->
+            <p>Um problema comum durante o desenvolvimento em Construct2 usando o Nwjs como render desktop, é em alguns momentos após 
+              fechar o programa o processo continua ativo, com este problema em mente, resolvi buscar uma solução simplificada para 
+              que o processo seja fechado da forma mais rápida possível, aproveitei meus conhecimentos longíncuos de programação 
+              em scripts, que utilizo para outros fins no meu atual sistema operacional.
+            </p>
+              <p>A maioria dos navegadores reconhecem arquivos .bat como potenciais ameaças, por este motivo eu deixo abaixo o 
+                código do arquivo. Pegue o código e cole em um arquivo no formato .bat, que pode ser um arquivo .txt, renomeie ele para .bat.
+              </p>
+              <h2>Como matar o processo do NWjs.exe.</h3>
+              <code>
+                <pre>
+@echo off 
+set proceso=nw.exe
+
+tasklist>%tmp%\tmp.txt 
+find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp 
+IF ERRORLEVEL==1 GOTO ERROR 
+for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do ( 
+color a 
+echo. 
+echo O proceso "%proceso%" tem o pid --^> "%%p"
+cls 
+SET numeroPid=%%p
+tskill %%p
+echo Finalizado o NW.Exe com sucesso
+
+) 
+pause>NUL 
+ERROR 
+COLOR C 
+ECHO. 
+ECHO Nao foi encotrado o "%proceso%" no sistema
+PAUSE>NUL
+                  </pre>
+              </code>
+
+              <p>Explicando o código</p>
+              <p>
+                "@echo off", serve para retirar o caminho do sistema.</br>
+                "set proceso=nw.exe", cria uma variável e armazena a string que contém o nome do progrma a ser fechado.</br>
+                "tasklist>%tmp%\tmp.txt", pega o conteúdo do comando tasklist que vai mostrar todos os processos que estão rodando no 
+                sistema operacional, joga em um arquivo tmp.txt que fica na pasta temporária do sistema operacional.</br>
+                "IF ERRORLEVEL==1 GOTO ERROR" </br> 
+
+                continuar editando
+              </p>
+          
+
 					<br>
-					<p><bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt></p>
+					<p><bt>TAGS: <a href="#">Construct2</a> - <a href="#">Batch File</a></bt></p>
 					<hr>
 					<p><a href="blog.html"># Back</a></p>
 				</div>
@@ -76,16 +121,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
-					<h4>My Bunker</h4>
+					<h4>Meu Forte</h4>
 					<p>
 						Contagem,<br/>
 						Minas Gerais, <br/>
-						Brazil.
+						Brasil.
 					</p>
 				</div><!-- /col-lg-4 -->
 				
 				<div class="col-lg-4">
-					<h4>My Links</h4>
+					<h4>Meus Links</h4>
 					<p>
 						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
 						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
@@ -94,14 +139,14 @@
 				</div><!-- /col-lg-4 -->
 				
 				<div class="col-lg-4">
-					<h4>About FRED OLIVEIRA</h4>
-					<p>This cute theme was created to showcase your work in a simple way. Use it wisely.</p>
+					<h4>Sobre Fred Oliveira</h4>
+					<p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
 				</div><!-- /col-lg-4 -->
 			
 			</div>
 		</div>
 	</div>
-
+	
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
