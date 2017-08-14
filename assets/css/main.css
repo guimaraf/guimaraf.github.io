@@ -302,3 +302,7 @@ input[id^="spoiler"]:checked + label + .spoiler{
   opacity: 1;
   padding: 10px;
 }
+
+p[id^="pSpoiler"] {
+    text-align: center;
+}

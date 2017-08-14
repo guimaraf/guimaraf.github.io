@@ -41,8 +41,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../works/work.html">Trabalhos</a></li>
+            <li><a href="devlog.html">Devlog</a></li>
             <li><a href="../about.html">Sobre</a></li>
-            <li><a href="blog.html">Blog</a></li>
             <li><a href="../contact.html">Contato</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -50,14 +50,14 @@
     </div>
 
 	<!-- +++++ Post +++++ -->
-	<div id="white">
+	<div id="grey">
 	    <div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
 					<p><bd>10 de Agosto, 2017</bd></p>
           <h2>Matar processo do NW.exe</h2>
-          <p><img src="../assets/img/blog/tskill.jpg" width="100%" height="100%" title="Script Executado"></p>
+          <p><img src="../assets/img/devlog/tskill.jpg" width="100%" height="100%" title="Script Executado"></p>
           <!--p><img class="img-responsive" src="assets/img/blog/blog01.jpg" alt=""></p-->
             <p>Um problema muito comum durante o desenvolvimento usanod a game engine <b>Construct2</b> e o programa <b>Nw.exe</b> como render desktop, é em alguns 
               momentos após fechar o <b>nw.exe</b> o processo continua rodando, mesmo com a janela fechada, é conhecido como processo fantasma, que aparece no 
@@ -74,8 +74,7 @@
               </p>
               <h3>Como matar o processo do NWjs.exe.</h3>
 
-                <code>
-                  <pre>
+              <pre>
 @echo off 
 set proceso=nw.exe
 
@@ -95,54 +94,52 @@ for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (
 	echo Finalizado o NW.Exe com sucesso
 	timeout /t 3
 	exit
-)
-                  </pre>
-                </code>
+)</pre>
 
-                <input type="checkbox"  id="spoiler2" /> 
-                  <label for="spoiler2" >Spoiler</label>
+                <input type="checkbox"  id="spoiler1" /> 
+                  <label for="spoiler1" >Spoiler</label>
                     <div class="spoiler">
                       <p>
-                        <b>"@echo off"</b>, vai retirar o caminho do sistema.</br>
-                        <b>"set proceso=nw.exe"</b>, cria uma variável e armazena a string que contém o nome do progrma a ser fechado.</br>
-                        <b>"tasklist>%tmp%\tmp.txt"</b>, pega o conteúdo do comando tasklist que vai mostrar todos os processos que estão rodando no 
+                        <b>@echo off</b>, vai retirar o caminho do sistema.</br>
+                        <b>set proceso=nw.exe</b>, cria uma variável e armazena a string que contém o nome do progrma a ser fechado.</br>
+                        <b>tasklist>%tmp%\tmp.txt</b>, pega o conteúdo do comando tasklist que vai mostrar todos os processos que estão rodando no 
                         sistema operacional, joga em um arquivo tmp.txt que fica na pasta temporária do sistema operacional.</br>
                         
-                        <b>"find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp"</b>, o comando "find" localiza uma cadeia de caracteres de um texto, 
+                        <b>find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp</b>, o comando "find" localiza uma cadeia de caracteres de um texto, 
                         no caso do código acima, ele procura a string da segunda lina "nw.exe" dentro do arquivo tmp.txt, depois grava o segundo arquivo "pid.tmp".</br>
                         
-                        <b>"IF ERRORLEVEL==1</b>, será verificado se existe um processo com a string que foi guardado na variável, 
+                        <b>IF ERRORLEVEL==1</b>, será verificado se existe um processo com a string que foi guardado na variável, 
                         caso não tenha retorno, a cor da fonte do script será modificada para vermelho e exibir a mensagem "Nao foi encotrado o "%proceso%" no sistema", assim 
                         terminando o processo do script. Caso encontre a referência da string, essa linha será ignorada e vai iniciar o looping pelo comando "for".</br>
 
-                        <b>"timeout /t 3"</b>,será mostrado um contador regressivo iniciando em 3, terminando a contagem o scrip será fechado.</br>
+                        <b>timeout /t 3</b>,será mostrado um contador regressivo iniciando em 3, terminando a contagem o scrip será fechado.</br>
 
-                        <b>"for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do ("</b>, será executado um looping verificando o arquivo "pid.tmp".</br>
+                        <b>for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (</b>, será executado um looping verificando o arquivo "pid.tmp".</br>
 
-                        <b>"color a"</b>, muda a cor do script para verde.</br>
+                        <b>color a</b>, muda a cor do script para verde.</br>
 
-                        <b>"echo O proceso "%proceso%" tem o pid --^> "%%p""</b>, será exibido a mensagem com o nome "nw.exe" junto com a sua PID encontrada.</br>
+                        <b>echo O proceso "%proceso%" tem o pid --^> "%%p"</b>, será exibido a mensagem com o nome "nw.exe" junto com a sua PID encontrada.</br>
 
-                        <b>"cls"</b>, limpa a tela.</br>
+                        <b>cls</b>, limpa a tela.</br>
 
-                        <b>"tskill %%p"</b>, tskill é o comando para matar o processo</br>
+                        <b>tskill %%p</b>, tskill é o comando para matar o processo</br>
                         
-                        <b>"echo Finalizado o NW.Exe com sucesso"</b>, será exibido a mensagem com o nome do processo que foi finalizado, junto com a contagem regressiva.</br>
+                        <b>echo Finalizado o NW.Exe com sucesso</b>, será exibido a mensagem com o nome do processo que foi finalizado, junto com a contagem regressiva.</br>
                         
-                        <b>"exit"</b>, limpa a tela.</br>
+                        <b>exit</b>, limpa a tela.</br>
                       </p>
                   </div>
-                <p style="text-align:center;">Clique no Spoiler para exibir o código explicado</p>
+                <p id="pSpoiler">Clique no Spoiler para exibir o código explicado</p>
 
           <br>
 					<p><bt>TAGS: <a href="#">Construct2</a> - <a href="#">Batch File</a></bt></p>
 					<hr>
-					<p><a href="blog.html">Voltar</a></p>
+					<p><a href="devlog.html">Voltar</a></p>
 				</div>
 
 			</div><!-- /row -->
       </div> <!-- /container -->
-	
+  
 	<!-- +++++ Footer Section +++++ -->
 	
 	<div id="footer">
