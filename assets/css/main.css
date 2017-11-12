@@ -306,3 +306,7 @@ input[id^="spoiler"]:checked + label + .spoiler{
 p[id^="pSpoiler"] {
     text-align: center;
 }
+
+.centralizadoH3{
+    align-content: center;
+}
