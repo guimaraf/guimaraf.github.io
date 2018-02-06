@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+
+    <title>Generating the Xcode project on the Mac using Cordova CLI</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">FRED OLIVEIRA</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../works/work.html">Trabalhos</a></li>
+            <li><a href="devlog.html">Devlog</a></li>
+            <li><a href="../prototipos/prototipos.html">Protótipos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contact.html">Contato</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+					<p><bd>06 de February, 2018</bd></p>
+          <center><h2>Generating the Xcode project on the Mac using Cordova CLI</h2></center>
+          <p><center><img src="../assets/img/devlog/cordovaios.png" width="80%" height="80%" ></center></p>
+
+          <h4>Cordova CLI to IOS</h4>
+          <p>
+              I'm starting from the point where your environment is all configured, Xcode installed, Node, Cordova, already have the developer 
+              account of Apple and also the game already exported by Construct 2, if you have not done, check the <a href="cordovaBuild.html" target="_blank" >first part I wrote.</a><br><br>
+
+              We will address until the creation of the Xcode project, thus eliminating the need for some service like Cocoon or Phonegap Build, which we also discussed in the previous article.<br><br>
+
+              Now I need to send the files exported from Construct 2 to my Mac, I usually use <a href="https://www.google.com/intl/pt-BR_ALL/drive/" target="_blank" >Google Drive</a> via 
+              browser, since I can just drag and drop the file in the browser, that the upload is done automatically, then I just need to log my account on the MAC and download the file.<br>
+
+            Send the file in the formed <a href="http://www.winzip.com/win/br/downwz.html" target="_blank" >.ZIP</a>, because the OSX itself will unpack the file, creating a folder with the same name.<br>
+
+            With the project files on the MAC, we need to understand some terminal commands, <a href="http://br.ccm.net/faq/26324-uso-do-terminal-no-mac-os-x" target="_blank" >see in this link</a> the 
+            main commands, however we will use only a few.<br><br>
+            
+            <code>ls</code> shows the list of all your files and folders <br>
+            <code>cd</code> allows you to go from one directory to another (ex: cd / user / yourname to go to your directory) <br>
+            <code>clear</code> clears the screen, leaving only the first line <br>
+            The <code>cd ..</code> command is used to go to the previous directory or exit the current directory <br><br>
+          </p>
+
+          <h4>Preparing the project</h4>
+          <p>This image is from the directory exported by Construct 2, as you can see it has only the project files and the configuration files.</p>
+
+          <p><center><img src="../assets/img/devlog/iostela1.jpg" width="100%" height="100%" ></center></p>
+
+          <p>With the terminal open, I used the ls command, showing the same files by the terminal.</p>
+
+          <p><center><img src="../assets/img/devlog/iosterminal.jpg" width="100%" height="100%" ></center></p>
+
+          <p>Now we can prepare the IOS platform, with the command</p>
+          <code>cordova platform add ios</code><br><br>
+          If you want to insert a specific version of the IOS Cordova, it is necessary to specify the version. Remember that the current version is 4.5.4, the command would be.<br><br>
+          
+          <code>cordova platform add ios@4.5.4</code><br><br>
+
+          <p>Cordova will analyze the configuration files and install the described plugins.</p>
+
+          <p><center><img src="../assets/img/devlog/iosplatformadd.jpg" width="100%" height="100%" ></center></p>
+
+          <p>
+            I put an arrow to show the command typed, I left showing all the others until the end of the installation of the IOS platform and the plugins. <br>
+            You can now use the <code>clear</code> command to clear the screen. <br>
+          </p>
+
+          <center><img src="../assets/img/devlog/iosestrutura.jpg" width="100%" height="100%" ></center><br>
+          <b>Design structure after adding the platform</b><br><br>
+          
+          <p>
+            The next command is to finally generate the Xcode project.<br>
+
+            <code>cordova build --release</code><br><br>
+
+            If you have already added the Android platform in your project, when generating Xcode 
+            project, specify the platform in the command, otherwise an apk will be generated only after the Xcode project <br><br>
+            
+            <code>cordova build --release ios</code><br>
+          </p>
+
+          <p><center><img src="../assets/img/devlog/iosxcode.jpg" width="100%" height="100%" ></center></p>
+
+          <p>
+            Wait until the process of generating the Xcode project is complete, and the message for <b>** BUILD SUCCEEDED **</b> appears. <br><br>
+
+            Okay, now you already have your Xcode project generated. Open Xcode and navigate until you find the required configuration file directory, see the image below. <br>
+          </p>
+
+          <p><center><img src="../assets/img/devlog/iosxcodeabrir.jpg" width="100%" height="100%" ></center></p>
+
+          <p>Wait for Xcode to finish parsing the files. <br></p>
+          <p><center><img src="../assets/img/devlog/xcode.jpg" width="100%" height="100%" ></center></p>
+
+          <p>
+              We completed the entire process from the project generation in Construct 2 to the Xcode project generation, the rest of the process to 
+              send to the Apple store I will not address. <br><br>
+
+              If you want to use ads in projero, see the steps below, which is approached the installation of the plugin.
+          </p>
+
+          <input type="checkbox"  id="spoiler1" />
+           <label for="spoiler1" >ADS</label>
+             <div class="spoiler">
+                <center>
+                    For ADS I am using the <a href="https://www.scirra.com/store/construct2-plugins/ultimate-ads-3549" target="_blank" >Ultimate ADS</a> plugin, which is 
+                    already inserted in the project.<br><br>
+                    
+                    It is necessary to manually insert the plugin into the platform, use the command below.<br>
+                    <code>Cordova plugin add cocoon-plugin-ads-ios-admob</code><br><br>
+
+                    <img src="../assets/img/devlog/iosads.jpg" width="100%" height="100%" ><br>
+
+                    With the plugin installed, regenerate the Xcode project.
+                </center>
+             </div>
+           <p id="pSpoiler"><b>Click ADS to view details on how to set up and use</b></p>
+
+           <br>
+					<p><bt>TAGS: <a href="#">Cordova CLI</a> - <a href="#">IOS</a></bt></p>
+					<hr>
+					<p><a href="devlog.html">Voltar</a></p>
+				</div>
+
+			</div><!-- /row -->
+      </div> <!-- /container -->
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Meu Forte</h4>
+					<p>
+						Contagem,<br/>
+						Minas Gerais, <br/>
+						Brasil.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Meus Links</h4>
+					<p>
+						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
+						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
+						<a href="https://www.facebook.com/guimaraf" target="_blank" >Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Sobre Fred Oliveira</h4>
+          <p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
+          
+          <h4>Contato</h4>
+					<a href="mailto:guimaraf@gmail.com" >guimaraf@gmail.com</a>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		</div>
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
