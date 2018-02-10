@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+
+    <title>FRED OLIVEIRA PORTFOLIO</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">FRED OLIVEIRA</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../works/work.html">Trabalhos</a></li>
+            <li><a href="devlog.html">Devlog</a></li>
+            <li><a href="../prototipos/prototipos.html">Protótipos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contact.html">Contato</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+					<p><bd>10 de Fevereiro, 2018</bd></p>
+          <center><h2>Gerando APK pelo Corodova CLI</h2></center>
+          <center><p><img src="../assets/img/devlog/cordovaandroid.png" width="80%" height="80%" title="Script Executado"></p></center>
+
+          <p>
+            Depois de completar o artigo sobre gerar o<a href="cordovaios.html" target="_blank"> projeto Xcode para IOS</a>, agora chegou a vez de gerar o APK.<br>
+            Se chegou até aqui, provavelmente já está com o ambiente todo configurado, projeto exportado, como foi orientado na primeira parte onde trato desde a <a href="cordovaBuild.html" target="_blank">exportação do 
+                projeto Cordova pelo Construct 2, até a preparação do ambiente.</a><br>
+          </p>
+          <center><img src="../assets/img/devlog/cordovaOptions2.jpg" width="70%" height="70%"></center>
+          <p>
+            A explicação de cada uma destas opções, foi feita na primeira parte deste artigo, aqui fiz a remoção das opções ios, como vou focar apenas no 
+            Android, não é necessário deixar elas marcadas.<br>
+          </p>
+            
+          <center><img src="../assets/img/devlog/winprint1.jpg" width="70%" height="70%"></center>
+
+          <p>
+            Com o projeto exportado, esta será a estrutura das pastas. Os arquivos <code>config.xml</code> e <code>config.json</code>, são para as 
+            configurações do projeto, a pasta <code>www</code> é onde fica o seu jogo, estes são os arquivos padrão que o Construct 2 gera, nas últimas versões já preparado também para o Cordova CLI.
+          </p>
+
+          <p>
+            <a href="../assets/img/devlog/configxml.jpg" target="_blank">Clique aqui para ver a imagem do config.xml maior</a>, que será muito importante para o melhor entendimendo 
+            dos problemas comuns na geração e manipulação de apk.<br><br>
+
+            Farei uma explicação frisando apenas os locais onde necessitam de mudanças neste arquivo, para que não fique um documento muito extenso.<br>
+            A segunda linha, é responsável pelas configurações iniciais do aplicativo, elas são exatamente as mesmas da propriedade do seu projeto do Construct 2, veja na imagem abaixo.
+          </p>
+
+          <center><img src="../assets/img/devlog/congifc2.jpg" width="80%" height="80%"></center><br>
+
+          <p>
+            Com uma atenção muito especial para a id do projeto, no meu exemplo <code>com.mycompany.teste</code>, pois esta id é exatamente a id que vai aparecer na Google Play. A forma correta
+            de preencher a id é colocar <code>com.nomedoestudio.nomedojogo</code>.<br><br>
+            
+            Uma alteração muito importante que já faço antes de qualquer outra, é adicionar o código da versão nesta mesma linha 2, costumo fazer desta forma <code>android-versionCode="1" id="com.mycompany.teste" version="1.0.0.0"</code>, este 
+            código é o que a Google Play verifica toda vez que for enviar uma atualização, sendo necessário uma superior, no exemplo aqui eu estou enviando a <code>android-versionCode="1"</code>, se eu precisar 
+            atualizar o projeto, colocarei uma versão superior <code>android-versionCode="2"</code>, desta forma não terá problemas com atualizações.<br><br>
+
+            A última mudança desta linha é apenas <code>version="1.0.0.0"</code>, porém será necessária somente quando precisar atualizar seu jogo.<br><br>
+
+            As linhas 3, 4 e 5, são apenas com as informações do projeto, neste caso já deixe preenchidas no próprio Construct2 antes de exportar para Cordova, caso não tenha feito, pode alterar.<br>
+
+            As linhas 7 e 8, são os ícones, o Construct 2 já direciona os ícones da própria ferramenta, que ficam na pasta <code>Files/icons</code>, veja na imagem abaixo, sendo possível alterar 
+            facilmente pela própria ferramenta.<br>
+            <b>Adicionarei futuramente um método de usar ícones fora desta pasta, além da imagem da splash, caso queira colocar no seu projeto.</b>
+          </p>
+
+          <center><img src="../assets/img/devlog/c2icons.jpg" width="70%" height="70%"></center><br>
+
+          <p>
+            A linha 10, é a plataforma alvo, neste caso a versão alvo do Android para o projeto, a Scirra recomenda para usarmos como mínimo o SDK 21, que é o Android 5.0, <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html?hl=pt-br" target="_blank">consulte 
+              a dodumentação oficial da Google</a> sobre o tema.<br><br>
+            
+            Estas são as principais linhas que devemos ter mais atenção, as demais são geradas pelo Construct 2 ou são modificadas pelo próprio Cordova via linha de comando, <b>que veremos mais adiante</b>.<br>
+            Desta forma concluimos a explicação dos principais elementos do <code>config.xml</code>, agora podemos começar a preparar o projeto.
+          </p>
+
+          <p>
+            Algo que costumo fazer, é separar uma pasta para colocar todos os projetos cordova, será onde vou colocar este projeto.<br><br>
+            Como a navegação é toda feita por linhas de comando, vou explicar alguns comandos básicos para Windows.<br><br>
+
+            <code>cls</code> Limpa a tela.<br>
+            <code>cd</code> este comando sozinho não faz nada, ele precisa ser combinado. Exemplo.<br>
+            <code>cd nomedapasta</code> o nomedapasta seria a pasta onde o seu projeto está.<br>
+            <code>cd ..</code> serve para sair de uma pasta, um nível acima.<br><br>
+
+            Basicamente estes comandos são suficientes para a navegação.<br>
+          </p>
+
+          <center><img src="../assets/img/devlog/cordovawin1.jpg" width="70%" height="70%"></center><br>
+
+          <p>
+            É importante que entenda sobre navegação via linha de comando no Windows, pelo menos para poder encontrar seu projeto como na imagem acima, eu disse que costumo organizar tudo em 
+            apenas 1 diretório, que também facilita a geração build de qualquer projeto rapidamente.<br><br>
+
+            Se entender sobre arquivos de lote "batch", crie um e coloque apenas este comando <code>start cmd</code>, salve o arquivo com a extensão <code>.bat</code>, depois é só colocar 
+            este arquivo na pasta do seu projeto, executar ele que você já vai estar dentro do seu diretório do projeto.<br>
+            Não colocarei nenhum arquivo.bat para download, pois os programas anti-vírus costumam reconhecer eles como potenciais de infecção, já que são executáveis, porém se 
+            os criar no seu computador, não terá problemas.<br><br>
+
+            Agora que navegou até a pasta do seu projeto, podemos adicionar a plataforma Android pelo Cordova CLI. Digite o comando.<br><br>
+            
+            <code>cordova platform add android</code><br><br>
+
+            Uma observação muito importante é que o comando acima, vai adicionar no projeto a versão mais atualizada que tem instalada no computador, caso queira uma versão específica, é 
+            necessário informar a versão também na linha de comando, por exemplo.<br><br>
+
+            <code>cordova platform add android@6.4.3</code><br><br>
+
+            Aguarde a instalação da plataforma Android pelo Cordova, todos os plugins que estão listados no <code>config.xml</code>, serão instalados. <b>Futuramente atualizarei sobre 
+              este ponto.</b>, além da instalação de plugins para ads e Google Play Games.<br><br>
+
+            Como são diversas linhas no processo de instalação da plataforma com o plugin, <a href="../assets/img/devlog/cordovagerado.jpg" target="_blank">clique aqui para a imagem do processo completo</a>.<br>
+
+          </p>
+
+          <center><img src="../assets/img/devlog/cordowin2.jpg" width="70%" height="70%"></center><br>
+
+          <p>
+            Após a instalação da plataforma e plugins, foram criadas algumas pastas e arquivos adicionais de configuração, não vou tratar deles aqui, pois 
+            não é necessário.<br>
+            Agora vamos propriamente gerar o apk em modo debug com o comando abaixo.<br><br>
+
+            <code>cordova build</code><br><br>
+
+            Caso o projeto tenha outra plataforma, mande gerar apenas a versão Android, senão o Cordova entende que quer gerar a build de todas as plataformas instaladas.<br><br>
+
+            <code>cordova build android</code><br><br>
+
+            Executado o comando, a primeira vez gerada pode demorar um pouco, pois depende da configuração do computador além da quantidade de plugins que que estão instalados no projeto.
+          </p>
+
+          <center><img src="../assets/img/devlog/androidbuildgerada.jpg" width="100%" height="100%"></center><br>
+
+          <p>
+              Se o seu ambiente estiver corretamente configurado, vai aparecer <b>BUILD SUCCESSFULL</b>, indicando que o apk foi gerado corretamente, além do diretório onde se encontra o APK.<br>
+              Agora é possível testar seu aplicativo no seu aparelho ou algum emulador "se desejar", desde que seu sistema esteja configurado para <a href="https://seletronic.com.br/android/tutoriais/como-liberar-a-instalacao-de-apk-no-android" target="_blank">instalar aplicativos de fontes desconhecidas</a>, se 
+              esta não for a mesma versão do seu Android, uma pesquisa no google com estes termos te ajuda. <code>Como instalar aplicativos de fontes desconhecidas Android </code>, seguido da sua versão do Android.<br><br>
+              Exemplo<br>
+              <code>Como instalar aplicativos de fontes desconhecidas Android 7</code><br><br>
+
+              Agora pode testar seu aplicativo.<br>
+
+              Se não precisar de fazer nenhuma alteração no seu jogo, "ads, google play services", pode gerara build não assinada, use o comando.<br><br>
+
+              <code>cordova build --release</code>
+          </p>
+
+          <center><img src="../assets/img/devlog/androidBuildRelease.jpg" width="100%" height="100%"></center><br>
+
+          <p>
+            Como podem ver, demorou apenas 30 segundos para gerar a build não assinada, precisamos assinar antes de enviar para a Google Play, pois esta só aceita aplicativos assinados.<br><br>
+
+            Vamos criar uma keystore, se já possuir uma, pode pular esta parte.<br>
+            Existem diversos métodos para se criar keystore, <a href="https://developer.android.com/studio/publish/app-signing.html" target="_blank">veja a documentação oficial da Google Sobre o tema</a>, como estou 
+            fazendo tudo por linha de comando, também prefiro este método para a criação da Keystore, quando necessário. As instruções também estão no documento oficial.<br><br>
+
+            Agora para assinar o aplicativo, eu criei um pequeno script, que facilita muito.
+
+            <pre>
+jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore Z:\FabricaDeAPK/cert/nomeDaSuaKeystore.keystore -storepass "suaSenhaDaKeystore" nomeDoAplicativoNaoAssinado.apk suaAlias
+
+pause
+
+zipalign -f -v 4 nomeDoAplicativoNaoAssinado.apk nomeDoSeuAplicativoAposAssinar.apk
+
+del nomeDoAplicativoNaoAssinado.apk
+
+pause
+            </pre>
+          </p>
+
+          <p>
+            Pegue o Script acima e salve em um arquivo .bat, desta forma ele se torna um executável no ambiente Windows.<br><br>
+
+            Na primeira linha, na parte <code>Z:\FabricaDeAPK/cert/</code> é a localização no meu  disco da keystore, tenha muita atenção, se o caminho estiver errado, não será possível assinar o aplicativo.<br>
+            Se está estranhando por ser unidade Z:, é por que eu utilizo este ambiente configurado também em uma máquina virtual, onde eu mapeei uma pasta 
+            compartilhada na rede, desta forma tenho uma grande agilidade para gerar builds, encontrar os arquivos que preciso, além de não ter risco de dar algum problema no meu sistema principal.<br><br>
+
+            Após gerar o seu apk não assinado, vai na pasta onde indica a compilação, pegue o arquivo.apk e coloque na mesma pasta que colocou o script, além do <a href="https://drive.google.com/file/d/12LR9Kuq3kP8lAqET-3J4iBBFvczeXMFD/view?usp=sharingl">Zipalign.exe</a> 
+            que será necessário para alinhar o aplicativo.<br>
+            Você pode apenas renomear seu apk para <code>nomeDoAplicativoNaoAssinado</code> e rodar o script ou editar da forma que achar melhor.<br><br>
+
+            Repare que já coloco a senha da keystore, o alias e também estou alinhando o aplicativo após assinar, desta forma eu não preciso apenas apertar <code>Enter</code> quando aparecer <code>pause</code> na 
+            tela, o pause foi colocado pois o script não espera terminar de assinar e já tenta alinhar, o pause foi colocado justamente para que cada processo seja feito na ordem necessária, também estou deletando o arquivo original <code>del</code>, mantendo apenas o arquivo já assinado.<br><br>
+
+            Pronto, agora tem um APK gerado pelo Cordova CLI e assinado, pronto para colocar na Google Play.<br><br>
+
+            Como mensionei acima, não fiz um vídeo, pois pretendo atualizar este artigo, incluindo adição de plugins "ads, Google Play Services" mostrando alguns 
+            erros comuns, o que vai levar um certo tempo para concluir.<br>
+            Se ainda resta alguma dúvida, pode deixar nos comentários de onde eu postar este link.
+          </p>
+
+          
+
+           <br>
+					<p><bt>TAGS: <a href="#">Construct 2</a> - <a href="#">Cordova CLI</a></bt></p>
+					<hr>
+					<p><a href="devlog.html">Voltar</a></p>
+				</div>
+
+			</div><!-- /row -->
+      </div> <!-- /container -->
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Meu Forte</h4>
+					<p>
+						Contagem,<br/>
+						Minas Gerais, <br/>
+						Brasil.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Meus Links</h4>
+					<p>
+						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
+						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
+						<a href="https://www.facebook.com/guimaraf" target="_blank" >Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Sobre Fred Oliveira</h4>
+          <p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
+          
+          <h4>Contato</h4>
+					<a href="mailto:guimaraf@gmail.com" >guimaraf@gmail.com</a>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		</div>
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
