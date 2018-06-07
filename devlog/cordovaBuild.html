@@ -140,6 +140,7 @@
           <center><img src="../assets/img/devlog/exportacao2.jpg" width="80%" height="80%" title="Exportando para Cordova pelo Construct 2"></br></br></center>
           
           <h4>Cordova Options</h4> 
+          
           <p>
           É bem necessário ficar atento nestas opções.</br>
           <b>Hide Status Bar</b> vai adicionar o plugin com o mesmo nome.</br>
@@ -152,18 +153,32 @@
           No Construct2 quando adicionamos um arquivo de audio, é criado 2 arquivos com o mesmo nome, navegadores em geral utilizam o formato .ogg, porém nas 
           plataformas da Apple, eles utilizam o .m4a, se o projeto for apenas para Android, pode desmarcar a opção para IOS.</br></br>
           
+          
           <b>Minimum supported OSs</b></br></br>
+          <b>Android</b></br>
           
           Eu costumo utilizar as versões recomendadas, pois dependendo do aparelho principalmente android antigos, o desempenho pode ser horrível, sendo assim, 
-          deixo 5.0+, que abrengue mais de <a href="https://www.tecmundo.com.br/software/124125-android-oreo-versao-menos-usada.htm" target="_blank">80% de todos os dispositivos android no mundo</a>, 
-          como estamos falando de games, restringir aparelhos antigos não é uma escolha ruim.</br></br>
-          
-          Para IOS eu deixo também a versão 8.0+, sendo que a versão mais atual é 11, também levando em conta que <a href="https://www.tecmundo.com.br/software/122656-38-5-aparelhos-ios-utilizam-versao-11-sistema-operacional.htm" target="_blank">38,5% dos aparelhos com iOS já utilizam a versão 11 do sistema operacional</a>, não 
-          tem muito sentido suportar versões mais antigas do IOS.</br>
+          deixo 5.0+, que abrengue mais de <a href="https://www.tecmundo.com.br/software/124125-android-oreo-versao-menos-usada.htm" target="_blank">mais de 80% de todos os dispositivos android no mundo, em 2017</a>  agora maio 
+          de 2018, está com mais de 90% do mercado segundo o <a href="https://data.apteligent.com/android/" target="_blank"> Apteligent</a>, sendo assim é fácil considerar suportar do Android 5.0+</a>, 
+          como estamos falando de games, restringir aparelhos antigos não é uma escolha ruim.
+          </p>
+
+          <img class="img-responsive" src="../assets/img/devlog/andmai2018.jpg" />
+
+          <p>
+          </br>
+          <b>IOS</b></br>
+
+          Eu deixo também a versão 9.0+, sendo que a versão mais atual é 11, também levando em conta que <a href="https://www.tecmundo.com.br/software/122656-38-5-aparelhos-ios-utilizam-versao-11-sistema-operacional.htm" target="_blank">52% dos aparelhos com iOS já utilizam a versão 11 do sistema operacional</a>, não 
+          tem muito sentido suportar versões muito antigas do IOS.</br></br>
+
+          Dados de Maio de 2018, segundo o site <a href="https://data.apteligent.com/ios/" target="_blank">Apteligent</a>
           </p>
           
-          <h4>Preparando o ambiente</h4>
-          <p>Agora que entendemos o que é Cordova CLI e para que serve cada opção de exportação do Construct2, precisamos de fato criar o APK "Android" e o projeto de Xcode para "IOS".<br></p>
+          <img class="img-responsive" src="../assets/img/devlog/iosmaio2018.jpg" />
+
+        <h4>Preparando o ambiente</h4>
+        <p>Agora que entendemos o que é Cordova CLI e para que serve cada opção de exportação do Construct2, precisamos de fato criar o APK "Android" e o projeto de Xcode para "IOS".<br></p>
 
         <p>
           Com o ambiente configurado, aprenda a gerar o<a href="cordovaios.html" target="_blank"> projeto Xcode para IOS</a><br>
