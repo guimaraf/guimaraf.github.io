@@ -40,7 +40,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../works/work.html">Trabalhos</a></li>
+            <li><a href="../works/work.html">Meus Jogos</a></li>
             <li><a href="devlog.html">Devlog</a></li>
             <li><a href="../prototipos/prototipos.html">Protótipos</a></li>
             <li><a href="../about.html">Sobre</a></li>
@@ -59,7 +59,7 @@
 					<p><bd>04 de Setembro, 2017</bd></p>
           <h2>Converter Capx para versões mais antigas do Construct 2</h2>
 
-          <img src="../assets/img/devlog/converter-versao.jpg" width="100%" height="100%" title="Script Executado"></br>
+          <img src="../assets/img/devlog/converter-versao.jpg" class="img-responsive" width="100%" height="100%" title="Script Executado"></br>
 
           <p>Normalmente mantemos nossos programas atualizados, porém dependendo da versão que utilizamos pode acontecer algum bug, acontece bastante em versões beta.</br>
               No <b>Construct 2</b> por padrão, quando você salva um <b>.capx</b>, ele altera a versão que foi editado o projeto, assim impedindo de abrir o mesmo projeto nas versões 
@@ -67,32 +67,35 @@
               tutorial rápido de como resolver o problema.</br>
               Primeiramente, é necessário saber que o arquivo <b>.capx</b>, é na verdade um arquivo compactado com os assets do projeto, junto com a programação.</br>
               </br>
-              Exemplo:</br>
-              <img src="../assets/img/devlog/formato-capx.jpg" width= "300px" height= "305px" title="Script Executado"></br>
+          </p>
+              <b>Exemplo:</b></br>
+              <img src="../assets/img/devlog/formato-capx.jpg" class="img-responsive" width= "300px" height= "305px" title="Script Executado"></br>
 
-              Então eu renomeei o arquivo para Exciybike.rar</br>
+              Então eu renomeei o arquivo para Exciybike.rar</br></br>
 
-              <img src="../assets/img/devlog/formato-rar.jpg" width="300px" height="305px" title="Script Executado"></br>
+              <img src="../assets/img/devlog/formato-rar.jpg" class="img-responsive" width="300px" height="305px" title="Script Executado"></br>
 
+          <p> 
               Desta forma posso abrir ele com o próprio <a href="https://notepad-plus-plus.org/download/v7.5.1.html" target="_blank" title="Baixar Winrar">Winrar</a> ou outro programa semelhante.</br>
 
               Olhando a estrutura das pastas do arquivo antes .capx</br>
 
               Para não estender demais, é necessário saber que o arquivo com a extensão .caproj é o arquivo de configuração do projeto, você pode clicar no arquivo e jogar 
               para a sua área de trabalho ou qualquer outra pasta do seu pc "só não pode esquecer".</br>
-              Com o arquivo no pc, abra ele em um editor de texto, pode ser o notpad, eu utilizo o <a href="http://www.win-rar.com/download.html" target="_blank" title="Baixar Winrar">Notpad++</a>.</br>
-            </br>
+              Com o arquivo no pc, abra ele em um editor de texto, pode ser o notpad, eu utilizo o <a href="http://www.win-rar.com/download.html" target="_blank" title="Baixar Winrar">Notpad++</a>.</br></br>
+            
               Com o arquivo aberto no editor.</br>
+          </p>
 
-              <img src="../assets/img/devlog/formato-codigo.jpg" width="100%" height="100%" title="Parte da estrutura do XML"></br>
-            </br>
+            <img src="../assets/img/devlog/formato-codigo.jpg" class="img-responsive" width="100%" height="100%" title="Parte da estrutura do XML"></br></br>
+          
+          <p>
               No bloco acima, a última linha contém a versão do <b>Construct 2</b> que foi salvo o projero, no meu caso a <b>239</b>, vale lembrar que a cada versão no código é a versão do 
               <b>Construct2 "239XX"</b> onde no final é acrescentado <b>"00"</b>, sendo assim se está utilizando a <b>230</b>, então vai precisar renomear para <b>23000</b>.</br>
               Feito a alteração, salve o arquivo, mova ele para o <a href="https://notepad-plus-plus.org/download/v7.5.1.html" target="_blank" title="Baixar Notepad++">Winrar</a>, o arquivo será substituído, depois 
               renomeie o arquivo novamente para <b>.capx</b>
             </br>
               Pode abrir novamente o projeto na versão anterior do <b>Construct 2</b>.</br>
-             
           </p>
           
            <br>
