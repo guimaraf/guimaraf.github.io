@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+
+    <title>Dicas de Construct 2</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">FRED OLIVEIRA</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../works/work.html">Meus Jogos</a></li>
+            <li><a href="devlog.html">Devlog</a></li>
+            <li><a href="../prototipos/prototipos.html">Protótipos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contact.html">Contato</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+					<p><bd>10 de Junho, 2018</bd></p>
+          <center><h2>Dicas de Construct 2</h2>
+          <!--img src="../assets/img/devlog/tskill.jpg" class="img-responsive" width="100%" height="100%" title="Script Executado"></center-->
+
+          <p>Na medida que utilizamos alguma ferramenta, é comum nos depararmos com problemas, seja por incompatibilidade ou durante o desenvolvimento, algum problema específico apareça.
+            Pensando nisso, resolvi reunir no mesmo lugar algumas dicas sobre problemas comuns e sua solução. Continuarei atualizando estas dicas.
+          </p>
+
+          <h3>Bibliotecas e programas para Construct 2</h3>
+          <p>
+            Diversos bugs acontecem, onde é necessário fechar a ferramenta, normalmente por ter drivers desatualizados ou blibliotecas corrompidas, estou deixando um 
+            compilado de diversas bibliotecas do windows e de programas que ajudam a manter seu sistema estável e rápido.
+            Todos os links abaixo são dos sites oficiais das empresas, ou seja não tem vírus.
+          </p>
+
+          <img src="../assets/img/devlog/dicas0.jpg" class="img-responsive" width="70%" height="70%" ></center>
+
+          <p>
+            <b>Bibliotecas para instalar e atualizar</b><br>
+            <a href="https://support.microsoft.com/pt-br/kb/2977003" target="_blank" >Bibliotecas Visual C++</a><br>
+            <a href="https://support.microsoft.com/pt-br/help/179113/how-to-install-the-latest-version-of-directx" target="_blank" >Atualizar o DirectX</a><br><br>
+              
+            Java, necessário para comprimir arquivos PNG e mimificar scripts<br>
+            <a href="https://www.java.com/pt_BR/download/" target="_blank" >Java Download</a><br><br>
+
+            Atualizar Driver Nvidia<br>
+            <a href="http://www.nvidia.com.br/Download/index.aspx?lang=br" target="_blank" >Driver Nvidia</a><br><br>
+                            
+            Atualizar Driver AMD<br>
+            <a href="http://support.amd.com/pt-br/download" target="_blank" >Driver AMD Radeon</a><br><br>
+              
+            Atualizar Driver Intel, não é muito simples, por ter a necessidade do usuário saber qual chip gráfico integrado está usando, porém o windows 
+            sempre atualiza o driver na "Atualização automática".<br> 
+            Caso queira baixar e instalar o driver correto, veja em <a href="http://www.intel.com.br/content/www/br/pt/support/graphics-drivers.html" target="_blank" >Aprenda a descobrir qual é a geração do processador do seu notebook ou computador</a>.<br>
+
+            Após identificar, baixe o driver correto e instale, do link abaixo.<br>
+            <a href="http://www.intel.com.br/content/www/br/pt/support/graphics-drivers.html" target="_blank" >Driver Intel Graphics</a>
+          </p>
+
+          <h3>Deixar o jogo em tela cheia</h3>
+          <p>
+            Em jogos para PC, é comum utilizarmos o comando <b>"Alt + Enter"</b> para alterar a exibião do jogo entre "janela" e "tela cheia".
+            Vamos utilizar um dos plugins presentes em 98% dos projetos que é o Browser, além do Keyboard conforme a ação abaixo.
+          </p>
+
+          <img src="../assets/img/devlog/dica1.png" class="img-responsive" width="100%" height="100%" ></center><br>
+
+          <p>
+            <b>Funcionamento</b><br>
+            A tecla <b>"Return"</b> é o enter, o <b>"Keycode 18"</b> é o <b>"Alt"</b>.
+            Na primeira linha, eu estou verificando se o <b>"Alt"</b> está sendo segurado <b>"Down"</b> no momento que vou apertar o Enter <b>"Return"</b>. 
+            Esta condição sendo positiva, vou fazer outra verificação.
+            Primeiro vou verificar se a o jogo já está em <b>"Full screen"</b>, se esta condição for verdadeira, vai cancelar o <b>"Full screen"</b>, ou seja vai deixar em modo janela. 
+            Porém se esta condição for falsa, vai ler a linha de baixo e então colocar em <b>"Full screen"</b>. 
+              
+            O <b>"Wait 0.1 seconds"</b> foi utilizado para evitar que rode as 2 condições, já que eu não criei nenhuma variável de controle.
+            Vale lembrar que você pode definir a tecla do teclado, evento de click, utilização de joysticks para ativar ou desativar o <b>"Full screen"</b>.
+          </p>
+
+          <h3>Desabilitando o modo debug do navegador</h3>
+          <p>
+            Já existem diversos jogos feitos em Construct2 e exportados para Steam, este problema acontece quando vamos utilizar o recurso de print da steam que por padrão 
+            é o botão F12, que também é o padrão para abrir a janela de debug do nwjs "que é o motor de renderização usado pelo Construct2 nas exportações desktop".<br>
+
+            Vale lembrar que o seu jogo exportado para navegadores também devem abrir o modo debug a não ser que utilize este evento.<br>
+            Sim, o bloco precisa ficar vazio, assim o navegador reconhece que não é para executar nada com o comando.
+          </p>
+
+          <img src="../assets/img/devlog/dicas2.jpg" class="img-responsive" width="100%" height="100%" ></center><br>
+          Para resolver este problema vamos utilizar o behavior "Keyboard"  e simplesmente mandar verificar quando é apertado a tecla F12, conforme imagem abaixo, deixando a ação vazia.<br>
+
+          <h3>Evitando que o jogo feche no Alt + F4</h3>
+          <p>
+            Também pode ser utilizado outras teclas, até combinações de teclas como o famoso alt + F4 que por padrão fecha os aplicativos Windows. 
+            Neste caso utilizados o keycode 18 que é da tecla "alt".
+          </p>
+
+          <img src="../assets/img/devlog/dicas3.jpg" class="img-responsive" width="100%" height="100%" ></center><br>
+          Quando é deixado um evento vazio como que foram mostrados nas imagens acima, é ignorado a função nativa do aplicativo. Esta é uma dica rápida, pretendo trazer novas, qualquer dúvida deixem nos comentários.
+
+           <br>
+					<p><bt>TAGS: <a href="#">Construct 2</a></bt></p>
+					<hr>
+					<p><a href="devlog.html">Voltar</a></p>
+				</div>
+
+			</div><!-- /row -->
+      </div> <!-- /container -->
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Meu Forte</h4>
+					<p>
+						Contagem,<br/>
+						Minas Gerais, <br/>
+						Brasil.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Meus Links</h4>
+					<p>
+						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
+						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
+						<a href="https://www.facebook.com/guimaraf" target="_blank" >Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Sobre Fred Oliveira</h4>
+          <p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
+          
+          <h4>Contato</h4>
+					<a href="mailto:guimaraf@gmail.com" >guimaraf@gmail.com</a>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		</div>
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
