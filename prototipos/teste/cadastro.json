@@ -1,0 +1,24 @@
+{
+	"Contatos": [{
+		"codigo": "001",
+		"nome": "William",
+		"telefones": {
+			"residencial": "011 4125-6352",
+			"celular": "011 9999-5241"
+		}
+	}, {
+		"codigo": "002",
+		"nome": "Adriano",
+		"telefones": {
+			"residencial": "011 4125-635",
+			"celular": "011 9999-9652"
+		}
+	}, {
+		"codigo": "003",
+		"nome": "Maria",
+		"telefones": {
+			"residencial": "011 4444-6352",
+			"celular": "011 9999-1245"
+		}
+	}]
+}
