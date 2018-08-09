@@ -91,9 +91,10 @@
           <p><center><img src="../assets/img/devlog/iosterminal.jpg" class="img-responsive" width="100%" height="100%" ></center></p>
 
           <p>Agora podemos preparar a plataforma IOS, com o comando</p>
-          <code>cordova platform add ios</code><br>
+          <p>Primeiro preciso explicar que o comando <code>sudo</code> que serve para executar comandos como administrador do sistema, necessitando de uma senha <b>"padrão em sistemas linux também"</b>.</p>
+          <code>sudo cordova platform add ios</code><br>
           Caso queira inserir alguma versão específica do Cordova IOS, é necessário espeficicar a versão. Vale lembrar que a versão atual é 4.5.4, o comando ficaria.<br>
-          <code>cordova platform add ios@4.5.4</code>
+          <code>sudo cordova platform add ios@4.5.4</code>
 
           <p>O Cordova vai analisar os arquivos de configuração e instalar os plugins descritos.</p>
 
@@ -111,11 +112,11 @@
           <p>
             O proximo comando é para finalmente gerar o projeto Xcode.<br>
 
-            <code>cordova build --release</code><br>
+            <code>sudo cordova build --release</code><br>
             Se já adicionou a plataforma Android no seu projeto, quando for gerar projeto do Xcode, especifique a plataforma no comando, senão será gerado um apk somente 
             depois o projeto Xcode<br>
             
-            <code>cordova build --release ios</code><br>
+            <code>sudo cordova build --release ios</code><br>
           </p>
 
           <p><center><img src="../assets/img/devlog/iosxcode.jpg" class="img-responsive" width="100%" height="100%" ></center></p>
@@ -144,7 +145,7 @@
                 <center>
                     Para ADS estou utilizando o plugin <a href="https://www.scirra.com/store/construct2-plugins/ultimate-ads-3549" target="_blank" >Ultimate ADS</a>, que já está inserido no projeto.<br><br>
                     É necessário inserir manualmente o plugin na plataforma, use o comando abaixo.<br>
-                    <code>Cordova plugin add cocoon-plugin-ads-ios-admob</code><br><br>
+                    <code>sudo Cordova plugin add cocoon-plugin-ads-ios-admob</code><br><br>
 
                     <img src="../assets/img/devlog/iosads.jpg" class="img-responsive" width="100%" height="100%" ><br>
 
