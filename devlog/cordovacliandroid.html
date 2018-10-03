@@ -188,9 +188,9 @@
 
           <center><img src="../assets/img/devlog/androidBuildRelease.jpg" class="img-responsive" width="100%" height="100%"></center><br>
 
-          <h3>Limpando o a compilação do projeto</h3>
+          <h3>Limpando e compilando o projeto</h3>
           <p>
-            O comando é <code>cordova clean android</code> sendo necessário informar a plataforma, apenas se o seu projeto possuir mais de 1 instalada, desta forma a pasta build "até o Cordova 6" ou app para Cordova 7.
+            Usando o comando <code>cordova clean android</code> sendo necessário informar a plataforma que deseja limpar, apenas se o seu projeto possuir mais de 1 instalada, desta forma a pasta build "até o Cordova 6" ou app para Cordova 7.
           </p>
 
 
@@ -202,7 +202,7 @@
             Existem diversos métodos para se criar keystore, <a href="https://developer.android.com/studio/publish/app-signing.html" target="_blank">veja a documentação oficial da Google Sobre o tema</a>, como estou 
             fazendo tudo por linha de comando, também prefiro este método para a criação da Keystore, quando necessário. As instruções também estão no documento oficial.<br><br>
 
-            Agora para assinar o aplicativo, eu criei um pequeno script, que facilita muito.
+            <h3>Agora para assinar o aplicativo, eu criei um pequeno script, que facilita muito.</h3>
 
             <pre>
 jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore Z:\FabricaDeAPK/cert/nomeDaSuaKeystore.keystore -storepass "suaSenhaDaKeystore" nomeDoAplicativoNaoAssinado.apk suaAlias
