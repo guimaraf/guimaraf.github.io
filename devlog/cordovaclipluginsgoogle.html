@@ -67,68 +67,82 @@
               O primeiro artigo da nossa série foi o <a href="cordovaBuild.html" target="_blank">Construct 2 - Trabalhando com Cordova CLI</a>, onde abordamos desde a preparação do ambiente, 
               até configurações de exportação do Construct 2, depois abordei em artigos separados <a href="cordovacliandroid.html" target="_blank">Gerando APK pelo Corodova CLI</a>, também 
               a <a href="cordovaios.html" target="_blank">Gerando o projeto Xcode no Mac usando Cordova CLI</a>, que é para criar seu projeto para IOS.<br>
-              Agora chegou a hora de abordar com detalhes os plugins, que por ser uma plataforma híbrida, costumam funcionar corretamente.<br><br>
-              
+              Agora chegou a hora de abordar com detalhes os plugins, como utilizamos uma <a href="https://www.cronapp.io/compreenda-as-diferencas-entre-o-desenvolvimento-nativo-e-hibrido/" target="_blank">plataforma híbrida</a>, costumam funcionar corretamente.<br><br>
+
               Um dos grandes problemas quando trabalhamos com Cordova CLI, são os plugins, pois depende da versão do Cordova instalada no projeto, depende também da 
-              versão que o plugin foi feito desenvolvido, por fim vou dar uma luz neste grande campo nebuloso de acordo com minhas experiência e também minhas frustrações.
+              versão que o plugin foi feito desenvolvido, por fim vou dar uma luz neste grande campo nebuloso de acordo com minhas experiências e frustrações.
             </p>
-            <br>
 
             <center><img src="../assets/img/devlog/ultimateads.jpg" class="img-responsive" width="20%" height="20%"></center><br>
   
             <h3>Ultimate ADS</h3>
   
-            <p>Vamos começar com o Ultimate ADS, tentei de diversas formas utilizar o plugin nativo do C2, do cocoon, o problema é que sempre ocorre erros no momento que 
-              está baixando o plugin no github, mesmo utilizando a biblioteca do <a href="https://github.com/cranberrygame/cordova-plugin-ad-admob" target="_blank">cranberrygame</a>, 
-              que sempre utilizava no Intel XDK, sendo assim irei utilizar o plugin pago <a href="https://www.scirra.com/store/construct2-plugins/ultimate-ads-3549" target="_blank" >Ultimate ADS</a>, que 
-              utiliza uma biblioteca diferente, também foi o único que consegui fazer funcionar no IOS.<br><br>
+            <p>Vamos começar com o Ultimate ADS, tentei de diversas formas utilizar o plugin nativo do C2, também tentei o plugin do cocoon, o problema é que sempre ocorre erros no momento que 
+              está baixando o plugin no github via <b>Cordova CLI</b>, mesmo utilizando a biblioteca do <a href="https://github.com/cranberrygame/cordova-plugin-ad-admob" target="_blank">cranberrygame</a>, 
+              que sempre utilizava no Intel XDK, também já utilizei na plataforma <b>Cordova CLI</b>, sendo assim irei utilizar o plugin pago <a href="https://www.scirra.com/store/construct2-plugins/ultimate-ads-3549" target="_blank" >Ultimate ADS</a>, que 
+              utiliza uma biblioteca diferente, também foi o único que consegui fazer funcionar também no IOS.<br><br>
   
-              Primeiro vamos desinstalar a plataforma atual, que neste momento é a Cordova 7.0, irei adicionar a plataforma 6.4.0, pois além do plugin, vou instalar a Google Play 
-              no projeto, pois vou abordar <code>Google Play Services</code> <br><br>
+              Primeiro vamos desinstalar a plataforma atual, que neste momento é a Cordova 7.0, irei adicionar a plataforma 6.4.0, pois além do plugin ad-mob, vou instalar a <code>Google Play Services</code> 
+              no projeto, que pretendo abordar futuramente. <br><br>
+
+              O comando para remover a plataforma é.<br>
   
               <code>cordova platform remove android</code><br><br>
   
-              O comando para desinstalar a plataforma, aguarde o Node terminar de remover e depois adicione a plataforma na versão acima.<br><br>
+              O comando para desinstalar a plataforma, aguarde o Node terminar de remover e depois adicione a plataforma Android 6.4.0 com o comando abaixo<br>
   
               <code>cordova platform add android@6.4.0</code><br><br>
   
-              Aguarde terminar de instalar.<br>
+              Aguarde terminar de instalar.<br><br>
   
-              Agora vamos adicionar no Construct 2 o plugin <code>Ultimate ADS</code>
+              Com o plugin <code>Ultimate ADS</code> já adicionado no projeto.
   
             </p>
-
-            appodelOpcoes.jpg
-  
             <p>
               O funcionamento dele é bem similar ao plugin nativo da engine.<br>
               Este plugin também funciona no Cordova 7.0.<br>
             </p>
 
-            <center><img src="../assets/img/devlog/appodelOpcoes.jpg" class="img-responsive" width="50%" height="50%"></center><br>
+            <center><img src="../assets/img/devlog/ultimateADSconfig.jpg" class="img-responsive" width="50%" height="50%"></center><br>
             
             <p>
-              Para o nosso teste, coloque <code>Test Mode</code> para <code>Disabled</code>, por enquanto só precisa fazer esta alteração, não precisa nem colocar seus 
-              códigos do admob, exporte novamente seu projeto, pegue apenas os arquivos da pasta <code>www</code>, substitua os arquivos do seu projeto que está trabalhando com 
-              Cordova, após gerar o seu projeto, basicamente só isso que vai precisar fazer para atualizar seu projeto, por isso que gosto tanto do Cordova CLI.<br><br>
-  
-              Note que no <code>config.xml</code> tem agora um novo plugin <code>cocoon-plugin-ads-android-admob</code>, é exatamente o caminho do plugin que vamos adicionar 
-              manualmente para que fique instalado no projeto.<br><br>
-  
-              <code>cordova plugin add cocoon-plugin-ads-android-admob</code><br><br>
-  
+              Para o nosso exemplo, eu modifiquei o <code>Test Mode</code> para <code>Enable</code>, assim podemos testar se o plugin está sendo carregado, sem gerar 
+              carregamentos incorretos de propagandas, desta forma, não é necessário colocar as IDs das propagandas e nem do aplicativo na Google Play. <br>
+              
+              Feito essa alteração, exporte novamente seu projeto, repare que no arquivo <code>config.xml</code> existe uma nova linha que é referente ao plugin 
+              base do <code>ad-mob</code> <br><br>
+              
+              <img src="../assets/img/devlog/admobLine.jpg" class="img-responsive" width="50%" height="50%"><br>
+             
+              Agora vamos fazer uma pequena alteração, para utilizar uma versão específica do plugin no repositório do projeto, <code>1.0.12</code>, esta funciona 
+              corretamente, a 2.0 "que é a mais atualizada" até a o momento, não tem compatibilidade com o plugin do Construct 2.<br><br>
+
+              Altere a linha conforme a imagem abaixo.<br>
+              
+              <img src="../assets/img/devlog/admobLine2.png" class="img-responsive" width="50%" height="50%"><br><br>
+
+              Se vai criar um novo projeto, só esta alteração já é o suficiente para que o Cordova CLI baixe a versão correta do plugin <code>1.0.12</code>. 
               Aguarde a instalação do plugin que tem algumas dependências "plugins adicionais", com o processo concluído, agora podemos gerar uma nova build.<br><br>
-  
+              
+              Caso queira adicionar no seu projeto atual, utilize o comando no Cordova CLI.<br>
+
+              <code>cordova plugin add cocoon-plugin-ads-android-admob@1.0.12</code><br><br>
+
+              Pegue os os arquivos da pasta <code>www</code>, substitua os arquivos da sua pasta do Cordova, basicamente só isso que vai precisar fazer 
+              para atualizar seu projeto, por isso que gosto tanto do Cordova CLI.<br><br>
+              
               <code>cordova build</code><br><br>
   
               Com o processo concluído, teste.<br>
   
               Perceba que é bem simples de trabalhar com Cordova CLI, claro que existem problemas como incompatibilidade de plugins, até mesmo da plataforma, por isso serviços 
-              online como Cocoon e Phonegap tem diversos problemas, eles provavelmente trabalham com versões espefícicas da plataforma. Depois que aprendi a trabalhar 
-              com Cordova CLI, não gosto nem de olhar para os serviços online, por diversas vezes fiquei preso em problemas onde as mensagens de erros pareciam hieróglifos.<br><br>
+              online como Cocoon e Phonegap tem diversos problemas, eles provavelmente trabalham com versões espefícicas da plataforma "normalmente muito desatualizadas, tanto dos 
+              plugins quanto da plataforma". <br>
+              Depois que aprendi a trabalhar com Cordova CLI, não gosto nem de olhar para os serviços online, por diversas vezes fiquei preso em problemas onde as mensagens 
+              de erros pareciam hieróglifos, pois na maioria sequer tinham código de erros onde eu poderia pesquisar uma solução.<br><br>
   
               Falando em desempenho, eu considero bem satisfatório, além do tempo que ganho para gerar cada build, o que antes eram minutos, agora espero apenas alguns 
-              segundos. As mensagens de erros são bem informativas, por estarmos trabalhando diretamente na plataforma.<br><br>
+              segundos. As mensagens de erros são bem descritivas, por estarmos trabalhando diretamente na plataforma.<br><br>
   
               Estou usando o <a href="https://pt.bignox.com" target="blanck">emulador de Android Nox</a>, considerado por muitos como o melhor emulador 
               para PC. <a href="../assets/img/devlog/admobfuncionando.jpg" class="img-responsive" target="blanck">Clique aqui</a> para ver a imagem do admob funcionando.
