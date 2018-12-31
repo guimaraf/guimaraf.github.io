@@ -71,8 +71,33 @@
             navegador, pois posso apenas arrastar e soltar o arquivo no navegador, que o upload é feito automaticamente, depois eu só preciso logar minha conta no MAC e baixar o arquivo.<br>
             Envie o arquivo no formado <a href="http://www.winzip.com/win/br/downwz.html" target="_blank" >.ZIP</a>, pois o próprio OSX vai descompactar o arquivo, criando uma pasta com o mesmo nome.<br><br>
 
+            Antes de começarmos a falar da compilação cordova, por padrão o OSX bloqueia a manipulação de arquivos, precisamos dar permissão para o usuário fazer as modificações necessárioas.<br>
+            Cloque bom o botão direito sobre o diretório do seu projeto, escolha a opção "Obter Informações", conforme a imagem abaixo.
+          </p>
+
+          <p><center><img src="../assets/img/devlog/iosfile01.png" class="img-responsive" width= 288px height= 228px ></center></p>
+
+          <p>Será aberto a janela semelhante da imagem abaixo, clique no cadeado no canto inferior direito, que está indicado na imagem abaixo.</p>
+
+          <p><center><img src="../assets/img/devlog/iosfile02.png" class="img-responsive" width= 403px height= 546px ></center></p>
+
+          <p>Será necessário a confirmação com a senha do usuário do sistema.</p>
+
+          <p><center><img src="../assets/img/devlog/iosfile03.png" class="img-responsive" width= 444px height= 238px ></center></p>
+
+          <p>Nesta nova janela, clique na engrenagem "objeto de configuração", escolha a primeira opção que será a única no momento disponível.</p>
+
+          <p><center><img src="../assets/img/devlog/iosfile04.png" class="img-responsive" width= 414px height= 206px ></center></p>
+
+          <p>Na próxima janela, clique em OK para confirmar o processo.</p>
+
+          <p><center><img src="../assets/img/devlog/iosfile05.png" class="img-responsive" width= 513px height= 131px ></center></p>
+
+          <p>Agora podemos continuar o processo.</p>
+
+          <p>
             Com o arquivos do projeto no MAC, precisamos entender alguns comandos do terminal, <a href="http://br.ccm.net/faq/26324-uso-do-terminal-no-mac-os-x" target="_blank" >veja neste link</a> os 
-              principais comandos, porém vamos utilizar apenas alguns.<br><br>
+            principais comandos, porém vamos utilizar apenas alguns.<br><br>
 
             <code>ls</code> mostra a lista de todos os seus arquivos e pastas<br>
             <code>cd</code> permite que você vá de um diretório para outro (ex: cd/user/seunome para ir para o seu diretório)<br>
@@ -80,6 +105,8 @@
 
             O comando <code>cd ..</code> é usado para ir ao diretório anterior ou sair do diretório atual<br><br>
           </p>
+
+          
 
           <h4>Preparando o projeto</h4>
           <p>Esta imagem é do diretório exportado pelo Construct 2, como podem ver tem apenas os arquivos do projeto e os arquivos de configuração.</p>
@@ -109,22 +136,8 @@
           <center><img src="../assets/img/devlog/iosestrutura.jpg" class="img-responsive" width="100%" height="100%" ></center><br>
           <b>Estrutura do projeto após adicionar a plataforma</b><br><br>
           
-          <p>
-            O proximo comando é para finalmente gerar o projeto Xcode.<br>
-
-            <code>sudo cordova build --release</code><br>
-            Se já adicionou a plataforma Android no seu projeto, quando for gerar projeto do Xcode, especifique a plataforma no comando, senão será gerado um apk somente 
-            depois o projeto Xcode<br>
-            
-            <code>sudo cordova build --release ios</code><br>
-          </p>
-
-          <p><center><img src="../assets/img/devlog/iosxcode.jpg" class="img-responsive" width="100%" height="100%" ></center></p>
-
-          <p>
-            Aguarde até concluir o processo de gerar o projeto de Xcode, aparecendo a mensagem de <b>** BUILD SUCCEEDED **</b><br><br>
-
-            Pronto, agora você já tem seu projeto Xcode gerado. Abra o Xcode e navege até encontrar o diretório do arquivo de configuração necessário, veja na imagem abaixo.<br>
+          <p>Quando adicionamos a plataforma Cordova IOS, é gerado automaticamente um projeto Xcode com as configurações que deixamos no config.xml.<br>
+            Pronto, agora você já tem seu projeto Xcode gerado. Abra o Xcode e navege até encontrar o diretório do arquivo de configuração necessário, veja na imagem abaixo.
           </p>
 
           <p><center><img src="../assets/img/devlog/iosxcodeabrir.jpg" class="img-responsive" width="100%" height="100%" ></center></p>
