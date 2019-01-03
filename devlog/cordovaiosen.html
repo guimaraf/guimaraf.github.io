@@ -53,12 +53,11 @@
 	<!-- +++++ Post +++++ -->
 	<div id="white">
 	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
+			  <div class="row">
 					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
 					<p><bd>06 de February, 2018</bd></p>
           <center><h2>Generating the Xcode project on the Mac using Cordova CLI</h2></center>
-          <p><center><img src="../assets/img/devlog/cordovaios.png" width="80%" height="80%" ></center></p>
+          <p><center><img src="../assets/img/devlog/cordovaios.png" width="60%" height="60%" ></center></p>
 
           <h4>Cordova CLI to IOS</h4>
           <p>
@@ -84,11 +83,11 @@
           <h4>Preparing the project</h4>
           <p>This image is from the directory exported by Construct 2, as you can see it has only the project files and the configuration files.</p>
 
-          <p><center><img src="../assets/img/devlog/iostela1.jpg" width="100%" height="100%" ></center></p>
+          <p><center><img src="../assets/img/devlog/iostela1.jpg" width="60%" height="60%" ></center></p>
 
           <p>With the terminal open, I used the ls command, showing the same files by the terminal.</p>
 
-          <p><center><img src="../assets/img/devlog/iosterminal.jpg" width="100%" height="100%" ></center></p>
+          <p><center><img src="../assets/img/devlog/iosterminal.jpg" width="60%" height="60%" ></center></p>
 
           <p>Now we can prepare the IOS platform, with the command</p>
           <code>cordova platform add ios</code><br><br>
@@ -98,39 +97,21 @@
 
           <p>Cordova will analyze the configuration files and install the described plugins.</p>
 
-          <p><center><img src="../assets/img/devlog/iosplatformadd.jpg" width="100%" height="100%" ></center></p>
+          <p><center><img src="../assets/img/devlog/iosplatformadd.jpg" width="60%" height="60%" ></center></p>
 
           <p>
             I put an arrow to show the command typed, I left showing all the others until the end of the installation of the IOS platform and the plugins. <br>
             You can now use the <code>clear</code> command to clear the screen. <br>
           </p>
 
-          <center><img src="../assets/img/devlog/iosestrutura.jpg" width="100%" height="100%" ></center><br>
-          <b>Design structure after adding the platform</b><br><br>
-          
           <p>
-            The next command is to finally generate the Xcode project.<br>
-
-            <code>cordova build --release</code><br><br>
-
-            If you have already added the Android platform in your project, when generating Xcode 
-            project, specify the platform in the command, otherwise an apk will be generated only after the Xcode project <br><br>
-            
-            <code>cordova build --release ios</code><br>
-          </p>
-
-          <p><center><img src="../assets/img/devlog/iosxcode.jpg" width="100%" height="100%" ></center></p>
-
-          <p>
-            Wait until the process of generating the Xcode project is complete, and the message for <b>** BUILD SUCCEEDED **</b> appears. <br><br>
-
             Okay, now you already have your Xcode project generated. Open Xcode and navigate until you find the required configuration file directory, see the image below. <br>
           </p>
 
-          <p><center><img src="../assets/img/devlog/iosxcodeabrir.jpg" width="100%" height="100%" ></center></p>
+          <p><center><img src="../assets/img/devlog/iosxcodeabrir.jpg" width="60%" height="60%" ></center></p>
 
           <p>Wait for Xcode to finish parsing the files. <br></p>
-          <p><center><img src="../assets/img/devlog/xcode.jpg" width="100%" height="100%" ></center></p>
+          <p><center><img src="../assets/img/devlog/xcode.jpg" width="80%" height="80%" ></center></p>
 
           <p>
               We completed the entire process from the project generation in Construct 2 to the Xcode project generation, the rest of the process to 
@@ -149,7 +130,7 @@
                     It is necessary to manually insert the plugin into the platform, use the command below.<br>
                     <code>Cordova plugin add cocoon-plugin-ads-ios-admob</code><br><br>
 
-                    <img src="../assets/img/devlog/iosads.jpg" width="100%" height="100%" ><br>
+                    <img src="../assets/img/devlog/iosads.jpg" width="70%" height="70%" ><br>
 
                     With the plugin installed, regenerate the Xcode project.
                 </center>

@@ -53,12 +53,11 @@
 	<!-- +++++ Post +++++ -->
 	<div id="white">
 	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
+			  <div class="row">
 					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
 					<p><bd>30 de Outubro, 2018</bd></p>
           <h3>Usando Unity ADS no Construct 2 com Cordova CLI</h3>
-          <p><img src="../assets/img/devlog/uni000.jpg" class="img-responsive" width="80%" height="80%" ></p>
+          <center><p><img src="../assets/img/devlog/uni000.jpg" class="img-responsive" width="60%" height="60%" ></p></center>
 
           <p>Primeiro vamos conhecer o que é Unity,<br>
             Unity é uma game engine, uma das mais utilizadas no mundo por estúdios indies.<br><br>
@@ -75,6 +74,7 @@
 
           <p>O mais incrível é que podemos utilizar no Construct 2 e <b>de graça</b>. <br>
           Vamos direto ao assunto.
+          Vamos direto ao assunto.
           </p>
 
           <br>
@@ -87,11 +87,11 @@
           </p>
 
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni001.png" alt=""><br> <b>Foto-01</b></p>  
-
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni001.png" class="img-responsive" width="60%" height="60%" ><br><br> <b>Foto-01</b></p></center>
+          
           <p>Com a conta já criada, você terá que criar o projeto.</p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni002.jpg" alt=""><br> <b>Foto-02</b></p>  
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni002.jpg" class="img-responsive" width="50%" height="50%" ><br><br> <b>Foto-02</b></p></center>
           
           <p>É necessário já ter o aplicativo na loja da Google ou da Apple, pois será necessário colocar a ID do aplicativo/jogo, 
           quando criar o projeto no serviço. <br><br>
@@ -104,9 +104,9 @@
           
           O que nos interessa é apenas a ID na Google Play que é literalmente o final do link <code>com.flashlightpixel.chronosgames</code>, sendo assim vamos pegar a ID e adicionar 
           no serviço, conforme imagem abaixo.
-          </p>
-
-          <p><img class="img-responsive" src="../assets/img/devlog/uni003.jpg" alt=""><br> <b>Foto-03</b> </p>  
+          </p><br>
+          
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni003.jpg" class="img-responsive" width="50%" height="50%" ><br><br> <b>Foto-03</b> </p></center>
 
           <p>Adicionado a ID do Lanterna Pixel no serviço Unity ADS, será mostrado informações do aplicativo.</p>
 
@@ -117,7 +117,7 @@
             Nós vamos pegar a <b>Game ID Android</b>, pois só adicionamos esta plataforma no projeto no Construct 2.
           </p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni004.jpg" alt=""> <br> <b>Foto-04</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni004.jpg" class="img-responsive" width="60%" height="60%" > <br><br> <b>Foto-04</b></p></center>
 
           
           <p>Agora precisamos do plugin Unity ADS para Construct 2, faça Download no site oficial da engine 
@@ -125,7 +125,7 @@
           é bem simples, com o C2 aberto, simplesmente arraste o arquivo <code>unityads-2.2.0-stable.c2addon</code> e solte sobre o C2. Feche e abra 
           novamente o C2 e pronto, o Plugin já está adicionado na engine, porém não está no projeto, você precisa adicionar.</p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni005.png" alt=""> <br> <b>Foto-05</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni005.png" class="img-responsive" width="50%" height="50%" > <br><br> <b>Foto-05</b></p></center>
           <br>
           
           <h3>Modificações no Construct 2</h3>
@@ -137,23 +137,23 @@
             para rodar um ADS de vídeo, porém pode ser modificada como quiser na plataforma e posteriormente no plugin, não vamos abordar isso neste tutorial.<br>
           </p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni006.png" alt=""><br> <b>Foto-06</b> </p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni006.png" class="img-responsive" width="60%" height="60%"><br><br> <b>Foto-06</b> </p></center>
 
           <p>Existem diversos eventos de checagem do plugin, porém de ações temos basicamente 2, carregar o ADS e mostrar. Podendo por exemplo 
             verificar se o vídeo rodou completamente, se foi pulado, se foi cancelado, excelente e necessário para entregar prêmios para os jogadores.</p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni007.png" alt=""> <br> <b>Foto-07</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni007.png" class="img-responsive" width="60%" height="60%"> <br><br> <b>Foto-07</b></p></center>
 
           <p>Para ir direto ao ponto, vou utilizar apenas o método para jogos com "partidas rápidas", eu costumo colocar em <code>Get Placement State</code> o 
             utilizar o <code>Video Ad</code> já no <code>On Start Layout</code> no Construct 2.</p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni008.png" alt=""> <br> <b>Foto-08</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni008.png" class="img-responsive" width="60%" height="60%"> <br><br> <b>Foto-08</b></p></center>
 
           <p>Este método é eficaz pois carrega o ADS, deixando pronto para quando for chamado em <code>Show Video Ad</code> neste caso como utilizei 
             a tag <code>video</code>, preciso escolher também <code>Video Ad</code> no Construct 2 dentro da lógica do seu evento onde quer mostrar o ADS.<br>
           Um detalhe muito importante quando se trata de ADS, é sempre carregar o ADS antes do momento que for mostrar para o jogador.</p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni009.png" alt=""><br> <b>Foto-09</b> </p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni009.png" class="img-responsive" width="60%" height="60%" ><br><br> <b>Foto-09</b> </p></center>
           <br>
 
           <h3>Processo no Cordova CLI</h3>
@@ -163,7 +163,7 @@
           Repare que no <code>config.xml</code> temos a linha referente ao plugin do <code>Unity ADS</code> que foi adicionado automaticamente pelo próprio plugin.
           </p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni010.png" alt=""> <br> <b>Foto-10</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni010.png" class="img-responsive" width="60%" height="60%" > <br><br> <b>Foto-10</b></p></center>
 
           <p>Caso não conheça sobre exportação e geração de aplicativos <b>Cordova CLI</b>, eu fiz uma série de tutoriais abordando detalhadamente cada aspecto.<br>
             O primeiro é <a href="cordovaBuild.html" target="_blank">Construct 2 - Trabalhando com Cordova CLI</a> onde abordamos a preparação do 
@@ -191,7 +191,7 @@
             Gere o APK e teste
           </p>
 
-          <p><img class="img-responsive" src="../assets/img/devlog/uni011.jpg" alt=""> <br> <b>Foto-11</b></p>
+          <center><p><img class="img-responsive" src="../assets/img/devlog/uni011.jpg" class="img-responsive" width="50%" height="50%" > <br><br><br> <b>Foto-11</b></p></center>
 
           <p>Como podem ver, o Unity ADS está rodando corretamente no projeto do Construct 2</p>
 
@@ -211,17 +211,13 @@
 
             Caso tenha alguma dúvida pode nos mandar email ou perguntar onde o tutorial for postado.
           </p>
-
-
           <br>
 					<p><bt>TAGS: <a href="#">Construct 2</a> - <a href="#"Unity ADS</a></bt></p>
 					<hr>
 					<p><a href="devlog.html">Voltar</a></p>
-				</div>
-
-			</div><!-- /row -->
-      </div> <!-- /container -->
-	
+				</div><!-- /row -->
+       </div><!-- /container -->
+      </div>
 	<!-- +++++ Footer Section +++++ -->
 	
 	<div id="footer">
