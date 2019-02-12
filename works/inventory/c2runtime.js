@@ -20300,14 +20300,14 @@ cr.behaviors.Pin = function(runtime)
 	behaviorProto.exps = new Exps();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Spritefont2,
-	cr.plugins_.Sprite,
 	cr.plugins_.Arr,
-	cr.plugins_.gamepad,
 	cr.plugins_.Function,
-	cr.plugins_.Mouse,
+	cr.plugins_.gamepad,
 	cr.plugins_.Keyboard,
+	cr.plugins_.Mouse,
 	cr.plugins_.NodeWebkit,
+	cr.plugins_.Sprite,
+	cr.plugins_.Spritefont2,
 	cr.behaviors.DragnDrop,
 	cr.behaviors.Pin,
 	cr.system_object.prototype.cnds.IsGroupActive,
