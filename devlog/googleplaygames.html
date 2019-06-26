@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+
+    <title>Google Play Games - Construct 2 Plugin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">FRED OLIVEIRA</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../works/index.html">Meus Jogos</a></li>
+            <li><a href="index.html">Devlog</a></li>
+            <li><a href="../prototipos/index.html">Protótipos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contact.html">Contato</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container pt">
+        <div class="row">
+          <p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+          <p><bd>25 de Junho, 2019</bd></p>
+          <center><h2>Usando plugin Google Play Games no Android</h2><br></center>
+          <center><img src="../assets/img/devlog/cordovaGameTittle.png" width="80%" height="80%" class="img-responsive" title="Script Executado"></center>
+          <br>
+
+          <p>
+            Em conversa com meu amigo Elmer, <a href="https://www.facebook.com/ReinarteGames" target="_blank">Reinarte Games</a>, sobre compilação Android, um dos maiores problemas era 
+            utilizar os serviços da Google, como login, ranking, conquistas. Desde o encerramento do serviço de compilação para Android e IOS da 
+            <a href="https://blog.cocoon.io" target="_blank">Coccon</a>, um enorme nuvem de dúvidas surgiu, "quem iria manter a compilação android e 
+            IOS funcionando", eu particularmente nunca fui muito fã do serviço da Coccon, como já mencionei em outros tutoriais.
+            <br><br>
+
+            Procurei informações sobre e quais ferramentas era utilizado no para compilar, descobri que eles utilizam o <a href="https://cordova.apache.org" target="_blank">Cordova</a> e 
+            que esta ferramenta é de código aberto, portanto eu poderia utilizar e eventualmente fazer alterações. 
+            <br><br>
+            Um plugin que era utilizado para utilização dos serviços da Google era o <a href="https://github.com/cranberrygame/cordova-plugin-game" target="_blank">cordova-plugin-game</a>, 
+            porém o plugin que não recebe atualizações há 3 anos, na época suportando apenas a Cordova Android apenas na versão 6.0.0, conforme a própria documentação do plugin. 
+            Portanto a plataforma Cordova vem recebido atualizações periodicamente, nesta data que estou escrevendo este tutorial, está na versão "Cordova Android 9.0.0".
+            <br>
+
+            Fiz algumas alterações no Plugin do Construct 2, você pode baixar ele pelo link <a href="https://github.com/guimaraf/cordovaGame" target="_blank">Plugin Cordova Game para Construct 2</a>, 
+            instalar na pasta de Plugins.
+            <br><br>
+
+            Agora finalmente vamos direto ao ponto.
+            <br>
+            Para entender o processo, primeiro você precisa saber como utilizar o <a href="cordovaBuild.html" target="_blank">Construct 2 - Trabalhando com Cordova CLI</a>, pronto.
+            <br>
+            <br>
+            Pegamos os plugins que o Cordova baixa, fizemos algumas alterações e fiz upload deles no meu github.
+            <br>
+            Com o projeto Cordova CLI aberto, adicione o plugin utilizando esta linha de comando abaixo.
+            <br><br>
+            
+            <code>cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="COLOQUE SUA ID DA GOOGLE PLAY GAMES AQUI"</code>
+
+            <br><br>
+            Coloquei todas as dependências necessárias direto no código que está no Github, desta forma tudo é baixado apenas utilizando o código acima com a ID do seu jogo.
+            <br>
+            <br>
+          </p>
+
+          <center><img src="../assets/img/devlog/cordovaGameAdd.png" width="70%" height="70%" class="img-responsive" ></center>
+          <br>
+          <p>
+            Após a conclusão do processo, note que tem um erro, este erro é uma referência ao Cordova 6.x.x que não estamos utilizando, também não afeta o funcionamento do plugin.
+            <br>
+            Agora mande gerar o APK em modo debug, use o comando.
+            <br>
+            <code>cordova build</code>
+          </p>
+
+          <center><img src="../assets/img/devlog/cordovaGameGenereteAPK.png" width="70%" height="70%" class="img-responsive" ></center>
+          <br>
+
+          <p>
+            Se seu ambiente estiver configurado corretamente, vai compilar o projeto normalmente.
+            <br>
+            Agora pode testar seu jogo, será mostrado uma mensagem de erro de login que é normal, pois os serviços da Google Play Games só funcionam nos aplicativos baixados da loja.
+            <br>
+            Para mais detalhes sobre como gerar APK, assinar, veja este tutorial <a href="cordovacliandroid.html" target="_blank">Gerando APK pelo Cordova CLI</a>.
+
+            <br><br>
+            Por enquanto é isso, o processo foi bem trabalhoso, porém foi muito prazeroso conseguir ver tudo funcionando. O plugin foi usado no jogo, 
+            <a href="https://play.google.com/store/apps/details?id=com.chronosgames.persenedown" target="_blank"> Persene Jatoh</a> está funcionando perfeitamente.
+
+          <br><br>
+          Qualquer dúvidas, não deixe de perguntar.
+          </p>
+
+            <br>
+            <p><bt>TAGS: <a href="#">Construct 2</a> - <a href="#">Android</a></bt></p>
+            <hr>
+            <p><a href="devlog.html">Voltar</a></p>
+          
+        </div><!-- /row -->
+      </div> <!-- /container -->
+    </div>
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Meu Forte</h4>
+					<p>
+						Contagem,<br/>
+						Minas Gerais, <br/>
+						Brasil.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Meus Links</h4>
+					<p>
+						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
+						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
+						<a href="https://www.facebook.com/guimaraf" target="_blank" >Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Sobre Fred Oliveira</h4>
+          <p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
+          
+          <h4>Contato</h4>
+					<a href="mailto:guimaraf@gmail.com" >guimaraf@gmail.com</a>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		</div>
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
