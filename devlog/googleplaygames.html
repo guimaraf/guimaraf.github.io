@@ -95,6 +95,28 @@
           <center><img src="../assets/img/devlog/cordovaGameAdd.png" width="70%" height="70%" class="img-responsive" ></center>
           <br>
           <p>
+            O erro do módulo xml2js, é pela falta do módulo do Node, porém a falta dele não interfere na geração do APK.
+            <br>
+            Se quiser resolver este pequeno problema, instale o módulo usando o comando. 
+            
+            <br>
+            <code>npm install xml2js</code>
+            <br>
+
+            Veja a documentação oficial do módulo <a href="https://www.npmjs.com/package/xml2js" target="_blank">xml2js</a> no repositório npm.
+            <br>
+
+            Depois de instalar se pedir outro módulo, só pesquisar o nome dele e npm no google que encontra facilmente. No meu caso, foi solicitado o semver, para instalar use o 
+            comando abaixo.
+            
+            <br>
+            <code>npm install semver</code>
+            <br>
+
+            Novamente para consultar a documentação oficial, <a href="https://www.npmjs.com/package/semver" target="blank">semver</a> também no repositório npm.
+            
+          </p>
+          <p>
             Após a conclusão do processo, note que tem um erro, este erro é uma referência ao Cordova 6.x.x que não estamos utilizando, também não afeta o funcionamento do plugin.
             <br>
             Agora mande gerar o APK em modo debug, use o comando.
