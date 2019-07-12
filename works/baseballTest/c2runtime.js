@@ -25571,12 +25571,12 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.Browser,
 	cr.plugins_.gamepad,
-	cr.plugins_.Function,
 	cr.plugins_.Keyboard,
-	cr.plugins_.Spritefont2,
-	cr.plugins_.TiledBg,
+	cr.plugins_.Function,
 	cr.plugins_.Touch,
+	cr.plugins_.TiledBg,
 	cr.plugins_.Sprite,
+	cr.plugins_.Spritefont2,
 	cr.plugins_.LocalStorage,
 	cr.behaviors.bound,
 	cr.behaviors.Platform,
@@ -25644,5 +25644,6 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.Fade.prototype.acts.SetFadeInTime,
 	cr.behaviors.Fade.prototype.acts.RestartFade,
 	cr.plugins_.Spritefont2.prototype.acts.SetEffectParam,
-	cr.system_object.prototype.acts.CreateObject
+	cr.system_object.prototype.acts.CreateObject,
+	cr.plugins_.Sprite.prototype.acts.SetMirrored
 ];};
