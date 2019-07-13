@@ -22904,14 +22904,14 @@ cr.plugins_.Touch = function(runtime)
 	pluginProto.exps = new Exps();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Arr,
-	cr.plugins_.Audio,
 	cr.plugins_.Function,
 	cr.plugins_.Keyboard,
 	cr.plugins_.Sprite,
 	cr.plugins_.LocalStorage,
-	cr.plugins_.Text,
 	cr.plugins_.Touch,
+	cr.plugins_.Text,
+	cr.plugins_.Arr,
+	cr.plugins_.Audio,
 	cr.system_object.prototype.cnds.OnLayoutStart,
 	cr.plugins_.LocalStorage.prototype.acts.CheckItemExists,
 	cr.system_object.prototype.acts.Wait,
