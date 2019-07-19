@@ -50,7 +50,7 @@
 	    <div class="container pt">
         <div class="row">
           <p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
-          <p><bd>25 de Junho, 2019</bd></p>
+          <p><bd>19 de Julho, 2019</bd></p>
           <center><h2>Usando plugin Google Play Games no Android com Cordova CLI</h2><br></center>
           <center><img src="../assets/img/devlog/cordovaGameTittle.png" width="80%" height="80%" class="img-responsive" title="Script Executado"></center>
           <br>
@@ -67,11 +67,12 @@
             <br><br>
             Um plugin que era utilizado para utilização dos serviços da Google era o <a href="https://github.com/cranberrygame/cordova-plugin-game" target="_blank">cordova-plugin-game</a>, 
             porém o plugin que não recebe atualizações há 3 anos, na época suportando apenas a Cordova Android apenas na versão 6.0.0, conforme a própria documentação do plugin. 
-            Portanto a plataforma Cordova vem recebido atualizações periodicamente, nesta data que estou escrevendo este tutorial, está na versão "Cordova Android 9.0.0".
+            Portanto a plataforma Cordova vem recebido atualizações periodicamente, nesta data que estou escrevendo este artigo, a plataforma Cordova está na versão "9.0.0" e o 
+            Cordova Android "8.0.0".
             <br>
 
             Fiz algumas alterações no Plugin do Construct 2, você pode baixar ele pelo link <a href="https://github.com/guimaraf/cordovaGame" target="_blank">Plugin Cordova Game para Construct 2</a>, 
-            instalar na pasta de Plugins.
+            instalar na pasta de Plugins do seu Construct 2.
             <br><br>
 
             Agora finalmente vamos direto ao ponto.
@@ -85,20 +86,26 @@
             <br><br>
             
             <code>cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="COLOQUE SUA ID DA GOOGLE PLAY GAMES AQUI"</code>
+            <b>Exenplo</b>
+            <code>cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="123456789012"</code>
 
             <br><br>
             Coloquei todas as dependências necessárias direto no código que está no Github, desta forma tudo é baixado apenas utilizando o código acima com a ID do seu jogo.
             <br>
             <br>
+
+            Na data de hoje, 19 de julho de 2019, atualizei os plugins para que seja possível utilizar a plataforma "Cordova CLI Android 8.0.0" para API 28, conforme os requisitos da loja 
+            da google. <br>
+            Foi utilizado a referência para a versão do google play services 16+, que tem suporte na API 28 "Android 9", desta forma mantendo a compatibilidade com atualis pugins para ADS, 
+            Ultimate ADS versão 1.0.12 e Unity ADS, que já criei artigos sobre na página. No próximo mês "agosto de 2019" a google vai encerrar o suporte para aplicativos da loja com 
+            API 27 e anteriores. Qualquer dúvida me contacte. 
           </p>
 
           <center><img src="../assets/img/devlog/cordovaGameAdd.png" width="70%" height="70%" class="img-responsive" ></center>
           <br>
           <p>
-            O erro do módulo xml2js, é pela falta do módulo do Node, porém a falta dele não interfere na geração do APK.
+            Caso ocorrer um erro do módulo do Node "xml2js", instale usando o comando.
             <br>
-            Se quiser resolver este pequeno problema, instale o módulo usando o comando. 
-            
             <br>
             <code>npm install xml2js</code>
             <br>
@@ -106,26 +113,30 @@
             Veja a documentação oficial do módulo <a href="https://www.npmjs.com/package/xml2js" target="_blank">xml2js</a> no repositório npm.
             <br>
 
-            Depois de instalar se pedir outro módulo, só pesquisar o nome dele e npm no google que encontra facilmente. No meu caso, foi solicitado o semver, para instalar use o 
-            comando abaixo.
-            
+            Se solicitar o modulo do Node "semver", instale com o comando abaixo.
             <br>
             <code>npm install semver</code>
             <br>
-
             Novamente para consultar a documentação oficial, <a href="https://www.npmjs.com/package/semver" target="blank">semver</a> também no repositório npm.
             
           </p>
           <p>
-            Após a conclusão do processo, note que tem um erro, este erro é uma referência ao Cordova 6.x.x que não estamos utilizando, também não afeta o funcionamento do plugin.
             <br>
             Agora mande gerar o APK em modo debug, use o comando.
             <br>
             <code>cordova build</code>
+            <br>
           </p>
 
           <center><img src="../assets/img/devlog/cordovaGameGenereteAPK.png" width="70%" height="70%" class="img-responsive" ></center>
           <br>
+
+          <p>Testando no aparelho, deverá aparecer esta mensagem de erro, indicando que o plugin tentou comunicar com os serviços google, porém o aplicativo está rodando em modo debug
+            por isso gera este erro de login. Depois de assinar e subir para a loja, vai logar normalmente.
+            <br>
+            <center><img src="../assets/img/devlog/cordovaAndroidErrorLogin.png" width="25%" height="25%" class="img-responsive" ></center>
+            
+          </p>
 
           <p>
             Se seu ambiente estiver configurado corretamente, vai compilar o projeto normalmente.
@@ -136,7 +147,7 @@
 
             <br><br>
             Por enquanto é isso, o processo foi bem trabalhoso, porém foi muito prazeroso conseguir ver tudo funcionando. O plugin foi usado no jogo, 
-            <a href="https://play.google.com/store/apps/details?id=com.chronosgames.persenedown" target="_blank"> Persene Jatoh</a> está funcionando perfeitamente.
+            <a href="https://play.google.com/store/apps/details?id=com.chronosgames.ImpossibleDoubleTap" target="_blank"> Impossible Double Tap</a> está funcionando perfeitamente.
 
           <br><br>
           Qualquer dúvidas, não deixe de perguntar.
