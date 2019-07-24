@@ -1,0 +1,17 @@
+{
+"companyName": "Chronos Games",
+"productName": "Memo Girls Saga",
+"productVersion": "1.137",
+"dataUrl": "6c80fe7869405c8d8e8d81f00361813b.unityweb",
+"wasmCodeUrl": "7c2855cae41c8882df2f0469d6dd59d1.wasm",
+"wasmFrameworkUrl": "d9e50f7a1b6be1d41be2a52352b36f50.unityweb",
+"wasmSymbolsUrl": "3b857787a5ad42a5f1502adba05f0169.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.1.8f1"
+}
