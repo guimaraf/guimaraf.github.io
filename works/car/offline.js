@@ -1,0 +1,33 @@
+﻿{
+	"version": 1564009574,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-2.1.1.min.js",
+		"offlineClient.js",
+		"images/ground.png",
+		"images/carbody-sheet0.png",
+		"images/carwheelback-sheet0.png",
+		"images/calote-sheet0.png",
+		"images/wall-sheet0.png",
+		"images/box-sheet0.png",
+		"images/box-sheet1.png",
+		"images/box-sheet2.png",
+		"images/tiledbackground.png",
+		"images/tiledbackground2.png",
+		"images/clounds.png",
+		"images/tiledbackground3.png",
+		"images/tiledbackground4.png",
+		"images/tiledbackground5.png",
+		"images/tiledbackground6.png",
+		"images/start-sheet0.png",
+		"images/acc-sheet0.png",
+		"images/break-sheet0.png",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}
