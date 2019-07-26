@@ -1,9 +1,9 @@
 ﻿{
-	"name": "Stage Select",
-	"short_name": "Stage Select",
+	"name": "New project",
+	"short_name": "New project",
 	"start_url": "index.html",
 	"display": "fullscreen",
-	"orientation": "any",
+	"orientation": "portrait",
 	"icons": [{
 		"src": "icon-16.png",
 		"sizes": "16x16",
