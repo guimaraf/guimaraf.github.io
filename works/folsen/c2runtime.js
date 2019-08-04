@@ -21679,6 +21679,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio.prototype.acts.PlayByName,
 	cr.behaviors.Platform.prototype.cnds.CompareSpeed,
 	cr.plugins_.Sprite.prototype.acts.SetAnim,
+	cr.system_object.prototype.cnds.Every,
 	cr.plugins_.Keyboard.prototype.cnds.OnKeyReleased,
 	cr.plugins_.gamepad.prototype.cnds.OnButtonUp,
 	cr.system_object.prototype.acts.Wait,
