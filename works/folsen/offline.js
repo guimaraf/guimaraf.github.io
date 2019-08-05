@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1564960897,
+	"version": 1564967715,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -18,6 +18,7 @@
 		"images/bossfire-sheet0.png",
 		"images/jar-sheet0.png",
 		"images/jar-sheet1.png",
+		"images/mushroon-sheet0.png",
 		"images/camera-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",

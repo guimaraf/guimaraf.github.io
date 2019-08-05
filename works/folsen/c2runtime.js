@@ -23565,6 +23565,53 @@ cr.behaviors.Platform = function(runtime)
 }());
 ;
 ;
+cr.behaviors.jumpthru = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.jumpthru.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		this.inst.extra["jumpthruEnabled"] = (this.properties[0] !== 0);
+	};
+	behinstProto.tick = function ()
+	{
+	};
+	function Cnds() {};
+	Cnds.prototype.IsEnabled = function ()
+	{
+		return this.inst.extra["jumpthruEnabled"];
+	};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.SetEnabled = function (e)
+	{
+		this.inst.extra["jumpthruEnabled"] = !!e;
+	};
+	behaviorProto.acts = new Acts();
+}());
+;
+;
 cr.behaviors.scrollto = function(runtime)
 {
 	this.runtime = runtime;
@@ -23726,20 +23773,22 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.gamepad,
 	cr.plugins_.Function,
-	cr.plugins_.Globals,
 	cr.plugins_.Keyboard,
-	cr.plugins_.Sprite,
+	cr.plugins_.Globals,
 	cr.plugins_.Text,
+	cr.plugins_.Sprite,
 	cr.plugins_.TiledBg,
 	cr.behaviors.Platform,
 	cr.behaviors.Pin,
 	cr.behaviors.solid,
 	cr.behaviors.Bullet,
+	cr.behaviors.jumpthru,
 	cr.behaviors.scrollto,
 	cr.system_object.prototype.cnds.OnLayoutStart,
 	cr.plugins_.Sprite.prototype.acts.Spawn,
 	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
 	cr.behaviors.Pin.prototype.acts.Pin,
+	cr.plugins_.Sprite.prototype.acts.MoveToTop,
 	cr.plugins_.Keyboard.prototype.cnds.OnKey,
 	cr.system_object.prototype.acts.RestartLayout,
 	cr.system_object.prototype.cnds.EveryTick,
@@ -23754,9 +23803,9 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.Platform.prototype.acts.SimulateControl,
 	cr.plugins_.Sprite.prototype.acts.SetMirrored,
 	cr.plugins_.Sprite.prototype.cnds.IsAnimPlaying,
+	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
 	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
 	cr.behaviors.Platform.prototype.cnds.IsFalling,
-	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
 	cr.plugins_.gamepad.prototype.cnds.OnButtonDown,
 	cr.behaviors.Platform.prototype.cnds.OnJump,
 	cr.plugins_.Audio.prototype.acts.PlayByName,
@@ -23794,5 +23843,7 @@ cr.getObjectRefTable = function () { return [
 	cr.behaviors.solid.prototype.acts.SetEnabled,
 	cr.plugins_.Sprite.prototype.acts.SetCollisions,
 	cr.plugins_.Sprite.prototype.cnds.IsOnScreen,
-	cr.behaviors.Bullet.prototype.acts.SetAngleOfMotion
+	cr.behaviors.Bullet.prototype.acts.SetAngleOfMotion,
+	cr.plugins_.Sprite.prototype.acts.MoveToBottom,
+	cr.plugins_.Sprite.prototype.exps.Height
 ];};
