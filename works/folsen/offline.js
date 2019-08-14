@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1565531462,
+	"version": 1565811895,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -40,12 +40,14 @@
 		"images/laserbutton-sheet0.png",
 		"images/laserbutton-sheet1.png",
 		"images/laserspark-sheet0.png",
+		"images/laserspark-sheet1.png",
 		"images/laserbutoncollision-sheet0.png",
 		"images/spritefont.png",
 		"images/hpbossbg.png",
 		"images/staminabarplayer.png",
 		"images/staminaplayerbg.png",
 		"images/hpbarboss.png",
+		"images/grayscale8x-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
