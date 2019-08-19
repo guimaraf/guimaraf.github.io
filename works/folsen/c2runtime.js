@@ -3703,8 +3703,6 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 		if (this.fullscreen_mode === 0 && this.isiOS)
 			this.isRetina = false;
 		this.devicePixelRatio = (this.isRetina ? (window["devicePixelRatio"] || window["webkitDevicePixelRatio"] || window["mozDevicePixelRatio"] || window["msDevicePixelRatio"] || 1) : 1);
-		if (typeof window["StatusBar"] === "object")
-			window["StatusBar"]["hide"]();
 		this.ClearDeathRow();
 		var attribs;
 		if (this.fullscreen_mode > 0)
@@ -27896,19 +27894,19 @@ cr.behaviors.solid = function(runtime)
 	behaviorProto.acts = new Acts();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Arr,
-	cr.plugins_.Audio,
 	cr.plugins_.Browser,
 	cr.plugins_.Function,
-	cr.plugins_.gamepad,
-	cr.plugins_.NodeWebkit,
-	cr.plugins_.Globals,
 	cr.plugins_.Keyboard,
-	cr.plugins_.Text,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Spritefont2,
-	cr.plugins_.Tilemap,
+	cr.plugins_.Globals,
+	cr.plugins_.gamepad,
 	cr.plugins_.Sprite,
+	cr.plugins_.Spritefont2,
+	cr.plugins_.NodeWebkit,
+	cr.plugins_.TiledBg,
+	cr.plugins_.Tilemap,
+	cr.plugins_.Text,
+	cr.plugins_.Audio,
+	cr.plugins_.Arr,
 	cr.behaviors.Platform,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
