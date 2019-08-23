@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1566172741,
+	"version": 1566597333,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -13,6 +13,7 @@
 		"images/pushcollider-sheet0.png",
 		"images/bombexplosion-sheet0.png",
 		"images/boomerang-sheet0.png",
+		"images/balloneffect-sheet0.png",
 		"images/ground.png",
 		"images/wall-sheet0.png",
 		"images/tilemapsolid.png",
@@ -47,7 +48,6 @@
 		"images/staminabarplayer.png",
 		"images/staminaplayerbg.png",
 		"images/hpbarboss.png",
-		"images/grayscale8x-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
