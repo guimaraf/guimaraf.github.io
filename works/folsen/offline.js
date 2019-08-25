@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1566604448,
+	"version": 1566737083,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -8,6 +8,7 @@
 		"images/soul-sheet0.png",
 		"images/folsen-sheet0.png",
 		"images/folsen-sheet1.png",
+		"images/folsen-sheet2.png",
 		"images/collider-sheet0.png",
 		"images/colliderloop-sheet0.png",
 		"images/pushcollider-sheet0.png",
@@ -48,6 +49,8 @@
 		"images/staminabarplayer.png",
 		"images/staminaplayerbg.png",
 		"images/hpbarboss.png",
+		"images/climbcolliderdown-sheet0.png",
+		"images/climbercollider-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
