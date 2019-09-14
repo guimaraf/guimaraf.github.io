@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1568476866,
+	"version": 1568478659,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -78,6 +78,7 @@
 		"images/staminabarplayer.png",
 		"images/staminaplayerbg.png",
 		"images/hpbarboss.png",
+		"images/climbend-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
