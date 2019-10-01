@@ -10264,7 +10264,7 @@ window["cr_setSuspended"] = function(s)
 			this.is_else_block = (this.conditions[0].type == null && this.conditions[0].func == cr.system_object.prototype.cnds.Else);
 		}
 	};
-	window["_c2hh_"] = "DA39A3EE5E6B4B0D3255BFEF95601890AFD80709";
+	window["_c2hh_"] = "1174270EEC99A5AD4AD38152FC976F3C3BE05104";
 	EventBlock.prototype.postInit = function (hasElse/*, prevBlock_*/)
 	{
 		var i, len;
@@ -27979,20 +27979,20 @@ cr.behaviors.solid = function(runtime)
 	behaviorProto.acts = new Acts();
 }());
 cr.getObjectRefTable = function () { return [
-	cr.plugins_.Arr,
-	cr.plugins_.Audio,
 	cr.plugins_.Browser,
 	cr.plugins_.Function,
-	cr.plugins_.gamepad,
 	cr.plugins_.Globals,
 	cr.plugins_.Keyboard,
-	cr.plugins_.NodeWebkit,
-	cr.plugins_.Rex_Comment,
+	cr.plugins_.gamepad,
 	cr.plugins_.Sprite,
 	cr.plugins_.Spritefont2,
-	cr.plugins_.Text,
+	cr.plugins_.NodeWebkit,
+	cr.plugins_.Rex_Comment,
 	cr.plugins_.TiledBg,
+	cr.plugins_.Text,
 	cr.plugins_.Tilemap,
+	cr.plugins_.Audio,
+	cr.plugins_.Arr,
 	cr.behaviors.Platform,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
@@ -28131,6 +28131,9 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.SetY,
 	cr.plugins_.Rex_Comment.prototype.acts.NOOP,
 	cr.behaviors.Platform.prototype.acts.SetMaxFallSpeed,
+	cr.plugins_.Sprite.prototype.acts.SetVisible,
+	cr.plugins_.Sprite.prototype.cnds.IsOutsideLayout,
+	cr.behaviors.Bullet.prototype.acts.SetEnabled,
 	cr.behaviors.Pin.prototype.acts.Unpin,
 	cr.behaviors.Platform.prototype.acts.SetGravity,
 	cr.behaviors.Platform.prototype.acts.SetJumpStrength,
