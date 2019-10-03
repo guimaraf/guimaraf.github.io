@@ -17,6 +17,8 @@
     <link href="assets/css/main.css" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/html2canvas.js"></script>
+	<script src="assets/js/htmlToImage.js"></script>
   </head>
 
   <body>
@@ -35,94 +37,117 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="works/index.html">Meus Jogos</a></li>
-						<li><a href="devlog/index.html">Devlog</a></li>
-						<li><a href="prototipos/index.html">Protótipos</a></li>
-						<li><a href="about.html">Sobre</a></li>
+				<li><a href="devlog/index.html">Devlog</a></li>
+				<li><a href="prototipos/index.html">Protótipos</a></li>
+				<li><a href="about.html">Sobre</a></li>
             <li><a href="contact.html">Contato</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+	</div>
+	
 
 	<!-- +++++ Welcome Section +++++ -->
 	<div id="ww">
 	    <div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2 centered">
-						<img src="assets/img/user.png" class="img-responsive" alt="Fred">
-						<h1>Sobre Fred Oliveira!</h1>
-						<p>Olá sou Frederico Oliveira, atualmente resido na cidade Contagem em Minas Gerais, região metropolitana de Belo Horizonte, sou programador com foco no 
-							desenvolvimento de jogos, tenho experiência com C#, Python, Java Script, um pouco de PHP, utilizo regularmente as ferramentas Unity "desenvolvimento de jogos 2D e 3D", também 
-							utilizo o Construct 2 "que é focado em 2D", excelente para projetos mais simples e prototipar rapidamente.<br> 
-							Tenho jogos publicados na Google Play, Scirra Arcade, Gamejolt, Itch, com expiriência em diversas API das respectivas plataformas, atualmente sou freelancer, com experiência 
-							em publicar jogos na Steam, Apple Store.</br></br>
-							 A minha motivação é a busca pelo conhecimento.</p>
-					
-					</div><!-- /col-lg-8 -->
-				</div><!-- /row -->
-	    </div> <!-- /container -->
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<img src="assets/img/user.png" class="img-responsive" alt="Fred">
+				
+					<div id="htmltoimage" >
+						<h1>Sobre Frederico Oliveira!</h1>
+						<p>
+							Olá sou Frederico Oliveira, resido na cidade Contagem em Minas Gerais, região metropolitana de Belo Horizonte, sou programador apaixonado por tecnologia, me dedico para  
+							desenvolvimento de jogos, tenho experiência com as game engines <a href="https://www.scirra.com/construct2" target="_blank" >Construct 2</a> 
+							"minha primeira <a href="https://producaodejogos.com/game-engine/" target="_blank" >Game Engine</a>, que é focada em jogos 2D" 
+							e <a href="https://unity.com/pt" target="_blank" >Unity</a> engine mais moderna com possibilidade de desenvolver 2D ou 3D. <br> 
+							
+							Linguagens de programação que tenho conhecimento são C#, Python, Java Script e PHP.<br><br>
+								
+							Tenho um pequeno estúdio indie, publiquei meu primeiro jogo na Steam <a href="https://store.steampowered.com/app/659060/Omega_Racers/" target="_blank" >Omega Racers</a>, 
+							utilizando a Game Engine Unity.<br>
+
+							Conheça alguns dos meus jogos publicados na <a href="https://play.google.com/store/apps/developer?id=Chronos+Games+Studio" target="_blank" >Google Play</a>, tenho jogos em sites 
+							dedicados a jogos indies como <a href="https://gamejolt.com/@guimaraf/games" target="_blank" >Gamejolt</a>, <a href="https://guimaraf.itch.io/" target="_blank" >Itch.io</a>,
+							<a href="https://www.construct.net/en/free-online-games/profile/chronos-game-studio-156846" target="_blank" >Construct Arcade</a>.<br><br>
+
+							Participo de alguns projetos que estão no <a href="https://github.com/guimaraf" target="_blank" >Github</a>.
+						</p>
+						
+						<h4>MINHAS SKILLS</h4>
+						<h4>Programação</h4>
+
+						<b>C#</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;" title="70%">
+								<span class="sr-only">70% Complete</span >
+							</div>
+						</div>
+		
+						<b>Python</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 70%;" title="70%">
+								<span class="sr-only">70% Complete</span>
+							</div>
+						</div>
+		
+						<b>HTML + CSS</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 75%;" title="75%">
+								<span class="sr-only">75% Complete</span>
+							</div>
+						</div>
+
+						<b>PHP</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 40%;" title="40%">
+								<span class="sr-only">40% Complete</span>
+							</div>
+						</div>
+						
+						<h4>Game Engines</h4>
+						<b>Construct 2</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 95%;" title="95%">
+								<span class="sr-only">95% Complete</span>
+							</div>
+						</div>
+		
+						<b>Unity 3D</b>
+						<div class="progress">
+							<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 65%;" title="65%">
+								<span class="sr-only">65% Complete</span>
+							</div>
+						</div>
+
+					</div>
+					<br>
+					<p>A minha motivação é a busca pelo conhecimento.</p>
+					<br>
+				
+					<button onclick="downloadimage()" type="button" class="btn btn-primary btn-lg btn-block">Exportar como imagem</button>
+				</div></col-lg-8>
+		</div> <!--/container-->
+		
 	</div><!-- /ww -->
 	
 	<!-- +++++ Information Section +++++ -->
 	
-	<div class="container pt">
+	<!--div class="container pt">
 		
 		<div class="row mt">
 			<div class="col-lg-6">
 				<h4>Apoie o meu trabalho</h4>
-				<p>Quantas chícaras de café eu preciso tomar para terminar este código?</p>
-
-				<!----img src="assets/img/apoio/bitcoin.svg" width="12%" height="12%" class="img-responsive" alt="bitcoin"> 
-				<br>
-				<b>end: </b> 1ALADiugbmLHbYtGPU1ohpv7JhowZeVNds 
-				<br>
-				<img src="assets/img/apoio/litecoin.svg" width="12%" height="12%" class="img-responsive" alt="litecoin">
-				<br> 
-				<b>end: </b> Le2uYUsE8L95XEd9vns4BX9eMKQKnwj6sW
-				-->
+				<img src="assets/img/apoio/bitcoin.svg" width="10%" height="10%" class="img-responsive" alt="bitcoin"> 
+				<b>Carteira: </b> 1ALADiugbmLHbYtGPU1ohpv7JhowZeVNds 
+				<br><br>
+				
+				<img src="assets/img/apoio/litecoin.svg" width="10%" height="10%" class="img-responsive" alt="litecoin">
+				<b>Carteira: </b> Le2uYUsE8L95XEd9vns4BX9eMKQKnwj6sW
 			</div>
 			<!-- /colg-lg-6 -->
 			
-			<!--div class="col-lg-6">
-				<h4>MINHAS SKILLS</h4>
-				<h4>Programação</h4>
-				<b>C#</b>
-				<div class="progress">
-					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;" title="60%">
-						<span class="sr-only">60% Complete</span >
-					</div>
-				</div>
-
-				<b>Python</b>
-				<div class="progress">
-					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 70%;" title="70%">
-						<span class="sr-only">70% Complete</span>
-					</div>
-				</div>
-
-				<b>HTML + CSS</b>
-				<div class="progress">
-					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 75%;" title="75%">
-						<span class="sr-only">75% Complete</span>
-					</div>
-				</div>
-				
-				<h4>Game Engines</h4>
-				<b>Construct 2</b>
-				<div class="progress">
-					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 95%;" title="95%">
-						<span class="sr-only">95% Complete</span>
-					</div>
-				</div>
-
-				<b>Unity 3D</b>
-				<div class="progress">
-					<div class="progress-bar progress-bar-theme" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 45%;" title="45%">
-						<span class="sr-only">45% Complete</span>
-					</div>
-				</div-->
-
-			</div><!-- /col-lg-6 -->
+			
 		</div><!-- /row -->
 	</div><!-- /container -->
 	
@@ -161,6 +186,6 @@
 		</div>
 	</div>
 	
-    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
