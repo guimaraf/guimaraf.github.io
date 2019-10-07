@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1569968305,
+	"version": 1570472550,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -100,11 +100,11 @@
 		"images/hudbarnew-sheet1.png",
 		"images/hudheart-sheet0.png",
 		"images/hudheart-sheet1.png",
-		"images/hudheart-sheet2.png",
 		"images/shadow-sheet0.png",
 		"images/tree-sheet0.png",
 		"images/tree-sheet1.png",
 		"images/tree-sheet2.png",
+		"images/landeffect2-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
