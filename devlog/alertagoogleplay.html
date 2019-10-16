@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../assets/img/icon.ico">
+
+    <title>Novo alerta de segurança da Google Play</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">FRED OLIVEIRA</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../works/index.html">Meus Jogos</a></li>
+            <li><a href="index.html">Devlog</a></li>
+            <li><a href="../prototipos/index.html">Protótipos</a></li>
+            <li><a href="../about.html">Sobre</a></li>
+            <li><a href="../contact.html">Contato</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Post +++++ -->
+	<div id="white">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<p><img src="../assets/img/user.png" width="50px" height="50px"> <ba>Fred Oliveira</ba></p>
+					<p><bd>16 de Outubro, 2019</bd></p>
+          <center><h2>Alerta de segurança</h2></center>
+          <center><img src="../assets/img/devlog/errojs1.png" width="100%" height="100%" title="Alerta da Google Play"></center>
+
+          <br>
+          <br>
+
+          <p>
+            A cada nova geração do sistema operacional da Google, o Android, várias políticas são atualizadas, desta vez a Google começou a emitir um alerta sobre um 
+            arquivo js nos projetos Cordova, veja na imagem abaixo.
+          </p>
+
+          <center><img src="../assets/img/devlog/errojs2.png" width="70%" height="70%" title="Descrição do alerta na Google Play"></center>
+
+          <br>
+
+          <h4>Mas o que é este arquivo?</h4>
+
+          <p>
+            jQuery é uma biblioteca de funções JavaScript que interage com o HTML, desenvolvida para simplificar os scripts interpretados no navegador do cliente. 
+            Usada por cerca de 74.4% dos 10 mil sites mais visitados do mundo, jQuery é a mais popular das bibliotecas JavaScript. 
+            <br>
+            Para entender com maiores detalhes sobre a biblioteca, <a href="https://www.devmedia.com.br/jquery-tutorial/27299" target="_blank">saiba mais sobre o jquey</a>.
+          </p>
+
+          <p>
+            Como podem ver, essa é uma biblioteca que sempre é copiada para a pasta <b>www</b> do seu projeto quando exportado, porém a versão utilizada pelo 
+            Construct 2, mesmo na estável mais atual é <b>jquery-2.1.1.min.js</b>, sendo que a biblioteca já se encontra na versão <b>3.4.1</b>.
+            <br>
+            A solução neste caso é baixar a biblioteca mais atualizada e colocar dentro da pasta www do seu projeto. 
+            <br>
+            Baixe a biblioteca mais recente no site oficial do projeto <a href="https://jquery.com" target="_blank">jquery</a>.
+          </p>
+          
+          <center><img src="../assets/img/devlog/errojs3.png" width="40%" height="40%" title="Estrutura básica do diretório www do projeto"></center>
+
+          <br>
+
+          <p>
+            Essa é uma estrutura básica da pasta <b>www</b> de um projeto cordova <b>outras exportações também utilizam esta estrutura</b> quando exportado pelo Contruct 2.
+            <br>
+             Como podem ver, o arquivo <b>jquery-2.1.1.min.js</b> está presente. 
+            <br>
+            Com o jquery mais recente baixado, copie o arquivo para a sua pasta <b>www</b>, pode deletar a versão mais antiga, sem problemas.
+          </p>
+
+          <center><img src="../assets/img/devlog/errojs4.png" width="40%" height="40%" title="Estrutura básica do diretório www do projeto"></center>
+
+          <p>
+            O próximo passo é alterar a linha <b>index.html</b> que está chamando a <b>2.1.1</b> e atualizar para a versão mais recente <b>3.4.1</b>
+          </p>
+
+          <center><img src="../assets/img/devlog/errojs5.png" width="100%" height="100%" title="Código que devemos alterar"></center>
+
+          <br>
+
+          <p>
+            Usando algum editor de código, aparece as linhas numeradas, neste caso o que precisamos alterar está na linha 61, recomendo muito usar 
+            editores de código, pois eles melhoram muito a produtividade.
+          </p>
+
+          <center><img src="../assets/img/devlog/errojs6.png" width="100%" height="100%" title="Código alterado"></center>
+
+          <br>
+
+          <p>
+            Como podem ver, o processo é bem simples, pode buidar seu aplicativo e fazer um novo upload para a loja.
+            <br>
+
+            Se precisar de outros tutoriais, clique no voltar logo abaixo.
+          </p>
+
+           <br>
+					<hr>
+					<p><a href="../devlog/index.html">Voltar</a></p>
+				</div>
+
+			</div><!-- /row -->
+      </div> <!-- /container -->
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Meu Forte</h4>
+					<p>
+						Contagem,<br/>
+						Minas Gerais, <br/>
+						Brasil.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Meus Links</h4>
+					<p>
+						<a href="https://www.linkedin.com/in/guimaraf/" target="_blank">Linkedin</a><br/>
+						<a href="https://twitter.com/guimaraf1" target="_blank">Twitter</a><br/>
+						<a href="https://www.facebook.com/guimaraf" target="_blank" >Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>Sobre Fred Oliveira</h4>
+          <p>Quanto mais café eu bebo, melhor programador eu me torno.</p>
+          
+          <h4>Contato</h4>
+					<a href="mailto:guimaraf@gmail.com" >guimaraf@gmail.com</a>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		</div>
+	</div>
+	
+  <script src="../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
