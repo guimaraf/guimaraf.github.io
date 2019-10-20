@@ -27736,45 +27736,6 @@ cr.behaviors.Sin = function(runtime)
 }());
 ;
 ;
-cr.behaviors.destroy = function(runtime)
-{
-	this.runtime = runtime;
-};
-(function ()
-{
-	var behaviorProto = cr.behaviors.destroy.prototype;
-	behaviorProto.Type = function(behavior, objtype)
-	{
-		this.behavior = behavior;
-		this.objtype = objtype;
-		this.runtime = behavior.runtime;
-	};
-	var behtypeProto = behaviorProto.Type.prototype;
-	behtypeProto.onCreate = function()
-	{
-	};
-	behaviorProto.Instance = function(type, inst)
-	{
-		this.type = type;
-		this.behavior = type.behavior;
-		this.inst = inst;				// associated object instance to modify
-		this.runtime = type.runtime;
-	};
-	var behinstProto = behaviorProto.Instance.prototype;
-	behinstProto.onCreate = function()
-	{
-	};
-	behinstProto.tick = function ()
-	{
-		this.inst.update_bbox();
-		var bbox = this.inst.bbox;
-		var layout = this.inst.layer.layout;
-		if (bbox.right < 0 || bbox.bottom < 0 || bbox.left > layout.width || bbox.top > layout.height)
-			this.runtime.DestroyInstance(this.inst);
-	};
-}());
-;
-;
 cr.behaviors.jumpthru = function(runtime)
 {
 	this.runtime = runtime;
@@ -27981,38 +27942,88 @@ cr.behaviors.solid = function(runtime)
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Audio,
 	cr.plugins_.Arr,
+	cr.plugins_.Tilemap,
+	cr.plugins_.Text,
+	cr.plugins_.TiledBg,
 	cr.plugins_.Browser,
 	cr.plugins_.Function,
-	cr.plugins_.Keyboard,
-	cr.plugins_.Globals,
 	cr.plugins_.gamepad,
+	cr.plugins_.Globals,
+	cr.plugins_.Keyboard,
+	cr.plugins_.NodeWebkit,
 	cr.plugins_.Rex_Comment,
 	cr.plugins_.Sprite,
 	cr.plugins_.Spritefont2,
-	cr.plugins_.NodeWebkit,
-	cr.plugins_.Tilemap,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Text,
 	cr.behaviors.Platform,
 	cr.behaviors.Pin,
 	cr.behaviors.Bullet,
 	cr.behaviors.solid,
-	cr.behaviors.destroy,
 	cr.behaviors.jumpthru,
 	cr.behaviors.scrollto,
 	cr.behaviors.Sin,
 	cr.behaviors.Fade,
-	cr.system_object.prototype.cnds.OnLayoutStart,
-	cr.system_object.prototype.acts.SetTimescale,
+	cr.system_object.prototype.cnds.IsGroupActive,
+	cr.plugins_.Sprite.prototype.cnds.IsOnScreen,
+	cr.system_object.prototype.cnds.Every,
+	cr.plugins_.Sprite.prototype.cnds.CompareInstanceVar,
+	cr.plugins_.Sprite.prototype.cnds.IsAnimPlaying,
+	cr.plugins_.Sprite.prototype.acts.SubInstanceVar,
+	cr.system_object.prototype.cnds.TriggerOnce,
+	cr.plugins_.Sprite.prototype.acts.SetAnim,
+	cr.plugins_.Sprite.prototype.cnds.OnAnimFinished,
+	cr.system_object.prototype.acts.Wait,
 	cr.plugins_.Sprite.prototype.acts.Spawn,
+	cr.behaviors.Bullet.prototype.acts.SetAngleOfMotion,
+	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
+	cr.plugins_.Sprite.prototype.cnds.OnCollision,
+	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
+	cr.behaviors.scrollto.prototype.acts.Shake,
+	cr.plugins_.Audio.prototype.acts.PlayByName,
+	cr.system_object.prototype.acts.SetTimescale,
+	cr.plugins_.Sprite.prototype.acts.SetEffectParam,
+	cr.plugins_.Sprite.prototype.acts.Destroy,
+	cr.system_object.prototype.acts.RestartLayout,
+	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
+	cr.plugins_.Sprite.prototype.cnds.OnCreated,
+	cr.plugins_.Sprite.prototype.acts.StopAnim,
+	cr.behaviors.Platform.prototype.acts.SetEnabled,
+	cr.plugins_.Function.prototype.cnds.OnFunction,
+	cr.plugins_.Sprite.prototype.cnds.PickByUID,
+	cr.plugins_.Function.prototype.exps.Param,
+	cr.plugins_.TiledBg.prototype.cnds.PickByUID,
+	cr.plugins_.TiledBg.prototype.acts.SetWidth,
+	cr.plugins_.TiledBg.prototype.exps.UID,
+	cr.plugins_.TiledBg.prototype.acts.SetVisible,
+	cr.plugins_.Sprite.prototype.acts.SetVisible,
+	cr.plugins_.Sprite.prototype.acts.SetY,
+	cr.plugins_.Sprite.prototype.exps.Y,
+	cr.plugins_.Sprite.prototype.exps.Height,
+	cr.plugins_.TiledBg.prototype.acts.Destroy,
+	cr.behaviors.Platform.prototype.cnds.OnLand,
+	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
+	cr.behaviors.Bullet.prototype.acts.SetSpeed,
+	cr.behaviors.Bullet.prototype.acts.SetGravity,
+	cr.plugins_.Sprite.prototype.cnds.IsMirrored,
+	cr.system_object.prototype.cnds.Else,
+	cr.system_object.prototype.cnds.ForEach,
+	cr.plugins_.Sprite.prototype.cnds.CompareX,
+	cr.plugins_.Sprite.prototype.exps.X,
+	cr.plugins_.Sprite.prototype.acts.SetMirrored,
+	cr.plugins_.Sprite.prototype.cnds.IsOutsideLayout,
+	cr.behaviors.Bullet.prototype.acts.SetEnabled,
+	cr.plugins_.Function.prototype.acts.CallFunction,
+	cr.system_object.prototype.exps.distance,
+	cr.plugins_.Sprite.prototype.exps.UID,
 	cr.plugins_.Sprite.prototype.acts.SetPosToObject,
 	cr.behaviors.Pin.prototype.acts.Pin,
+	cr.plugins_.Sprite.prototype.acts.MoveToBottom,
+	cr.plugins_.Sprite.prototype.acts.SetX,
+	cr.system_object.prototype.cnds.OnLayoutStart,
 	cr.plugins_.Sprite.prototype.acts.MoveToTop,
 	cr.behaviors.Platform.prototype.acts.SetMaxSpeed,
 	cr.behaviors.Platform.prototype.acts.SetAcceleration,
 	cr.behaviors.Platform.prototype.acts.SetDeceleration,
 	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
-	cr.plugins_.Function.prototype.acts.CallFunction,
 	cr.plugins_.Spritefont2.prototype.acts.SetText,
 	cr.plugins_.Spritefont2.prototype.exps.UID,
 	cr.plugins_.Spritefont2.prototype.exps.Text,
@@ -28022,84 +28033,43 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Spritefont2.prototype.exps.Opacity,
 	cr.plugins_.TiledBg.prototype.acts.SetOpacity,
 	cr.plugins_.Globals.prototype.acts.SetBoolInstanceVar,
-	cr.plugins_.Function.prototype.cnds.OnFunction,
 	cr.system_object.prototype.acts.CreateObject,
-	cr.plugins_.Function.prototype.exps.Param,
 	cr.plugins_.Sprite.prototype.cnds.CompareY,
 	cr.system_object.prototype.exps.layoutheight,
 	cr.plugins_.Spritefont2.prototype.cnds.IsOnScreen,
-	cr.system_object.prototype.cnds.Every,
 	cr.system_object.prototype.exps.dt,
 	cr.plugins_.Spritefont2.prototype.acts.SetY,
 	cr.plugins_.Spritefont2.prototype.exps.Y,
-	cr.plugins_.TiledBg.prototype.acts.SetWidth,
 	cr.plugins_.TiledBg.prototype.cnds.CompareWidth,
-	cr.system_object.prototype.cnds.IsGroupActive,
-	cr.plugins_.Sprite.prototype.cnds.CompareInstanceVar,
-	cr.plugins_.Sprite.prototype.cnds.IsBoolInstanceVarSet,
 	cr.plugins_.Globals.prototype.cnds.IsBoolInstanceVarSet,
 	cr.behaviors.Platform.prototype.cnds.IsOnFloor,
 	cr.plugins_.Keyboard.prototype.cnds.IsKeyDown,
 	cr.plugins_.gamepad.prototype.cnds.IsButtonDown,
 	cr.behaviors.Platform.prototype.cnds.IsByWall,
 	cr.behaviors.Platform.prototype.acts.SimulateControl,
-	cr.plugins_.Sprite.prototype.acts.SetMirrored,
-	cr.plugins_.Sprite.prototype.acts.SetBoolInstanceVar,
 	cr.plugins_.Sprite.prototype.cnds.IsOverlapping,
 	cr.behaviors.Platform.prototype.cnds.IsFalling,
 	cr.plugins_.Sprite.prototype.acts.SetHeight,
-	cr.behaviors.Platform.prototype.cnds.OnLand,
 	cr.behaviors.Platform.prototype.cnds.IsJumping,
 	cr.plugins_.Sprite.prototype.acts.AddInstanceVar,
 	cr.behaviors.Platform.prototype.cnds.OnJump,
-	cr.plugins_.Audio.prototype.acts.PlayByName,
 	cr.behaviors.Platform.prototype.cnds.CompareSpeed,
-	cr.plugins_.Sprite.prototype.acts.SetAnim,
-	cr.system_object.prototype.cnds.TriggerOnce,
 	cr.behaviors.Platform.prototype.exps.VectorY,
-	cr.plugins_.Sprite.prototype.cnds.OnAnimFinished,
-	cr.behaviors.Platform.prototype.acts.SetEnabled,
-	cr.plugins_.Sprite.prototype.acts.StopAnim,
-	cr.plugins_.Sprite.prototype.cnds.IsMirrored,
 	cr.plugins_.Sprite.prototype.acts.SetPos,
-	cr.plugins_.Sprite.prototype.exps.X,
-	cr.plugins_.Sprite.prototype.exps.Y,
-	cr.system_object.prototype.acts.Wait,
-	cr.system_object.prototype.acts.RestartLayout,
-	cr.plugins_.Sprite.prototype.cnds.IsAnimPlaying,
-	cr.plugins_.Sprite.prototype.cnds.CompareFrame,
 	cr.plugins_.Sprite.prototype.cnds.IsOverlappingOffset,
-	cr.system_object.prototype.cnds.Else,
-	cr.plugins_.Sprite.prototype.acts.SetInstanceVar,
-	cr.plugins_.Sprite.prototype.acts.Destroy,
 	cr.plugins_.Sprite.prototype.cnds.OnAnyAnimFinished,
-	cr.plugins_.Sprite.prototype.cnds.OnCreated,
-	cr.plugins_.Sprite.prototype.acts.SetVisible,
-	cr.plugins_.Sprite.prototype.cnds.OnCollision,
-	cr.plugins_.Sprite.prototype.exps.Height,
 	cr.behaviors.Platform.prototype.acts.SetVectorY,
 	cr.behaviors.Platform.prototype.exps.JumpStrength,
-	cr.plugins_.Sprite.prototype.cnds.PickByUID,
-	cr.plugins_.Sprite.prototype.acts.SubInstanceVar,
-	cr.plugins_.Sprite.prototype.acts.SetEffectParam,
-	cr.behaviors.scrollto.prototype.acts.Shake,
-	cr.plugins_.Sprite.prototype.exps.UID,
 	cr.behaviors.solid.prototype.acts.SetEnabled,
 	cr.plugins_.Sprite.prototype.acts.SetCollisions,
 	cr.behaviors.Platform.prototype.cnds.OnFall,
 	cr.system_object.prototype.exps["int"],
-	cr.system_object.prototype.exps.distance,
 	cr.plugins_.Sprite.prototype.exps.Width,
 	cr.plugins_.Sprite.prototype.cnds.CompareHeight,
 	cr.behaviors.Platform.prototype.acts.SetVectorX,
 	cr.plugins_.Sprite.prototype.acts.SetSize,
 	cr.system_object.prototype.exps.random,
-	cr.behaviors.Bullet.prototype.acts.SetGravity,
-	cr.behaviors.Bullet.prototype.acts.SetSpeed,
-	cr.behaviors.Bullet.prototype.acts.SetAngleOfMotion,
 	cr.system_object.prototype.exps.choose,
-	cr.system_object.prototype.cnds.ForEach,
-	cr.plugins_.Sprite.prototype.acts.MoveToBottom,
 	cr.plugins_.Sprite.prototype.exps.Count,
 	cr.plugins_.Keyboard.prototype.cnds.IsKeyCodeDown,
 	cr.plugins_.Keyboard.prototype.cnds.OnKey,
@@ -28115,7 +28085,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Keyboard.prototype.cnds.OnAnyKey,
 	cr.system_object.prototype.acts.GoToLayoutByName,
 	cr.plugins_.gamepad.prototype.cnds.OnButtonDown,
-	cr.plugins_.Sprite.prototype.acts.SetX,
 	cr.system_object.prototype.exps.lerp,
 	cr.plugins_.Arr.prototype.cnds.CompareInstanceVar,
 	cr.plugins_.Arr.prototype.acts.SubInstanceVar,
@@ -28127,16 +28096,9 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.acts.SetLayoutEffectParam,
 	cr.system_object.prototype.exps.tokenat,
 	cr.system_object.prototype.acts.SetLayoutEffectEnabled,
-	cr.plugins_.Sprite.prototype.acts.SetOpacity,
-	cr.plugins_.Sprite.prototype.cnds.IsOnScreen,
-	cr.plugins_.Sprite.prototype.cnds.CompareX,
-	cr.plugins_.Sprite.prototype.acts.SetY,
-	cr.plugins_.Rex_Comment.prototype.acts.NOOP,
-	cr.behaviors.Platform.prototype.acts.SetMaxFallSpeed,
-	cr.plugins_.Sprite.prototype.cnds.IsOutsideLayout,
-	cr.behaviors.Bullet.prototype.acts.SetEnabled,
 	cr.behaviors.Pin.prototype.acts.Unpin,
 	cr.behaviors.Platform.prototype.acts.SetGravity,
+	cr.behaviors.Platform.prototype.acts.SetMaxFallSpeed,
 	cr.behaviors.Platform.prototype.acts.SetJumpStrength,
 	cr.plugins_.Sprite.prototype.acts.SetAnimSpeed,
 	cr.plugins_.Sprite.prototype.exps.Angle,
