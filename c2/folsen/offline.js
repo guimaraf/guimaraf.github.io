@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1577879973,
+	"version": 1578144875,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -121,6 +121,7 @@
 		"images/hudstamina-sheet1.png",
 		"images/hudstamina-sheet2.png",
 		"images/hudstaminabg-sheet0.png",
+		"images/portrait-sheet0.png",
 		"images/cloud1.png",
 		"images/cloud2.png",
 		"images/cloud3.png",
@@ -178,6 +179,7 @@
 		"images/sprite-sheet0.png",
 		"images/sprite-sheet1.png",
 		"images/sprite-sheet2.png",
+		"images/exampleexport-sheet0.png",
 		"media/explosion.m4a",
 		"media/explosion.ogg",
 		"media/jump.m4a",
