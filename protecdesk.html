@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como proteger seus assets Build PC</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Como proteger seus assets Build PC</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre 
+                                <a class="post-category post-category-design" href="#">Construct 2</a>
+                                <br><b>13 de agosto de 2017</b>
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                            <p>
+                                <img alt="" class="pure-img-responsive" src="img/protectdesk/estruturaArquivos.jpg">
+                            </p>
+                
+                            <p>
+                                Como podem ver na imagem acima, é a estrutura da build windows de projetos do Construct 2, quando enviamos o nosso jogo para a Steam ou até 
+                                mesmo distribuimos o nosso jogo em sites como <a href="https://itch.io/" target="_blank" title="Site oficial">Itch.io</a>, 
+                                <a href="https://gamejolt.com/" target="_blank" title="Site oficial">Gamejolt</a>, etc, normalmente não utilizarmos alguma proteção dos 
+                                dados, caso não saiba o arquivo <b>package.nw</b>, é apenas os assets do seu jogo compactados, onde facilmente pode ser modificando para 
+                                a extenção <b>.rar</b> ou <b>.zip</b>, sendo possível abrir o arquivo ou extrair, dando acesso a todos os assets do projeto. </br>
+                                Em uma conversa com o amigo <a href="https://www.facebook.com/deco.monteiro.77" target="_blank">Deco Monteiro</a>, ele me apresentou 
+                                uma alternativa simples utlizando um script <a href="https://pt.wikipedia.org/wiki/Batch" target="_blank" title="O que é um arquivo Batch?">Batch</a> 
+                                em batch para proteger os arquivos jogo, este que estou abordando neste devlog.</br></br>
+                    
+                                Será abordado apenas a proteção para a build Windows.</br>
+                    
+                                Como no <a href="tskill.html" title="Clique para ler">Devlog "Matar processo do NW.exe"</a> o processo para criar o script é bem simples, copie 
+                                o conteúdo texto abaixo que está dentro quadro, cole em um bloco de notas, escolha a opção <b>Salvar Como...</b>, na próxima janela, existem 2 
+                                opções, <b>Nome do Arquivo</b> e <b>Tipo</b> escolha <b>Tipo</b> e depois a opção <b>Todos os arquivos</b>, agora mude a 
+                                extenção de <b>.txt</b> para <b>.bat</b>, feito isso basta colocar o arquivo na pasta onde está os arquivos da build do projeto e executar.</br></br>
+                    
+                                <img src="img/protectdesk/notepad.jpg" class="img-responsive" width="80%" height="80%" title="Salvando arquivo bat"></br></br>
+                    
+                                Após executar o <b>batch</b> será gerado um novo arquivo com o nome <b>renomeieSeuJogo.exe</b>, que é auto sugestivo, este arquivo 
+                                contém o <b>nw.exe</b> + <b>package.nw</b> compilados para apenas um 
+                                <a href="https://pt.wikipedia.org/wiki/Arquivo_binário" target="_blank" title="O que é um arquivo binário?">arquivo binário</a>, desta 
+                                forma seus arquivos agora tem uma camada de proteção, também foi criado uma pasta chamada <b>backup</b> e movido os arquivos que foram 
+                                usados no processo, também foi criado junto um arquivo .txt contendo instruções caso seu jogo não funcione.
+                    
+                                Como podem perceber, este script é bem simples, se comparado com o <a href="tskill.html" title="Clique para ler">Devlog "Matar processo do NW.exe"</a>.
+                              </p>
+                            
+                              <pre>
+                                <code data-language="shell">echo off
+                                    
+md backup
+copy /b nw.exe+package.nw renomeieSeuJogo.exe
+                                                
+move nw.exe backup
+move package.nw backup
+                                                
+copy NUL ajuda.txt
+                                                
+echo Foi gerado um novo arquivo, agora colocando uma camada de protecao ao seus assets. > ajuda.txt
+echo Tambem foi criado uma pasta com o nome backup, para guardar os arquivos antigos, caso tenha algum problema no processo. >> ajuda.txt
+echo Agora basta apenas renomear o arquivo "renomeieSeuJogo.exe", pode distribuir. >> ajuda.txt
+echo Script criado por Fred Oliveira. >> ajuda.txt
+move ajuda.txt backup
+timeout / 3
+exit</code></pre>
+                        
+                        <p><b>Explicação do código acima</b></p>
+                        
+                            <p>
+                            <b>echo off</b>, serve para ocultar o caminho da pasta, exemplo c:/user/pc/desktop/</br>
+                            <b>md backup</b>, o comando "MD" cria uma "diretório" backup é o nome dado.</br>
+                            <b>copy /b nw.exe+package.nw renomeieSeuJogo.exe</b>, aqui é onde a mágica acontece, "copy" é o comando para copiar arquivos em propt comando, o parâmetro "/b"
+                            indica que será um arquivo binário, o parâmetro "nw.exe+package.nw" é a indicação dos arquivos que serão copiados para o novo arquivo binário, por fim 
+                            "renomeieSeuJogo.exe", é o nome do binário criado, sendo também sugestivo para alteração posterior.</br>
+                            <b>move nw.exe backup</b>, "move" similar ao comando "copy", porém o move só vai mover o arquivo para o diretório escolhido no parâmetro, neste caso "backup".</br>
+                            <b>move package.nw backup</b>, move o arquivo "package.nw" para a pasta "backup".</br>
+                            <b>copy NUL ajuda.txt</b>, vai criar um arquivo com o nome ajuda.txt vazio, ainda no mesmo diretório da build.</br>
+                            <b>echo... </b>, As próximas 4 linhas "echo", é exibido um texto na tela, depois o comando "> ajuda.txt", envia o que apareceu na tela para o arquivo "ajuda.txt"</br>
+                                         
+                            <b>move ajuda.txt backup</b>, move o arquivo "ajuda.txt" para o diretório "backup".</br>
+                            <b>timeout / 3</b>, vai aparecer uma contagem regressiva começando em 3, serve apenas para que possa ver os processos executados no script, caso queira pode remover ela.</br>
+                            <b>exit</b>, termina a execução do script e fecha a tela.</br>
+                          </p>
+
+                            
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+</body>
+</html>

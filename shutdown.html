@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desliga o PC</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="projects.html" class="pure-menu-link">Projects</a>
+                </li>
+                <li class="pure-menu-item"><a href="devlog.html" class="pure-menu-link">Devlog</a></li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Desliga o PC</h1>
+        </div>
+
+        <div class="content">
+
+            <div>
+                <img class="pure-img" src="img/shutdown/shutdown01.jpg" alt="">
+            </div>
+
+            <h2 class="content-subhead">Sobre o programa</h2>
+
+            <p>O objetivo era criar um programa que desligue o PC em um tempo pré estabelecido, existem diversas soluções no mercado, porém eu 
+                queria estudar a linguagem C#, junto com Windows Form no Virual Studio, última versão feita na versão mais atual da 
+                ferramenta a versão 2017.
+            </p>
+            <p>Atualmente possui os recursos, desligar, hibernar o computador por contagem de tempo regressiva, desligar, hibernar e reiniciar 
+                diretamente, tradução para Inglês, sub-menus.</br> No momento estou satisfeito com o resultado alcançado, também resolvi 
+                disponibilizar o código fonte no Github, <b>"no final da página"</b> para quem quiser.
+            </p>
+
+            <h2 class="content-subhead">Configuração de hibernação do Windows</h2>
+
+            <p>Um problema comum no uso deste programa, acontece quando não tenha feito nenhuma configuração de energia do equipamento, ele 
+                pode despetar com um simples movimento do mouse ou apertar de alguma tecla no telado. Isso acontece pois na configuração 
+                padrão do Windows é permitir despertadores, para modificar veja no link abaixo as instruções.<br/>
+                <a class="teste" href="https://www.tecmundo.com.br/windows-7/5033-dicas-do-windows-7-impeca-programas-de-acordarem-seu-computador.htm" 
+                target="_blank" >Como alterar a configuração no Windows 7</a><br/><br/>
+                Algumas configurações adicionais sobre gerenciamento de energia no Windows.<br/>
+                <a class="teste" href="https://support.hp.com/br-pt/document/c01894414" 
+                target="_blank" >Configuração de energia avançado</a>
+            </p>
+            
+            <h2 class="content-subhead">Recursos Atuais</h2>
+            <p>
+                - Desligar, Hibernar e Resetar o PC. <br>
+                - Tradução para Inglês e Português.<br>
+            </p>
+                
+            <h2 class="content-subhead">Disponível em</h2>
+
+            <div class="pure-g">
+                <p>
+                    <a class="teste" href="https://github.com/guimaraf/desligaPC/releases/download/v1.8/Desligar.zip" target="_blank" 
+                    title="Download On Google Play"><img class="downloads" src="img/sites/downFile.png" alt="" /></a>
+                    
+            </div>
+            <bt>Designer e Programação: Fred Oliveira</bt>
+            <div class="pure-g">
+                <p>
+                    <a class="teste" href="https://github.com/guimaraf/desligaPC/archive/v1.8.zip" target="_blank" 
+                    title="Download do código fonte .zip"><img class="downloads" src="img/sites/source.png" alt="" /></a></p>
+            </div>
+            <bt>Faça download do código no Github</bt>
+            <br>
+        </div>
+    </div>
+</div>
+
+<script src="js/ui.js"></script>
+
+</body>
+</html>

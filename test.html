@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frederico Oliveira - Contact</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+        
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Frederico Oliveira</h1>
+        </div>
+
+        <div class="content">
+            <p><b>Java Script code</b></p>
+            <pre>
+                <code data-language="javascript">function DisplayScore()
+ {
+    document.getElementById("right").innerHTML = correct;
+    document.getElementById("wrong").innerHTML = errorcharacterList;
+    document.getElementById("sequence").innerHTML = hitSequence;
+ }</code>
+</pre>
+
+    <p><b>Python Example</b></p>
+
+    <pre>
+        <code data-language="python">def openFile(path):
+    file = open(path, "r")
+    content = file.read()
+    file.close()
+    return content</code>
+</pre>
+
+    <p><b>C# example</b></p>
+    <pre>
+        <code data-language="csharp">using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        Console.WriteLine("Hello World!");    
+        }
+    }
+}</code>
+</pre>
+
+    <p><b>Shell example</b></p>
+    <pre>
+        <code data-language="shell">@echo off 
+set proceso=nw.exe
+            
+tasklist>%tmp%\tmp.txt 
+find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp
+            
+if errorlevel==1 (
+    color C 
+    echo Nao foi encotrado o "%proceso%" no sistema
+    timeout /t 3
+)
+            
+for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do ( 
+    color a 
+    cls 
+    tskill %%p
+    echo Finalizado o NW.Exe com sucesso
+    timeout /t 3
+    exit
+)</code></pre></div>
+
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+</body>
+</html>

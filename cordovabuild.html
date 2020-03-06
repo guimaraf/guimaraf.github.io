@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar título devlog</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+    <link rel="stylesheet" href="css/spoiler.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Construct 2 - Trabalhando com Cordova CLI</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre
+                                <a class="post-category post-category-design" href="#">Construct 2</a>
+                                <br><b>06 de fevereiro de 2018</b>
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                           <p>
+                               <center>
+                                  <a class="zoom green" href="cordovacliandroid.html" >
+                                    <img alt="" class="pure-img-responsive" src="img/cordovaCLI/cordova.png">
+                                  </a>
+                               </center>
+
+                               Após o encerramento do serviço de criação de APK pelo 
+                               <a href="https://software.intel.com/en-us/xdk/docs/lp-build" target="_blank" title="Link onde a intel se pronunciou sobre o assunto">Intel XDK,</a> 
+                               muitas pessoas tiveram sérios problemas com seus projetos, já que o Intel XDK era considerado por muitos o que fornecia o melhor serviço, 
+                               <a href="https://cocoon.io" target="_blank" title="Site oficial da Ludei para compilar seus projetos utilizando o Cocoon">Cocoon</a> 
+                               da empresa Ludei, fornece também um excelente serviço "geração de APK", porém com a obrigatoriedade da splash da empresa no início do 
+                               aplicativo, sendo necessário pagar uma taxa de $500(quinhentos dólares americanos) para remover, limite de 2 projetos por conta, e alguns detalhes 
+                               técnicos que me fez perter qualquer afinidade com o serviço. Existe ainda uma terceira opção, 
+                               <a href="https://build.phonegap.com/people/sign_in" target="_blank">Phonegap Build, </a>feito pela Adobe, porém é considerado por muitos como a 
+                               pior opção, já que não tem praticamente nenhuma opção de customizaçao, serviço para adicionar plugins.</br> Olhando todas as opções, ficava pensando que 
+                               seria o ideal ter uma opção que eu possa fazer tudo pelo meu próprio computador, sem ficar refém de sites, então descubro o Cordova CLI.<br/><br/>
+                           </p>
+            
+                           <h4>Primeiro vamos entender o que é o Cordova</h4></br>
+                           <p>
+                               O Cordova permite criar aplicações híbridas para diferentes plataformas mobile "Android e IOS" com base no componente WebView. Este funciona como um 
+                               browser, mas sem aquela barra de endereço ou botões para o usuário. Por ele apenas visualizamos os dados.</br></br>
+                               O Cordova usa apenas HTML, CSS e JavaScript, então o desenvolvedor web que já utiliza essas linguagens pode aproveitar todo o conhecimento e alcançar 
+                               novos públicos, pois suas aplicações usarão recursos nativos dos dispositivos mobile.</br></br>
+
+                               <b>Cordova CLI</b> "Command-line-interface", literalmente significa Interface de Linha de Comandos.</br>
+                               A criação de APK e a geração do projero Xcode, gerenciamento de plugins, até testes são feitos por linhas de comando. Quando queremos 
+                               adicionar um plugin por exemplo, basta apenas digitar 1 linha de comando, que o próprio cordova faz a conexão com o servidor que 
+                               geralmente é o "Github", via <a href="https://nodejs.org/en/" target="_blank">Node.js</a> instalando no seu projeto.</br>
+                            </p>
+
+                            <h4>O Cordova CLI parece ser bem interessante, como faço para instalar no meu Computador?</h4>
+                            <p>
+                                Antes de querer usar o Cordova CLI, é necessário preparar o computador instalando algumas ferramentas como Node.js, Android Studio, Gradle entre outros, para não ficar 
+                                um artigo gigantesco, prefiro indicar um canal de um amigo do <a href="https://www.youtube.com/watch?v=7M2DayJcs6M&list=PL3oP_U0taSik7FfT9s-uuekLDN2KsxThB" target="_blank">Canal Perametade Games</a> que abordou a preparação do ambiente de desenvolvimento Windows.
+                            </p>
+
+
+                            <input type="checkbox"  id="spoiler1" /> 
+                            <label for="spoiler1" >Android</label>
+                                <div class="spoiler">
+                                    <center>
+                                    <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html" target="_blank">Documentação oficial do Cordova CLI</a><br><br>
+
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3Z5ZZ784VCk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VEodG96n_gw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/trh4ODyS0uM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ev_F46hMpNU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FT_7nGa9ct4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+                                </center>
+                                </div>
+                            <p id="pSpoiler"><b>Clique no botão Android para mostrar a preparação do ambiente no Windows</b></p>
+
+                            <input type="checkbox"  id="spoiler2" />
+                            
+                            <label for="spoiler2" >IOS</label>
+                                <div class="spoiler">
+                                    <center>
+                                    <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/ios/" target="_blank">Documentação oficial do Cordova CLI</a><br><br>
+                                    
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/fU3xdmnN0Yc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br>
+                                    <b>Infelizmente não encontrei um material em português para a preparação do ambiente IOS, futuramente pretendo criar este material.</b><br><br>
+                                    
+                                    <p>Para IOS é necessário ter uma conta de desenvolvedor da Apple, para maiors detalhes, veja neste link <a href="https://loiane.com/2013/01/como-se-tornar-um-desenvolvedor-ios-certificado-pela-apple-se-inscrever-no-ios-developer-program-sem-fax/" target="_blank">Como se tornar um desenvolvedor iOS</a><br><br></p>
+                                    </center>
+                                </div>
+                            <p id="pSpoiler"><b>Clique em IOS para mostrar a preparação do ambiente no MAC</b></p>
+
+                            <h4>NodeJS</h4>
+                            <p>Para instalar o NodeJS é necessário fazer o download pelo <a href="https://nodejs.org/en/download/" target="_blank">Site oficial NodeJs</a>, escolhendo a versão do seu sistema operacional.<br>
+                                Após instalar caso queira atualizar o NodeJs, use o comando.<br>
+
+                                <pre>
+                                    <code data-language="shell">npm update npm -g</code></pre>
+                                
+                            </p>
+                            <h4>Instalei tudo que precisa e está tudo funcionando, e agora?</h4>
+
+
+                            <p>
+                                O seu ambiente não estiver corretamente configurado para continuar.</br>
+                                A exportação do Construct2 das versões r244+ foi modificada para também suportar o Cordova CLI.</br></br>
+
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="Exportando para Cordova pelo Construct 2" class="pure-img-responsive" src="img/cordovaCLI/cordovaC2.jpg"> <br>
+                                    </a>
+                                </center>
+
+                                <b>O ícone para exportar para Cordova pelo Construct 2</b></br>
+
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="Exportando para Cordova pelo Construct 2" class="pure-img-responsive" src="img/cordovaCLI/exportacao1.jpg"><br>
+                                    </a>
+                                </center>
+                                
+                                </br>
+                                <b>É recomendável deixar a opção "mifify scrypt" desativada, se marcada vai retirar os espaços do script.</b></br></br>
+
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="" class="pure-img-responsive" src="img/cordovaCLI/exportacao2.jpg"><br>
+                                    </a>
+                                </center>
+
+                            </p>
+
+                            <h4>Cordova Options</h4> 
+          
+                            <p>
+                                É bem necessário ficar atento nestas opções.</br>
+                                <b>Hide Status Bar</b> vai adicionar o plugin com o mesmo nome.</br>
+                                Use <b>WkwebView</b> é exclusivo de IOS e ajuda a acelerar a aplicação, caso o aplicativo seja apenas para Android, pode desmarcar esta opção.</br>
+                                As outras 2 pode deixar desmarcadas, pois é referente ao Intel XDK, que não utilizaremos.</br></br>
+                                
+                                Em <b>Permissions</b>, é necessário deixar marcado a opção "Uses Media", ela vai adicionar o plugin "Media" no projeto, que serve para executar os sons.</br></br>
+                                
+                                <b>Export audio files for</b></br>
+                                No Construct2 quando adicionamos um arquivo de audio, é criado 2 arquivos com o mesmo nome, navegadores em geral utilizam o formato .ogg, porém nas 
+                                plataformas da Apple, eles utilizam o .m4a, se o projeto for apenas para Android, pode desmarcar a opção para IOS.</br></br>
+                                
+                                
+                                <b>Minimum supported OSs</b></br></br>
+                                <b>Android</b></br>
+
+                                Eu costumo utilizar as versões recomendadas, pois dependendo do aparelho principalmente android antigos, o desempenho pode ser horrível, sendo assim, 
+                                deixo 5.0+, que abrengue mais de <a href="https://www.tecmundo.com.br/software/124125-android-oreo-versao-menos-usada.htm" target="_blank">mais de 
+                                80% de todos os dispositivos android no mundo, em 2017</a>  agora maio de 2018, está com mais de 90% do mercado segundo o 
+                                <a href="https://data.apteligent.com/android/" target="_blank"> Apteligent</a>, sendo assim é fácil considerar suportar do Android 5.0+</a>, 
+                                como estamos falando de games, restringir aparelhos antigos não é uma escolha ruim.
+                            </p>
+
+                            <p>
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="" class="pure-img-responsive" src="img/cordovaCLI/andmai2018.jpg"><br>
+                                    </a>
+                                </center>
+                            </p>
+
+                            <p>
+                                </br>
+                                <b>IOS</b></br>
+                    
+                                Eu deixo também a versão 9.0+, sendo que a versão mais atual é 11, também levando em conta que <a href="https://www.tecmundo.com.br/software/122656-38-5-aparelhos-ios-utilizam-versao-11-sistema-operacional.htm" target="_blank">52% dos aparelhos com iOS já utilizam a versão 11 do sistema operacional</a>, não 
+                                tem muito sentido suportar versões muito antigas do IOS.</br></br>
+                    
+                                Dados de Maio de 2018, segundo o site <a href="https://data.apteligent.com/ios/" target="_blank">Apteligent</a>
+                                </p>
+
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="" class="pure-img-responsive" src="img/cordovaCLI/iosmaio2018.jpg"><br>
+                                    </a>
+                                </center>
+
+                                
+                    
+                            <h4>Preparando o ambiente</h4>
+                            <p>
+                                Agora que entendemos o que é Cordova CLI e para que serve cada opção de exportação do Construct2, precisamos de fato criar o APK "Android" e o projeto de Xcode para "IOS".<br></p>
+                                Com o ambiente configurado, aprenda a gerar o<a href="cordovaios.html" target="_blank"> projeto Xcode para IOS</a><br>
+                                <center>
+                                    <a class="zoom green" href="cordovaios.html" >
+                                        <img alt="" class="pure-img-responsive" src="img/cordovaCLI/ios.png">
+                                    </a>
+                                </center>
+                            </p>
+                    
+                            <p>
+                                Como não poderia ser diferente, aprenda gerar o APK pelo Cordova, além do processo de assinar o aplicativo é igualmente simples.<br>
+                                <center>
+                                    <a class="zoom green" href="cordovacliandroid.html" >
+                                        <img alt="" class="pure-img-responsive" src="img/cordovaCLI/and.png">
+                                    </a>
+                                </center>
+                            </p>
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+</body>
+</html>

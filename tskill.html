@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matando o processo do Nw.exe</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+    <link rel="stylesheet" href="css/spoiler.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Matando o processo do Nw.exe</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre 
+                                <a class="post-category post-category-design" href="#">Construct 2</a>
+                                <br><b>03 de agosto de 2017</b>
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                            <a href="unitycollidererror.html">
+                                <img alt="" class="pure-img-responsive" src="img/tskill/tskill.jpg">
+                            </a>
+                
+                            <p>
+                                Um problema muito comum durante o desenvolvimento usanod a game engine Construct2 e o programa Nw.exe como render desktop, é em 
+                                alguns momentos após fechar o nw.exe o processo continua rodando, mesmo com a janela fechada, é conhecido como processo 
+                                fantasma, que aparece no gerenciador de tarefas e possui uma PID. Com este problema em mente, resolvi buscar uma solução 
+                                simplificada para que o seja fechado o processo de forma mais rápida possível, aproveitei meus conhecimentos longíncuos de 
+                                programação em scripts, que utilizo para outros fins no meu atual sistema operacional.
+                            </p>
+                    
+                            <p>
+                                <b>O que é PID?</b>
+                    
+                                PID significa Process identifier (identificador de processo), PID ou ainda process ID é um número único que é atribuído pelo 
+                                sistema operacional quando um processo é executado. Esse número é utilizado para se fazer referência a um processo em execução.
+                                <br>
+                    
+                                A maioria dos navegadores reconhecem arquivos .bat como potenciais ameaças, por este motivo eu deixo abaixo o código do arquivo. 
+                                Pegue o código e cole em um arquivo no formato .bat, que pode ser também um arquivo .txt, renomeie ele para .bat.
+                            </p>
+
+                            <pre>
+                                <code data-language="shell">@echo off
+set proceso=nw.exe
+                        
+tasklist>%tmp%\tmp.txt
+find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp
+                        
+if errorlevel==1 (
+    color C
+    echo Nao foi encotrado o "%proceso%" no sistema
+    timeout /t 3
+)
+                        
+for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (
+    color a
+    cls
+    tskill %%p
+    echo Finalizado o NW.Exe com sucesso
+    timeout /t 3
+    exit
+)</code></pre>
+
+                    <input type="checkbox"  id="spoiler1" />
+                    <label for="spoiler1" >ADS</label>
+                        <div class="spoiler">
+                            <center>
+                                <b>Explicação do código acima</b><br>
+                                <b>@echo off</b>, vai retirar o caminho do sistema.</br>
+                                <b>set proceso=nw.exe</b>, cria uma variável e armazena a string que contém o nome do progrma a ser fechado.</br>
+                                <b>tasklist>%tmp%\tmp.txt</b>, pega o conteúdo do comando tasklist que vai mostrar todos os processos que estão rodando no 
+                                sistema operacional, joga em um arquivo tmp.txt que fica na pasta temporária do sistema operacional.</br>
+                                            
+                                <b>find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp</b>, o comando "find" localiza uma cadeia de caracteres de um texto, 
+                                no caso do código acima, ele procura a string da segunda lina "nw.exe" dentro do arquivo tmp.txt, depois grava o segundo arquivo "pid.tmp".</br>
+                                            
+                                <b>IF ERRORLEVEL==1</b>, será verificado se existe um processo com a string que foi guardado na variável, 
+                                caso não tenha retorno, a cor da fonte do script será modificada para vermelho e exibir a mensagem "Nao foi encotrado o "%proceso%" no sistema", assim 
+                                terminando o processo do script. Caso encontre a referência da string, essa linha será ignorada e vai iniciar o looping pelo comando "for".</br>
+                                        
+                                <b>timeout /t 3</b>,será mostrado um contador regressivo iniciando em 3, terminando a contagem o scrip será fechado.</br>
+                                        
+                                <b>for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (</b>, será executado um looping verificando o arquivo "pid.tmp".</br>
+                                        
+                                <b>color a</b>, muda a cor do script para verde.</br>
+                                        
+                                <b>echo O proceso "%proceso%" tem o pid --^> "%%p"</b>, será exibido a mensagem com o nome "nw.exe" junto com a sua PID encontrada.</br>
+                                        
+                                <b>cls</b>, limpa a tela.</br>
+                                        
+                                <b>tskill %%p</b>, tskill é o comando para matar o processo</br>
+                                            
+                                <b>echo Finalizado o NW.Exe com sucesso</b>, será exibido a mensagem com o nome do processo que foi finalizado, junto com a contagem regressiva.</br>
+                                            
+                                <b>exit</b>, limpa a tela.</br>
+                            </center>
+                        </div>
+                    <p id="pSpoiler"><b>Clique ADS para exibir detalhes de como configurar e usar</b></p>                                    
+
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+</body>
+</html>

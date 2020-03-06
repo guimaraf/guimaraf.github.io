@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como proteger seus assets Build PC</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Converter Capx para versões mais antigas do Construct 2</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre 
+                                <a class="post-category post-category-design" href="#">Construct 2</a> 
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                            <p>
+                                <img alt="" class="pure-img-responsive" src="img/convertVersionC2/converter-versao.jpg">
+                            </p>
+                            
+                            <p>
+                                Normalmente mantemos nossos programas atualizados, porém dependendo da versão que utilizamos pode acontecer algum bug, acontece bastante em versões beta.</br>
+                                No <b>Construct 2</b> por padrão, quando você salva um <b>.capx</b>, ele altera a versão que foi editado o projeto, assim impedindo de abrir o mesmo projeto nas versões 
+                                mais antigas da ferramenta, se ocorrer o problema acima, pode ser uma enorme dor de cabeça. Como é uma dúvida recorrente nos grupos de facebook, resolvi fazer este 
+                                tutorial rápido de como resolver o problema.</br>
+                                Primeiramente, é necessário saber que o arquivo <b>.capx</b>, é na verdade um arquivo compactado com os assets do projeto, junto com a programação.</br>
+                                </br>
+                            </p>
+                
+                            <b>Exemplo:</b></br>
+
+                            <p>
+                                <img alt="" class="pure-img-responsive" src="img/convertVersionC2/formato-capx.jpg">
+                            </p>
+
+                            <p>Então eu renomeei o arquivo para Exciybike.rar</p>
+                
+                            <p>
+                                <img alt="" class="pure-img-responsive" src="img/convertVersionC2/formato-rar.jpg">
+                            </p>
+                
+                            <p> 
+                                Desta forma posso abrir ele com o próprio <a href="https://notepad-plus-plus.org/download/v7.5.1.html" target="_blank" title="Baixar Winrar">Winrar</a> ou outro programa semelhante.</br>
+                    
+                                Olhando a estrutura das pastas do arquivo antes .capx</br>
+                    
+                                Para não estender demais, é necessário saber que o arquivo com a extensão .caproj é o arquivo de configuração do projeto, você pode clicar no arquivo e jogar 
+                                para a sua área de trabalho ou qualquer outra pasta do seu pc "só não pode esquecer".</br>
+                                Com o arquivo no pc, abra ele em um editor de texto, pode ser o notpad, eu utilizo o <a href="http://www.win-rar.com/download.html" target="_blank" title="Baixar Winrar">Notpad++</a>.</br></br>
+                                
+                                Com o arquivo aberto no editor.</br>
+                            </p>
+
+                            <p>
+                                <img alt="" class="pure-img-responsive" src="img/convertVersionC2/formato-codigo.jpg">
+                            </p>
+                
+                            <p>
+                                No bloco acima, a última linha contém a versão do <b>Construct 2</b> que foi salvo o projero, no meu caso a <b>239</b>, vale lembrar que a cada versão no código é a versão do 
+                                <b>Construct2 "239XX"</b> onde no final é acrescentado <b>"00"</b>, sendo assim se está utilizando a <b>230</b>, então vai precisar renomear para <b>23000</b>.</br>
+                                Feito a alteração, salve o arquivo, mova ele para o Winrar, o arquivo será substituído, depois renomeie o arquivo novamente para <b>.capx</b>
+                                </br>
+                                Pode abrir novamente o projeto na versão anterior do <b>Construct 2</b>.</br>
+                            </p>
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+</body>
+</html>

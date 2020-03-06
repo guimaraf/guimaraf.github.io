@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro de colliders após gerar a build</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Erro de colliders após gerar a build</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre 
+                                <a class="post-category post-category-design" href="#">Unity</a>
+                                <br><b>19 de fevereiro de 2020</b>
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                            <p>
+                                Meu primeiro artigo sobre Unity, engine que tenho estudado pelo menos a 1 ano e meio, excelente, utiliza a linguagem c# que também 
+                                estudei para me preparar para utilizar a engine. 
+                                Digamos que sou um pouco viciado com atualizações de programas, com a engine não foi diferente, primeiro analiso, realizo testes 
+                                em projetos menores, somente depois importo projetos que tenho trabalhado a mais tempo.
+
+                                <br><br>
+
+                                Durante este processo, me deparei com um problema, que não foi a primeira vez, depois de importar o projeto para a nova 
+                                versão da engine, quando mando exportar para desktop e posteriormente publicar na steam, algumas coisas estranhas começam 
+                                acontecer, como eventos não acontecendo, colisores de alguns objetos simplesmente desativando sozinhos.
+                            </p>
+                            
+                            <p>
+                                <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive" src="img/unitycollidererror/unityMesh1.png">
+                            </p>
+
+                            <p>
+                                <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive" src="img/unitycollidererror/unityMesh2.png">
+                            </p>
+
+                            <p>
+                                Como podem ver, o mesh collider simplesmente desligou, porém apenas na curva, nos mesh nas retas ele funcionava corretamente.
+                            </p>
+
+                            <p>
+                                Pesquisei bastante e não encontrei nada diretamente relacionado ao desligamento de componentes após exportar o projeto, conversei com 
+                                amigos e nenhum teve um problema similar. 
+                                Reinstalei a engine, abri o projeto em versões anteriores, simplesmente nada resolvia. Eu me recordei que da versão 2018, para a 
+                                versão 2019 da engine, alguns scripts de UI simplesmente nem apareciam no editor, o processo para resolver o problema era 
+                                remover o componente com o script corrompido e depois recolocar o componente, neste caso Texto.
+                            </p>
+
+                            <p>
+                                Foi então que pensei, se eu remover o mesh collider e depois adicionar o componente, será que vai resolver.
+                            </p>
+
+                            <p>
+                                <b>Comme je n'avais pas pensé à cette possibilité auparavant.</b> 
+                                <br>
+                                <i>"Como não pensei nessa possibilidade antes."</i>
+                            </p>
+
+                            <p>
+                                <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive" src="img/unitycollidererror/unityMesh3.png">
+                            </p>
+
+                            <p>
+                                O problema foi resolvido, simplesmente assim.
+                            </p>
+
+                            <p>
+                                Provavelmente alguma atualização do componente acabou quebrando quando atualizamos a engine e importamos um projeto.
+                                Resolvi escrever este artigo, para evitar que outros desenvolvedores percam horas com este problema.
+                            </p>
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+
+</body>
+</html>
