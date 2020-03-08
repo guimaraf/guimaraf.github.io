@@ -37,6 +37,9 @@ function Check(x)
 {
     if (document.getElementById(characterList[randomNumber]).style.background = "aquamarine")
     {
+        document.getElementById(characterList[randomNumber]).style.background = VerifyLines(randomNumber) ? "#f2f2f2" : "transparent";
+        
+        /*
         if(VerifyLines(randomNumber))
         {
             document.getElementById(characterList[randomNumber]).style.background = "#f2f2f2"; // faffd2  
@@ -45,6 +48,7 @@ function Check(x)
         {
             document.getElementById(characterList[randomNumber]).style.background = "transparent";
         }
+        */
         
         console.log(characterList[randomNumber]);
     }
@@ -101,7 +105,7 @@ function CompleteArray()
 function VerifyLines(n)
 {
     verify = false;
-    var a = Array(19,18,2,8,31,29,29,0,27,6,4,5,16,30,28,1,3,20);
+    var a = Array(19,18,2,8,31,29,26,0,27,6,4,5,16,30,28,1,3,20);
 
     for (i = 0; i < a.length; i++)
     {
@@ -110,6 +114,5 @@ function VerifyLines(n)
             verify = true
         }
     }
-
     return verify;
 }
