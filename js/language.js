@@ -37,8 +37,15 @@ function Check(x)
 {
     if (document.getElementById(characterList[randomNumber]).style.background = "aquamarine")
     {
-        //recolorindo o fundo após errar
-        document.getElementById(characterList[randomNumber]).style.background = "#faffd2";
+        if(VerifyLines(randomNumber))
+        {
+            document.getElementById(characterList[randomNumber]).style.background = "#f2f2f2"; // faffd2  
+        }
+        else
+        {
+            document.getElementById(characterList[randomNumber]).style.background = "transparent";
+        }
+        
         console.log(characterList[randomNumber]);
     }
 
@@ -84,8 +91,25 @@ function ResetRecord()
 
 function CompleteArray()
 {
-    var newArray = Array(1053, 1071, 1042, 1067, 1056, 1057, 1055, 1060, 1043, 1051, 1059, 1047, 
-        1061, 1062, 1063, 1064, 1065, 1066, 1068, 1040, 1045, 1025, 1046, 1048, 
-        1049, 1050, 1052, 1054, 1058, 1069, 1070, 1044);
+    var newArray = Array(1053, 1071, 1042, 1067, 1056, 1057, 1055, 1060, 
+        1043, 1051, 1059, 1047, 1061, 1062, 1063, 1064, 1065, 1066, 1068, 
+        1040, 1045, 1025, 1046, 1048, 1049, 1050, 1052, 1054, 1058, 1069, 
+        1070, 1044);
     return newArray;
+}
+
+function VerifyLines(n)
+{
+    verify = false;
+    var a = Array(19,18,2,8,31,29,29,0,27,6,4,5,16,30,28,1,3,20);
+
+    for (i = 0; i < a.length; i++)
+    {
+        if(n == a[i])
+        {
+            verify = true
+        }
+    }
+
+    return verify;
 }
