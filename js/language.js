@@ -38,18 +38,6 @@ function Check(x)
     if (document.getElementById(characterList[randomNumber]).style.background = "aquamarine")
     {
         document.getElementById(characterList[randomNumber]).style.background = VerifyLines(randomNumber) ? "#f2f2f2" : "transparent";
-        
-        /*
-        if(VerifyLines(randomNumber))
-        {
-            document.getElementById(characterList[randomNumber]).style.background = "#f2f2f2"; // faffd2  
-        }
-        else
-        {
-            document.getElementById(characterList[randomNumber]).style.background = "transparent";
-        }
-        */
-        
         console.log(characterList[randomNumber]);
     }
 
