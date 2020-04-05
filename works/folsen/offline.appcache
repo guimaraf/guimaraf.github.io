@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1585183860
+#1586098939
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -101,6 +101,9 @@ images/rockmove-sheet0.png
 images/rockmove-sheet1.png
 images/rot-sheet0.png
 images/rot-sheet1.png
+images/pirplus-sheet0.png
+images/pirplus-sheet1.png
+images/pirplus-sheet2.png
 images/boss-sheet0.png
 images/boss-sheet1.png
 images/boss-sheet2.png
@@ -193,6 +196,21 @@ images/chest-sheet0.png
 images/chest-sheet1.png
 images/platform1-sheet0.png
 images/platform2-sheet0.png
+images/ballonblue-sheet0.png
+images/ballonblue-sheet1.png
+images/ballonblue-sheet2.png
+images/ballongreen-sheet0.png
+images/ballongreen-sheet1.png
+images/ballongreen-sheet2.png
+images/ballonpink-sheet0.png
+images/ballonpink-sheet1.png
+images/ballonpink-sheet2.png
+images/ballonred-sheet0.png
+images/ballonred-sheet1.png
+images/ballonred-sheet2.png
+images/ballonyellow-sheet0.png
+images/ballonyellow-sheet1.png
+images/ballonyellow-sheet2.png
 images/leaf-sheet0.png
 images/leaf-sheet1.png
 images/leaf-sheet2.png
