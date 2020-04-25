@@ -679,23 +679,21 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.LocalStorage.Acts.CheckItemExists,
+		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Touch.Cnds.IsInTouch,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Behaviors.Platform.Acts.SetEnabled,
 		C3.Behaviors.Platform.Acts.SetVectorY,
 		C3.Plugins.Sprite.Acts.SetAngle,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.Audio.Acts.Play,
-		C3.Plugins.LocalStorage.Cnds.OnItemExists,
-		C3.Plugins.LocalStorage.Acts.GetItem,
-		C3.Plugins.LocalStorage.Cnds.OnItemGet,
-		C3.Plugins.LocalStorage.Exps.ItemValue,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.TiledBg.Acts.SetBoolInstanceVar,
+		C3.Plugins.Sprite.Cnds.IsOnScreen,
+		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.System.Exps.choose,
 		C3.Behaviors.Platform.Exps.JumpStrength,
@@ -716,28 +714,32 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Exps.X,
 		C3.Plugins.TiledBg.Cnds.CompareX,
 		C3.Plugins.TiledBg.Exps.Width,
-		C3.Plugins.Sprite.Cnds.OnCollision,
-		C3.Plugins.Sprite.Cnds.IsOnScreen,
-		C3.Behaviors.Pin.Acts.Unpin,
-		C3.Plugins.Sprite.Exps.X,
+		C3.Plugins.System.Cnds.For,
+		C3.Plugins.System.Exps.loopindex,
+		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Sprite.Exps.Y,
+		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Sprite.Cnds.OnCreated,
+		C3.Plugins.Sprite.Acts.SetX,
+		C3.Plugins.Sprite.Exps.X,
+		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.Sprite.Cnds.CompareX,
+		C3.Plugins.Sprite.Acts.SetInstanceVar,
+		C3.Plugins.System.Exps.random,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Acts.SetPosToObject,
-		C3.Plugins.Sprite.Acts.SetY,
-		C3.Plugins.System.Exps.random,
-		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Behaviors.Pin.Acts.Pin,
-		C3.Plugins.Sprite.Acts.SetX,
-		C3.Plugins.Sprite.Cnds.CompareX,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.Flash.Acts.StopFlashing,
-		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.System.Exps.dt,
 		C3.Plugins.Keyboard.Cnds.OnKey,
-		C3.Behaviors.Flash.Acts.Flash
+		C3.Behaviors.Flash.Acts.Flash,
+		C3.Plugins.LocalStorage.Cnds.OnItemExists,
+		C3.Plugins.LocalStorage.Acts.GetItem,
+		C3.Plugins.LocalStorage.Cnds.OnItemGet,
+		C3.Plugins.LocalStorage.Exps.ItemValue
 	];
 };
 self.C3_JsPropNameTable = [
@@ -798,6 +800,8 @@ self.C3_JsPropNameTable = [
 	{coinGameplay: 0},
 	{moviement: 0},
 	{enterCollider: 0},
+	{positionY: 0},
+	{reset: 0},
 	{colliderPlayer: 0},
 	{Senóide: 0},
 	{key: 0},
@@ -864,11 +868,7 @@ self.C3_JsPropNameTable = [
 	{TiledBackground2: 0},
 	{txtRestart: 0},
 	{pillars: 0},
-	{RECORD: 0},
-	{SECONDSPEROBSTACLE: 0},
-	{JUMPSTRENGTH: 0},
-	{SCROLLSPEED: 0},
-	{MAGNETT: 0},
+	{jumpStrenght: 0},
 	{scorePlayer: 0},
 	{speedObjects: 0},
 	{speedTemp: 0},
@@ -877,7 +877,11 @@ self.C3_JsPropNameTable = [
 	{keysPlayer: 0},
 	{upMagnetic: 0},
 	{upSharpener: 0},
-	{recordPlayer: 0}
+	{scoreRecord: 0},
+	{fixedX: 0},
+	{moveX: 0},
+	{moveY: 0},
+	{objects: 0}
 ];
 
 "use strict";
@@ -980,24 +984,20 @@ self.C3_JsPropNameTable = [
 		() => 0,
 		() => "hud",
 		() => "plannerRecord",
+		() => 0.1,
 		() => 0.05,
 		() => 4,
 		() => -350,
 		() => 320,
 		() => -25,
 		() => "",
-		() => "LoadGame",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
+		() => "Functions",
+		() => -20,
+		() => 1,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
-		() => "Functions",
-		() => -20,
-		() => 1,
 		() => 10,
 		() => 20,
 		() => 5,
@@ -1046,29 +1046,62 @@ self.C3_JsPropNameTable = [
 			const n1 = p._GetNode(1);
 			return () => (n0.ExpObject() + (n1.ExpObject() / 2));
 		},
+		() => "Coin Create",
+		() => "coinsGame",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => (v0.GetValue() + (f1() * 80));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const n1 = p._GetNode(1);
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			return () => ((((v0.GetValue()) > (n1.ExpObject()) ? 1 : 0)) ? ((v2.GetValue() + 40)) : ((v3.GetValue() - 40)));
+		},
+		() => 40,
+		() => 600,
+		() => "game",
 		() => "Collider In Player",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => C3.lerp(n0.ExpObject(), n1.ExpObject(), 0.1);
 		},
+		() => -30,
 		() => "Movement",
-		() => "game",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
-			return () => f0((n1.ExpObject() - 70), (n2.ExpObject() + 70));
+			return () => f0((n1.ExpObject() - 50), (n2.ExpObject() + 50));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
 		},
 		() => -160,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(180, 440);
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(1, 4);
+		},
 		() => "Collider Pillars",
 		() => "Magnetic",
 		() => "Sharpener",
-		() => 0.1
+		() => "LoadGame"
 	];
 }
 
