@@ -714,23 +714,21 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Exps.X,
 		C3.Plugins.TiledBg.Cnds.CompareX,
 		C3.Plugins.TiledBg.Exps.Width,
-		C3.Plugins.System.Cnds.For,
-		C3.Plugins.System.Exps.loopindex,
-		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.System.Acts.CreateObject,
-		C3.Plugins.Sprite.Cnds.OnCreated,
-		C3.Plugins.Sprite.Acts.SetX,
-		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.Sprite.Cnds.CompareX,
+		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.random,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Acts.SetPosToObject,
 		C3.Behaviors.Pin.Acts.Pin,
+		C3.Plugins.Sprite.Acts.SetX,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.Flash.Acts.StopFlashing,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.System.Acts.CreateObject,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Acts.MoveToTop,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
@@ -738,6 +736,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.dt,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Behaviors.Flash.Acts.Flash,
+		C3.Plugins.TiledBg.Acts.SetWidth,
+		C3.Plugins.TiledBg.Acts.Destroy,
 		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.LocalStorage.Acts.GetItem,
 		C3.Plugins.LocalStorage.Cnds.OnItemGet,
@@ -867,6 +867,7 @@ self.C3_JsPropNameTable = [
 	{howplaygame2: 0},
 	{TiledBackground2: 0},
 	{txtRestart: 0},
+	{sharpnerBar: 0},
 	{pillars: 0},
 	{jumpStrenght: 0},
 	{scorePlayer: 0},
@@ -1045,26 +1046,6 @@ self.C3_JsPropNameTable = [
 			const n1 = p._GetNode(1);
 			return () => (n0.ExpObject() + (n1.ExpObject() / 2));
 		},
-		() => "Coin Create",
-		() => "coinsGame",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => (v0.GetValue() + (f1() * 80));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			return () => ((((v0.GetValue()) > (308) ? 1 : 0)) ? ((v1.GetValue() + 40)) : ((v2.GetValue() - 40)));
-		},
-		() => 40,
-		() => 600,
-		() => "game",
 		() => "Collider In Player",
 		p => {
 			const n0 = p._GetNode(0);
@@ -1087,6 +1068,7 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
+		() => "game",
 		() => -160,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -1103,8 +1085,37 @@ self.C3_JsPropNameTable = [
 			return () => f0((n1.ExpInstVar() - 60), (n2.ExpInstVar() + 60));
 		},
 		() => "Collider Pillars",
+		() => "Coin v2",
+		() => 0.9,
+		() => 448.5,
+		() => 255.5,
+		() => 550,
+		() => 148,
+		() => 592,
+		() => 403,
+		() => 538,
+		() => 35,
+		() => 576,
+		() => 614,
+		() => 548,
+		() => 471,
+		() => 590,
+		() => 631,
+		() => "Coin Create",
 		() => "Magnetic",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
 		() => "Sharpener",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 60);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpInstVar() * 10);
+		},
 		() => "LoadGame"
 	];
 }
