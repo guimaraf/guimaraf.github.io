@@ -717,12 +717,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.Sprite.Cnds.CompareX,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.System.Exps.random,
@@ -731,6 +731,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Pin.Acts.Pin,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.Flash.Acts.StopFlashing,
+		C3.Behaviors.Pin.Acts.PinByProperties,
+		C3.Plugins.Sprite.Acts.MoveToTop,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.System.Exps.dt,
@@ -803,10 +805,10 @@ self.C3_JsPropNameTable = [
 	{positionY: 0},
 	{reset: 0},
 	{colliderPlayer: 0},
+	{sharpener: 0},
+	{magnet: 0},
 	{Senóide: 0},
 	{key: 0},
-	{Fixar: 0},
-	{magnet: 0},
 	{active: 0},
 	{hudPause: 0},
 	{hudScore: 0},
@@ -815,7 +817,6 @@ self.C3_JsPropNameTable = [
 	{hudTxtScore: 0},
 	{hudCoin: 0},
 	{hudKey: 0},
-	{game: 0},
 	{hudMagnet: 0},
 	{hudSharpener: 0},
 	{hudTxtCoin: 0},
@@ -833,7 +834,6 @@ self.C3_JsPropNameTable = [
 	{bgGameOver: 0},
 	{TiledBackground: 0},
 	{bloco: 0},
-	{sharpener: 0},
 	{txtKeyGameOver: 0},
 	{virgula: 0},
 	{iconsBG: 0},
@@ -1031,7 +1031,6 @@ self.C3_JsPropNameTable = [
 		() => "Input Pause",
 		() => -85,
 		() => "Input Hud",
-		() => "Input Upgrades",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -1059,10 +1058,9 @@ self.C3_JsPropNameTable = [
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			const n1 = p._GetNode(1);
+			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
-			const v3 = p._GetNode(3).GetVar();
-			return () => ((((v0.GetValue()) > (n1.ExpObject()) ? 1 : 0)) ? ((v2.GetValue() + 40)) : ((v3.GetValue() - 40)));
+			return () => ((((v0.GetValue()) > (308) ? 1 : 0)) ? ((v1.GetValue() + 40)) : ((v2.GetValue() - 40)));
 		},
 		() => 40,
 		() => 600,
@@ -1097,6 +1095,12 @@ self.C3_JsPropNameTable = [
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(1, 4);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => f0((n1.ExpInstVar() - 60), (n2.ExpInstVar() + 60));
 		},
 		() => "Collider Pillars",
 		() => "Magnetic",
