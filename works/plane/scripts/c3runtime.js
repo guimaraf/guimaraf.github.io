@@ -1011,9 +1011,6 @@ self.C3_JsPropNameTable = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(140, 440);
 		},
-		() => 62,
-		() => 180,
-		() => 353,
 		() => 3,
 		() => 2,
 		p => {
@@ -1114,7 +1111,7 @@ self.C3_JsPropNameTable = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpInstVar() * 10);
+			return () => (n0.ExpInstVar() * 5);
 		},
 		() => "LoadGame"
 	];
