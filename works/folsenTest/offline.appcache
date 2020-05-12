@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1589220427
+#1589299918
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -47,7 +47,6 @@ images/test-sheet0.png
 images/tiledbackground2.png
 images/plantfired-sheet0.png
 images/plantfired-sheet1.png
-images/plantdeath-sheet0.png
 images/beebullet-sheet0.png
 images/beebullet-sheet1.png
 images/babybee-sheet0.png
@@ -118,6 +117,9 @@ images/tree-sheet1.png
 images/tree-sheet2.png
 images/plantbullet-sheet0.png
 images/enemyside-sheet0.png
+images/explosionenemys-sheet0.png
+images/explosionenemys-sheet1.png
+images/plantdeath-sheet0.png
 images/bombeffect-sheet0.png
 images/chestgold-sheet0.png
 images/coinold-sheet0.png
@@ -223,8 +225,6 @@ images/leaf-sheet2.png
 images/platformmother-sheet0.png
 images/treemother-sheet0.png
 images/toch-sheet0.png
-images/explosion3-sheet0.png
-images/explosion3-sheet1.png
 images/effectwindground-sheet0.png
 images/effectwindground-sheet1.png
 images/effectairnotground-sheet0.png
@@ -232,6 +232,7 @@ images/irnosbsoul-sheet0.png
 images/irnosblue-sheet0.png
 images/irnosblue-sheet1.png
 images/irnosblue-sheet2.png
+images/sprite-sheet0.png
 media/explosion.m4a
 media/explosion.ogg
 media/jump.m4a
