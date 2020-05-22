@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1589299918
+#1590178443
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -28,6 +28,7 @@ images/landeffect2-sheet0.png
 images/shadow-sheet0.png
 images/camera-sheet0.png
 images/groundcoll-sheet0.png
+images/booeffect-sheet0.png
 images/propstree-sheet0.png
 images/propsgropund-sheet0.png
 images/propsgropund2-sheet0.png
@@ -96,9 +97,6 @@ images/xboxbullet-sheet1.png
 images/flak1-sheet0.png
 images/flakcollider1-sheet0.png
 images/flak2-sheet0.png
-images/rockmoveeffect-sheet0.png
-images/rockmove-sheet0.png
-images/rockmove-sheet1.png
 images/rot-sheet0.png
 images/rot-sheet1.png
 images/pirplus-sheet0.png
@@ -107,6 +105,10 @@ images/pirplus-sheet2.png
 images/vomu-sheet0.png
 images/vomubengala-sheet0.png
 images/vomucollider-sheet0.png
+images/paxe-sheet0.png
+images/paxe-sheet1.png
+images/paxearm-sheet0.png
+images/paxesoul-sheet0.png
 images/boss-sheet0.png
 images/boss-sheet1.png
 images/boss-sheet2.png
@@ -175,7 +177,6 @@ images/diamond-sheet0.png
 images/diamondeffect-sheet0.png
 images/diamondeffect-sheet1.png
 images/diamondeffect-sheet2.png
-images/spikemine-sheet0.png
 images/checkpoint-sheet0.png
 images/checkchara-sheet0.png
 images/checkchara-sheet1.png
@@ -225,6 +226,10 @@ images/leaf-sheet2.png
 images/platformmother-sheet0.png
 images/treemother-sheet0.png
 images/toch-sheet0.png
+images/spikemine-sheet0.png
+images/rockmoveeffect-sheet0.png
+images/rockmove-sheet0.png
+images/rockmove-sheet1.png
 images/effectwindground-sheet0.png
 images/effectwindground-sheet1.png
 images/effectairnotground-sheet0.png
@@ -233,6 +238,7 @@ images/irnosblue-sheet0.png
 images/irnosblue-sheet1.png
 images/irnosblue-sheet2.png
 images/sprite-sheet0.png
+images/collidersstage-sheet0.png
 media/explosion.m4a
 media/explosion.ogg
 media/jump.m4a
