@@ -37,3 +37,8 @@ html, body, canvas {
 }
 
 
+@font-face {
+	font-family: 'lemonade_fabrica_demo-webfont';
+	src: url('fonts/lemonade_fabrica_demo-webfont.woff2') format('woff2'), url('fonts/lemonade_fabrica_demo-webfont.woff') format('woff');
+}
+

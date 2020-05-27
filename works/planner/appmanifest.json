@@ -1,7 +1,7 @@
 {
-	"name": "PLANNER",
-	"short_name": "PLANNER",
-	"description": "SALTAR",
+	"name": "planner",
+	"short_name": "planner",
+	"description": "Planner game",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
