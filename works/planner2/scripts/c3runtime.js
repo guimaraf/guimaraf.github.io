@@ -766,15 +766,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Text,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.OnLayoutStart,
-		C3.Plugins.Spritefont2.Acts.SetText,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.LocalStorage.Acts.CheckItemExists,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Touch.Cnds.IsInTouch,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
+		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Behaviors.Platform.Acts.SetEnabled,
 		C3.Behaviors.Platform.Acts.SetVectorY,
@@ -783,6 +782,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Spritefont2.Acts.SetText,
 		C3.Plugins.TiledBg.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
@@ -848,6 +848,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.JSONLoad,
 		C3.Plugins.LocalStorage.Exps.ItemValue,
 		C3.Plugins.Arr.Exps.At,
+		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.TiledBg.Cnds.CompareY,
 		C3.Plugins.TiledBg.Acts.SetY,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
@@ -1115,15 +1116,14 @@ self.C3_JsPropNameTable = [
 
 	self.C3_ExpressionFuncs = [
 		() => "Start",
-		() => 0,
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => ((((n0.ExpInstVar()) === ("gameRestart") ? 1 : 0)) ? ("") : (n1.ExpObject()));
 		},
+		() => 0,
 		() => "hud",
 		() => "plannerRecord",
-		() => 0.1,
 		() => 0.05,
 		() => 4,
 		() => -350,
@@ -1134,20 +1134,8 @@ self.C3_JsPropNameTable = [
 		() => -20,
 		() => 1,
 		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const n2 = p._GetNode(2);
-			return () => ((((n0.ExpInstVar()) === ("gameScore") ? 1 : 0)) ? (and("Score:  ", v1.GetValue())) : (n2.ExpObject()));
-		},
-		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const n2 = p._GetNode(2);
-			return () => ((((n0.ExpInstVar()) === ("gameHighScore") ? 1 : 0)) ? (and("Highscore: ", v1.GetValue())) : (n2.ExpObject()));
 		},
 		() => 10,
 		() => 20,
@@ -1155,6 +1143,12 @@ self.C3_JsPropNameTable = [
 		() => 30,
 		() => 6,
 		() => "pause",
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("gameOverKey") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
 		() => "gameOver",
 		() => 500,
 		p => {
@@ -1182,6 +1176,18 @@ self.C3_JsPropNameTable = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => ((-n0.ExpBehavior()) * 2);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("gameScore") ? 1 : 0)) ? (and("Score:  ", v1.GetValue())) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("gameHighScore") ? 1 : 0)) ? (and("Highscore: ", v1.GetValue())) : (n2.ExpObject()));
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1335,6 +1341,7 @@ self.C3_JsPropNameTable = [
 			return () => f0();
 		},
 		() => "Sharpener",
+		() => 0.1,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 60);
@@ -1397,6 +1404,7 @@ self.C3_JsPropNameTable = [
 			const n2 = p._GetNode(2);
 			return () => ((((n0.ExpInstVar()) === ("shopCoin") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
 		},
+		() => "shopCoin",
 		() => "ShopLimitedTouchMove",
 		() => 28,
 		() => -400,
