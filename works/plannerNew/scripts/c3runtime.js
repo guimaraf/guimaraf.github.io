@@ -767,6 +767,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Spritefont2.Acts.SetText,
+		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.LocalStorage.Acts.CheckItemExists,
@@ -828,11 +830,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Behaviors.Flash.Acts.Flash,
 		C3.Plugins.TiledBg.Acts.SetWidth,
-		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.LocalStorage.Acts.GetItem,
+		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
 		C3.Plugins.LocalStorage.Cnds.OnItemGet,
-		C3.Plugins.LocalStorage.Exps.ItemValue,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.Json.Acts.Parse,
@@ -842,6 +843,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Cnds.ArrForEach,
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.Arr.Exps.CurX,
+		C3.Plugins.LocalStorage.Acts.SetItem,
+		C3.Plugins.Arr.Exps.AsJSON,
+		C3.Plugins.Arr.Acts.JSONLoad,
+		C3.Plugins.LocalStorage.Exps.ItemValue,
+		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.TiledBg.Cnds.CompareY,
 		C3.Plugins.TiledBg.Acts.SetY,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
@@ -863,6 +869,7 @@ self.C3_JsPropNameTable = [
 	{arMoney: 0},
 	{AJAX: 0},
 	{JSON: 0},
+	{arDatabase: 0},
 	{Sine: 0},
 	{aparalapisVideo: 0},
 	{double: 0},
@@ -1005,7 +1012,6 @@ self.C3_JsPropNameTable = [
 	{keysPlayer: 0},
 	{upMagnetic: 0},
 	{scoreRecord: 0},
-	{temp: 0},
 	{fixedX: 0},
 	{moveX: 0},
 	{moveY: 0},
@@ -1110,6 +1116,11 @@ self.C3_JsPropNameTable = [
 	self.C3_ExpressionFuncs = [
 		() => "Start",
 		() => 0,
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((((n0.ExpInstVar()) === ("gameRestart") ? 1 : 0)) ? ("") : (n1.ExpObject()));
+		},
 		() => "hud",
 		() => "plannerRecord",
 		() => 0.1,
@@ -1123,8 +1134,20 @@ self.C3_JsPropNameTable = [
 		() => -20,
 		() => 1,
 		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("gameScore") ? 1 : 0)) ? (and("Score:  ", v1.GetValue())) : (n2.ExpObject()));
+		},
+		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("gameHighScore") ? 1 : 0)) ? (and("Highscore: ", v1.GetValue())) : (n2.ExpObject()));
 		},
 		() => 10,
 		() => 20,
@@ -1141,11 +1164,48 @@ self.C3_JsPropNameTable = [
 		() => 62,
 		() => 250,
 		() => 353,
-		() => 3,
-		() => 2,
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((((n0.ExpInstVar()) === ("gameRestart") ? 1 : 0)) ? (3) : (n1.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((((n0.ExpInstVar()) === ("gameRestart") ? 1 : 0)) ? (2) : (n1.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((((n0.ExpInstVar()) === ("gameRestart") ? 1 : 0)) ? (1) : (n1.ExpObject()));
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => ((-n0.ExpBehavior()) * 2);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("hudKey") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("hudCoin") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("hudMagnetic") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("hudSharpener") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
 		},
 		() => "Input Player",
 		() => 360,
@@ -1159,7 +1219,36 @@ self.C3_JsPropNameTable = [
 		() => "Input Pause",
 		() => -85,
 		() => "Input Hud",
-		() => 1000000,
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("highScore") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("userCoin") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("userSharpener") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("userKey") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("userMagnetic") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
+		},
 		() => "asasasa",
 		p => {
 			const n0 = p._GetNode(0);
@@ -1221,6 +1310,7 @@ self.C3_JsPropNameTable = [
 			const n2 = p._GetNode(2);
 			return () => f0((n1.ExpInstVar() - 60), (n2.ExpInstVar() + 60));
 		},
+		() => 2,
 		() => "Collider Pillars",
 		() => "Coin v2",
 		() => 0.9,
@@ -1262,17 +1352,8 @@ self.C3_JsPropNameTable = [
 		() => 645,
 		() => 256,
 		() => -100,
-		() => "Save Game",
-		() => "plannerSaveAll",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			const v2 = p._GetNode(2).GetVar();
-			const v3 = p._GetNode(3).GetVar();
-			const v4 = p._GetNode(4).GetVar();
-			return () => and((and((and((and(and(v0.GetValue(), "/"), v1.GetValue()) + "/"), v2.GetValue()) + "/"), v3.GetValue()) + "/"), v4.GetValue());
-		},
 		() => "LoadGame",
+		() => "plannerPlayerDatabase",
 		() => "coin",
 		() => "money",
 		p => {
@@ -1288,6 +1369,33 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => n0.ExpObject(and(".money", n1.ExpObject()));
+		},
+		() => 3,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(0);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(1);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(2);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(3);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject(4);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpInstVar()) === ("shopCoin") ? 1 : 0)) ? (v1.GetValue()) : (n2.ExpObject()));
 		},
 		() => "ShopLimitedTouchMove",
 		() => 28,
