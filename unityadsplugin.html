@@ -55,15 +55,174 @@
                         </header>
         
                         <div class="post-description">
-                            <p>
-                                
+                            <h3><b>Usando Unity ADS no Construct 2 com Cordova CLI</b></h3>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni000.jpg"></p></center>
+
+                            <p>Primeiro vamos conhecer o que é Unity,<br>
+                              Unity é uma game engine, uma das mais utilizadas no mundo por estúdios indies.<br><br>
+                    
+                              Agora vamos conhecer o Unity ADS, veja a descrição oficial retirada do site da empresa.
                             </p>
-                            
-                            <center>
-                                <p>
-                                    <img alt="" class="pure-img-responsive" src="img/breve.jpg">
-                                </p>
-                            </center>
+                    
+                            <h3>Unity Ads</h3> <br>
+                            <p>
+                              Seja remunerado pelo seu trabalho<br>
+                              Unity Ads permite aos editores integrar anúncios em vídeo em seus jogos móveis que melhoram o envolvimento do usuário e geram ganhos durante a vida útil do jogo. 
+                              Unity Ads oferece o rendimento médio por usuário (ARPU) mais alto de todas as redes globais de anúncios publicitários em vídeo recompensados. 
+                              E os anunciantes podem aproveitar a grande oportunidade para conectar com o público certo.
+                            </p>
+                    
+                            <p>
+                                O mais incrível é que podemos utilizar no Construct 2 e <b>de graça</b>. <br>
+                              Vamos direto ao assunto.
+                              Vamos direto ao assunto.
+                            </p>
+                    
+                    
+                            <h3>Unity ADS Dashboard</h3>
+                    
+                            <p>
+                                Primeiro precisamos ter uma conta no serviço, <a href="https://operate.dashboard.unity3d.com" target="_blank">Unity ADS</a>, podendo utilizar a sua 
+                                conta Google ou do Facebook se preferir.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni001.png"></p></center>
+
+                            <p>Com a conta já criada, você terá que criar o projeto.</p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni002.jpg"></p></center>
+
+                            <p>
+                              É necessário já ter o aplicativo na loja da Google ou da Apple, pois será necessário colocar a ID do aplicativo/jogo, 
+                              quando criar o projeto no serviço. <br><br>
+                      
+                              Para fins didáticos, irei utilizar um projeto meu para mostrar o que é necessário para coletar a ID do Unity ADS.<br><br>
+                      
+                              Considere a URL do aplicativo.<br>
+                      
+                              <b>https://play.google.com/store/apps/details?id=com.flashlightpixel.chronosgames</b><br><br>
+                                
+                              O que nos interessa é apenas a ID na Google Play que é literalmente o final do link <code>com.flashlightpixel.chronosgames</code>, sendo assim vamos pegar a ID e adicionar 
+                              no serviço, conforme imagem abaixo.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni003.jpg"></p></center>
+
+                            <p>Adicionado a ID do Lanterna Pixel no serviço Unity ADS, será mostrado informações do aplicativo.</p>
+
+                            <p>
+                              Com o projeto criado, vamos coletar apenas a ID da plataforma, no nosso caso a <b>Game ID do Android</b>.<br>
+                              Como não pretendo detalhar cada uma das informações do serviço, voi ir direto ao ponto, que é necessária para o Construct 2.<br><br>
+                                
+                              No painel do lado esquerdo, existem diversas opções, clicando em <b>Monetization</b> depois em <b>Platforms</b>, será exibido a imagem abaixo. 
+                              Nós vamos pegar a <b>Game ID Android</b>, pois só adicionamos esta plataforma no projeto no Construct 2.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni004.jpg"></p></center>
+
+                            <p>
+                              Agora precisamos do plugin Unity ADS para Construct 2, faça Download no site oficial da engine 
+                              <a href="https://www.construct.net/en/construct-2/addons/122/unityads" target="_blank">Plugin Unity ADS para Construct 2</a>, 
+                              o processo de instalação é bem simples, com o C2 aberto, simplesmente arraste o arquivo <b>unityads-2.2.0-stable.c2addon</b> e solte 
+                              sobre o C2. Feche e abra novamente o C2 e pronto, o Plugin já está adicionado na engine, porém não está no projeto, você precisa adicionar.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni005.png"></p></center>
+
+                            <h3>Modificações no Construct 2</h3>
+
+                            <p>
+                              Agora vamos adicionar a <b>Game ID Android</b> do Unity ADS no plugin no Contruct 2. Repare que em <b>Android gameId</b> eu utilizei a 
+                              ID <b>2880682</b> que foi coletada na Dashboard do Unity ADS.<br> 
+                              Também não vou detalhar todas as opções, apenas as mais importantes para que funcione o plugin. 
+                              Repare que em <b>Video placementId</b> eu coloquei a string <b>video</b>, esta string é necessário pois é padrão do plugin 
+                              para rodar um ADS de vídeo, porém pode ser modificada como quiser na plataforma e posteriormente no plugin, não vamos abordar isso neste tutorial.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni006.png"></p></center>
+
+                            <p>
+                              Existem diversos eventos de checagem do plugin, porém de ações temos basicamente 2, carregar o ADS e mostrar. Podendo por exemplo 
+                              verificar se o vídeo rodou completamente, se foi pulado, se foi cancelado, excelente e necessário para entregar prêmios para os jogadores.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni007.png"></p></center>
+
+                            <p>
+                              Para ir direto ao ponto, vou utilizar apenas o método para jogos com "partidas rápidas", eu costumo colocar em <b>Get Placement State</b> o 
+                              utilizar o <b>Video Ad</b> já no <b>On Start Layout</b> no Construct 2.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni008.png"></p></center>
+
+                            <p>
+                              Este método é eficaz pois carrega o ADS, deixando pronto para quando for chamado em <b>Show Video Ad</b> neste caso como utilizei 
+                              a tag <b>video</b>, preciso escolher também <b>Video Ad</b> no Construct 2 dentro da lógica do seu evento onde quer mostrar o ADS.<br>
+                              Um detalhe muito importante quando se trata de ADS, é sempre carregar o ADS antes do momento que for mostrar para o jogador.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni009.png"></p></center>
+
+                            <h3>Processo no Cordova CLI</h3>
+
+                            <p>
+                              Com a configuração do serviço <b>Unity ADS</b> e do <b>Construct 2</b> concluídas, agora vamos para o <b>Cordova CLI</b>. <br>
+                              Vamos exportar o projeto Cordova. <br>
+                              Repare que no <b>config.xml</b> temos a linha referente ao plugin do <b>Unity ADS</b> que foi adicionado automaticamente pelo próprio plugin.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni010.png"></p></center>
+
+                            <p>
+                              Caso não conheça sobre exportação e geração de aplicativos <b>Cordova CLI</b>, eu fiz uma série de tutoriais abordando detalhadamente cada aspecto.<br>
+                              O primeiro é <a href="cordovaBuild.html" target="_blank">Construct 2 - Trabalhando com Cordova CLI</a> onde abordamos a preparação do 
+                              ambiente <b>"instalando e configurando os programas necessários"</b>, depois <a href="cordovacliandroid.html" target="_blank">Gerando APK pelo Corodova CLI</a>, onde 
+                              abordamos detalhes do da exportação, arquivos gerados e comandos necessários para gerar o APK, finalizando com assinatura do APK, já deixando preparado 
+                              para subir para a <b>Google Play</b>. <br><br>
+                              <b>É necessário entender o processo para entender o restante deste tutorial.</b>
+                            </p>
+                    
+                            <p>Vou dividir o restante em 2 partes, o primeiro com um novo projeto, o segundo com um projeto existente, ambas muito simples de implementar.</p>
+                    
+                            <h3>Novo projeto</h3>
+                    
+                            <p>
+                              O processo é bem simples, pois o próprio plugin já adiciona no <code>config.xlm</code> para quando adicionarmos a plataforma <b>Android</b> o plugin será 
+                              baixado e instalado no projeto, usando o comando.
+                              <pre><code data-language="shell"></code>cordova platform add android</pre>
+                              Gere o APK e teste
+                            </p>
+                    
+                            <h3>Projeto existente</h3>
+                    
+                            <p>O processo também é bem simples, você precisa apenas adicionar o plugin no projeto, usando o comando abaixo.<br>
+                              <code>cordova plugin add com-artemisoftnian-plugins-unityads2</code><br>
+                              Gere o APK e teste
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/uni011.jpg"></p></center>
+
+                            <p>Como podem ver, o Unity ADS está rodando corretamente no projeto do Construct 2</p>
+
+                            <h3>Observações finais</h3>
+
+                            <p>
+                              O Unity Ads envia a propaganda pronta, mesmo se no plugin do Construct 2 estiver configurado para modo Test, caso queira testar em 
+                              modo Debug, precisa alterar dentro da Dashboard da plataforma. É bem simples, existem diversas configurações de filtros, como 
+                              categoria do jogo, classificação de conteúdo, além da configuração do próprio ADS, como orientação do vídeo Vertial ou
+                              Horizontal, sobreposição do modo test e ativar ou desativar o ADS, tudo isso sem alterar sequer uma linha do seu projeto, pois tudo é 
+                              configurado de dentro da sua <b>Unity ADS Dashboard.</b><br><br>
+                    
+                              Para chegar nestas configurações, chegue na <b>plataforma</b>, conforme a <b>Foto-04</b>, depois clique no seu 
+                              aplicativo da <b>Google Play</b>, configure 
+                              conforme desejar.<br><br>
+                                
+                              Um dos motivos de amar o Cordova CLI é a velocidade e praticidade de utilizar a tecnologia, claro que necessidata de conhecimentos prévios, porém 
+                              não é nada complicado se a pessoa for curiosa e esforçada.<br><br>
+
+                              Caso tenha alguma dúvida pode nos mandar email ou perguntar onde o tutorial for postado.
+                            </p>
 
                             <p>
                                 <a href="devlog.html">Voltar</a>

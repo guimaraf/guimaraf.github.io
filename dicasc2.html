@@ -55,15 +55,94 @@
                         </header>
         
                         <div class="post-description">
-                            <p>
-                                
+
+                            <h3><b>ADS</b></h3>
+
+                            <p>Na medida que utilizamos alguma ferramenta, é comum nos depararmos com problemas, seja por incompatibilidade ou durante o 
+                              desenvolvimento algum problema específico.
+                              Pensando nisso, resolvi reunir no mesmo lugar algumas dicas sobre problemas comuns e sua solução. Continuarei atualizando estas dicas.
                             </p>
+                    
+                            <h3><b>Bibliotecas e programas para Construct 2</b></h3>
                             
-                            <center>
-                                <p>
-                                    <img alt="" class="pure-img-responsive" src="img/breve.jpg">
-                                </p>
-                            </center>
+                            <p>
+                              Diversos bugs acontecem, onde é necessário fechar a ferramenta, normalmente por ter drivers desatualizados ou bibliotecas 
+                              corrompidas, estou deixando um compilado de diversas bibliotecas do windows e de programas que ajudam a manter seu sistema estável e rápido.
+                              Todos os links abaixo são dos sites oficiais das empresas, ou seja não tem vírus.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/dicas0.jpg"></p></center>
+
+                            <p>
+                              <b>Bibliotecas para instalar e atualizar</b><br>
+                              <a href="https://support.microsoft.com/pt-br/kb/2977003" target="_blank" >Bibliotecas Visual C++</a><br>
+                              <a href="https://support.microsoft.com/pt-br/help/179113/how-to-install-the-latest-version-of-directx" target="_blank" >Atualizar o DirectX</a><br><br>
+                                  
+                              Java, necessário para comprimir arquivos PNG e mimificar scripts<br>
+                              <a href="https://www.java.com/pt_BR/download/" target="_blank" >Java Download</a><br><br>
+                    
+                              Atualizar Driver Nvidia<br>
+                              <a href="http://www.nvidia.com.br/Download/index.aspx?lang=br" target="_blank" >Driver Nvidia</a><br><br>
+                                                
+                              Atualizar Driver AMD<br>
+                              <a href="http://support.amd.com/pt-br/download" target="_blank" >Driver AMD Radeon</a><br><br>
+                                  
+                              Atualizar Driver Intel, não é muito simples, por ter a necessidade do usuário saber qual chip gráfico integrado está usando, porém o windows 
+                              sempre atualiza o driver na "Atualização automática".<br> 
+                              Caso queira baixar e instalar o driver correto, veja em Aprenda a descobrir qual é a geração do processador do seu notebook ou computador</a>.<br>
+                    
+                              Baixe o driver correto e instale, do link abaixo.<br>
+                              <a href="http://www.intel.com.br/content/www/br/pt/support/graphics-drivers.html" target="_blank" >Driver Intel Graphics</a>
+                            </p>
+
+                            <h3><b>Deixar o jogo em tela cheia</b></h3>
+                            <p>
+                              Em jogos para PC, é comum utilizarmos o comando <b>"Alt + Enter"</b> para alterar a exibião do jogo entre "janela" e "tela cheia".
+                              Vamos utilizar um dos plugins presentes em 98% dos projetos que é o Browser, além do Keyboard conforme a ação abaixo.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/dicas1.png"></p></center>
+
+                            <p>
+                              <b>Funcionamento</b><br>
+                              A tecla <b>"Return"</b> é o enter, o <b>"Keycode 18"</b> é o <b>"Alt"</b>.
+                              Na primeira linha, eu estou verificando se o <b>"Alt"</b> está sendo segurado <b>"Down"</b> no momento que vou apertar o Enter <b>"Return"</b>. 
+                              Esta condição sendo positiva, vou fazer outra verificação.
+                              Primeiro vou verificar se a o jogo já está em <b>"Full screen"</b>, se esta condição for verdadeira, vai cancelar o <b>"Full screen"</b>, ou seja vai deixar em modo janela. 
+                              Porém se esta condição for falsa, vai ler a linha de baixo e então colocar em <b>"Full screen"</b>. 
+                                  
+                              O <b>"Wait 0.1 seconds"</b> foi utilizado para evitar que rode as 2 condições, já que eu não criei nenhuma variável de controle.
+                              Vale lembrar que você pode definir a tecla do teclado, evento de click, utilização de joysticks para ativar ou desativar o <b>"Full screen"</b>.
+                            </p>
+                    
+                            <h3><b>Desabilitando o modo debug do navegador</b></h3>
+                            <p>
+                              Já existem diversos jogos feitos em Construct2 e exportados para Steam, este problema acontece quando vamos utilizar o recurso de print da steam que por padrão 
+                              é o botão F12, que também é o padrão para abrir a janela de debug do nwjs "que é o motor de renderização usado pelo Construct2 nas exportações desktop".<br>
+                    
+                              Vale lembrar que o seu jogo exportado para navegadores também devem abrir o modo debug a não ser que utilize este evento.<br>
+                              Sim, o bloco precisa ficar vazio, assim o navegador reconhece que não é para executar nada com o comando.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/dicas2.jpg"></p></center>
+
+                            <p>
+                              Para resolver este problema vamos utilizar o behavior "Keyboard"  e simplesmente mandar verificar quando é apertado 
+                              a tecla F12, conforme imagem abaixo, deixando a ação vazia.
+                            </p>
+
+                            <h3><b>Evitando que o jogo feche no Alt + F4</b></h3>
+                            <p>
+                              Também pode ser utilizado outras teclas, até combinações de teclas como o famoso alt + F4 que por padrão fecha os aplicativos Windows. 
+                              Neste caso utilizados o keycode 18 que é da tecla "alt".
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/dicas3.jpg"></p></center>
+
+                            <p>
+                              Quando é deixado um evento vazio como que foram mostrados nas imagens acima, é ignorado a função nativa do aplicativo. <br>
+                              Esta é uma dica rápida, pretendo trazer novas, qualquer dúvida entre em contato.
+                            </p>
 
                             <p>
                                 <a href="devlog.html">Voltar</a>

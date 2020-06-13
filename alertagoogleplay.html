@@ -55,15 +55,69 @@
                         </header>
         
                         <div class="post-description">
+                            <h3><b>Alerta de segurança</b></h3>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs1.png"></p></center>
+
                             <p>
-                                
+                              A cada nova geração do sistema operacional da Google, o Android, várias políticas são atualizadas, desta vez a Google começou a emitir 
+                              um alerta sobre um arquivo js nos projetos Cordova, veja na imagem abaixo.
                             </p>
-                            
-                            <center>
-                                <p>
-                                    <img alt="" class="pure-img-responsive" src="img/breve.jpg">
-                                </p>
-                            </center>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs2.png"></p></center>
+
+                            <h3><b>Mas o que é este arquivo?</b></h3>
+
+                            <p>
+                              jQuery é uma biblioteca de funções JavaScript que interage com o HTML, desenvolvida para simplificar os scripts interpretados no navegador do cliente.
+                              Usada por cerca de 74.4% dos 10 mil sites mais visitados do mundo, jQuery é a mais popular das bibliotecas JavaScript.<br>
+                              
+                              Para entender com maiores detalhes sobre a biblioteca, <a href="https://www.devmedia.com.br/jquery-tutorial/27299" target="_blank">saiba mais 
+                              sobre o jquey</a>.
+                            </p>
+                    
+                            <p>
+                              Como podem ver, essa é uma biblioteca que sempre é copiada para a pasta <b>www</b> do seu projeto quando exportado, porém a versão utilizada pelo 
+                              Construct 2, mesmo na estável mais atual é <b>jquery-2.1.1.min.js</b>, sendo que a biblioteca já se encontra na versão <b>3.4.1</b>.<br>
+                              
+                              A solução neste caso é baixar a biblioteca mais atualizada e colocar dentro da pasta www do seu projeto. <br>
+                              Baixe a biblioteca mais recente no site oficial do projeto <a href="https://jquery.com" target="_blank">jquery</a>.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs3.png"></p></center>
+
+                            <p>
+                              Essa é uma estrutura básica da pasta <b>www</b> de um projeto cordova <b>outras exportações também utilizam esta estrutura</b> quando 
+                              exportado pelo Contruct 2.<br>
+                              Como podem ver, o arquivo <b>jquery-2.1.1.min.js</b> está presente. <br>
+                              Com o jquery mais recente baixado, copie o arquivo para a sua pasta <b>www</b>, pode deletar a versão mais antiga, sem problemas.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs4.png"></p></center>
+
+                            <p>
+                              O próximo passo é alterar a linha <b>index.html</b> que está chamando a <b>2.1.1</b> e atualizar para a versão mais recente <b>3.4.1</b>
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs5.png"></p></center>
+
+                            <p>
+                              Usando algum editor de código, aparece as linhas numeradas, neste caso o que precisamos alterar está na linha 61, recomendo muito usar 
+                              editores de código, pois eles melhoram muito a produtividade.
+                            </p>
+
+                            <center> <p> <img alt="" class="pure-img-responsive" src="img/dicas/errojs6.png"></p></center>
+
+                            <p>
+                              Como podem ver, o processo é bem simples, pode buidar seu aplicativo e fazer um novo upload para a loja.<br>
+                              Se precisar de outros tutoriais, clique no voltar logo abaixo.
+                            </p>
+                    
+                            <p>
+                              No momento em que este artigo estava sendo escrito, vi no forum oficial da engine que o criador Ashey vai corrigir essa pendência na 
+                              versão 274 do Construct2 conforme comunicado no 
+                              <a href="https://www.construct.net/en/forum/construct-2/general-discussion-17/fix-vulnerable-libraries-147660/page-2" target="_blank">.
+                            </p>
 
                             <p>
                                 <a href="devlog.html">Voltar</a>
