@@ -1,7 +1,7 @@
 {
-	"name": "New project",
-	"short_name": "New project",
-	"description": "testes asasa",
+	"name": "soundTest",
+	"short_name": "soundTest",
+	"description": "Sound Test lag",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
