@@ -524,26 +524,45 @@ self["C3_Shaders"] = {};
 
 "use strict";C3.Plugins.Audio.Exps={Duration(b){const c=this._GetFirstAudioStateByTag(b);return c?c["duration"]:0},PlaybackTime(b){const c=this._GetFirstAudioStateByTag(b);return c?c["playbackTime"]:0},PlaybackRate(b){const c=this._GetFirstAudioStateByTag(b);return c?c["playbackRate"]:0},Volume(b){const c=this._GetFirstAudioStateByTag(b);return c?this.LinearToDb(c["volume"]):0},MasterVolume(){return this.LinearToDb(this._masterVolume)},EffectCount(a){return this._effectCount.get(a.toLowerCase())||0},AnalyserFreqBinCount(a,b){const c=this.GetAnalyserData(a,Math.floor(b));return c?c["binCount"]:0},AnalyserFreqBinAt(a,b,c){var d=Math.floor;const e=this.GetAnalyserData(a,d(b));return e?(c=d(c),0>c||c>=e["binCount"]?0:e["freqBins"][c]):0},AnalyserPeakLevel(a,b){const c=this.GetAnalyserData(a,Math.floor(b));return c?c["peak"]:0},AnalyserRMSLevel(a,b){const c=this.GetAnalyserData(a,Math.floor(b));return c?c["rms"]:0},SampleRate(){return this._sampleRate},CurrentTime(){return self["C3_GetAudioContextCurrentTime"]?self["C3_GetAudioContextCurrentTime"]():performance.now()/1e3}};
 
+"use strict";C3.Plugins.Text=class extends C3.SDKPluginBase{constructor(a){super(a)}Release(){super.Release()}};
+
+"use strict";C3.Plugins.Text.Type=class extends C3.SDKTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}LoadTextures(){}ReleaseTextures(){}};
+
+"use strict";{const a=[0,0,0],b=["left","center","right"],c=["top","center","bottom"],d=new C3.Rect,e=new C3.Quad;C3.Plugins.Text.Instance=class extends C3.SDKWorldInstanceBase{constructor(a,b){if(super(a),this._text="",this._enableBBcode=!0,this._faceName="Arial",this._ptSize=12,this._lineHeightOffset=0,this._isBold=!1,this._isItalic=!1,this._color=C3.New(C3.Color),this._horizontalAlign=0,this._verticalAlign=0,this._wrapByWord=!0,this._typewriterStartTime=-1,this._typewriterEndTime=-1,this._typewriterLength=0,this._rendererText=C3.New(C3.Gfx.RendererText,this._runtime.GetWebGLRenderer(),{timeout:5}),this._rendererText.ontextureupdate=()=>this._runtime.UpdateRender(),this._rendererText.SetIsAsync(!1),b){this._text=b[0],this._enableBBcode=!!b[1],this._faceName=b[2],this._ptSize=b[3],this._lineHeightOffset=b[4],this._isBold=!!b[5],this._isItalic=!!b[6],this._horizontalAlign=b[8],this._verticalAlign=b[9],this._wrapByWord=0===b[10];const a=b[7];this._color.setRgb(a[0],a[1],a[2]),this.GetWorldInfo().SetVisible(b[11])}this._UpdateTextSettings()}Release(){this._CancelTypewriter(),this._rendererText.Release(),this._rendererText=null,super.Release()}_UpdateTextSettings(){const a=this._rendererText;a.SetText(this._text),a.SetBBCodeEnabled(this._enableBBcode),a.SetFontName(this._faceName),a.SetFontSize(this._ptSize),a.SetLineHeight(this._lineHeightOffset),a.SetBold(this._isBold),a.SetItalic(this._isItalic),a.SetColor(this._color),a.SetHorizontalAlignment(b[this._horizontalAlign]),a.SetVerticalAlignment(c[this._verticalAlign]),a.SetWordWrapMode(this._wrapByWord?"word":"character")}_UpdateTextSize(){const a=this.GetWorldInfo(),b=a.GetLayer(),c=b.GetRenderScale()*b.Get2DScaleFactorToZ(a.GetTotalZElevation());this._rendererText.SetSize(a.GetWidth(),a.GetHeight(),c)}Draw(a){var b=Math.round;const c=this.GetWorldInfo();this._UpdateTextSize();const f=this._rendererText.GetTexture();if(!f)return;const g=c.GetLayer();let h=c.GetBoundingQuad();if(0===c.GetAngle()&&0===c.GetLayer().GetAngle()&&0===c.GetTotalZElevation()){const[c,i]=g.LayerToDrawSurface(h.getTlx(),h.getTly()),[j,k]=g.LayerToDrawSurface(h.getBrx(),h.getBry()),l=c-b(c),m=i-b(i);d.set(c,i,j,k),d.offset(-l,-m),e.setFromRect(d);const[n,o]=a.GetRenderTargetSize(a.GetRenderTarget());this._runtime.GetCanvasManager().SetDeviceTransform(a,n,o),a.SetTexture(f),a.Quad3(e,this._rendererText.GetTexRect()),g._SetTransform(a)}else{let c=0,d=0;this._runtime.IsPixelRoundingEnabled()&&(c=h.getTlx()-b(h.getTlx()),d=h.getTly()-b(h.getTly())),(0!=c||0!=d)&&(e.copy(h),e.offset(-c,-d),h=e),a.SetTexture(f),a.Quad3(h,this._rendererText.GetTexRect())}}SaveToJson(){const a={"t":this._text,"c":this._color.toJSON(),"fn":this._faceName,"ps":this._ptSize};return this._enableBBcode&&(a["bbc"]=this._enableBBcode),0!==this._horizontalAlign&&(a["ha"]=this._horizontalAlign),0!==this._verticalAlign&&(a["va"]=this._verticalAlign),this._wrapByWord||(a["wr"]=this._wrapByWord),0!==this._lineHeightOffset&&(a["lho"]=this._lineHeightOffset),this._isBold&&(a["b"]=this._isBold),this._isItalic&&(a["i"]=this._isItalic),-1!==this._typewriterEndTime&&(a["tw"]={"st":this._typewriterStartTime,"en":this._typewriterEndTime,"l":this._typewriterLength}),a}LoadFromJson(a){if(this._CancelTypewriter(),this._text=a["t"],this._color.setFromJSON(a["c"]),this._faceName=a["fn"],this._ptSize=a["ps"],this._enableBBcode=!!a.hasOwnProperty("bbc")&&a["bbc"],this._horizontalAlign=a.hasOwnProperty("ha")?a["ha"]:0,this._verticalAlign=a.hasOwnProperty("va")?a["va"]:0,this._wrapByWord=!a.hasOwnProperty("wr")||a["wr"],this._lineHeightOffset=a.hasOwnProperty("lho")?a["lho"]:0,this._isBold=!!a.hasOwnProperty("b")&&a["b"],this._isItalic=!!a.hasOwnProperty("i")&&a["i"],a.hasOwnProperty("tw")){const b=a["tw"];this._typewriterStartTime=b["st"],this._typewriterEndTime=b["en"],this._typewriterLength=b["l"]}this._UpdateTextSettings(),-1!==this._typewriterEndTime&&this._StartTicking()}GetPropertyValueByIndex(b){return 0===b?this._text:1===b?this._enableBBcode:2===b?this._faceName:3===b?this._ptSize:4===b?this._lineHeightOffset:5===b?this._isBold:6===b?this._isItalic:7===b?(a[0]=this._color.getR(),a[1]=this._color.getG(),a[2]=this._color.getB(),a):8===b?this._horizontalAlign:9===b?this._verticalAlign:10===b?this._wrapByWord?1:0:void 0}SetPropertyValueByIndex(a,b){switch(a){case 0:if(this._text===b)return;this._text=b,this._UpdateTextSettings();break;case 1:if(this._enableBBcode===!!b)return;this._enableBBcode=!!b,this._UpdateTextSettings();break;case 2:if(this._faceName===b)return;this._faceName=b,this._UpdateTextSettings();break;case 3:if(this._ptSize===b)return;this._ptSize=b,this._UpdateTextSettings();break;case 4:if(this._lineHeightOffset===b)return;this._lineHeightOffset=b,this._UpdateTextSettings();break;case 5:if(this._isBold===!!b)return;this._isBold=!!b,this._UpdateTextSettings();break;case 6:if(this._isItalic===!!b)return;this._isItalic=!!b,this._UpdateTextSettings();break;case 7:const d=this._color,c=b;if(d.getR()===c[0]&&d.getG()===c[1]&&d.getB()===c[2])return;this._color.setRgb(c[0],c[1],c[2]),this._UpdateTextSettings();break;case 8:if(this._horizontalAlign===b)return;this._horizontalAlign=b,this._UpdateTextSettings();break;case 9:if(this._verticalAlign===b)return;this._verticalAlign=b,this._UpdateTextSettings();break;case 10:if(this._wrapByWord===(b===0))return;this._wrapByWord=b===0,this._UpdateTextSettings();}}SetPropertyColorOffsetValueByIndex(a,c,d,e){(0!==c||0!==d||0!==e)&&(7===a?(this._color.addRgb(c,d,e),this._UpdateTextSettings()):void 0)}_SetText(a){this._text===a||(this._text=a,this._rendererText.SetText(a),this._runtime.UpdateRender())}GetText(){return this._text}_StartTypewriter(a,b){this._SetText(a),this._typewriterStartTime=this._runtime.GetGameTime(),this._typewriterEndTime=this._typewriterStartTime+b,this._typewriterLength=C3.BBString.StripAnyTags(a).length,this._rendererText.SetDrawMaxCharacterCount(0),this._StartTicking()}_CancelTypewriter(){this._typewriterStartTime=-1,this._typewriterEndTime=-1,this._typewriterLength=0,this._rendererText.SetDrawMaxCharacterCount(-1),this._StopTicking()}_FinishTypewriter(){-1===this._typewriterEndTime||(this._CancelTypewriter(),this.Trigger(C3.Plugins.Text.Cnds.OnTypewriterTextFinished),this._runtime.UpdateRender())}_SetFontFace(a){this._faceName===a||(this._faceName=a,this._rendererText.SetFontName(a),this._runtime.UpdateRender())}_GetFontFace(){return this._faceName}_SetBold(a){a=!!a;this._isBold===a||(this._isBold=a,this._rendererText.SetBold(a),this._runtime.UpdateRender())}_IsBold(){return this._isBold}_SetItalic(a){a=!!a;this._isItalic===a||(this._isItalic=a,this._rendererText.SetItalic(a),this._runtime.UpdateRender())}_IsItalic(){return this._isItalic}_SetFontSize(a){this._ptSize===a||(this._ptSize=a,this._rendererText.SetFontSize(this._ptSize),this._runtime.UpdateRender())}_GetFontSize(){return this._ptSize}_SetLineHeight(a){this._lineHeightOffset===a||(this._lineHeightOffset=a,this._UpdateTextSettings(),this._runtime.UpdateRender())}_GetLineHeight(){return this._lineHeightOffset}_SetHAlign(a){this._horizontalAlign===a||(this._horizontalAlign=a,this._UpdateTextSettings(),this._runtime.UpdateRender())}_GetHAlign(){return this._horizontalAlign}_SetVAlign(a){this._verticalAlign===a||(this._verticalAlign=a,this._UpdateTextSettings(),this._runtime.UpdateRender())}_GetVAlign(){return this._verticalAlign}_SetWrapByWord(a){a=!!a;this._wrapByWord===a||(this._wrapByWord=a,this._UpdateTextSettings(),this._runtime.UpdateRender())}_IsWrapByWord(){return this._wrapByWord}Tick(){const a=this._runtime.GetGameTime();if(a>=this._typewriterEndTime)this._CancelTypewriter(),this.Trigger(C3.Plugins.Text.Cnds.OnTypewriterTextFinished),this._runtime.UpdateRender();else{let b=C3.relerp(this._typewriterStartTime,this._typewriterEndTime,a,0,this._typewriterLength);b=Math.floor(b),b!==this._rendererText.GetDrawMaxCharacterCount()&&(this._rendererText.SetDrawMaxCharacterCount(b),this._runtime.UpdateRender())}}GetDebuggerProperties(){return[{title:"plugins.text.name",properties:[{name:"plugins.text.properties.text.name",value:this._text,onedit:(a)=>this._SetText(a)}]}]}GetScriptInterfaceClass(){return ITextInstance}};const f=new WeakMap,g=new Map([["left",0],["center",1],["right",2]]),h=new Map([["top",0],["center",1],["bottom",2]]),i=new Map([["word",!0],["character",!1]]);self.ITextInstance=class extends IWorldInstance{constructor(){super(),f.set(this,IInstance._GetInitInst().GetSdkInstance())}get text(){return f.get(this).GetText()}set text(a){const b=f.get(this);b._CancelTypewriter(),b._SetText(a)}typewriterText(a,b){const c=f.get(this);c._CancelTypewriter(),c._StartTypewriter(a,b)}typewriterFinish(){f.get(this)._FinishTypewriter()}set fontFace(a){f.get(this)._SetFontFace(a)}get fontFace(){return f.get(this)._GetFontFace()}set isBold(a){f.get(this)._SetBold(a)}get isBold(){return f.get(this)._IsBold()}set isItalic(a){f.get(this)._SetItalic(a)}get isItalic(){return f.get(this)._IsItalic()}set sizePt(a){f.get(this)._SetFontSize(a)}get sizePt(){return f.get(this)._GetFontSize()}set lineHeight(a){f.get(this)._SetLineHeight(a)}get lineHeight(){return f.get(this)._GetLineHeight()}set horizontalAlign(a){const b=g.get(a);if("undefined"==typeof b)throw new Error("invalid mode");f.get(this)._SetHAlign(b)}get horizontalAlign(){return b[f.get(this)._GetHAlign()]}set verticalAlign(a){const b=h.get(a);if("undefined"==typeof b)throw new Error("invalid mode");f.get(this)._SetVAlign(b)}get verticalAlign(){return c[f.get(this)._GetVAlign()]}set wordWrapMode(a){const b=i.get(a);if("undefined"==typeof b)throw new Error("invalid mode");f.get(this)._SetWrapByWord(b)}get wordWrapMode(){return f.get(this)._IsWrapByWord()?"word":"character"}}}
+
+"use strict";C3.Plugins.Text.Cnds={CompareText(a,b){return b?this._text===a:C3.equalsNoCase(this._text,a)},IsRunningTypewriterText(){return-1!==this._typewriterEndTime},OnTypewriterTextFinished(){return!0}};
+
+"use strict";{const a=C3.New(C3.Color);C3.Plugins.Text.Acts={SetText(a){this._CancelTypewriter(),"number"==typeof a&&1e9>a&&(a=Math.round(1e10*a)/1e10),this._SetText(a.toString())},AppendText(a){this._CancelTypewriter(),"number"==typeof a&&1e9>a&&(a=Math.round(1e10*a)/1e10),a=a.toString();a&&this._SetText(this._text+a)},TypewriterText(a,b){this._CancelTypewriter(),"number"==typeof a&&1e9>a&&(a=Math.round(1e10*a)/1e10),this._StartTypewriter(a.toString(),b)},SetFontFace(a,b){let c=!1,d=!1;1===b?c=!0:2===b?d=!0:3===b?(c=!0,d=!0):void 0;a===this._faceName&&c===this._isBold&&d===this._isItalic||(this._SetFontFace(a),this._SetBold(c),this._SetItalic(d))},SetFontSize(a){this._SetFontSize(a)},SetFontColor(b){a.setFromRgbValue(b),a.clamp();this._color.equalsIgnoringAlpha(a)||(this._color.copyRgb(a),this._rendererText.SetColor(this._color),this._runtime.UpdateRender())},SetWebFont(){console.warn("[Text] 'Set web font' action is deprecated and no longer has any effect")},SetEffect(a){this.GetWorldInfo().SetBlendMode(a),this._runtime.UpdateRender()},TypewriterFinish(){this._FinishTypewriter()},SetLineHeight(a){this._SetLineHeight(a)},SetHAlign(a){this._SetHAlign(a)},SetVAlign(a){this._SetVAlign(a)},SetWrapping(a){this._SetWrapByWord(0===a)}}}
+
+"use strict";C3.Plugins.Text.Exps={Text(){return this._text},PlainText(){return this._enableBBcode?C3.BBString.StripAnyTags(this._text):this._text},FaceName(){return this._faceName},FaceSize(){return this._ptSize},TextWidth(){return this._UpdateTextSize(),this._rendererText.GetTextWidth()},TextHeight(){return this._UpdateTextSize(),this._rendererText.GetTextHeight()},LineHeight(){return this._lineHeightOffset}};
+
 "use strict"
 self.C3_GetObjectRefTable = function () {
 	return [
 		C3.Plugins.Touch,
 		C3.Plugins.Sprite,
 		C3.Plugins.Audio,
+		C3.Plugins.Text,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Audio.Acts.Preload,
+		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
+		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.Sprite.Exps.Height,
-		C3.Plugins.System.Acts.Wait
+		C3.Plugins.System.Acts.Wait,
+		C3.ScriptsInEvents.EventSheet1_Event3_Act1
 	];
 };
 self.C3_JsPropNameTable = [
 	{Touch: 0},
+	{id: 0},
 	{Sprite: 0},
-	{Audio: 0}
+	{Audio: 0},
+	{Text: 0}
 ];
 
 "use strict";
@@ -642,6 +661,10 @@ self.C3_JsPropNameTable = [
 	}
 
 	self.C3_ExpressionFuncs = [
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
 		() => 0,
 		() => "5",
 		p => {
@@ -652,7 +675,8 @@ self.C3_JsPropNameTable = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() * 1.1);
-		}
+		},
+		() => 1
 	];
 }
 
@@ -662,7 +686,17 @@ self.C3_JsPropNameTable = [
 {
 	const scriptsInEvents = {
 
-
+		async EventSheet1_Event3_Act1(runtime, localVars)
+		{
+			const audioName = 'boing_boing'
+			const audioFormat = '.webm'
+			function playAudio(){
+				let base = window.location.href.replace("index.html", "media/" + audioName + audioFormat) 
+				let newAudio = new Audio(base).play()
+				newAudio = undefined
+			}
+			playAudio()
+		}
 
 	};
 	
