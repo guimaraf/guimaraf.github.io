@@ -547,6 +547,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.Preload,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Exps.projectversion,
+		C3.ScriptsInEvents.EventSheet1_Event1_Act3,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Audio.Acts.Play,
@@ -686,15 +687,27 @@ self.C3_JsPropNameTable = [
 {
 	const scriptsInEvents = {
 
-		async EventSheet1_Event3_Act1(runtime, localVars)
+		async EventSheet1_Event1_Act3(runtime, localVars)
 		{
 			const audioName = 'boing_boing'
 			const audioFormat = '.webm'
-			function playAudio(){
+			
+			let audioPreload = () =>{
 				let base = window.location.href.replace("index.html", "media/" + audioName + audioFormat) 
-				let newAudio = new Audio(base).play()
-				newAudio = undefined
+				let newAudio = new Audio(base)
+				newAudio.preload
+				return newAudio
 			}
+			const audioPre = audioPreload()
+			
+			let playAudio = () => {
+				audioPre.play()
+				//audioPre = undefined
+			}
+		},
+
+		async EventSheet1_Event3_Act1(runtime, localVars)
+		{
 			playAudio()
 		}
 
