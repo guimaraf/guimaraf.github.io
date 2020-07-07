@@ -560,15 +560,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.Preload,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Exps.projectversion,
-		C3.ScriptsInEvents.EventSheet1_Event1_Act3,
+		C3.Plugins.Browser.Acts.ExecJs,
+		C3.Plugins.Browser.Exps.URL,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.Sprite.Exps.Height,
-		C3.Plugins.System.Acts.Wait,
-		C3.ScriptsInEvents.EventSheet1_Event3_Act1
+		C3.Plugins.System.Acts.Wait
 	];
 };
 self.C3_JsPropNameTable = [
@@ -680,6 +680,10 @@ self.C3_JsPropNameTable = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (("const audioName = 'boing_boing'\nconst audioFormat = '.webm'\n\nlet audioPreload = () =>{\n\tlet base = " + f0()) + ".replace('index.html', 'media/' + audioName + audioFormat) \n\tlet newAudio = new Audio(base)\n\tnewAudio.preload\n\treturn newAudio\n}\nconst audioPre = audioPreload()\n\nlet playAudio = () => {\n\taudioPre.play()\n}");
+		},
 		() => 0,
 		() => "5",
 		p => {
@@ -691,7 +695,8 @@ self.C3_JsPropNameTable = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() * 1.1);
 		},
-		() => 1
+		() => 1,
+		() => "playAudio()"
 	];
 }
 
@@ -701,28 +706,7 @@ self.C3_JsPropNameTable = [
 {
 	const scriptsInEvents = {
 
-		async EventSheet1_Event1_Act3(runtime, localVars)
-		{
-			const audioName = 'boing_boing'
-			const audioFormat = '.webm'
-			
-			const audioPreload = () =>{
-				let base = window.location.href.replace("index.html", "media/" + audioName + audioFormat) 
-				let newAudio = new Audio(base)
-				newAudio.preload
-				return newAudio
-			}
-			const audioPre = audioPreload()
-			
-			const playAudio = () => {
-				audioPre.play()
-			}
-		},
 
-		async EventSheet1_Event3_Act1(runtime, localVars)
-		{
-			playAudio()
-		}
 
 	};
 	
