@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+function myFunction() {
+  var valor = document.getElementById("flink").value;
+  $.getJSON( "https://is.gd/create.php?callback=?", {
+    url: valor,
+    format: "json"
+}).done(function( data ) {
+    let novolink = data.shorturl;
+	console.log(novolink);
+	if(novolink!==undefined)
+	document.getElementById("h2resp").innerHTML = novolink;
+	else document.getElementById("h2resp").innerHTML = "Erro ao gerar link";
+});
+}
+</script>
+
+<style> 
+.cinput {
+  font-size: 24px;
+}
+</style>
+
+</head>
+<body>
+
+<form id="myForm" >
+  <input class="cinput" type="text" name="flink" id="flink" placeholder="Insira o link original">  
+  <input class="cinput" type="button" onclick="myFunction()" value="Gerar Link">
+</form>
+<h2>Link Gerado</h2>
+<h2 id="h2resp"></h2>
+</body>
+</html>
