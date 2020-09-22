@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity - Carregando o json da pasta StreamingAssets</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+
+    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li> 
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="devlog.html" class="pure-menu-link">Devlog</a>
+                </li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <h1 class="content-subhead">Devlog</h1>
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="img/common/user.png">
+        
+                            <h2 class="post-title">Unity - Carregando o json da pasta StreamingAssets no Android</h2>
+        
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Fred Oliveira</a> sobre 
+                                <a class="post-category post-category-design" href="#">Unity</a>
+                                <br><b>22 de setembro de 2020</b>
+                            </p>
+                        </header>
+        
+                        <div class="post-description">
+                            <p>
+                                Um grande problema quando queremos usar um arquivo json para por exemplo traduzir um aplicativo/jogo, 
+                                no Android não conseguimos acessar a pasta StreamingAssets diretamente. A pasta StreamingAssets é uma pasta que o 
+                                Unity não criptografa, sendo excelente para colocar arquivos de tradução ou até arquivos de configuração do 
+                                seu aplicativo/jogo.<br>
+                                Depois de algumas pesquisas, descobri como resolver este problema relacionado ao Android, quero deixar registrado para 
+                                ajudar quem tiver dificuldades.
+
+                                A pasta StreamingAssets não é criada por padrão nos projetos, então na raiz do seu projeto.<br>
+                                
+                                Primeiro vamos entender o funcionamento da leitura do json na game engine Unity.<br>
+                                Existem diversos métodos para fazer a leitura de um json na engine, dos que tive a oportunidade de estudar, eu considero este como o mais simples.
+
+                                Vamos construir um json bem simples, bem direto ao ponto, exatamente o que preciso em uma aplicação que estou desenvolvendo no momento.<br>
+                                Na pasta StreamingAssets, crie o arquivo "pt.json", você pode criar com qualquer nome, mas para este exemplo, lembre que vamos tratar o 
+                                nome do arquivo como "pt.json".<br>
+                                Veja o json abaixo.
+
+                        <pre><code data-language="json">{
+    "gameName": "Nome do jogo",
+    "gameMode1": "Modo de jogo 1",
+    "gameMode2": "Modo de jogo 2",
+}
+</code></pre>
+                                Criado o json, mo                                
+Precisamos montar a classe base que a engine vai acessar diretamente.<br><br>
+
+                                <pre><code data-language="csharp">public class Translate : MonoBehaviour
+{
+    public TranslateDB translateDB = default;
+    void Start()
+    {
+        translateDB = new TranslateDB();
+        translateDB.LoadJson();
+    }
+}
+</code></pre>
+                                Depois vamos montar a classe que contém as variáveis com os mesmos nomes das keys do arquivo json, coloquei o nome de TraslateDB.<br><br>
+
+                                <pre><code data-language="csharp">public class TranslateDB
+{
+    public string gameName = default;
+    public string gameMode1 = default;
+    public string gameMode2 = default;
+}</code></pre>
+
+                                Dentro da mesma classe <b>TranslateDB</b> crie o método que faz a leitura do json<br><br>
+
+                                <pre><code data-language="csharp">public void LoadJson()
+{
+    string fileName = "pt.json";
+    string filePath = Application.streamingAssetsPath + "/" + fileName;
+    string jsonString = "";
+                                    
+    jsonString = File.ReadAllText(filePath);
+    var jsonData = JsonUtility.FromJson<TranslateDB>(jsonString);
+    gameName = jsonData.gameName;
+    gameMode1 = jsonData.gameMode1;
+    gameMode2 = jsonData.gameMode2;
+}</code></pre>
+                            <b>Obs¹</b> Infelizmente o código acima acabou recebendo uma alteração não intencional, pois o HTML5 reconhecer o 
+                            <b><span><</span>TranslateDB<span>></span></b> como uma tag HTML e tenta fechar a tag no final do código, gerando o 
+                            <b><span><</span>/translatedb<span>></span></b>. <br><br>
+                            
+                            Ignore o final do arquivo e copie o código apenas até o último }<br><br>
+
+                            <b>Obs²</b> Na seguinte linha <br>
+
+                            <b>var jsonData = JsonUtility.FromJson<span><</span>translatedb<span>></span>(jsonString);</b><br><br>
+
+                            Onde está o <b>translateDB</b>, na verdade deveria ser <b>TranslateDB</b>, que é o nome da própria classe. Considere
+                            como está entre <> o HTML5 já converte para translateDB, substitua, ficando desta forma<br><br>
+
+                            <b>var jsonData = JsonUtility.FromJson<span><</span>TranslateDB<span>></span>(jsonString);</b><br><br>
+
+                            TranslateDB
+
+                            Continuando, a método de acesso a arquivos da pasta StreamingAssets é a padrão da engine, como já mencionamos, no Android, o json 
+                            está dentro do apk, não sendo possível ter acesso diretamente, precisando fazer um ajuste no método de leitura para que 
+                            seja verificado dentro do apk pela existência do arquivo.json especificado.<br><br>
+
+                            <pre><code data-language="csharp">public void LoadJson()
+{
+    string fileName = "pt.json";
+    string filePath = Application.streamingAssetsPath + "/" + fileName;
+    string jsonString = "";
+
+    if (Application.platform == RuntimePlatform.Android)
+    {
+        WWW reader = new WWW(filePath);
+        while (!reader.isDone) { }
+        jsonString = reader.text;
+    }
+    else
+    {
+        jsonString = File.ReadAllText(filePath);
+    }
+    var jsonData = JsonUtility.FromJson<TranslateDB>(jsonString);
+    gameName = jsonData.gameName;
+    gameMode1 = jsonData.gameMode1;
+    gameMode2 = jsonData.gameMode2;
+    buttonBack = jsonData.buttonBack;
+}</code></pre>
+
+                            Desta forma, você consegue realizar a tradução também no Android<br>
+
+                            <b>Obs³</b> Lembre de substituir por esta linha <br><br>
+                            <b>var jsonData = JsonUtility.FromJson<span><</span>TranslateDB<span>></span>(jsonString);</b><br><br>
+                            
+                            Não foram feitos testes no IOS, pois não possuo equipamentos da Apple.<br>
+                            Qualquer dúvida, pode me contactar pelas minhas redes sociais.
+                            </p>
+
+                            <p>
+                                <a href="devlog.html">Voltar</a>
+                            </p>
+
+                        </div>
+
+                        <div class="content">
+        
+                        
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+<script src="js/rainbow/rainbow.js"></script>
+<script src="js/rainbow/generic.js"></script>
+<script src="js/rainbow/javascript.js"></script>
+<script src="js/rainbow/html.js"></script>
+<script src="js/rainbow/python.js"></script>
+<script src="js/rainbow/csharp.js"></script>
+<script src="js/rainbow/shell.js"></script>
+
+</body>
+</html>
