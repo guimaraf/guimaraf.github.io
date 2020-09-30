@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
     <link rel="stylesheet" href="css/side-menu.css">
-    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
     <link rel="stylesheet" href="css/blog/blog.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -74,7 +73,7 @@
                                 nome do arquivo como "pt.json".<br>
                                 Veja o json abaixo.
 
-                        <pre><code data-language="json">{
+                        <pre><code class="language-json">{
     "gameName": "Nome do jogo",
     "gameMode1": "Modo de jogo 1",
     "gameMode2": "Modo de jogo 2",
@@ -84,7 +83,7 @@
                                 Crie conforme o exemplo abaixo.<br><br>
 
 
-                                <pre><code data-language="csharp">public class Translate : MonoBehaviour
+                                <pre><code class="language-csharp">public class Translate : MonoBehaviour
 {
     public TranslateDB translateDB = default;
     void Start()
@@ -99,46 +98,41 @@
                                 
                                 Depois vamos montar a classe que contém as variáveis com os mesmos nomes das keys do arquivo json, coloquei o nome de TraslateDB neste script.<br><br>
 
-                                <pre><code data-language="csharp">public class TranslateDB
+                                <pre><code class="language-csharp">public class TranslateDB
 {
     public string gameName = default;
     public string gameMode1 = default;
     public string gameMode2 = default;
 }</code></pre>
 
-                                Dentro da mesma classe <b>TranslateDB</b> crie o método que faz a leitura do json<br><br>
+                                Dentro da mesma classe <b>TranslateDB</b> crie o método que faz a leitura do json<br>
 
-                                <pre><code data-language="csharp">public void LoadJson()
+                                <pre><code class="language-csharp">public void LoadJson()
 {
     string fileName = "pt.json";
     string filePath = Application.streamingAssetsPath + "/" + fileName;
     string jsonString = "";
-                                    
     jsonString = File.ReadAllText(filePath);
-    var jsonData = JsonUtility.FromJson<TranslateDB>(jsonString);
-    gameName = jsonData.gameName;
-    gameMode1 = jsonData.gameMode1;
-    gameMode2 = jsonData.gameMode2;
-}</code></pre>
-                            <b>Obs¹</b> Infelizmente o código acima acabou recebendo uma alteração não intencional, pois o HTML5 reconhece o 
-                            <b><span><</span>TranslateDB<span>></span></b> como uma tag HTML e tenta fechar a tag no final do código, gerando o 
-                            <b><span><</span>/translatedb<span>></span></b>. <br><br>
-                            
-                            Ignore o final do arquivo e copie o código apenas até o último }<br><br>
 
-                            <b>Obs²</b> Na seguinte linha <br>
+    //... continua
+}</code></pre>
+
+                            <b>Obs¹</b> Devido a limitação do plugin de exibir códigos no html sobre o <>, fizemos uma separação no código do método de leitura do json.<br>
+                            Insira o código abaixo logo após a última linha jsonString... <br><br>
 
                             <b>var jsonData = JsonUtility.FromJson<span><</span>translatedb<span>></span>(jsonString);</b><br><br>
 
-                            Onde está o <b>translateDB</b>, na verdade deveria ser <b>TranslateDB</b>, que é o nome da própria classe, substitua pela linha abaixo.<br><br>
+                            Agora pode copiar o restante das linhas também no final do método.<br>
 
-                            <b>var jsonData = JsonUtility.FromJson<span><</span>TranslateDB<span>></span>(jsonString);</b><br><br>
+<pre><code class="language-csharp">gameName = jsonData.gameName;
+gameMode1 = jsonData.gameMode1;
+gameMode2 = jsonData.gameMode2;</code></pre>
 
                             Continuando, a método de acesso a arquivos da pasta StreamingAssets é a padrão da engine, como já mencionamos, no Android, o json 
                             está dentro do apk, não sendo possível ter acesso diretamente, precisando ser necessário fazer um ajuste no método de leitura para que 
                             seja verificado dentro do apk pela o arquivo.json especificado.<br><br>
 
-                            <pre><code data-language="csharp">public void LoadJson()
+                            <pre><code class="language-csharp">public void LoadJson()
 {
     string fileName = "pt.json";
     string filePath = Application.streamingAssetsPath + "/" + fileName;
@@ -154,17 +148,25 @@
     {
         jsonString = File.ReadAllText(filePath);
     }
-    var jsonData = JsonUtility.FromJson<TranslateDB>(jsonString);
-    gameName = jsonData.gameName;
-    gameMode1 = jsonData.gameMode1;
-    gameMode2 = jsonData.gameMode2;
-    buttonBack = jsonData.buttonBack;
+    
+    //... continua
 }</code></pre>
 
-                            Desta forma, você consegue realizar a tradução também no Android<br>
 
-                            <b>Obs³</b> Lembre de substituir por esta linha <br><br>
+
+                            
+
+                            <b>Obs²</b> Como disse acima, insira a linha abaixo no método de leitura do json.<br><br>
+
                             <b>var jsonData = JsonUtility.FromJson<span><</span>TranslateDB<span>></span>(jsonString);</b><br><br>
+
+                            Por fim, vamos finalizar o método com as 3 linhas abaixo.
+
+<pre><code class="language-csharp">gameName = jsonData.gameName;
+gameMode1 = jsonData.gameMode1;
+gameMode2 = jsonData.gameMode2;</code></pre>
+
+                            Desta forma, você consegue realizar a tradução também no Android<br>
                             
                             Não foram feitos testes no IOS, pois não possuo equipamentos da Apple.<br>
                             Qualquer dúvida, pode me contactar pelas minhas redes sociais.
@@ -186,14 +188,7 @@
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
     <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
     <link rel="stylesheet" href="css/blog/blog.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -149,12 +149,12 @@
                     
                                 Agora que navegou até a pasta do seu projeto, podemos adicionar a plataforma Android pelo Cordova CLI. Digite o comando.<br><br>
 
-                                <pre><code data-language="shell">cordova platform add android</code></pre>
+                                <pre><code class="language-batch">cordova platform add android</code></pre>
                                                     
                                 Uma observação muito importante é que o comando acima, vai adicionar no projeto a versão mais atualizada que tem 
                                 instalada no computador, caso queira uma versão específica, é necessário informar a versão também na linha de comando, por exemplo.<br><br>
                     
-                                <pre><code data-language="shell">cordova platform add android@6.4.3</code></pre>
+                                <pre><code class="language-batch">cordova platform add android@6.4.3</code></pre>
                     
                                 Aguarde a instalação da plataforma Android pelo Cordova, todos os plugins que estão listados no <b>config.xml</b>, 
                                 serão instalados. <b>Futuramente atualizarei sobre este ponto.</b>, além da instalação de plugins para ads e Google Play Games.<br><br>
@@ -170,12 +170,12 @@
                                 não é necessário.<br>
                                 Agora vamos propriamente gerar o apk em modo debug com o comando abaixo.<br><br>
 
-                                <pre><code data-language="shell">cordova build</code></pre>
+                                <pre><code class="language-batch">cordova build</code></pre>
                     
                                 Caso o projeto tenha outra plataforma, mande gerar apenas a versão Android, senão o Cordova entende que quer gerar a build de todas 
                                 as plataformas instaladas.<br><br>
                     
-                                <pre><code data-language="shell">cordova build android</code></pre>
+                                <pre><code class="language-batch">cordova build android</code></pre>
                     
                                 Executado o comando, a primeira vez gerada pode demorar um pouco, pois depende da configuração do computador além da quantidade 
                                 de plugins que que estão instalados no projeto.
@@ -197,7 +197,7 @@
                                 Agora pode testar seu aplicativo.<br>
                                 Se não precisar de fazer nenhuma alteração no seu jogo, "ads, google play services", pode gerara build não assinada, use o comando.<br><br>
                   
-                                <pre><code data-language="shell">cordova build --release</code></pre>
+                                <pre><code class="language-batch">cordova build --release</code></pre>
                               </p>
 
                               <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/androidBuildRelease.jpg"></p></center>
@@ -205,7 +205,7 @@
                               <h3>Limpando e compilando o projeto</h3>
 
                               <p>
-                                <pre><code data-language="shell">cordova clean android</code></pre>
+                                <pre><code class="language-batch">cordova clean android</code></pre>
 
                                 É necessário informar a plataforma que deseja limpar, apenas se o seu projeto possuir mais de 1 instalada, desta 
                                 forma a pasta build "até o Cordova 6" ou app para Cordova 7.
@@ -220,7 +220,7 @@
                     
                                 <h3>Agora para assinar o aplicativo, eu criei um pequeno script, que facilita muito.</h3>
 
-                                <pre><code data-language="shell">jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore Z:\FabricaDeAPK/cert/nomeDaSuaKeystore.keystore -storepass "suaSenhaDaKeystore" nomeDoAplicativoNaoAssinado.apk suaAlias
+<pre><code class="language-batch">jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore Z:\FabricaDeAPK/cert/nomeDaSuaKeystore.keystore -storepass "suaSenhaDaKeystore" nomeDoAplicativoNaoAssinado.apk suaAlias
 pause
 zipalign -f -v 4 nomeDoAplicativoNaoAssinado.apk nomeDoSeuAplicativoAposAssinar.apk
 del nomeDoAplicativoNaoAssinado.apk
@@ -274,14 +274,7 @@ pause
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

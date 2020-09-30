@@ -10,7 +10,7 @@
     <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
     <link rel="stylesheet" href="css/blog/blog.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -88,11 +88,11 @@
                   
                               O comando para remover a plataforma é.<br>
                     
-                              <pre><code data-language="shell">cordova platform remove android</code></pre>
+                              <pre><code class="language-batch">cordova platform remove android</code></pre>
                     
                               O comando para desinstalar a plataforma, aguarde o Node terminar de remover e depois adicione a plataforma Android 6.4.0 com o comando abaixo<br>
                     
-                              <pre><code data-language="shell">cordova platform add android@6.4.0</code></pre>
+                              <pre><code class="language-batch">cordova platform add android@6.4.0</code></pre>
                     
                               Aguarde terminar de instalar.<br><br>
                     
@@ -110,30 +110,30 @@
                               Para o nosso exemplo, eu modifiquei o <b>Test Mode</b> para <b>Enable</b>, assim podemos testar se o plugin está sendo carregado, sem gerar 
                               carregamentos incorretos de propagandas, desta forma, não é necessário colocar as IDs das propagandas e nem do aplicativo na Google Play. <br>
                                 
-                              Feito essa alteração, exporte novamente seu projeto, repare que no arquivo <b>config.xml</b> existe uma nova linha que é referente ao plugin 
+                              Feito essa alteração, exporte novamente seu projeto, repare que no arquivo <b>config.xml</b> existe uma nova linha é referente ao plugin 
                               base do <b>ad-mob</b> <br><br>
 
-                              <pre><code data-language="html"><plugin name="cocoon-plugin-ads-android"></code></pre>
+                              <b></b><span><</span>plugin<span>></span> <b>name="cocoon-plugin-ads-android-admob"</b> <br><br>
+
                                 
                               Agora vamos fazer uma pequena alteração, para utilizar uma versão específica do plugin no repositório do projeto, <b>1.0.12</b>, esta funciona 
                               corretamente, a 2.0 "que é a mais atualizada" até a o momento, não tem compatibilidade com o plugin do Construct 2.<br>
                   
                               Altere a linha conforme a imagem abaixo.<br><br>
+
+                              <b></b><span><</span>plugin<span>></span> <b>name="cocoon-plugin-ads-android-admob" spec="^1.0.12"></b> <br><br>
                                 
-                              <pre><code data-language="html"><plugin name="cocoon-plugin-ads-android-admob" spec="^1.0.12"></code></pre>
-                              
-                  
                               Se vai criar um novo projeto, só esta alteração já é o suficiente para que o Cordova CLI baixe a versão correta do plugin <b>1.0.12</b>. 
                               Aguarde a instalação do plugin que tem algumas dependências "plugins adicionais", com o processo concluído, agora podemos gerar uma nova build.<br><br>
                                 
                               Caso queira adicionar no seu projeto atual, utilize o comando no Cordova CLI.<br>
                   
-                              <pre><code data-language="shell"></code>cordova plugin add cocoon-plugin-ads-android-admob@1.0.12</pre>
+                              <pre><code class="language-batch">cordova plugin add cocoon-plugin-ads-android-admob@1.0.12</code></pre>
                   
                               Pegue os os arquivos da pasta <b>www</b>, substitua os arquivos da sua pasta do Cordova, basicamente só isso que vai precisar fazer 
                               para atualizar seu projeto, por isso que gosto tanto do Cordova CLI.<br><br>
                               
-                              <pre><code data-language="shell">cordova build</code></pre>
+                              <pre><code class="language-batch">cordova build</code></pre>
                     
                               Com o processo concluído, teste.<br>
                     
@@ -169,14 +169,7 @@
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

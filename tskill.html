@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/blog/blog.css">
     <link rel="stylesheet" href="css/spoiler.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -79,19 +79,18 @@
                                 Pegue o código e cole em um arquivo no formato .bat, que pode ser também um arquivo .txt, renomeie ele para .bat.
                             </p>
 
-                            <pre>
-                                <code data-language="shell">@echo off
+                            <pre><code class="language-batch">@echo off
 set proceso=nw.exe
-                        
+                            
 tasklist>%tmp%\tmp.txt
 find /i "%proceso%" "%tmp%\tmp.txt">%tmp%\pid.tmp
-                        
+                            
 if errorlevel==1 (
     color C
     echo Nao foi encotrado o "%proceso%" no sistema
     timeout /t 3
 )
-                        
+                            
 for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (
     color a
     cls
@@ -150,14 +149,7 @@ for /f "tokens=2 skip=2" %%p in (%tmp%\pid.tmp) do (
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

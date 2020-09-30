@@ -10,7 +10,7 @@
     <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
     <link rel="stylesheet" href="css/blog/blog.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -88,10 +88,10 @@
                               Pegamos os plugins que o Cordova baixa, fizemos algumas alterações e fiz upload deles no meu github. <br>
                               Com o projeto Cordova CLI aberto, adicione o plugin utilizando esta linha de comando abaixo. <br><br>
 
-                              <pre><code data-language="shell">cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="COLOQUE SUA ID DA GOOGLE PLAY GAMES AQUI"</code></pre>
+                              <pre><code class="language-batch">cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="COLOQUE SUA ID DA GOOGLE PLAY GAMES AQUI"</code></pre>
                                 
                               <b>Exenplo</b>
-                              <pre><code data-language="shell">cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="123456789012"</code></pre>
+                              <pre><code class="language-batch">cordova plugin add https://github.com/guimaraf/cordova-plugin-game --variable APP_ID="123456789012"</code></pre>
                     
                               
                               Coloquei todas as dependências necessárias direto no código que está no Github, desta forma tudo é baixado apenas utilizando 
@@ -109,12 +109,12 @@
 
                             <p>
                               Caso ocorrer um erro do módulo do Node "xml2js", instale usando o comando.<br><br>
-                              <pre><code data-language="shell"></code>npm install xml2js</pre>
+                              <pre><code class="language-batch">npm install xml2js</code></pre>
                               Veja a documentação oficial do módulo <a href="https://www.npmjs.com/package/xml2js" target="_blank">xml2js</a> no repositório npm. <br>
                     
                               Se solicitar o modulo do Node "semver", instale com o comando abaixo.<br>
                               
-                              <pre><code data-language="shell"></code>npm install semver</pre>
+                              <pre><code class="language-batch">npm install semver</code></pre>
 
                               Novamente para consultar a documentação oficial, <a href="https://www.npmjs.com/package/semver" target="blank">semver</a> também 
                               no repositório npm.
@@ -122,7 +122,7 @@
                             
                             <p>
                               Agora mande gerar o APK em modo debug, use o comando.
-                              <pre><code data-language="shell"></code>cordova build</pre>
+                              <pre><code class="language-batch">cordova build</code></pre>
                             </p>
 
                             <center> <p> <img alt="" class="pure-img-responsive" src="img/cordovaCLI/cordovaGameGenereteAPK.png"></p></center>
@@ -162,14 +162,7 @@
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/blog/blog.css">
     <link rel="stylesheet" href="css/spoiler.css">
 
-    <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+    <link href="css/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -130,15 +130,15 @@
                                 Com o arquivos do projeto no MAC, precisamos entender alguns comandos do terminal, <a href="http://br.ccm.net/faq/26324-uso-do-terminal-no-mac-os-x" target="_blank" >veja neste link</a> os 
                                 principais comandos, porém vamos utilizar apenas alguns.<br><br>
                             
-                                <pre><code data-language="shell">ls</code></pre>
+                                <pre><code class="language-batch">ls</code></pre>
                                 
                                 mostra a lista de todos os seus arquivos e pastas<br>
 
-                                <pre><code data-language="shell">cd</code></pre>
+                                <pre><code class="language-batch">cd</code></pre>
 
                                 permite que você vá de um diretório para outro (ex: cd/user/seunome para ir para o seu diretório)<br>
 
-                                <pre><code data-language="shell">clear</code></pre>
+                                <pre><code class="language-batch">clear</code></pre>
 
                                 limpa a tela, restando apenas a primeira linha<br>
 
@@ -172,11 +172,11 @@
                             
                             <p>
                                 Primeiro preciso explicar que o comando
-                                <pre><code data-language="shell">sudo</code></pre>
+<pre><code class="language-batch">sudo</code></pre>
                                 que serve para executar comandos como administrador do sistema, necessitando de uma senha <b>"padrão em sistemas linux também"</b>.
-                                <pre><code data-language="shell">sudo cordova platform add ios</code></pre>
+<pre><code class="language-batch">sudo cordova platform add ios</code></pre>
                                 Caso queira inserir alguma versão específica do Cordova IOS, é necessário espeficicar a versão. Vale lembrar que a versão atual é 4.5.4, o comando ficaria.<br>
-                                <pre><code data-language="shell">sudo cordova platform add ios@4.5.4</code></pre>
+<pre><code class="language-batch">sudo cordova platform add ios@4.5.4</code></pre>
                             </p>
                             
                             <p>
@@ -193,7 +193,7 @@
                                 Eu coloquei uma seta para mostrar o comando digitado, deixei mostrando todos os outros até o final da instalação da plataforma IOS e os plugins.<br>
                     
                                 Pode usar agora o comando
-                                <pre><code data-language="shell">clear</code></pre>
+<pre><code class="language-batch"">clear</code></pre>
                                 para limpar a tela.<br>
                             </p>
 
@@ -244,7 +244,7 @@
                                         Para ADS estou utilizando o plugin <a href="https://www.scirra.com/store/construct2-plugins/ultimate-ads-3549" target="_blank" >Ultimate ADS</a>, que já está inserido no projeto.<br><br>
                                         É necessário inserir manualmente o plugin na plataforma, use o comando abaixo.<br>
 
-                                        <pre><code data-language="shell">sudo Cordova plugin add cocoon-plugin-ads-ios-admob</code></pre>
+                                        <pre><code class="language-batch">sudo Cordova plugin add cocoon-plugin-ads-ios-admob</code></pre>
 
                                         <img alt="" class="pure-img-responsive" src="img/cordovaCLI/iosads.jpg"><br>
 
@@ -267,14 +267,7 @@
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 </body>
 </html>

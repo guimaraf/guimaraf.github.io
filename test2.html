@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/blog/blog.css">
 
     <link href="css/rainbow/blackboard.css" rel="stylesheet" type="text/css" media="screen"><!--b>Para carregar o thema do rainbow</b-->
+
+
+    <link href="css/prism/prism.css" rel="stylesheet" />
+    
+
 </head>
 <body>
 
@@ -96,6 +101,31 @@
                             </p>
 
                         </div>
+
+                        <br>
+                        
+                        <pre><code class="language-csharp">public void LoadJson()
+{
+    string fileName = "pt.json";
+    string filePath = Application.streamingAssetsPath + "/" + fileName;
+    string jsonString = "";
+    
+    if (Application.platform == RuntimePlatform.Android)
+    {
+        WWW reader = new WWW(filePath);
+        while (!reader.isDone) { }
+        jsonString = reader.text;
+    }
+    else
+    {
+        jsonString = File.ReadAllText(filePath);
+    }
+    var jsonData = JsonUtility.FromJson<TranslateDB>(jsonString);
+    gameName = jsonData.gameName;
+    gameMode1 = jsonData.gameMode1;
+    gameMode2 = jsonData.gameMode2;
+    buttonBack = jsonData.buttonBack;
+}</code></pre>
                     </section>
                 </div>
             </div>
@@ -103,14 +133,7 @@
     </div>
 </div>
 <script src="js/ui.js"></script>
-
-<script src="js/rainbow/rainbow.js"></script>
-<script src="js/rainbow/generic.js"></script>
-<script src="js/rainbow/javascript.js"></script>
-<script src="js/rainbow/html.js"></script>
-<script src="js/rainbow/python.js"></script>
-<script src="js/rainbow/csharp.js"></script>
-<script src="js/rainbow/shell.js"></script>
+<script src="js/prism/prism.js"></script>
 
 <script src="js/play.js"></script>
 
