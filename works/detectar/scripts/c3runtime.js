@@ -2677,7 +2677,7 @@ WindowInnerWidth(){return this._runtime.GetCanvasManager().GetLastWidth()},Windo
 	self.C3_ExpressionFuncs = [
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
+			return () => ((((f0()) === ("Win32") ? 1 : 0)) ? ("PC") : ("Android"));
 		}
 	];
 }
