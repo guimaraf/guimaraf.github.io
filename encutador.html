@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de URL</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+    <link rel="stylesheet" href="css/shorty.css" >
+
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="projects.html" class="pure-menu-link">Projects</a>
+                </li>
+                <li class="pure-menu-item"><a href="devlog.html" class="pure-menu-link">Devlog</a></li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Encurtador de URL</h1>
+            <h2></h2>
+        </div>
+
+        <div class="content">
+            <br>
+            <form id="myForm" class="pure-form pure-form-aligned">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <input type="text" id="originalLink" placeholder="Insira o link original"/>
+                        <button type="button" class="pure-button pure-button-primary" onclick="shortyLink();" >Gerar Link</button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <h3 id="result"></h3>
+
+            <h2 class="content-subhead">Recursos Atuais</h2>
+            <p>
+                Um gerador de link simples, que não necessita de login para utilizar, foi feito 
+                com base na API do site <a href="https://is.gd/create.php?callback" target="_blank">Is.gd</a> 
+                que fornece o serviço de forma gratuíta.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="js/ui.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/shorty.js"></script>
+
+</body>
+</html>
