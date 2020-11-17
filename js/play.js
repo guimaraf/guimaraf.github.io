@@ -7,4 +7,4 @@ let songs = {
   }
 }
 
-playSound= (name) => new Audio(songs[name].url).play()
+playSound = (name) => new Audio(songs[name].url).play()
