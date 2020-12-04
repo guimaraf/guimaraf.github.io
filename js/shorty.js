@@ -1,13 +1,27 @@
 shortyLink = () => {
   var valor = document.getElementById("originalLink").value;
-  $.getJSON( "https://is.gd/create.php?callback=?", {
+  if(valor !== ""){
+    $.getJSON( "https://is.gd/create.php?callback=?", {
     url: valor,
     format: "json"
-}).done(function( data ) {
-    let novolink = data.shorturl;
-  console.log(novolink);
-  resultShorty(novolink);
-});
+    }).done(function( data ) {
+        let novolink = data.shorturl;
+        console.log(novolink);
+        resultShorty(novolink);
+    });
+  }
+  else{
+    resultBlank();
+  }
+}
+
+resultBlank = () =>{
+  console.log("blank");
+  document.getElementById("inputBlank").innerHTML = "O campo abaixo não possui um link"
+
+  setTimeout(()=> {
+     document.getElementById("inputBlank").innerHTML = "";
+    }, 3000);
 }
 
 resultShorty = (res) => {

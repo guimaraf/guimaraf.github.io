@@ -1,0 +1,64 @@
+section#corpo {
+                position: absolute;
+                left: 35%;
+                
+            }
+            section h1#safad {
+                color: royalblue;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 20pt;
+                font: bold;
+            }
+            
+            h2#infosafad {
+                text-align: center;
+            }
+            
+            form {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: black;
+                font: bold;
+                font-size: 14pt;
+            }
+            
+            input {
+                size: 20pt;
+            }
+            
+            
+            img#wes {
+                position: absolute;
+                right: 0%;
+                top: 260px;
+            }
+            
+            img#mao {
+                position: absolute;
+                right: 85%;
+                top: 300px;
+                width: 125px;
+                height: 57px;
+                
+            }
+            
+            form h2#txtSafadeza {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 20pt;
+                color: red;
+                font: bold;
+                position: absolute;
+                right: 90%;
+                top: 420px;
+                
+            }
+            form h2#txtAnjo {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 20pt;
+                color: blue;
+                font: bold;
+                position: absolute;
+                right: 80%;
+                top: 500px; 
+            }
+            
+            
