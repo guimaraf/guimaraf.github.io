@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/imgGenerate.css" >
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+			
+	</head>
+	<body>
+		<div>
+			<figure id="container">
+				<img src="img/bart.png" />  
+				<figcaption id="textImage"></figcaption>
+			</figure>
+
+			<br>
+			<h2>É possível utilizar até 54 caracteres na versão atual</h2>
+			<input type="text" id="originalText" placeholder="O texto que quer na imagem" maxlength="54"/>
+			<br>
+			<button type="button" onclick="textInImage();">Aplicar texto</button>
+		</div>
+		
+	</body>
+	<script src="js/imgGenerate.js"></script>
+</html>

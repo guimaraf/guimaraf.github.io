@@ -1,0 +1,20 @@
+#container {
+  display: inline-block;
+  position: relative;
+}
+
+#container figcaption {
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  
+  font-size: 24px;
+  font-family: 'Caveat', cursive;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+#originalText {
+  display: inline-block;
+  position: relative;
+}
