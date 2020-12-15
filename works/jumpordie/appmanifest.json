@@ -1,7 +1,7 @@
 {
-	"name": "infinityJump",
-	"short_name": "infinityJump",
-	"description": "",
+	"name": "jumpofdie",
+	"short_name": "jumpofdie",
+	"description": "Jump or Die",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "portrait",
