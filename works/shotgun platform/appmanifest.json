@@ -1,10 +1,10 @@
 {
-	"name": "jumpofdie",
-	"short_name": "jumpofdie",
-	"description": "Jump or Die",
+	"name": "shotgun platform",
+	"short_name": "shotgun platform",
+	"description": "",
 	"start_url": "index.html",
 	"display": "fullscreen",
-	"orientation": "portrait",
+	"orientation": "landscape",
 	"background_color": "#ffffff",
 	"icons": [
 		{
