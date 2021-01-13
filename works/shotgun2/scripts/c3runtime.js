@@ -3241,6 +3241,7 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.System.Acts.SubVar,
+		C3.Behaviors.Platform.Cnds.IsOnFloor,
 		C3.Plugins.Sprite.Acts.SubInstanceVar,
 		C3.Plugins.System.Exps.dt,
 		C3.Behaviors.Platform.Cnds.CompareSpeed,
@@ -3251,38 +3252,49 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		C3.Behaviors.Platform.Exps.VectorX,
 		C3.Plugins.Sprite.Acts.SetWidth,
 		C3.Plugins.Sprite.Acts.SetAnim,
+		C3.Behaviors.Platform.Cnds.IsJumping,
+		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.Sprite.Exps.AnimationFrame,
-		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.Sprite.Acts.SetVisible,
+		C3.Plugins.Sprite.Acts.SetX,
+		C3.Plugins.Sprite.Exps.Width,
+		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Cnds.OnAnimFinished,
 		C3.Plugins.Sprite.Cnds.IsAnimPlaying,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Behaviors.scrollto.Acts.Shake,
 		C3.Behaviors.Bullet.Acts.SetAngleOfMotion,
-		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.System.Exps.random,
+		C3.Plugins.Sprite.Cnds.OnCreated,
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Behaviors.Platform.Acts.SetVectorY,
 		C3.Behaviors.Platform.Exps.JumpStrength,
 		C3.Plugins.Sprite.Acts.SetEffectParam,
 		C3.Plugins.System.Acts.SetTimescale,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.TiledBg.Acts.SetOpacity,
 		C3.Plugins.TiledBg.Acts.SetWidth,
 		C3.Plugins.Spritefont2.Acts.SetOpacity,
 		C3.Plugins.Spritefont2.Exps.UID,
 		C3.Plugins.Spritefont2.Exps.Opacity,
 		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.System.Acts.RestartLayout,
-		C3.Behaviors.Platform.Cnds.IsByWall,
-		C3.Behaviors.Platform.Cnds.IsOnFloor,
+		C3.Plugins.Browser.Cnds.IsFullscreen,
+		C3.Plugins.Browser.Acts.RequestFullScreen,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Browser.Acts.CancelFullScreen,
+		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Behaviors.Bullet.Acts.SetEnabled,
 		C3.Plugins.Sprite.Acts.MoveToTop,
-		C3.Plugins.Sprite.Acts.Destroy,
-		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.Sprite.Cnds.PickByUID,
 		C3.Plugins.Sprite.Acts.SetAnimSpeed,
 		C3.Behaviors.Platform.Acts.SetEnabled,
-		C3.Plugins.Sprite.Acts.SetCollisions
+		C3.Plugins.Sprite.Acts.SetCollisions,
+		C3.Plugins.Sprite.Exps.UID,
+		C3.Behaviors.Platform.Cnds.IsByWall
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3301,6 +3313,7 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		{animSpecialName: 0},
 		{specialTime: 0},
 		{ledgeJump: 0},
+		{policeUid: 0},
 		{Platform: 0},
 		{chara: 0},
 		{Pin: 0},
@@ -3308,7 +3321,6 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		{Bullet: 0},
 		{granadeThrow: 0},
 		{bullet: 0},
-		{bulletParticle: 0},
 		{charaWeapon: 0},
 		{SpriteFont: 0},
 		{shotgunTiled: 0},
@@ -3323,12 +3335,30 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		{resist: 0},
 		{destroy: 0},
 		{box: 0},
+		{knifeDamage: 0},
+		{shotgunEffect: 0},
+		{explisionCollider: 0},
+		{bulletParticle: 0},
+		{soulUID: 0},
+		{patrol: 0},
+		{patrolCollider: 0},
+		{deadActive: 0},
+		{colliderUid: 0},
+		{patrolUid: 0},
+		{fire: 0},
+		{fireActive: 0},
+		{side: 0},
+		{patrolSoul: 0},
 		{ScrollTo: 0},
-		{Sprite2: 0},
+		{camera: 0},
 		{Sprite3: 0},
 		{Sprite4: 0},
+		{TiledBackground2: 0},
 		{armBullets: 0},
-		{shootType: 0}
+		{damageValue: 0},
+		{shootType: 0},
+		{uidBox: 0},
+		{UID: 0}
 	];
 }
 
@@ -3451,7 +3481,6 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 			return () => v0.GetValue();
 		},
 		() => 3,
-		() => "reload",
 		() => "knife",
 		() => "granade",
 		p => {
@@ -3474,6 +3503,8 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		},
 		() => "ide",
 		() => "walk",
+		() => "jump",
+		() => "fall",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
@@ -3481,6 +3512,19 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		() => "ideShotgun",
 		() => "walkShotgun",
 		() => "fireShotgun",
+		() => "damage",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpObject()) === ((-14)) ? 1 : 0)) ? ((n1.ExpObject() + 0.3)) : ((n2.ExpObject() - 0.3)));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => ((((n0.ExpObject()) === ((-14)) ? 1 : 0)) ? ((n1.ExpObject() + 0.1)) : ((n2.ExpObject() - 0.1)));
+		},
 		() => "recoveryShotgun",
 		() => "effect",
 		() => 0.4,
@@ -3507,12 +3551,18 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		},
 		p => {
 			const n0 = p._GetNode(0);
+			return () => ((((n0.ExpObject()) === ((-14)) ? 1 : 0)) ? ((-8)) : (8));
+		},
+		() => 0.2,
+		p => {
+			const n0 = p._GetNode(0);
 			return () => ((-n0.ExpBehavior()) * 1.5);
 		},
+		() => 0.005,
 		() => "Brightness",
 		() => 200,
 		() => 0.0001,
-		() => 5e-7,
+		() => 0.000001,
 		() => 100,
 		p => {
 			const n0 = p._GetNode(0);
@@ -3530,14 +3580,36 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 			return () => ((((n0.ExpObject()) === (40) ? 1 : 0)) ? (0) : (n1.ExpObject()));
 		},
 		() => "pistol",
-		() => 5,
-		() => 0.1,
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => C3.lerp(n0.ExpObject(), n1.ExpObject(), 0.08);
+		},
+		() => 0.05,
 		() => "Animation 1",
-		() => 12,
+		() => 0.25,
+		() => 0.5,
 		() => "normal",
 		() => "destroy",
-		() => 0.000001,
-		() => 0.2
+		() => 12,
+		() => 5e-7,
+		() => 5,
+		() => 0.1,
+		() => "left",
+		() => -12,
+		() => "right",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => ((((n0.ExpObject()) === ((-12)) ? 1 : 0)) ? ((-64)) : (64));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => ((((n0.ExpObject()) === ((-12)) ? 1 : 0)) ? ((-96)) : (96));
+		},
+		() => "idePistol",
+		() => "walkPisol",
+		() => "firePistol",
+		() => "die"
 	];
 }
 
