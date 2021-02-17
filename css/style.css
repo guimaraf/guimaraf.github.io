@@ -137,7 +137,7 @@
 	box-shadow: 1px 1px 2px #888;
 	z-index: 1000;
 }
-
+/*
 .facebook-link{
     position: fixed;
 	width: 60px;
@@ -152,13 +152,14 @@
 	box-shadow: 1px 1px 2px #888;
 	z-index: 1000;
 }
+*/
 
 .mail-link{
   position: fixed;
 	width: 60px;
 	height: 60px;
 	bottom: 40px;
-	right: 320px;
+	right: 250px;
 	background-color: #D44638;
 	color: #fff;
 	border-radius: 50px;
