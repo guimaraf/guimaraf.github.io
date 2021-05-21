@@ -1,5 +1,7 @@
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
+    {name: 'Canal do Z3OX1S', id: '27193916548883456'},
+    {name: 'Canal GMT Gaming', id: '20943083979057152'},
     {name: 'Chrono Plays', id: '16791718469478400'},
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
@@ -11,15 +13,14 @@ const allChannels = [
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
-    {name: 'Okage', id: '16544443442571264'},
+    {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
     {name: 'Pegasus', id: '18017024920168448'},
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'Swift Ganes', id: '19179146257277952'},
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
-    {name: 'Xandão Gamers', id: '27774951872964608'},
-    {name: 'Canal do Z3OX1S', id: '27193916548883456'}
+    {name: 'Xandão Gamers', id: '27774951872964608'}
   ]
 
 let updateList = () =>{
