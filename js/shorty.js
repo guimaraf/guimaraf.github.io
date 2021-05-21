@@ -1,13 +1,13 @@
 shortyLink = () => {
-  var valor = document.getElementById("originalLink").value;
-  if(valor !== ""){
+  var initialValue = document.getElementById("originalLink").value;
+  if(initialValue !== ""){
     $.getJSON( "https://is.gd/create.php?callback=?", {
-    url: valor,
+    url: initialValue,
     format: "json"
     }).done(function( data ) {
-        let novolink = data.shorturl;
-        console.log(novolink);
-        resultShorty(novolink);
+        let newLink = data.shorturl;
+        console.log(newLink);
+        resultShorty(newLink);
     });
   }
   else{
