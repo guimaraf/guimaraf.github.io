@@ -29,7 +29,8 @@ let updateList = () =>{
     
     for (let i = 0; i < allChannels.length; i++){
         if(limit < 2){
-            contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a> ${addSpaces(allChannels[i].name)}</b>`
+            //contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a> ${addSpaces(allChannels[i].name)}</b>`
+            contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a>${addSpacesNew()}</b>`
             document.getElementById("cosChannels").innerHTML += contentData
             limit = 2
         }
@@ -44,7 +45,13 @@ let updateList = () =>{
 let addSpaces = (word) =>{
     let allSpaces = ''
     for(let i = 0; i < 30 - word.length; i++){
-        allSpaces+= '&nbsp '
+        allSpaces+= '&nbsp'
     }
     return allSpaces
+}
+
+let addSpacesNew = () => {
+    let a = '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'
+    let b = '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'
+    return a + '|' + b
 }
