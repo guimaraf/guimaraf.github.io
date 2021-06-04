@@ -10,6 +10,7 @@ const allChannels = [
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
+    {name: 'Kid', id: '25176487257089024'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
