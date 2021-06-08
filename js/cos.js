@@ -1,3 +1,9 @@
+//API base
+//https://www.coingecko.com/api/documentations/v3#/
+
+//json usado
+//https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd
+
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
@@ -10,7 +16,6 @@ const allChannels = [
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
-    {name: 'Kid', id: '25176487257089024'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
@@ -21,6 +26,7 @@ const allChannels = [
     {name: 'Swift Ganes', id: '19179146257277952'},
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
+    {name: 'Wukong', id: '25176487257089024'},
     {name: 'Xandão Gamers', id: '27774951872964608'}
   ]
 
@@ -30,29 +36,28 @@ let updateList = () =>{
     
     for (let i = 0; i < allChannels.length; i++){
         if(limit < 2){
-            //contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a> ${addSpaces(allChannels[i].name)}</b>`
-            contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a>${addSpacesNew()}</b>`
-            document.getElementById("cosChannels").innerHTML += contentData
+            contentData = `<center><b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a></b><br> </center>`
+            document.getElementById("cosChannelsLeft").innerHTML += contentData
             limit = 2
         }
         else{
-            contentData = `<b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a></b> <br>`
-            document.getElementById("cosChannels").innerHTML += contentData
+            contentData = `<center><b><a href="https://cos.tv/channel/${allChannels[i].id}" target="_blank" >${allChannels[i].name}</a></b><br> </center>`
+            document.getElementById("cosChannelsRight").innerHTML += contentData
             limit = 1
         }
     }
 }
 
-let addSpaces = (word) =>{
-    let allSpaces = ''
-    for(let i = 0; i < 30 - word.length; i++){
-        allSpaces+= '&nbsp'
-    }
-    return allSpaces
-}
+//open json from api
+var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var cliente = JSON.parse(this.responseText);
 
-let addSpacesNew = () => {
-    let a = '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'
-    let b = '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'
-    return a + '|' + b
-}
+            //console.log(cliente.contentos.usd)
+            document.getElementById("cosValue").innerHTML = 'Valor do Cos U$ ' + cliente.contentos.usd
+        }
+    }
+        
+    xmlhttp.open("GET", "https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd", true);
+    xmlhttp.send();
