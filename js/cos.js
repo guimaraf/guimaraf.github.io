@@ -6,6 +6,7 @@
 
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
+    {name: 'BrBrock', id: '27999853156411392'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
     {name: 'Chrono Plays', id: '16791718469478400'},
@@ -23,6 +24,7 @@ const allChannels = [
     {name: 'Pegasus', id: '18017024920168448'},
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
+    {name: 'SHADOW NB', id: '27150632344266752'},
     {name: 'Swift Ganes', id: '19179146257277952'},
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
