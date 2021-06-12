@@ -4,8 +4,10 @@
 //json usado
 //https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd
 
+
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
+    {name: 'Atmafalcon', id: '20143686938175488'},
     {name: 'BrBrock', id: '27999853156411392'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
@@ -22,6 +24,9 @@ const allChannels = [
     {name: 'Miyu4Gamer', id: '17248160209348608'},
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
     {name: 'Pegasus', id: '18017024920168448'},
+
+    {name: 'PrimaziaGameplays', id: '18607579884857344'},
+
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
