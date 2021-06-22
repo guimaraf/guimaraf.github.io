@@ -4,7 +4,6 @@
 //json usado
 //https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd
 
-
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
     {name: 'Atmafalcon', id: '20143686938175488'},
@@ -38,6 +37,9 @@ const allChannels = [
   ]
 
 let updateList = () =>{
+
+    getContentosValue()
+
     let contentData = ''
     let limit = 1
     
@@ -56,7 +58,8 @@ let updateList = () =>{
 }
 
 //open json from api
-var xmlhttp = new XMLHttpRequest();
+let getContentosValue = () => {
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var cliente = JSON.parse(this.responseText);
@@ -68,3 +71,4 @@ var xmlhttp = new XMLHttpRequest();
         
     xmlhttp.open("GET", "https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd", true);
     xmlhttp.send();
+}
