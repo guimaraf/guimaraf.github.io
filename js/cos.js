@@ -15,6 +15,7 @@ const allChannels = [
     {name: 'Coyote', id: '21690947436718080'},
     {name: 'Dan BraveHeart', id: '17834881468770304'},
     {name: 'Geek Gamer BR', id: '20041833364497408'},
+    {name: 'Furius', id: '27823601740850176'},
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
@@ -23,9 +24,7 @@ const allChannels = [
     {name: 'Miyu4Gamer', id: '17248160209348608'},
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
     {name: 'Pegasus', id: '18017024920168448'},
-
     {name: 'PrimaziaGameplays', id: '18607579884857344'},
-
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
