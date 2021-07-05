@@ -31,8 +31,7 @@ const allChannels = [
     {name: 'Swift Ganes', id: '19179146257277952'},
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
-    {name: 'Wukong', id: '25176487257089024'},
-    {name: 'Xandão Gamers', id: '27774951872964608'}
+    {name: 'Wukong (King)', id: '25176487257089024'}
   ]
 
 let updateList = () =>{
