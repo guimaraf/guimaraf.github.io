@@ -28,7 +28,7 @@ const allChannels = [
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
-    {name: 'Swift Ganes', id: '19179146257277952'},
+    {name: 'Swift Games', id: '19179146257277952'},
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
     {name: 'Wukong (King)', id: '25176487257089024'}
