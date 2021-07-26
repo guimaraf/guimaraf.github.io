@@ -7,6 +7,9 @@
 const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
     {name: 'Atmafalcon', id: '20143686938175488'},
+
+    {name: 'BatCat Plays', id: '22408999366993920'},
+
     {name: 'BrBrock', id: '27999853156411392'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
@@ -32,10 +35,14 @@ const allChannels = [
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
     {name: 'Swift Games', id: '19179146257277952'},
+
+    {name: 'Tchan79 Games', id: '25263410326184960'},
+
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
     {name: 'Wukong (King)', id: '25176487257089024'}
   ]
+
 
 let updateList = () =>{
 
