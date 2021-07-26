@@ -23,6 +23,9 @@ const allChannels = [
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
+
+    {name: 'Overpower Games', id: '19217437503956992'},
+    
     {name: 'Pegasus', id: '18017024920168448'},
     {name: 'PrimaziaGameplays', id: '18607579884857344'},
     {name: 'Rapidinho Seven', id: '17363153098287104'},
