@@ -13,6 +13,9 @@ const allChannels = [
     {name: 'BrBrock', id: '27999853156411392'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
+
+    {name: 'Canal do Templário', id: '16516954775267328'},
+
     {name: 'Chrono Plays', id: '16791718469478400'},
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
@@ -49,7 +52,8 @@ const allChannels = [
 
 let updateList = () =>{
 
-    getContentosValue()
+    //getContentosValue()
+    getImage()
 
     let contentData = ''
     let limit = 1
@@ -69,6 +73,8 @@ let updateList = () =>{
 }
 
 //open json from api
+//old method
+/*
 let getContentosValue = () => {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -82,4 +88,16 @@ let getContentosValue = () => {
         
     xmlhttp.open("GET", "https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd", true);
     xmlhttp.send();
+}
+*/
+
+const getImage = async() =>{
+	const api = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd')
+	if(api.ok){
+		const res = await api.json()
+        if(res != null){
+            console.log(res)
+            document.getElementById("cosValue").innerHTML = 'Valor do Cos U$ ' + res.contentos.usd.toFixed(4)
+        }
+	}
 }
