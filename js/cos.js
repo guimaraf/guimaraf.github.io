@@ -15,7 +15,8 @@ const allChannels = [
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
 
     {name: 'Canal do Templário', id: '16516954775267328'},
-
+    {name: 'Celo jogando', id: '23979822751589376'},
+	
     {name: 'Chrono Plays', id: '16791718469478400'},
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
