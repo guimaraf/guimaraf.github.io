@@ -5,7 +5,9 @@
 //https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd
 
 const allChannels = [
+    {name: '500 Pop de Clássicos', id: '27438164387210240'},
     {name: 'Antiguera Gamer', id: '15477494811371520'},
+
     {name: 'Atmafalcon', id: '20143686938175488'},
 
     {name: 'BatCat Plays', id: '22408999366993920'},
