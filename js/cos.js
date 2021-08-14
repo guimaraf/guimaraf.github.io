@@ -48,7 +48,8 @@ const allChannels = [
 
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
-    {name: 'Wukong (King)', id: '25176487257089024'}
+    {name: 'Wukong (King)', id: '25176487257089024'},
+    {name: 'z_Loki', id: '29123359075902464'}
   ]
 
 
