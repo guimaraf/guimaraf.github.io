@@ -36,6 +36,8 @@ const allChannels = [
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
 
     {name: 'Overpower Games', id: '19217437503956992'},
+
+    {name: 'Paulinux Games', id: '19199883234682880'},
     
     {name: 'Pegasus', id: '18017024920168448'},
     {name: 'PrimaziaGameplays', id: '18607579884857344'},
