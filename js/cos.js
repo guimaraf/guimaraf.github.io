@@ -18,6 +18,8 @@ const allChannels = [
 
     {name: 'Canal do Templário', id: '16516954775267328'},
 
+    {name: 'Celo jogando', id: '23979822751589376'},
+
     {name: 'Chrono Plays', id: '16791718469478400'},
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
@@ -33,6 +35,9 @@ const allChannels = [
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
+
+    {name: 'Noobcardoremake', id: '19717788094604288'},
+
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
 
     {name: 'Overpower Games', id: '19217437503956992'},
