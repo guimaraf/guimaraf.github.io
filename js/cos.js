@@ -7,58 +7,44 @@
 const allChannels = [
     {name: '500 Pop de Clássicos', id: '27438164387210240'},
     {name: 'Antiguera Gamer', id: '15477494811371520'},
-
     {name: 'Atmafalcon', id: '20143686938175488'},
-
     {name: 'BatCat Plays', id: '22408999366993920'},
-
     {name: 'BrBrock', id: '27999853156411392'},
+    {name: 'Brutalkillgamer', id: '17599791412455424'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
-
     {name: 'Canal do Templário', id: '16516954775267328'},
-
     {name: 'Celo jogando', id: '23979822751589376'},
-
     {name: 'Chrono Plays', id: '16791718469478400'},
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
     {name: 'Dan BraveHeart', id: '17834881468770304'},
     {name: 'Geek Gamer BR', id: '20041833364497408'},
     {name: 'Furius', id: '27823601740850176'},
-
     {name: 'GAMERETC', id: '19135801298167808'},
-
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
-
     {name: 'Noobcardoremake', id: '19717788094604288'},
-
+    {name: 'Nosvh12', id: '30137551099700224'},
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
-
     {name: 'Overpower Games', id: '19217437503956992'},
-
     {name: 'Paulinux Games', id: '19199883234682880'},
-    
     {name: 'Pegasus', id: '18017024920168448'},
     {name: 'PrimaziaGameplays', id: '18607579884857344'},
     {name: 'Rapidinho Seven', id: '17363153098287104'},
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
     {name: 'Swift Games', id: '19179146257277952'},
-
     {name: 'Tchan79 Games', id: '25263410326184960'},
-
     {name: 'TiLt Games', id: '18611709025626112'},
     {name: 'Walker Tv', id: '18085401595389952'},
     {name: 'Wukong (King)', id: '25176487257089024'},
     {name: 'z_Loki', id: '29123359075902464'}
   ]
-
 
 let updateList = () =>{
 
