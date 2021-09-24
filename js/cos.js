@@ -19,6 +19,7 @@ const allChannels = [
     {name: 'Caverna', id: '16690040201455616'},
     {name: 'Coyote', id: '21690947436718080'},
     {name: 'Dan BraveHeart', id: '17834881468770304'},
+    {name: 'DØGG亗', id: '29183508399432704'},
     {name: 'Geek Gamer BR', id: '20041833364497408'},
     {name: 'Furius', id: '27823601740850176'},
     {name: 'GAMERETC', id: '19135801298167808'},
