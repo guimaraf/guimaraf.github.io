@@ -4,6 +4,9 @@
 //json usado
 //https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd
 
+let cosDolValue = 0
+let dolValueInReal = 0
+
 const allChannels = [
     {name: '500 Pop de Clássicos', id: '27438164387210240'},
     {name: 'Antiguera Gamer', id: '15477494811371520'},
@@ -27,6 +30,7 @@ const allChannels = [
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
+    {name: 'Maicom💖', id: '21276004965065728'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
     {name: 'Noobcardoremake', id: '19717788094604288'},
@@ -49,7 +53,7 @@ const allChannels = [
 
 let updateList = () =>{
 
-    //getContentosValue()
+    getDolValue()
     getImage()
 
     let contentData = ''
@@ -70,31 +74,36 @@ let updateList = () =>{
 }
 
 //open json from api
-//old method
-/*
-let getContentosValue = () => {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var cliente = JSON.parse(this.responseText);
-
-            //console.log(cliente.contentos.usd)
-            document.getElementById("cosValue").innerHTML = 'Valor do Cos U$ ' + cliente.contentos.usd
-        }
-    }
-        
-    xmlhttp.open("GET", "https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd", true);
-    xmlhttp.send();
-}
-*/
-
 const getImage = async() =>{
 	const api = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=contentos&vs_currencies=usd')
 	if(api.ok){
 		const res = await api.json()
         if(res != null){
             console.log(res)
-            document.getElementById("cosValue").innerHTML = 'Valor do Cos U$ ' + res.contentos.usd.toFixed(4)
+            cosDolValue = res.contentos.usd
+            dolReal = parseFloat(dolValueInReal)
+            document.getElementById("cosValue").innerHTML = 'Valor de 1 Cos U$ ' + res.contentos.usd.toFixed(4) + '<br> Valor do dólar R$ ' + dolReal.toFixed(2) + '<br> Valor do COS em real R$ ' + (dolReal * cosDolValue).toFixed(2)
         }
 	}
 }
+
+const getDolValue = async() =>{
+	const api2 = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL')
+	if(api2.ok){
+		const res2 = await api2.json()
+        console.log(res2)
+
+        if(res2 != null){
+            console.log(res2.USDBRL.ask)
+            dolValueInReal = res2.USDBRL.ask
+            //document.getElementById("realDolValue").innerHTML = 'O valor do dólar agora é de R$ '
+        }
+	}
+}
+
+
+
+//https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL
+
+//cotação do realperante o dólar
+//calcular o valor do cos em reais
