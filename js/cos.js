@@ -8,7 +8,7 @@ let cosDolValue = 0
 let dolValueInReal = 0
 
 const allChannels = [
-    {name: '500 Pop de Clássicos', id: '27438164387210240'},
+    {name: '500 Pop de Games', id: '27438164387210240'},
     {name: 'Antiguera Gamer', id: '15477494811371520'},
     {name: 'Atmafalcon', id: '20143686938175488'},
     {name: 'BatCat Plays', id: '22408999366993920'},
@@ -100,8 +100,6 @@ const getDolValue = async() =>{
         }
 	}
 }
-
-
 
 //https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL
 
