@@ -1,0 +1,19 @@
+<html>
+<script>
+
+    function buttonclick(){
+        var pagebutton= document.getElementById("selfclick");
+        pagebutton.click();
+    }
+
+    openLink = () =>{
+        link = 'www.cos.tv/ target="_blank"'
+        window.open(link);
+    }
+</script>
+
+<a href="#" onmouseover="buttonclick()">Hover to click button above </a>
+
+<button id="selfclick" onclick="openLink();">No Manual Click </button>
+
+</html>
