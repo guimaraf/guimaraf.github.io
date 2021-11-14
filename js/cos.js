@@ -26,13 +26,18 @@ const allChannels = [
     {name: 'Geek Gamer BR', id: '20041833364497408'},
     {name: 'Furius', id: '27823601740850176'},
     {name: 'GAMERETC', id: '19135801298167808'},
+
+    {name: 'Gamer Nostalgico', id: '31943404449343488'},
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
     {name: 'Maicom💖', id: '21276004965065728'},
+    {name: 'MajimaZ', id: '23422430360545280'},
     {name: 'Mimosinha', id: '26990215479601152'},
     {name: 'Miyu4Gamer', id: '17248160209348608'},
+
+    {name: 'Mundo Geek', id: '22551370915292160'},
     {name: 'Noobcardoremake', id: '19717788094604288'},
     {name: 'Nosvh12', id: '30137551099700224'},
     {name: 'o2🅺a🅶🅴', id: '16544443442571264'},
