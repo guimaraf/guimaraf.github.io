@@ -24,6 +24,9 @@ const allChannels = [
     {name: 'Dan BraveHeart', id: '17834881468770304'},
     {name: 'DØGG亗', id: '29183508399432704'},
     {name: 'Geek Gamer BR', id: '20041833364497408'},
+
+    {name: 'FragaFZ', id: '18608585680267264'},
+
     {name: 'Furius', id: '27823601740850176'},
     {name: 'GAMERETC', id: '19135801298167808'},
 
@@ -51,6 +54,10 @@ const allChannels = [
     {name: 'Swift Games', id: '19179146257277952'},
     {name: 'Tchan79 Games', id: '25263410326184960'},
     {name: 'TiLt Games', id: '18611709025626112'},
+
+    {name: 'Wallax11 BR - Games', id: '19881816929248256'},
+    {name: 'Wallax11-Gameplays', id: '32508895840347136'},
+
     {name: 'Walker Tv', id: '18085401595389952'},
     {name: 'Wukong (King)', id: '25176487257089024'},
     {name: 'z_Loki', id: '29123359075902464'}
