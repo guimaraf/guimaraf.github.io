@@ -106,8 +106,8 @@ const getDolValue = async() =>{
         console.log(res2)
 
         if(res2 != null){
-            console.log(res2.USDBRL.ask)
-            dolValueInReal = res2.USDBRL.ask
+            console.log(res2.USD.ask)
+            dolValueInReal = res2.USD.ask
             //document.getElementById("realDolValue").innerHTML = 'O valor do dólar agora é de R$ '
         }
 	}
