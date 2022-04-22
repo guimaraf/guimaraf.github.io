@@ -4593,6 +4593,7 @@ self.C3_JsPropNameTable = [
 	{menuPlay: 0},
 	{Tilemap: 0},
 	{TiledBackground3: 0},
+	{oi3PSG20LG01ColoridoPRIORITÁRIO: 0},
 	{g1StartGame: 0},
 	{g1LevelGame: 0},
 	{g1PairsCards: 0},
