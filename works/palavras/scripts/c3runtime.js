@@ -4468,16 +4468,21 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Exps.layoutname,
-		C3.Plugins.Touch.Cnds.OnTapGestureObject,
+		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.Audio.Acts.Preload,
 		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.Browser.Acts.RequestFullScreen,
+		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.GoToLayoutByName,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Cnds.Else,
-		C3.ScriptsInEvents.Menus_Event8_Act2,
+		C3.ScriptsInEvents.Menus_Event9_Act2,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.Audio.Cnds.IsTagPlaying,
+		C3.Plugins.Audio.Acts.PlayByName,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.System.Acts.AddVar,
@@ -4493,12 +4498,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
+		C3.Behaviors.Tween.Acts.TweenTwoProperties,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Sprite.Cnds.OnAnimFinished,
 		C3.Plugins.TiledBg.Acts.SetImageOffsetX,
 		C3.Plugins.TiledBg.Exps.ImageOffsetX,
 		C3.Plugins.System.Exps.dt,
-		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Arr.Acts.Clear,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.AdvancedRandom.Acts.CreatePermutationTable,
@@ -4525,7 +4530,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Acts.MoveToBottom,
-		C3.Behaviors.Tween.Acts.TweenTwoProperties,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.Sprite.Cnds.IsAnimPlaying,
 		C3.Plugins.Sprite.Cnds.CompareWidth,
@@ -4568,6 +4572,7 @@ self.C3_JsPropNameTable = [
 	{g1Bg: 0},
 	{menuBg: 0},
 	{onClick: 0},
+	{Tween: 0},
 	{hudButtons: 0},
 	{id: 0},
 	{selGames: 0},
@@ -4713,6 +4718,7 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
+		() => 0.3,
 		() => 0.05,
 		() => 1,
 		() => "G1Memo",
@@ -4734,6 +4740,10 @@ self.C3_ExpressionFuncs = [
 		() => 6,
 		() => 7,
 		() => 8,
+		() => "Music System",
+		() => "melhorAmigo",
+		() => "meuMelhorAmigo",
+		() => -20,
 		() => "Game 1 Timer",
 		p => {
 			const n0 = p._GetNode(0);
@@ -4756,7 +4766,15 @@ self.C3_ExpressionFuncs = [
 			return () => ((((n0.ExpInstVar()) === ("gameplay") ? 1 : 0)) ? (0) : (n1.ExpObject()));
 		},
 		() => "Animation 1",
+		() => "cardHudStar",
+		() => -5,
+		() => "sizeButton",
+		() => 28,
+		() => 0.1,
+		() => "cardHudMenu",
+		() => "cardHudRepeat",
 		() => 100,
+		() => "cardHudNext",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -4785,7 +4803,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 110,
 		() => 85,
-		() => 0.1,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject(7, 1);
@@ -4871,12 +4888,13 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1((v2.GetValue() - 24), (v3.GetValue() + 24)));
 		},
 		() => 0.08,
+		() => "cardTableInitial",
+		() => "cardCreate",
 		() => "posCorrection",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
-		() => 0.3,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + 1);
@@ -4887,9 +4905,12 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (-v0.GetValue());
 		},
+		() => "cardReveal",
 		() => 1.5,
 		() => "flipBack",
+		() => "cardFlip1",
 		() => "flipFrontFirst",
+		() => "cardFlip2",
 		() => "flipFrontSecond",
 		() => "front",
 		p => {
@@ -4898,10 +4919,14 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => ((((n0.ExpInstVar()) === ("playCount") ? 1 : 0)) ? (and("jogadas: ", v1.GetValue())) : (n2.ExpObject()));
 		},
+		() => "cardCombineSucess",
+		() => -8,
 		() => 0.6,
 		() => "outScreen",
 		() => 416,
 		() => 592,
+		() => "cardCombineError",
+		() => -10,
 		() => 196,
 		() => 166,
 		() => 153,

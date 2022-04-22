@@ -1,7 +1,7 @@
 {
-	"name": "Edin3Words",
-	"short_name": "Edin3Words",
-	"description": "",
+	"name": "3 Palavrinhas",
+	"short_name": "3 Palavrinhas",
+	"description": "6 jogos em 1",
 	"start_url": "index.html",
 	"display": "fullscreen",
 	"orientation": "landscape",
