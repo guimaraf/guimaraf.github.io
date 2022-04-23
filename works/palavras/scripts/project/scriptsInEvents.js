@@ -3,10 +3,10 @@
 
 const scriptsInEvents = {
 
-		async Menus_Event9_Act2(runtime, localVars)
+		async Menus_Event9_Act4(runtime, localVars)
 		{
 			//window.open("https://www.w3schools.com");
-			window.open("https://www.w3schools.com", "_self");
+			window.open("https://guimaraf.github.io/works/quebra/", "_self");
 		}
 
 };
