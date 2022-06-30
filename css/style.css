@@ -91,15 +91,41 @@
 /*social buttons*/
 .fa-whatsapp, .fa-instagram, .fa-twitter, .fa-facebook, .fa-envelope{
     margin-top: 10px;
+	
 }
 
-.whatsapp-link{
+section#social a {
+	box-sizing: border-box;
+}
+
+section#social a:hover {
+	border: 2px solid rgba(0,0,0,0.400);
+	transform: translate(-3px, -3px);
+	box-shadow: 5px 5px 10px rgba(0,0,0, 0.6);
+}
+
+.mail-link{
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 40px;
+	right: 250px;
+	background-color: #D44638;
+	color: #fff;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 40px;
+	box-shadow: 1px 1px 2px #888;
+	z-index: 1000;
+}
+
+.twitter-link{
     position: fixed;
 	width: 60px;
 	height: 60px;
 	bottom: 40px;
-	right: 40px;
-	background-color: #25d366;
+	right: 180px;
+	background-color: lightblue;
 	color: #fff;
 	border-radius: 50px;
 	text-align: center;
@@ -123,44 +149,13 @@
 	z-index: 1000;
 }
 
-.twitter-link{
+.whatsapp-link{
     position: fixed;
 	width: 60px;
 	height: 60px;
 	bottom: 40px;
-	right: 180px;
-	background-color: lightblue;
-	color: #fff;
-	border-radius: 50px;
-	text-align: center;
-	font-size: 40px;
-	box-shadow: 1px 1px 2px #888;
-	z-index: 1000;
-}
-/*
-.facebook-link{
-    position: fixed;
-	width: 60px;
-	height: 60px;
-	bottom: 40px;
-	right: 250px;
-	background-color: #3b5998;
-	color: #fff;
-	border-radius: 50px;
-	text-align: center;
-	font-size: 40px;
-	box-shadow: 1px 1px 2px #888;
-	z-index: 1000;
-}
-*/
-
-.mail-link{
-  position: fixed;
-	width: 60px;
-	height: 60px;
-	bottom: 40px;
-	right: 250px;
-	background-color: #D44638;
+	right: 40px;
+	background-color: #25d366;
 	color: #fff;
 	border-radius: 50px;
 	text-align: center;
