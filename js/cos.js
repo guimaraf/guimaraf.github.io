@@ -25,6 +25,8 @@ const allChannels = [
     {name: 'DØGG亗', id: '29183508399432704'},
     {name: 'Geek Gamer BR', id: '20041833364497408'},
 
+    {name: 'GeekMax', id: '36980839072310272'},
+
     {name: 'FragaFZ', id: '18608585680267264'},
 
     {name: 'Furius', id: '27823601740850176'},
@@ -52,6 +54,9 @@ const allChannels = [
     {name: 'Rush Run Luciano', id: '27824218238003200'},
     {name: 'SHADOW NB', id: '27150632344266752'},
     {name: 'Swift Games', id: '19179146257277952'},
+
+    {name: 'Tamix Gamer', id: '36930701764502528'},
+    
     {name: 'Tchan79 Games', id: '25263410326184960'},
     {name: 'TiLt Games', id: '18611709025626112'},
 
