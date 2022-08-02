@@ -5808,20 +5808,8 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => ((((n0.ExpInstVar()) === ("level") ? 1 : 0)) ? (and("Level ", v1.GetValue())) : (n2.ExpObject()));
 		},
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const n2 = p._GetNode(2);
-			return () => ((((n0.ExpInstVar()) === ("playCount") ? 1 : 0)) ? (and("jogadas: ", v1.GetValue())) : (n2.ExpObject()));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const v2 = p._GetNode(2).GetVar();
-			const n3 = p._GetNode(3);
-			return () => ((((n0.ExpInstVar()) === ("currentTime") ? 1 : 0)) ? (f1(v2.GetValue())) : (n3.ExpObject()));
-		},
 		() => "playCount",
+		() => "currentTime",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -6115,6 +6103,7 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("lev", v0.GetValue());
 		},
+		() => "posFinalCorrect",
 		() => "posFinal",
 		() => 0.4,
 		() => "Game 6",
