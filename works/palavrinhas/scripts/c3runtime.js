@@ -5463,8 +5463,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Acts.ZMoveToObject,
 		C3.Plugins.TiledBg.Acts.Destroy,
 		C3.Behaviors.Fade.Acts.RestartFade,
-		C3.Plugins.LocalStorage.Acts.SetItem,
-		C3.Plugins.Arr.Exps.AsJSON,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.TiledBg.Acts.MoveToBottom,
 		C3.Plugins.Touch.Cnds.OnTouchEnd,
@@ -6064,7 +6062,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "visible",
 		() => "unblock",
-		() => "connect",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
