@@ -4149,7 +4149,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.System.Exps.random,
 		C3.Plugins.System.Exps.choose,
+		C3.Plugins.TiledBg.Cnds.CompareInstanceVar,
 		C3.Plugins.Browser.Acts.GoToURLWindow,
+		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Cnds.IsAnimPlaying,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
@@ -4193,7 +4195,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.IsVisible,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.System.Acts.RestartLayout,
-		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Cnds.OnAnimFinished,
 		C3.Plugins.TiledBg.Acts.SetImageOffsetX,
 		C3.Plugins.TiledBg.Exps.ImageOffsetX,
@@ -4234,7 +4235,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.DrawingCanvas.Acts.MoveToTop,
 		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Plugins.DrawingCanvas.Cnds.CompareY,
-		C3.Plugins.DrawingCanvas.Acts.SetPos,
 		C3.Plugins.System.Acts.LoadObjectTextures,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Cnds.ForEach,
@@ -4341,7 +4341,7 @@ self.C3_JsPropNameTable = [
 	{gameovertxt: 0},
 	{Fade: 0},
 	{numtxt: 0},
-	{btnFull: 0},
+	{btnSound: 0},
 	{selGames: 0},
 	{bgSelect: 0},
 	{selectGame: 0},
@@ -4610,6 +4610,8 @@ self.C3_ExpressionFuncs = [
 		() => 0.05,
 		() => "https://www.youtube.com/c/3palavrinhas/videos",
 		() => "canal 3 palavrinhas",
+		() => "https://www.ticjoy.com.br/",
+		() => "site oficial da Ticjoy",
 		() => "back",
 		() => "Select Game",
 		p => {
@@ -4872,6 +4874,7 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => (n0.ExpInstVar() + v1.GetValue());
 		},
+		() => "correctPosition",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -4885,6 +4888,7 @@ self.C3_ExpressionFuncs = [
 			const n3 = p._GetNode(3);
 			return () => (n0.ExpObject() + (v1.GetValue() * f2((n3.ExpInstVar() / 4))));
 		},
+		() => 0.15,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() / 6);
