@@ -23,16 +23,20 @@ const allChannels = [
     {name: 'Coyote', id: '21690947436718080'},
     {name: 'Dan BraveHeart', id: '17834881468770304'},
     {name: 'DØGG亗', id: '29183508399432704'},
+
+    {name: 'FragaFZ', id: '18608585680267264'},
+    {name: 'Furius', id: '27823601740850176'},
+
+    {name: 'Gameplay Battle', id: '32307759019894784'},
+
+    {name: 'Gamer Nostalgico', id: '31943404449343488'},
+
+    {name: 'GAMERETC', id: '19135801298167808'},
+       
     {name: 'Geek Gamer BR', id: '20041833364497408'},
 
     {name: 'GeekMax', id: '36980839072310272'},
 
-    {name: 'FragaFZ', id: '18608585680267264'},
-
-    {name: 'Furius', id: '27823601740850176'},
-    {name: 'GAMERETC', id: '19135801298167808'},
-
-    {name: 'Gamer Nostalgico', id: '31943404449343488'},
     {name: 'Gus Leone', id: '27006563815171072'},
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
