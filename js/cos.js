@@ -38,6 +38,9 @@ const allChannels = [
     {name: 'GeekMax', id: '36980839072310272'},
 
     {name: 'Gus Leone', id: '27006563815171072'},
+
+    {name: 'HolyFielda', id: '31125092263438336'},
+
     {name: 'HunTerZ', id: '22225658858612736'},
     {name: 'Joe do Antigão', id: '21094124290222080'},
     {name: 'Kuro Suzume Games', id: '17579798837241856'},
