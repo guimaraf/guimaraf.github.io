@@ -12,7 +12,11 @@ const allChannels = [
     {name: 'Antiguera Gamer', id: '15477494811371520'},
     {name: 'Atmafalcon', id: '20143686938175488'},
     {name: 'BatCat Plays', id: '22408999366993920'},
+
     {name: 'BrBrock', id: '27999853156411392'},
+
+    {name: 'BULLDOG games', id: '19851991327876096'},
+
     {name: 'Brutalkillgamer', id: '17599791412455424'},
     {name: 'Canal do Z3OX1S', id: '27193916548883456'},
     {name: 'Canal GMT Gaming', id: '20943083979057152'},
