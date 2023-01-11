@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Desliga PC JS</title>
+  <link rel="stylesheet" href="css/shutdown.css" >
+</head>
+<body>
+
+    <div id="shutdown-container">
+      <h1>Desligar o computador</h1>
+      <label for="shutdown-time">Tempo para desligar (em minutos):</label>
+      <input type="number" id="shutdown-time" value="1" min="1" max="360">
+      <div id="timer-display">
+        <p id="timer"></p>
+      </div>
+      <div id="buttons-container">
+        <button id="shutdown-button">Iniciar</button>
+        <button id="stop-button" class="stop-button">Parar</button>
+      </div>
+    </div>
+
+</body>
+<script src="js/shutdown.js"></script>
+</html>
