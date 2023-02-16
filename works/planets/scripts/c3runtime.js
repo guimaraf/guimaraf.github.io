@@ -4128,6 +4128,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
+		C3.Plugins.Text.Acts.SetText,
+		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
@@ -4340,6 +4342,13 @@ self.C3_ExpressionFuncs = [
 		() => "logosInvisibleTic",
 		() => "Menu",
 		() => "menu",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ("ver: " + f0());
+		},
+		() => 2,
+		() => "ver",
+		() => 0.6,
 		() => "menuPlay",
 		() => 280,
 		() => 260,
@@ -4368,14 +4377,12 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "HUD",
 		() => 0.06,
-		() => 2,
 		() => "stage8",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
 		() => "textDescription",
-		() => 0.6,
 		() => "introDetails",
 		() => 5,
 		() => 0.5,
