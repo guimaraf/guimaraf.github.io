@@ -4128,6 +4128,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
+		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
@@ -4140,6 +4141,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Acts.NextPrevLayout,
+		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
@@ -4150,7 +4152,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.DragnDrop.Acts.SetEnabled,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Acts.AddInstanceVar,
-		C3.Plugins.Sprite.Cnds.CompareInstanceVar
+		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.Sprite.Acts.SetAnimFrame
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4186,8 +4189,7 @@ self.C3_JsPropNameTable = [
 	{devTicJoy: 0},
 	{gameplayBg: 0},
 	{gameplayMarte: 0},
-	{marteDescription: 0},
-	{marteTittle: 0},
+	{planeteTittles: 0},
 	{posX: 0},
 	{posY: 0},
 	{canMove: 0},
@@ -4200,7 +4202,7 @@ self.C3_JsPropNameTable = [
 	{losangeClean: 0},
 	{gameplayRetangle: 0},
 	{elementGas: 0},
-	{Text: 0},
+	{txtGame: 0},
 	{correctElement: 0},
 	{totalElements: 0},
 	{gameController: 0},
@@ -4208,10 +4210,15 @@ self.C3_JsPropNameTable = [
 	{TiledBackground: 0},
 	{selectConfig: 0},
 	{txtHud: 0},
+	{introGameplay: 0},
+	{Sprite: 0},
+	{parabénsConquistamosMais1Planeta: 0},
+	{planetsCongras: 0},
 	{DragDrop: 0},
 	{elements: 0},
 	{planets: 0},
-	{devs: 0}
+	{devs: 0},
+	{planetId: 0}
 ];
 }
 
@@ -4353,6 +4360,10 @@ self.C3_ExpressionFuncs = [
 		() => 0.15,
 		p => {
 			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => and("stage", n0.ExpInstVar_Family());
 		},
 		() => "HUD",
@@ -4361,11 +4372,17 @@ self.C3_ExpressionFuncs = [
 		() => "stage8",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
-		p => {
-			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
+		},
+		() => "textDescription",
+		() => 0.6,
+		() => "introDetails",
+		() => 5,
+		() => 0.5,
+		() => "hudButtons",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
 		}
 ];
 
