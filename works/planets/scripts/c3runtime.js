@@ -4141,11 +4141,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Exps.Height,
 		C3.Plugins.System.Acts.GoToLayoutByName,
 		C3.Plugins.System.Cnds.LayerVisible,
+		C3.Plugins.Sprite.Cnds.CompareOpacity,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.NextPrevLayout,
 		C3.Plugins.Text.Acts.SetOpacity,
+		C3.Plugins.Sprite.Acts.SetX,
+		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
@@ -4380,6 +4383,8 @@ self.C3_ExpressionFuncs = [
 		() => "HUD",
 		() => 0.06,
 		() => "stage8",
+		() => 464,
+		() => 773,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
