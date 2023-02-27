@@ -3872,6 +3872,34 @@ C3.Plugins.Keyboard.Exps={LastKeyCode(){return this._triggerWhich},StringFromKey
 }
 
 {
+'use strict';{const C3=self.C3;C3.Plugins.Arr=class ArrayPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Plugins.Arr.Type=class ArrayType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;const C3X=self.C3X;const IInstance=self.IInstance;function ResizeArray(arr,len,data){if(len<arr.length)C3.truncateArray(arr,len);else if(len>arr.length)if(typeof data==="function")for(let i=arr.length;i<len;++i)arr.push(data());else for(let i=arr.length;i<len;++i)arr.push(data)}C3.Plugins.Arr.Instance=class ArrayInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst);this._cx=10;this._cy=1;this._cz=1;this._arr=null;this._forX=[];this._forY=[];this._forZ=[];this._forDepth=
+-1;if(properties){this._cx=properties[0];this._cy=properties[1];this._cz=properties[2]}this._arr=C3.MakeFilledArray(this._cx,()=>C3.MakeFilledArray(this._cy,()=>C3.MakeFilledArray(this._cz,0)))}Release(){this._arr=null;super.Release()}At(x,y,z){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(x>=0&&x<this._cx&&y>=0&&y<this._cy&&z>=0&&z<this._cz)return this._arr[x][y][z];else return 0}Set(x,y,z,val){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(x>=0&&x<this._cx&&y>=0&&y<this._cy&&z>=0&&z<this._cz)this._arr[x][y][z]=
+val}SetSize(w,h,d){w=Math.floor(w);h=Math.floor(h);d=Math.floor(d);if(w<0)w=0;if(h<0)h=0;if(d<0)d=0;if(this._cx===w&&this._cy===h&&this._cz===d)return;this._cx=w;this._cy=h;this._cz=d;const arr=this._arr;ResizeArray(arr,w,()=>C3.MakeFilledArray(h,()=>C3.MakeFilledArray(d,0)));for(let x=0;x<w;++x){ResizeArray(arr[x],h,()=>C3.MakeFilledArray(d,0));for(let y=0;y<h;++y)ResizeArray(arr[x][y],d,0)}}GetWidth(){return this._cx}GetHeight(){return this._cy}GetDepth(){return this._cz}GetDebuggerProperties(){const prefix=
+"plugins.arr.debugger";const propsPrefix="plugins.arr.properties";const ret=[{title:prefix+".array-properties.title",properties:[{name:propsPrefix+".width.name",value:this._cx,onedit:v=>this.SetSize(v,this._cy,this._cz)},{name:propsPrefix+".height.name",value:this._cy,onedit:v=>this.SetSize(this._cx,v,this._cz)},{name:propsPrefix+".depth.name",value:this._cz,onedit:v=>this.SetSize(this._cx,this._cy,v)},{name:propsPrefix+".elements.name",value:this._cx*this._cy*this._cz}]}];const dataProps=[];if(this._cy===
+1&&this._cz===1)for(let x=0;x<this._cx;++x)dataProps.push({name:"$"+x,value:this._arr[x][0][0],onedit:v=>this._arr[x][0][0]=v});else for(let x=0;x<this._cx;++x)dataProps.push({name:"$"+x,value:this._arr[x].toString()});if(dataProps.length)ret.push({title:prefix+".array-data.title",properties:dataProps});return ret}GetAsJsonString(){return JSON.stringify({"c2array":true,"size":[this._cx,this._cy,this._cz],"data":this._arr})}SaveToJson(){return{"size":[this._cx,this._cy,this._cz],"data":this._arr}}LoadFromJson(o){const sz=
+o["size"];this._cx=sz[0];this._cy=sz[1];this._cz=sz[2];this._arr=o["data"]}_GetForX(){if(this._forDepth>=0&&this._forDepth<this._forX.length)return this._forX[this._forDepth];else return 0}_GetForY(){if(this._forDepth>=0&&this._forDepth<this._forY.length)return this._forY[this._forDepth];else return 0}_GetForZ(){if(this._forDepth>=0&&this._forDepth<this._forZ.length)return this._forZ[this._forDepth];else return 0}GetScriptInterfaceClass(){return self.IArrayInstance}};const map=new WeakMap;self.IArrayInstance=
+class IArrayInstance extends IInstance{constructor(){super();map.set(this,IInstance._GetInitInst().GetSdkInstance())}get width(){return map.get(this).GetWidth()}get height(){return map.get(this).GetHeight()}get depth(){return map.get(this).GetDepth()}setSize(w,h=1,d=1){C3X.RequireFiniteNumber(w);C3X.RequireFiniteNumber(h);C3X.RequireFiniteNumber(d);map.get(this).SetSize(w,h,d)}getAt(x,y=0,z=0){C3X.RequireFiniteNumber(x);C3X.RequireFiniteNumber(y);C3X.RequireFiniteNumber(z);return map.get(this).At(x,
+y,z)}setAt(val,x,y=0,z=0){C3X.RequireFiniteNumber(x);C3X.RequireFiniteNumber(y);C3X.RequireFiniteNumber(z);if(typeof val!=="number"&&typeof val!=="string")throw new TypeError("invalid type");map.get(this).Set(x,y,z,val)}}}
+{const C3=self.C3;function DoForEachTrigger(eventSheetManager,currentEvent,solModifiers,oldFrame,newFrame){eventSheetManager.PushCopySol(solModifiers);currentEvent.Retrigger(oldFrame,newFrame);eventSheetManager.PopSol(solModifiers)}C3.Plugins.Arr.Cnds={CompareX(x,cmp,val){return C3.compare(this.At(x,0,0),cmp,val)},CompareXY(x,y,cmp,val){return C3.compare(this.At(x,y,0),cmp,val)},CompareXYZ(x,y,z,cmp,val){return C3.compare(this.At(x,y,z),cmp,val)},ArrForEach(dims){const runtime=this._runtime;const eventSheetManager=
+runtime.GetEventSheetManager();const currentEvent=runtime.GetCurrentEvent();const solModifiers=currentEvent.GetSolModifiers();const eventStack=runtime.GetEventStack();const oldFrame=eventStack.GetCurrentStackFrame();const newFrame=eventStack.Push(currentEvent);const forDepth=++this._forDepth;const forX=this._forX;const forY=this._forY;const forZ=this._forZ;const cx=this._cx;const cy=this._cy;const cz=this._cz;if(forDepth===this._forX.length){forX.push(0);forY.push(0);forZ.push(0)}else{forX[forDepth]=
+0;forY[forDepth]=0;forZ[forDepth]=0}runtime.SetDebuggingEnabled(false);if(dims===0)for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)for(let z=0;z<cz;++z){forX[forDepth]=x;forY[forDepth]=y;forZ[forDepth]=z;DoForEachTrigger(eventSheetManager,currentEvent,solModifiers,oldFrame,newFrame)}else if(dims===1)for(let x=0;x<cx;++x)for(let y=0;y<cy;++y){forX[forDepth]=x;forY[forDepth]=y;DoForEachTrigger(eventSheetManager,currentEvent,solModifiers,oldFrame,newFrame)}else for(let x=0;x<cx;++x){forX[forDepth]=x;DoForEachTrigger(eventSheetManager,
+currentEvent,solModifiers,oldFrame,newFrame)}runtime.SetDebuggingEnabled(true);this._forDepth--;eventStack.Pop();return false},CompareCurrent(cmp,val){return C3.compare(this.At(this._GetForX(),this._GetForY(),this._GetForZ()),cmp,val)},Contains(val){const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)for(let z=0;z<cz;++z)if(arr[x][y][z]===val)return true;return false},IsEmpty(){return this._cx===0||this._cy===0||this._cz===0},CompareSize(axis,
+cmp,val){let s=0;switch(axis){case 0:s=this._cx;break;case 1:s=this._cy;break;case 2:s=this._cz;break}return C3.compare(s,cmp,val)}}}
+{const C3=self.C3;function CompareValues(va,vb){if(typeof va==="number"&&typeof vb==="number")return va-vb;else{const sa=va.toString();const sb=vb.toString();if(sa<sb)return-1;else if(sa>sb)return 1;else return 0}}C3.Plugins.Arr.Acts={Clear(v){const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)for(let z=0;z<cz;++z)arr[x][y][z]=v},SetSize(w,h,d){this.SetSize(w,h,d)},SetX(x,val){this.Set(x,0,0,val)},SetXY(x,y,val){this.Set(x,y,0,val)},
+SetXYZ(x,y,z,val){this.Set(x,y,z,val)},Push(where,value,axis){const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;if(axis===0){const add=C3.MakeFilledArray(cy,()=>C3.MakeFilledArray(cz,value));if(where===0)arr.push(add);else arr.unshift(add);this._cx++}else if(axis===1){for(let x=0;x<cx;++x){const add=C3.MakeFilledArray(cz,value);if(where===0)arr[x].push(add);else arr[x].unshift(add)}this._cy++}else{for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)if(where===0)arr[x][y].push(value);
+else arr[x][y].unshift(value);this._cz++}},Pop(where,axis){const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;if(axis===0){if(cx===0)return;if(where===0)arr.pop();else arr.shift();this._cx--}else if(axis===1){if(cy===0)return;for(let x=0;x<cx;++x)if(where===0)arr[x].pop();else arr[x].shift();this._cy--}else{if(cz===0)return;for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)if(where===0)arr[x][y].pop();else arr[x][y].shift();this._cz--}},Reverse(axis){const cx=this._cx;const cy=this._cy;
+const cz=this._cz;const arr=this._arr;if(cx===0||cy===0||cz===0)return;if(axis===0)arr.reverse();else if(axis===1)for(let x=0;x<cx;++x)arr[x].reverse();else for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)arr[x][y].reverse()},Sort(axis){const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;if(cx===0||cy===0||cz===0)return;if(axis===0)arr.sort((a,b)=>CompareValues(a[0][0],b[0][0]));else if(axis===1)for(let x=0;x<cx;++x)arr[x].sort((a,b)=>CompareValues(a[0],b[0]));else for(let x=0;x<cx;++x)for(let y=
+0;y<cy;++y)arr[x][y].sort(CompareValues)},Delete(index,axis){index=Math.floor(index);if(index<0)return;const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;if(axis===0){if(index>=cx)return;arr.splice(index,1);this._cx--}else if(axis===1){if(index>=cy)return;for(let x=0;x<cx;++x)arr[x].splice(index,1);this._cy--}else{if(index>=cz)return;for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)arr[x][y].splice(index,1);this._cz--}},Insert(value,index,axis){index=Math.floor(index);if(index<0)return;
+const cx=this._cx;const cy=this._cy;const cz=this._cz;const arr=this._arr;if(axis===0){if(index>cx)return;arr.splice(index,0,C3.MakeFilledArray(cy,()=>C3.MakeFilledArray(cz,value)));this._cx++}else if(axis===1){if(index>cy)return;for(let x=0;x<cx;++x)arr[x].splice(index,0,C3.MakeFilledArray(cz,value));this._cy++}else{if(index>cz)return;for(let x=0;x<cx;++x)for(let y=0;y<cy;++y)arr[x][y].splice(index,0,value);this._cz++}},SplitString(str,sep,type){const parts=str.split(sep);this.SetSize(parts.length,
+1,1);for(let i=0,len=parts.length;i<len;++i){let v=parts[i];if(type===0){if(String(Number(v))===v)v=Number(v)}else if(type===2)v=Number(v);this.Set(i,0,0,v)}},JSONLoad(json){let o=null;try{o=JSON.parse(json)}catch(err){console.error("[Construct] Failed to parse JSON: ",err);return}if(!o["c2array"])return;const sz=o["size"];this._cx=sz[0];this._cy=sz[1];this._cz=sz[2];this._arr=o["data"]},JSONDownload(filename){const url=URL.createObjectURL(new Blob([this.GetAsJsonString()],{type:"application/json"}));
+this._runtime.InvokeDownload(url,filename)}}}
+{const C3=self.C3;C3.Plugins.Arr.Exps={At(x,y,z){return this.At(x,y||0,z||0)},Width(){return this._cx},Height(){return this._cy},Depth(){return this._cz},CurX(){return this._GetForX()},CurY(){return this._GetForY()},CurZ(){return this._GetForZ()},CurValue(){return this.At(this._GetForX(),this._GetForY(),this._GetForZ())},Front(){return this.At(0,0,0)},Back(){return this.At(this._cx-1,0,0)},IndexOf(v){const arr=this._arr;for(let x=0,len=this._cx;x<len;++x)if(arr[x][0][0]===v)return x;return-1},LastIndexOf(v){const arr=
+this._arr;for(let x=this._cx-1;x>=0;--x)if(arr[x][0][0]===v)return x;return-1},JoinString(sep){let arr=[];for(let x=0;x<this._cx;++x)arr.push(this.At(x,0,0));return arr.join(sep)},AsJSON(){return this.GetAsJsonString()}}};
+
+}
+
+{
 'use strict';{const C3=self.C3;C3.Plugins.Sprite=class SpritePlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}}
 {const C3=self.C3;const spawnPickStack=[];C3.Plugins.Sprite.Type=class SpriteType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass);this._animations=objectClass.GetAnimations()}Release(){C3.clearArray(this._animations);super.Release()}OnCreate(){for(const a of this._animations)a.LoadAllAssets(this._runtime)}LoadTextures(renderer){const opts={sampling:this._runtime.GetSampling()};return Promise.all(this._animations.map(a=>a.LoadAllTextures(renderer,opts)))}ReleaseTextures(){for(const a of this._animations)a.ReleaseAllTextures()}OnDynamicTextureLoadComplete(){this._UpdateAllCurrentTexture()}_UpdateAllCurrentTexture(){for(const inst of this._objectClass.instancesIncludingPendingCreate())inst.GetSdkInstance()._UpdateCurrentTexture()}FinishCondition(doPick){C3.Plugins.Sprite.FinishCollisionCondition(this,
 doPick)}BeforeRunAction(method){spawnPickStack.push({objectClass:null,createHierarchy:false,instances:[]})}_SpawnPickInstance(objectClass,inst,createHierarchy){const entry=spawnPickStack.at(-1);entry.objectClass=objectClass;entry.createHierarchy=createHierarchy;entry.instances.push(inst)}AfterRunAction(method){const entry=spawnPickStack.pop();const objectClass=entry.objectClass;const createHierarchy=entry.createHierarchy;if(!objectClass)return;const pickMap=new Map;for(const inst of entry.instances)inst.CollectInstancesToPick(pickMap,
@@ -4113,6 +4141,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Touch,
 		C3.Plugins.Audio,
 		C3.Plugins.Keyboard,
+		C3.Plugins.Arr,
 		C3.Plugins.Sprite,
 		C3.Behaviors.Tween,
 		C3.Plugins.TiledBg,
@@ -4122,9 +4151,17 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.Arr.Acts.SetX,
+		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Plugins.Audio.Acts.PreloadByName,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.LocalStorage.Cnds.OnItemExists,
+		C3.Plugins.Arr.Acts.JSONLoad,
+		C3.Plugins.LocalStorage.Exps.ItemValue,
+		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
+		C3.Plugins.LocalStorage.Acts.SetItem,
+		C3.Plugins.Arr.Exps.AsJSON,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
 		C3.Plugins.Text.Acts.SetText,
@@ -4135,11 +4172,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Behaviors.Tween.Acts.TweenTwoProperties,
+		C3.Plugins.Sprite.Acts.SetAnimFrame,
+		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.Sprite.Exps.Height,
+		C3.Plugins.Arr.Cnds.CompareX,
 		C3.Plugins.System.Acts.GoToLayoutByName,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Sprite.Cnds.CompareOpacity,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
@@ -4151,11 +4193,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Acts.SetOpacity,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Audio.Acts.Stop,
-		C3.Plugins.System.Cnds.CompareBoolVar,
-		C3.Plugins.Audio.Cnds.IsTagPlaying,
-		C3.Plugins.Audio.Acts.PlayByName,
-		C3.ScriptsInEvents.Common_Event45_Act2,
-		C3.ScriptsInEvents.Common_Event47_Act2,
 		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
@@ -4165,10 +4202,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Behaviors.DragnDrop.Acts.SetEnabled,
-		C3.Plugins.System.Cnds.Else,
-		C3.Plugins.Sprite.Acts.AddInstanceVar,
-		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Plugins.Sprite.Acts.SetAnimFrame
+		C3.Plugins.Sprite.Acts.AddInstanceVar
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4176,6 +4210,7 @@ self.C3_JsPropNameTable = [
 	{Touch: 0},
 	{Audio: 0},
 	{Keyboard: 0},
+	{arStages: 0},
 	{onClick: 0},
 	{Tween: 0},
 	{menuBtnPlay: 0},
@@ -4233,6 +4268,7 @@ self.C3_JsPropNameTable = [
 	{planetsCongras: 0},
 	{sun: 0},
 	{fadeObj: 0},
+	{lockedStage: 0},
 	{DragDrop: 0},
 	{elements: 0},
 	{planets: 0},
@@ -4345,6 +4381,9 @@ self.C3_ExpressionFuncs = [
 			return () => f0();
 		},
 		() => "loading",
+		() => 0,
+		() => 1,
+		() => "savegamePlanetesEdin",
 		() => "gameplay",
 		() => "menus",
 		() => "btn",
@@ -4353,14 +4392,16 @@ self.C3_ExpressionFuncs = [
 		() => "endGame",
 		() => "winStage",
 		() => 2,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
 		() => "Devs",
 		() => "developerLogos",
-		() => 1,
 		() => "centralVisible",
 		() => 100,
 		() => 1.5,
 		() => "centralInvisible",
-		() => 0,
 		() => "logosVisible",
 		() => "logosVisibleTic",
 		() => "logosInvisible",
@@ -4384,7 +4425,12 @@ self.C3_ExpressionFuncs = [
 		() => "levelSelector",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
+			const n1 = p._GetNode(1);
+			return () => n0.ExpObject(n1.ExpInstVar());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpInstVar_Family() - 1);
 		},
 		() => 0.05,
 		() => "selectPlanets",
@@ -4400,6 +4446,11 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => and("stage", n0.ExpInstVar_Family());
+		},
+		() => "locked",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() * 0.9);
 		},
 		() => "HUD",
 		() => "finish",
@@ -4419,7 +4470,12 @@ self.C3_ExpressionFuncs = [
 		() => "",
 		() => "fadeIn",
 		() => "fadeOut",
-		() => "Music System",
+		() => "Save Game",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		() => "music",
 		() => "stage1",
 		() => "stage2",
 		() => "stage3",
@@ -4427,7 +4483,6 @@ self.C3_ExpressionFuncs = [
 		() => "stage5",
 		() => "stage6",
 		() => "stage7",
-		() => "music",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
