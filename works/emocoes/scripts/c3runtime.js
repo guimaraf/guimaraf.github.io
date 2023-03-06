@@ -4203,6 +4203,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Sprite.Exps.UID,
 		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Sprite.Exps.Width,
 		C3.Plugins.Sprite.Exps.Height,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
@@ -4494,6 +4495,11 @@ self.C3_ExpressionFuncs = [
 		() => "Touch Cards",
 		() => 7,
 		() => "Menu",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ("versão: " + f0());
+		},
+		() => 3,
 		() => "menuPlay",
 		p => {
 			const n0 = p._GetNode(0);
