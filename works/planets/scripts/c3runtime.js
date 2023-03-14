@@ -4193,6 +4193,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Acts.SetOpacity,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Audio.Acts.Stop,
+		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.Audio.Cnds.IsTagPlaying,
+		C3.Plugins.Audio.Acts.PlayByName,
+		C3.ScriptsInEvents.Common_Event50_Act2,
+		C3.ScriptsInEvents.Common_Event52_Act2,
 		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.Sprite.Exps.X,
 		C3.Plugins.Sprite.Exps.Y,
@@ -4470,12 +4475,7 @@ self.C3_ExpressionFuncs = [
 		() => "",
 		() => "fadeIn",
 		() => "fadeOut",
-		() => "Save Game",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
-		() => "music",
+		() => "Music System",
 		() => "stage1",
 		() => "stage2",
 		() => "stage3",
@@ -4483,6 +4483,12 @@ self.C3_ExpressionFuncs = [
 		() => "stage5",
 		() => "stage6",
 		() => "stage7",
+		() => "music",
+		() => "Save Game",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
