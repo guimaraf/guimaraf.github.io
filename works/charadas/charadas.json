@@ -1,0 +1,135 @@
+{
+    "0": {
+      "description": "Sou utilizada para transportar objetos, principalmente celular carteira e chaves",
+      "correctFrame": 0,
+	  
+	  "random1": "1,10,8,0",
+	  "random2": "3,0,5,4",
+	  "random3": "7,2,0,6",
+	  "random4": "2,0,9,6",
+	  "random5": "10,3,0,4",
+	  
+	  "name": "BOLSA"
+    },
+    "1": {
+      "description": "Um bichinho que vive na terra e na água e parece um capacete",
+      "correctFrame": 10,
+	  
+	  "random1": "1,2,8,10",
+	  "random2": "6,10,4,7",
+	  "random3": "10,1,3,6",
+	  "random4": "4,9,10,8",
+	  "random5": "10,1,6,5",
+	  
+	  "name": "SAPO"
+    },
+    "2": {
+      "description": "Os cachorros adoram me roer",
+      "correctFrame": 2,
+	  
+	  "random1": "2,4,7,9",
+	  "random2": "0,2,10,3",
+	  "random3": "8,1,2,3",
+	  "random4": "1,2,9,4",
+	  "random5": "6,1,2,10",
+	  
+	  "name": "OSSO"
+    },
+	"3": {
+      "description": "Um animal com orelhas e dentes grandes, que é o símbolo da páscoa",
+      "correctFrame": 5,
+	  
+	  "random1": "5,3,8,10",
+	  "random2": "9,1,5,3",
+	  "random3": "4,5,8,6",
+	  "random4": "3,6,5,1",
+	  "random5": "5,1,4,9",
+	  
+	  "name": "COELHO"
+    },
+	"4": {
+      "description": "Sou utilizado para a comunicação, e quando me pegam dizem alô",
+      "correctFrame": 8,
+	  
+	  "random1": "3,8,6,0",
+	  "random2": "8,4,0,3",
+	  "random3": "9,10,8,1",
+	  "random4": "3,6,8,1",
+	  "random5": "8,4,10,2",
+	  
+	  "name": "TELEFONE"
+    },
+	"5": {
+      "description": "Estou nas livrarias, bibliotecas, escolas e também posso ser digital",
+      "correctFrame": 6,
+	  
+	  "random1": "10,3,6,1",
+	  "random2": "9,2,4,6",
+	  "random3": "3,9,2,6",
+	  "random4": "4,6,9,0",
+	  "random5": "1,3,6,9",
+	  	  
+	  "name": "LIVRO"
+    },
+	"6": {
+      "description": "De hora em gora você me encontra quentinho na padaria",
+      "correctFrame": 9,
+	  
+	  "random1": "9,1,3,5",
+	  "random2": "6,2,9,10",
+	  "random3": "6,9,8,7",
+	  "random4": "9,1,10,0",
+	  "random5": "4,5,6,9",
+	  
+	  "name": "PÃO"
+    },
+	"7": {
+      "description": "Primeiro fico em um casulo, depois minhas asas se formam para eu poder voar",
+      "correctFrame": 1,
+	  
+	  "random1": "1,9,10,2",
+	  "random2": "6,3,1,4",
+	  "random3": "9,5,0,1",
+	  "random4": "4,10,1,0",
+	  "random5": "0,1,7,3",
+	  
+	  "name": ""
+    },
+	"8": {
+      "description": "É uma fruta vermelha, e também é um sabor de um sorvete",
+      "correctFrame": 7,
+	  
+	  "random1": "0,7,3,5",
+	  "random2": "7,8,5,4",
+	  "random3": "3,10,7,0",
+	  "random4": "6,7,8,9",
+	  "random5": "10,8,7,4",
+	  
+	  "name": "MORANGO"
+    },
+	"9": {
+      "description": "As pessoas me programam para acordar na hora certa",
+      "correctFrame": 3,
+	  
+	  "random1": "3,4,2,1",
+	  "random2": "6,5,3,0",
+	  "random3": "3,10,8,9",
+	  "random4": "1,5,3,10",
+	  "random5": "2,1,7,3",
+	  
+	  "name": "DESPERTADOR"
+    },
+	"10": {
+      "description": "É muito fofinho, é um presente, também enfeitam o quarto",
+      "correctFrame": 4,
+	  
+	  "random1": "1,2,3,4",
+	  "random2": "2,4,6,8",
+	  "random3": "8,7,6,4",
+	  "random4": "10,6,4,2",
+	  "random5": "6,3,9,4",
+	  
+	  "name": "URSINHO"
+    }
+  }
+  
