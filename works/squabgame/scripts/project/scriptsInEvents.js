@@ -3,7 +3,7 @@
 
 const scriptsInEvents = {
 
-	async Character_Event86_Act4(runtime, localVars)
+	async Character_Event87_Act4(runtime, localVars)
 	{
 		console.log("caralkha")
 	},

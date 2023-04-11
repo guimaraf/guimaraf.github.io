@@ -4667,8 +4667,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.layoutname,
 		C3.Behaviors.Platform.Acts.SetEnabled,
 		C3.Plugins.System.Acts.RestartLayout,
-		C3.ScriptsInEvents.Character_Event86_Act4,
-		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.ScriptsInEvents.Character_Event87_Act4,
 		C3.Plugins.Browser.Cnds.IsFullscreen,
 		C3.Plugins.Browser.Acts.RequestFullScreen,
 		C3.Plugins.Browser.Acts.CancelFullScreen,
@@ -4749,6 +4748,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Behaviors.Timer.Cnds.OnTimer,
 		C3.Plugins.Sprite.Acts.SetCollisions,
+		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Sprite.Acts.MoveToLayer,
 		C3.Plugins.Sprite.Cnds.CompareX,
@@ -5360,6 +5360,7 @@ self.C3_ExpressionFuncs = [
 		() => "popped",
 		() => 1.5,
 		() => "enable",
+		() => -2,
 		() => "Spike",
 		() => "Trapdoor",
 		() => "open",
@@ -5416,7 +5417,6 @@ self.C3_ExpressionFuncs = [
 		() => "blue",
 		() => "purple",
 		() => 50,
-		() => -2,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpInstVar() - 4);
