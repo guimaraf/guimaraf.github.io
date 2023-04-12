@@ -3,11 +3,14 @@
       "description": "Sou utilizada para transportar objetos, principalmente celular carteira e chaves",
       "correctFrame": 0,
 	  
-	  "random1": "1,10,8,0",
-	  "random2": "3,0,5,4",
-	  "random3": "7,2,0,6",
-	  "random4": "2,0,9,6",
-	  "random5": "10,3,0,4",
+	  "random0": "0,38,22,7",
+	  "random1": "42,0,11,6",
+	  "random2": "1,31,0,3",
+	  "random3": "9,14,32,0",
+	  "random4": "0,35,31,21",
+	  "random5": "0,5,9,23",
+	  "random6": "36,28,14,0",
+	  "random7": "17,32,0,26",
 	  
 	  "name": "BOLSA"
     },
@@ -15,11 +18,14 @@
       "description": "Um bichinho que vive na terra e na água e parece um capacete",
       "correctFrame": 10,
 	  
-	  "random1": "1,2,8,10",
-	  "random2": "6,10,4,7",
-	  "random3": "10,1,3,6",
-	  "random4": "4,9,10,8",
-	  "random5": "10,1,6,5",
+	  "random0": "18,36,10,7",
+	  "random1": "0,22,31,10",
+	  "random2": "19,26,10,39",
+	  "random3": "5,2,24,10",
+	  "random4": "10,31,0,17",
+	  "random5": "3,10,29,27",
+	  "random6": "10,41,23,35",
+	  "random7": "30,28,10,40",
 	  
 	  "name": "SAPO"
     },
@@ -27,11 +33,14 @@
       "description": "Os cachorros adoram me roer",
       "correctFrame": 2,
 	  
-	  "random1": "2,4,7,9",
-	  "random2": "0,2,10,3",
-	  "random3": "8,1,2,3",
-	  "random4": "1,2,9,4",
-	  "random5": "6,1,2,10",
+	  "random0": "21,12,2,30",
+	  "random1": "33,2,17,29",
+	  "random2": "13,9,42,2",
+	  "random3": "39,10,25,2",
+	  "random4": "2,37,7,27",
+	  "random5": "3,11,2,44",
+	  "random6": "2,26,43,5",
+	  "random7": "29,16,2,23",
 	  
 	  "name": "OSSO"
     },
@@ -39,11 +48,14 @@
       "description": "Um animal com orelhas e dentes grandes, que é o símbolo da páscoa",
       "correctFrame": 5,
 	  
-	  "random1": "5,3,8,10",
-	  "random2": "9,1,5,3",
-	  "random3": "4,5,8,6",
-	  "random4": "3,6,5,1",
-	  "random5": "5,1,4,9",
+	  "random0": "21,12,5,30",
+	  "random1": "5,2,17,29",
+	  "random2": "13,9,42,5",
+	  "random3": "39,10,25,5",
+	  "random4": "5,37,7,27",
+	  "random5": "3,11,5,44",
+	  "random6": "5,26,43,2",
+	  "random7": "29,16,5,23",
 	  
 	  "name": "COELHO"
     },
@@ -51,11 +63,14 @@
       "description": "Sou utilizado para a comunicação, e quando me pegam dizem alô",
       "correctFrame": 8,
 	  
-	  "random1": "3,8,6,0",
-	  "random2": "8,4,0,3",
-	  "random3": "9,10,8,1",
-	  "random4": "3,6,8,1",
-	  "random5": "8,4,10,2",
+	  "random0": "16,8,39,20",
+	  "random1": "37,23,8,41",
+	  "random2": "31,36,8,15",
+	  "random3": "25,21,42,8",
+	  "random4": "8,13,27,4",
+	  "random5": "20,14,31,8",
+	  "random6": "8,33,38,42",
+	  "random7": "44,11,8,35",
 	  
 	  "name": "TELEFONE"
     },
@@ -63,11 +78,14 @@
       "description": "Estou nas livrarias, bibliotecas, escolas e também posso ser digital",
       "correctFrame": 6,
 	  
-	  "random1": "10,3,6,1",
-	  "random2": "9,2,4,6",
-	  "random3": "3,9,2,6",
-	  "random4": "4,6,9,0",
-	  "random5": "1,3,6,9",
+	  "random0": "21,44,6,41",
+	  "random1": "12,16,27,6",
+	  "random2": "34,6,9,25",
+	  "random3": "25,35,22,6",
+	  "random4": "6,38,10,43",
+	  "random5": "42,6,3,20",
+	  "random6": "7,19,6,26",
+	  "random7": "11,34,40,6",
 	  	  
 	  "name": "LIVRO"
     },
@@ -75,11 +93,14 @@
       "description": "De hora em gora você me encontra quentinho na padaria",
       "correctFrame": 9,
 	  
-	  "random1": "9,1,3,5",
-	  "random2": "6,2,9,10",
-	  "random3": "6,9,8,7",
-	  "random4": "9,1,10,0",
-	  "random5": "4,5,6,9",
+	  "random0": "36,2,9,22",
+	  "random1": "18,29,15,9",
+	  "random2": "34,9,24,29",
+	  "random3": "9,20,6,21",
+	  "random4": "26,39,15,9",
+	  "random5": "37,12,9,32",
+	  "random6": "11,43,30,9",
+	  "random7": "9,4,23,42",
 	  
 	  "name": "PÃO"
     },
@@ -87,11 +108,14 @@
       "description": "Primeiro fico em um casulo, depois minhas asas se formam para eu poder voar",
       "correctFrame": 1,
 	  
-	  "random1": "1,9,10,2",
-	  "random2": "6,3,1,4",
-	  "random3": "9,5,0,1",
-	  "random4": "4,10,1,0",
-	  "random5": "0,1,7,3",
+	  "random0": "1,12,31,18",
+	  "random1": "1,27,10,13",
+	  "random2": "24,1,6,35",
+	  "random3": "1,3,29,41",
+	  "random4": "22,16,1,28",
+	  "random5": "37,1,19,7",
+	  "random6": "11,30,1,25",
+	  "random7": "34,40,15,1",
 	  
 	  "name": "BORBOLETA"
     },
@@ -99,11 +123,14 @@
       "description": "É uma fruta vermelha, e também é um sabor de um sorvete",
       "correctFrame": 7,
 	  
-	  "random1": "0,7,3,5",
-	  "random2": "7,8,5,4",
-	  "random3": "3,10,7,0",
-	  "random4": "6,7,8,9",
-	  "random5": "10,8,7,4",
+	  "random0": "23,33,35,7",
+	  "random1": "7,17,31,38",
+	  "random2": "29,41,7,26",
+	  "random3": "15,7,32,27",
+	  "random4": "7,8,37,28",
+	  "random5": "21,39,13,7",
+	  "random6": "7,14,43,22",
+	  "random7": "11,7,36,20",
 	  
 	  "name": "MORANGO"
     },
@@ -111,11 +138,14 @@
       "description": "As pessoas me programam para acordar na hora certa",
       "correctFrame": 3,
 	  
-	  "random1": "3,4,2,1",
-	  "random2": "6,5,3,0",
-	  "random3": "3,10,8,9",
-	  "random4": "1,5,3,10",
-	  "random5": "2,1,7,3",
+	  "random0": "11,6,42,3",
+	  "random1": "3,2,31,17",
+	  "random2": "28,12,3,21",
+	  "random3": "3,10,7,25",
+	  "random4": "37,34,24,3",
+	  "random5": "18,5,29,3",
+	  "random6": "8,3,16,20",
+	  "random7": "39,9,30,3",
 	  
 	  "name": "DESPERTADOR"
     },
@@ -123,13 +153,500 @@
       "description": "É muito fofinho, é um presente, também enfeitam o quarto",
       "correctFrame": 4,
 	  
-	  "random1": "1,2,3,4",
-	  "random2": "2,4,6,8",
-	  "random3": "8,7,6,4",
-	  "random4": "10,6,4,2",
-	  "random5": "6,3,9,4",
-	  
+	  "random0": "4,11,21,36",
+	  "random1": "6,10,14,4",
+	  "random2": "38,18,15,4",
+	  "random3": "31,20,4,8",
+	  "random4": "35,4,16,17",
+	  "random5": "3,28,4,13",
+	  "random6": "4,29,19,30",
+	  "random7": "4,2,37,26",
+
 	  "name": "URSINHO"
+    },
+	
+	
+	
+	"11": {
+      "description": "Qual inseto produz mel e vive em colmeias?",
+      "correctFrame": 11,
+	  
+	  "random0": "8,23,33,11",
+	  "random1": "11,31,18,6",
+	  "random2": "22,15,8,11",
+	  "random3": "36,3,11,20",
+	  "random4": "39,11,13,24",
+	  "random5": "30,37,9,11",
+	  "random6": "41,11,38,1",
+	  "random7": "11,2,21,16",
+	  
+	  "name": "ABELHA"
+    },
+	"12": {
+      "description": "Qual comida é redonda e tem cobertura de queijo e molho de tomate?",
+      "correctFrame": 12,
+	  
+	  "random0": "12,4,35,41",
+	  "random1": "23,12,15,38",
+	  "random2": "9,33,27,12",
+	  "random3": "12,18,6,29",
+	  "random4": "39,12,2,14",
+	  "random5": "21,8,31,12",
+	  "random6": "12,37,16,1",
+	  "random7": "25,12,11,40",
+	  
+	  "name": "PIZZA"
+    },
+	
+	"13": {
+      "description": "Qual peça de roupa é usada nos pés e geralmente vem em pares?",
+      "correctFrame": 13,
+	  
+	  "random0": "13,4,35,41",
+      "random1": "23,38,15,13",
+      "random2": "19,13,27,33",
+      "random3": "13,18,6,29",
+      "random4": "32,2,13,14",
+      "random5": "21,13,31,8",
+      "random6": "13,37,16,1",
+      "random7": "25,40,11,13",
+	  
+	  "name": "MEIA"
+    },
+	"14": {
+      "description": "Qual vegetal é laranja, crocante e pode ser comido cru ou cozido?",
+      "correctFrame": 14,
+	  
+	  "random0": "14,2,33,40",
+      "random1": "23,38,15,14",
+      "random2": "29,14,27,33",
+      "random3": "14,18,6,29",
+      "random4": "39,3,2,14",
+      "random5": "21,14,31,8",
+      "random6": "14,37,16,1",
+      "random7": "25,30,14,40",
+	  
+	  "name": "CENOURA"
+    },
+	"15": {
+      "description": "Qual dispositivo eletrônico é usado para acessar a internet e digitar documentos?",
+      "correctFrame": 15,
+	  
+	  "random0": "15,4,35,41",
+      "random1": "23,15,29,38",
+      "random2": "2,33,27,15",
+      "random3": "15,18,6,29",
+      "random4": "39,21,15,14",
+      "random5": "21,15,31,8",
+      "random6": "15,37,16,1",
+      "random7": "25,15,11,40",
+	  
+	  "name": "COMPUTADOR"
+    },
+	"16": {
+      "description": "Qual objeto vermelho é usado pelos bombeiros para apagar incêndios?",
+      "correctFrame": 16,
+	  
+	  "random0": "16,4,35,41",
+      "random1": "23,38,15,16",
+      "random2": "5,16,27,33",
+      "random3": "16,18,6,29",
+      "random4": "39,16,2,14",
+      "random5": "21,31,16,8",
+      "random6": "16,37,41,1",
+      "random7": "25,40,11,16",
+	  
+	  "name": "HIDRANTE"
+    },
+	"17": {
+      "description": "Qual objeto é usado para fazer um som alto e agudo, geralmente para chamar atenção?",
+      "correctFrame": 17,
+	  
+	  "random0": "17,4,35,41",
+      "random1": "23,32,15,17",
+      "random2": "6,17,27,33",
+      "random3": "17,18,6,29",
+      "random4": "39,2,17,14",
+      "random5": "21,31,17,8",
+      "random6": "17,37,16,1",
+      "random7": "25,17,11,40",
+	  
+	  "name": "APITO"
+    },
+	"18": {
+      "description": "Qual objeto é usado para beber líquidos quentes como café, chá ou chocolate quente?",
+      "correctFrame": 18,
+	  
+	  "random0": "18,4,35,41",
+      "random1": "23,7,15,18",
+      "random2": "11,18,27,33",
+      "random3": "18,43,6,29",
+      "random4": "39,1,18,14",
+      "random5": "21,18,31,8",
+      "random6": "18,37,16,1",
+      "random7": "25,40,11,18",
+	  
+	  "name": "CHÍCARA"
+    },
+	"19": {
+      "description": "Qual arranjo de flores é frequentemente dado como presente em ocasiões especiais?",
+      "correctFrame": 19,
+	  
+	  "random0": "19,4,35,41",
+      "random1": "23,29,15,19",
+      "random2": "15,19,27,33",
+      "random3": "19,18,6,29",
+      "random4": "39,14,2,19",
+      "random5": "21,39,19,8",
+      "random6": "19,37,16,1",
+      "random7": "25,19,11,40",
+	  
+	  "name": "BUQUÊ"
+    },
+	"20": {
+      "description": "Qual objeto brilhante no céu à noite é usado em muitos símbolos e decorações?",
+      "correctFrame": 20,
+	  
+	  "random0": "20,4,35,41",
+      "random1": "23,5,15,20",
+      "random2": "8,20,27,33",
+      "random3": "20,18,6,29",
+      "random4": "39,2,20,14",
+      "random5": "21,20,31,8",
+      "random6": "20,37,16,1",
+      "random7": "25,40,11,20",
+	  
+	  "name": "ESTRELA"
+    },
+	"21": {
+      "description": "Qual objeto de proteção é usado na cabeça por ciclistas e motociclistas?",
+      "correctFrame": 21,
+	  
+	  "random0" : "28,21,30,16",
+	  "random1" : "32,15,20,21",
+	  "random2" : "4,7,21,1",
+	  "random3" : "21,35,13,7",
+	  "random4" : "14,41,17,21",
+	  "random5" : "40,21,35,2",
+	  "random6" : "5,41,21,22",
+	  "random7" : "21,37,42,34",
+	  
+	  "name": "CAPACETE"
+    },
+	"22": {
+      "description": "Qual alimento é feito de leite e pode ser derretido em cima de uma pizza?",
+      "correctFrame": 22,
+	  
+	  "random0" : "38,35,14,22",
+	  "random1" : "38,17,22,42",
+	  "random2" : "22,39,2,16",
+	  "random3" : "11,34,33,22",
+	  "random4" : "5,9,22,13",
+	  "random5" : "22,30,34,20",
+	  "random6" : "12,22,27,2",
+	  "random7" : "37,25,39,22",
+	  
+	  "name": "QUEIJO"
+    },
+	"23": {
+      "description": "Qual vegetal amarelo e crocante é frequentemente encontrado em pipoca?",
+      "correctFrame": 23,
+	  
+	  "random0" : "39,33,17,23",
+	  "random1" : "27,2,28,23",
+	  "random2" : "42,23,28,12",
+	  "random3" : "27,39,40,23",
+	  "random4" : "12,20,23,13",
+	  "random5" : "23,17,15,25",
+	  "random6" : "23,2,19,34",
+	  "random7" : "31,19,23,9",
+	  
+	  "name": "MILHO"
+    },
+	"24": {
+      "description": "Qual objeto tem seis faces numeradas e é usado em muitos jogos de tabuleiro?",
+      "correctFrame": 24,
+	  
+	  "random0" : "28,35,24,26",
+	  "random1" : "24,32,41,22",
+	  "random2" : "24,33,30,4",
+	  "random3" : "38,24,1,25",
+	  "random4" : "22,24,6,19",
+	  "random5" : "33,35,24,32",
+	  "random6" : "11,29,23,24",
+	  "random7" : "24,17,11,37",
+	  
+	  "name": "DADO"
+    },
+	"25": {
+      "description": "Qual instrumento musical tem seis cordas e é tocado com os dedos?",
+      "correctFrame": 25,
+	  
+	  "random0" : "32,19,37,25",
+	  "random1" : "32,25,3,16",
+	  "random2" : "37,27,25,12",
+	  "random3" : "7,14,32,25",
+	  "random4" : "12,25,17,11",
+	  "random5" : "41,17,25,2",
+	  "random6" : "25,42,18,32",
+	  "random7" : "37,0,34,25",
+	  
+	  "name": "VIOLÃO"
+    },
+	"26": {
+      "description": "Qual objeto é dado como prêmio em competições esportivas?",
+      "correctFrame": 26,
+	  
+	  "random0" : "30,21,39,26",
+	  "random1" : "17,31,27,26",
+	  "random2" : "2,13,26,11",
+	  "random3" : "35,3,26,14",
+	  "random4" : "26,12,24,1",
+	  "random5" : "20,26,32,41",
+	  "random6" : "26,35,23,15",
+	  "random7" : "26,9,18,13",
+	  
+	  "name": "TROFÉU"
+    },
+	"27": {
+      "description": "Qual objeto é usado para carregar roupas e pertences quando se viaja?",
+      "correctFrame": 27,
+	  
+	  "random0" : "4,5,2,27",
+	  "random1" : "27,32,11,26",
+	  "random2" : "18,8,22,27",
+	  "random3" : "39,5,27,26",
+	  "random4" : "26,27,15,42",
+	  "random5" : "4,30,1,27",
+	  "random6" : "27,9,41,22",
+	  "random7" : "32,24,27,34",
+	  
+	  "name": "MALA"
+    },
+	"28": {
+      "description": "Qual objeto é usado para enviar mensagens escritas pelo correio?",
+      "correctFrame": 28,
+	  
+	  "random0" : "27,28,38,17",
+	  "random1" : "11,29,10,28",
+	  "random2" : "2,14,38,28",
+	  "random3" : "27,4,28,17",
+	  "random4" : "32,28,35,36",
+	  "random5" : "28,39,10,2",
+	  "random6" : "23,6,3,28",
+	  "random7" : "8,14,28,33",
+	  
+	  "name": "CARTA"
+    },
+	"29": {
+      "description": "Qual objeto é usado para guardar dinheiro e outros objetos de valor?",
+      "correctFrame": 29,
+	  
+	  "random0" : "23,29,22,15",
+	  "random1" : "25,14,29,20",
+	  "random2" : "29,34,39,19",
+	  "random3" : "38,2,29,35",
+	  "random4" : "41,37,27,29",
+	  "random5" : "29,33,25,3",
+	  "random6" : "2,28,14,29",
+	  "random7" : "29,12,9,34",
+	  
+	  "name": "COFRE"
+    },
+	"30": {
+      "description": "Qual animal recém-nascido é frequentemente representado como amarelo com bico e patas laranjas?",
+      "correctFrame": 30,
+	  
+	  "random0" : "2,38,30,31",
+	  "random1" : "31,12,30,28",
+	  "random2" : "8,5,20,30",
+	  "random3" : "41,5,28,30",
+	  "random4" : "6,30,13,8",
+	  "random5" : "20,35,32,30",
+	  "random6" : "30,13,19,26",
+	  "random7" : "38,30,0,41",
+	  
+	  "name": "PINTINHO"
+    },
+	"31": {
+      "description": "Qual animal australiano é conhecido por sua bolsa abdominal e hábitos saltitantes?",
+      "correctFrame": 31,
+	  
+	  "random0" : "31,21,9,40",
+	  "random1" : "21,7,1,31",
+	  "random2" : "31,14,24,12",
+	  "random3" : "28,18,16,31",
+	  "random4" : "38,17,18,31",
+	  "random5" : "41,17,31,14",
+	  "random6" : "36,31,38,40",
+	  "random7" : "4,31,30,3",
+	  
+	  "name": "CANGURU"
+    },
+	"32": {
+      "description": "Qual animal tem um casco duro e pode se esconder dentro dele quando se sente ameaçado?",
+      "correctFrame": 32,
+	  
+	  "random0" : "23,32,15,36",
+	  "random1" : "3,40,32,6",
+	  "random2" : "28,9,24,32",
+	  "random3" : "10,6,14,32",
+	  "random4" : "0,32,26,42",
+	  "random5" : "32,4,27,3",
+	  "random6" : "36,27,32,13",
+	  "random7" : "1,32,15,26",
+	  
+	  "name": "TARTARUGA"
+    },
+	"33": {
+      "description": "Qual animal é conhecido como o melhor amigo do homem e é frequentemente usado como animal de estimação?",
+      "correctFrame": 33,
+	  
+	  "random0" : "33,14,23,0",
+	  "random1" : "12,33,15,13",
+	  "random2" : "33,38,3,5",
+	  "random3" : "20,0,23,33",
+	  "random4" : "40,27,30,33",
+	  "random5" : "11,10,33,9",
+	  "random6" : "20,33,15,1",
+	  "random7" : "33,2,32,1",
+	  
+	  "name": "CACHORRO"
+    },
+	"34": {
+      "description": "Qual objeto é usado para comprar coisas e vem em forma de notas e moedas?",
+      "correctFrame": 34,
+	  
+	  "random0" : "34,19,37,18",
+	  "random1" : "22,28,34,2",
+	  "random2" : "34,32,42,17",
+	  "random3" : "11,38,23,34",
+	  "random4" : "11,34,31,12",
+	  "random5" : "36,27,34,10",
+	  "random6" : "26,15,34,9",
+	  "random7" : "34,42,24,4",
+	  
+	  "name": "DINHEIRO"
+    },
+	"35": {
+      "description": "Qual objeto é usado para escrever ou desenhar e pode ser apontado para ficar afiado?",
+      "correctFrame": 35,
+	  
+	  "random0" : "35,23,5,19",
+	  "random1" : "0,35,10,28",
+	  "random2" : "28,41,35,19",
+	  "random3" : "35,12,27,20",
+	  "random4" : "18,35,3,31",
+	  "random5" : "24,10,2,35",
+	  "random6" : "29,27,19,35",
+	  "random7" : "35,30,19,42",
+	  
+	  "name": "LÁPIS"
+    },
+	"36": {
+      "description": "Qual objeto é usado para cortar papel, tecido e outros materiais?",
+      "correctFrame": 36,
+	  
+	  "random0" : "30,36,14,40",
+	  "random1" : "36,25,19,9",
+	  "random2" : "3,36,30,25",
+	  "random3" : "36,27,42,25",
+	  "random4" : "11,21,5,36",
+	  "random5" : "27,29,31,36",
+	  "random6" : "16,22,32,36",
+	  "random7" : "12,4,36,6",
+	  
+	  "name": "TESOURA"
+    },
+	"37": {
+      "description": "Qual objeto é usado para prender folhas de papel juntas com grampos?",
+      "correctFrame": 37,
+	  
+	  "random0" : "39,11,34,37",
+	  "random1" : "30,32,42,37",
+	  "random2" : "11,37,41,13",
+	  "random3" : "37,1,18,12",
+	  "random4" : "29,26,35,37",
+	  "random5" : "2,37,27,35",
+	  "random6" : "14,37,36,18",
+	  "random7" : "13,36,37,7",
+	  
+	  "name": "GRAMPEADOR"
+    },
+	"38": {
+      "description": "Qual fruta grande e suculenta é frequentemente consumida no verão?",
+      "correctFrame": 38,
+	  
+	  "random0" : "38,24,23,33",
+	  "random1" : "38,29,22,30",
+	  "random2" : "24,38,1,33",
+	  "random3" : "28,37,38,25",
+	  "random4" : "20,42,32,38",
+	  "random5" : "38,21,2,25",
+	  "random6" : "32,31,38,11",
+	  "random7" : "24,38,1,5",
+	  
+	  "name": "MELANCIA"
+    },
+	"39": {
+      "description": "Qual tempero pode ser verde, vermelho ou amarelo e adiciona sabor picante aos alimentos?",
+      "correctFrame": 39,
+	  
+	  "random0" : "39,31,0,12",
+	  "random1" : "23,39,3,33",
+	  "random2" : "10,19,39,18",
+	  "random3" : "36,37,27,39",
+	  "random4" : "39,33,1,31",
+	  "random5" : "39,28,1,34",
+	  "random6" : "30,39,24,20",
+	  "random7" : "11,32,25,39",
+	  
+	  "name": "PIMENTA"
+    },
+	"40": {
+      "description": "Qual animal vive no Polo Sul e é conhecido por sua aparência preta e branca e hábitos de natação?",
+      "correctFrame": 40,
+	  
+	  "random0" : "40,12,25,19",
+	  "random1" : "19,40,16,5",
+	  "random2" : "40,33,39,37",
+	  "random3" : "34,40,9,0",
+	  "random4" : "4,42,28,40",
+	  "random5" : "4,32,40,23",
+	  "random6" : "3,33,0,40",
+	  "random7" : "9,5,3,40",
+	  
+	  "name": "PINGUIM"
+    },
+	"41": {
+      "description": "Qual fruta pequena e vermelha é frequentemente usada como enfeite em sobremesas?",
+      "correctFrame": 41,
+	  
+	  "random0" : "41,15,10,36",
+	  "random1" : "21,5,41,13",
+	  "random2" : "42,41,1,35",
+	  "random3" : "39,24,23,41",
+	  "random4" : "6,29,41,25",
+	  "random5" : "41,7,36,9",
+	  "random6" : "19,23,41,11",
+	  "random7" : "41,29,35,8",
+	  
+	  "name": "CEREJA"
+    },
+	"42": {
+      "description": "O que é feito com uma fita e pode ser usado como enfeite de cabelo ou para amarrar presentes?",
+      "correctFrame": 42,
+	  
+	  "random0" : "19,4,20,42",
+	  "random1" : "31,42,35,7",
+	  "random2" : "42,1,7,26",
+	  "random3" : "33,21,23,42",
+	  "random4" : "42,40,3,16",
+	  "random5" : "3,42,7,26",
+	  "random6" : "34,42,8,32",
+	  "random7" : "5,8,23,42",
+	  
+	  "name": "LAÇO"
     }
   }
   

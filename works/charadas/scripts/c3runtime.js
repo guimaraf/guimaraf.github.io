@@ -3994,6 +3994,28 @@ C3.Plugins.Keyboard.Exps={LastKeyCode(){return this._triggerWhich},StringFromKey
 }
 
 {
+'use strict';{const C3=self.C3;C3.Plugins.AdvancedRandom=class AdvancedRandomPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Plugins.AdvancedRandom.Type=class AdvancedRandomType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}}
+{const C3=self.C3;class Gradient{constructor(mode){this.mode=mode;this.stops=[]}AddStop(position,value){switch(this.mode){case "rgb":value=this._CreateStopRGB(value);break;case "float":value=this._CreateStopFloat(value);break}let i=this.stops.length;while(i--)if(position>this.stops[i][0]){this.stops.splice(i+1,0,[position,value]);return}this.stops.push([position,value])}_CreateStopFloat(value){return[value]}_CreateStopRGB(value){const r=C3.GetRValue(value);const g=C3.GetGValue(value);const b=C3.GetBValue(value);
+return[value,r,g,b,C3.GetAValue(value)]}_SampleFloat(a,b,t){return C3.lerp(a[0],b[0],t)}_SampleRGB(a,b,t){return C3.PackRGBAEx(C3.lerp(a[1],b[1],t),C3.lerp(a[2],b[2],t),C3.lerp(a[3],b[3],t),C3.lerp(a[4],b[4],t))}Sample(t){const stops=this.stops;const first=stops[0];const length=stops.length;const last=stops[length-1];if(t<first[0])return first[1][0];if(t>last[0])return last[1][0];let a=null;let b=first;for(let i=1;i<length;i++){a=b;b=stops[i];if(b[0]>t)break}t=C3.clamp((t-a[0])/(b[0]-a[0]),0,1);switch(this.mode){case "rgb":return this._SampleRGB(a[1],
+b[1],t);case "float":return this._SampleFloat(a[1],b[1],t)}}asJSON(debug=false){if(this.mode==="rgb")return JSON.stringify(this.stops.map(([pos,value])=>[pos,debug?value.slice(1):value[0]]));else return JSON.stringify(this.stops)}}let replaceSystemPRNG=false;C3.Plugins.AdvancedRandom.Instance=class AdvancedRandomInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst);this._core=null;this._currentSeed="";this._octaves=1;this._lacunarity=2;this._persistence=.5;this._gradients=new Map;
+this._probabilityTables=new Map;this._currentGradientName="";this._currentGradient=null;this._currentProbabilityTableName="";this._currentProbabilityTable=null;this._permutation=[0];const seed=properties[0];replaceSystemPRNG=properties[1];this._CreateGradient("default","rgb");this._AddGradientStop(0,C3.PackRGBEx(0,0,0));this._AddGradientStop(1,C3.PackRGBEx(1,1,1));this._CreateProbabilityTable("default");this._runtime.AddLoadPromise(this._Init(seed))}async _Init(seed){const mod=await this._InstatiateWASMModule();
+this._core=mod["instance"]["exports"];if(seed==="")seed=this._RandomSeed(10);this._UpdateSeed(seed);if(replaceSystemPRNG)this._runtime.SetRandomNumberGeneratorCallback(()=>this._core["randomXorshiro"](0,1))}async _InstatiateWASMModule(){const blob=await this._runtime.GetAssetManager().FetchBlob("noise.wasm");const res=new Response(blob,{"headers":{"content-type":"application/wasm"}});if(this._SupportsWASMStreamingInstantiation())return WebAssembly["instantiateStreaming"](res);else{const buffer=await res.arrayBuffer();
+return WebAssembly["instantiate"](buffer)}}_SupportsWASMStreamingInstantiation(){return typeof WebAssembly["instantiateStreaming"]==="function"}_RandomSeed(l){const min=65;const max=90;const delta=max-min;const chars=[];while(l--)chars.push(String.fromCharCode(Math.round(Math.random()*delta)+min));return chars.join("")}_UpdateSeed(str){this._currentSeed=str;let h=5381;for(let i=0,l=str.length;i<l;i++)h=(h<<5)+h+str.charCodeAt(i);h>>>=0;this._core["seed"](h)}_CreateGradient(name,mode){const grad=new Gradient(mode);
+this._gradients.set(name,grad);this._currentGradient=grad;this._currentGradientName=name}_SetGradient(name){const grad=this._gradients.get(name);this._currentGradient=grad||null;this._currentGradientName=grad?name:""}_AddGradientStop(position,value){const grad=this._currentGradient;if(grad===null)return;grad.AddStop(position,value)}_CreateProbabilityTable(name){const table=new C3.ProbabilityTable;this._probabilityTables.set(name,table);this._currentProbabilityTable=table;this._currentProbabilityTableName=
+name}_CreateProbabilityTableFromJSON(name,str){const table=C3.ProbabilityTable.fromJSON(str);this._probabilityTables.set(name,table);this._currentProbabilityTable=table;this._currentProbabilityTableName=name}_SetProbabilityTable(name){const table=this._probabilityTables.get(name);this._currentProbabilityTable=table||null;this._currentProbabilityTableName=table?name:""}_AddProbabilityEntry(weight,value){const table=this._currentProbabilityTable;if(table)table.AddItem(weight,value)}_RemoveProbabilityEntry(weight,
+value){const table=this._currentProbabilityTable;if(table)table.RemoveItem(weight,value)}Release(){super.Release()}GetDebuggerProperties(){const prefix="plugins.advancedrandom.debugger";const gradient_rows=[];const probability_rows=[];const padList=str=>str.toString().replace(/,/g,", ");for(const [name,table]of this._probabilityTables){const str=table.asJSON();probability_rows.push({name:"$"+name,value:padList(str.slice(1,-1))})}for(const [name,gradient]of this._gradients){const str=gradient.asJSON(true);
+gradient_rows.push({name:"$"+name,value:padList(str.slice(1,-1))})}return[{title:prefix+".title",properties:[{name:prefix+".seed",value:this._currentSeed,onedit:v=>this._UpdateSeed(v)},{name:prefix+".replace-system",value:replaceSystemPRNG},{name:prefix+".noise-octaves",value:this._octaves},{name:prefix+".noise-lacunarity",value:this._lacunarity},{name:prefix+".noise-persistence",value:this._persistence},{name:prefix+".current-probability-table",value:this._currentProbabilityTableName},{name:prefix+
+".current-gradient",value:this._currentGradientName},{name:prefix+".permutation-table",value:padList(this._permutation)}]},{title:prefix+".gradients",properties:gradient_rows},{title:prefix+".probability-tables",properties:probability_rows}]}}}{const C3=self.C3;C3.Plugins.AdvancedRandom.Cnds={}}
+{const C3=self.C3;function shuffle(arr,rnd){let m=arr.length;while(m>0){const i=Math.floor(rnd(0,m--));const t=arr[m];arr[m]=arr[i];arr[i]=t}return arr}C3.Plugins.AdvancedRandom.Acts={SetSeed(str){this._UpdateSeed(str)},SetOctaves(num){this._octaves=C3.clamp(num|0,1,16)},CreateGradient(name,isColor){const mode=["rgb","float"][isColor];this._CreateGradient(name,mode)},SetGradient(name){this._SetGradient(name)},AddStop(position,value){this._AddGradientStop(position,value)},CreateProbabilityTable(name){this._CreateProbabilityTable(name)},
+CreateProbabilityTableFromJSON(name,str){try{this._CreateProbabilityTableFromJSON(name,str)}catch(e){console.warn("Failed to create probability table from JSON String",e)}},SetProbabilityTable(name){this._SetProbabilityTable(name)},AddProbabilityEntry(value,weight){this._AddProbabilityEntry(weight,value)},RemoveProbabilityEntry(value,weight){this._RemoveProbabilityEntry(weight,value)},CreatePermutationTable(length,offset){if(length<2)this._permutation=[0];else{this._permutation=[];for(let i=0;i<length;i++)this._permutation.push(i+
+offset);shuffle(this._permutation,this._core["randomXorshiro"])}},ShufflePermutationTable(){shuffle(this._permutation,this._core["randomXorshiro"])}}}
+{const C3=self.C3;C3.Plugins.AdvancedRandom.Exps={Classic2d(x,y){return this._core["classic2d"](x,y,this._octaves)},Classic3d(x,y,z){return this._core["classic3d"](x,y,z,this._octaves)},Billow2d(x,y){return this._core["billow2d"](x,y,this._octaves)},Billow3d(x,y,z){return this._core["billow3d"](x,y,z,this._octaves)},Ridged2d(x,y){return this._core["ridged2d"](x,y,this._octaves)},Ridged3d(x,y,z){return this._core["ridged3d"](x,y,z,this._octaves)},Cellular2d(x,y){return this._core["cellular2d"](x,y)},
+Cellular3d(x,y,z){return this._core["cellular3d"](x,y,z)},Voronoi2d(x,y){return this._core["voronoi2d"](x,y)},Voronoi3d(x,y,z){return this._core["voronoi3d"](x,y,z)},Gradient(value){const grad=this._currentGradient;if(grad===null)return 0;return grad.Sample(value)},Weighted(){const table=this._currentProbabilityTable;if(table===null)return 0;return table.Sample(this._core["randomXorshiro"](0,table.GetTotalWeight()))},RandomSeed(){return this._RandomSeed(10)},Seed(){return this._currentSeed},Octaves(){return this._octaves},
+Permutation(i){const arr=this._permutation;const len=arr.length;i=i%len;if(i<0)i+=len;return arr[i]},ProbabilityTableAsJSON(){return this._currentProbabilityTable.asJSON()}}};
+
+}
+
+{
 'use strict';{const C3=self.C3;C3.Plugins.Text=class TextPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}}{const C3=self.C3;C3.Plugins.Text.Type=class TextType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}LoadTextures(renderer){}ReleaseTextures(){}}}
 {const C3=self.C3;const C3X=self.C3X;const TEMP_COLOR_ARRAY=[0,0,0];const TEXT=0;const ENABLE_BBCODE=1;const FONT=2;const SIZE=3;const LINE_HEIGHT=4;const BOLD=5;const ITALIC=6;const COLOR=7;const HORIZONTAL_ALIGNMENT=8;const VERTICAL_ALIGNMENT=9;const WRAPPING=10;const INITIALLY_VISIBLE=11;const ORIGIN=12;const READ_ALOUD=13;const HORIZONTAL_ALIGNMENTS=["left","center","right"];const VERTICAL_ALIGNMENTS=["top","center","bottom"];const WORD_WRAP=0;const CHARACTER_WRAP=1;const tempRect=new C3.Rect;
 const tempQuad=new C3.Quad;const tempColor=new C3.Color;C3.Plugins.Text.Instance=class TextInstance extends C3.SDKWorldInstanceBase{constructor(inst,properties){super(inst);this._text="";this._enableBBcode=true;this._faceName="Arial";this._ptSize=12;this._lineHeightOffset=0;this._isBold=false;this._isItalic=false;this._color=C3.New(C3.Color);this._horizontalAlign=0;this._verticalAlign=0;this._wrapByWord=true;this._readAloud=false;this._screenReaderText=null;this._typewriterStartTime=-1;this._typewriterEndTime=
@@ -4262,6 +4284,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.LocalStorage,
 		C3.Plugins.Touch,
 		C3.Plugins.Keyboard,
+		C3.Plugins.AdvancedRandom,
 		C3.Plugins.Text,
 		C3.Behaviors.Pin,
 		C3.Plugins.Sprite,
@@ -4284,12 +4307,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.TiledBg.Acts.SetBoolInstanceVar,
 		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.Json.Cnds.IsBoolInstanceVarSet,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.System.Exps.layoutname,
 		C3.Plugins.Sprite.Cnds.CompareOpacity,
+		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Sprite.Exps.Y,
 		C3.Plugins.Text.Acts.SetOpacity,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
@@ -4298,7 +4323,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.System.Exps.random,
-		C3.ScriptsInEvents.Common_Event28_Act4,
+		C3.ScriptsInEvents.Common_Event30_Act3,
+		C3.ScriptsInEvents.Common_Event30_Act4,
 		C3.Plugins.System.Cnds.For,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.Plugins.System.Exps.loopindex,
@@ -4319,6 +4345,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.GoToLayoutByName,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Plugins.Audio.Acts.Stop,
+		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.Audio.Cnds.IsTagPlaying,
+		C3.Plugins.Audio.Acts.PlayByName,
+		C3.ScriptsInEvents.Common_Event50_Act2,
+		C3.ScriptsInEvents.Common_Event52_Act2,
+		C3.Plugins.System.Exps.choose,
+		C3.ScriptsInEvents.Common_Event56_Act3,
 		C3.Plugins.TiledBg.Acts.SetWidth,
 		C3.Plugins.System.Exps.loadingprogress,
 		C3.Plugins.Audio.Acts.PreloadByName,
@@ -4337,6 +4372,7 @@ self.C3_JsPropNameTable = [
 	{LocalStorage: 0},
 	{Touch: 0},
 	{Keyboard: 0},
+	{AdvancedRandom: 0},
 	{Pin: 0},
 	{txtCongrass: 0},
 	{txtDesctiption: 0},
@@ -4379,6 +4415,7 @@ self.C3_JsPropNameTable = [
 	{devCentral: 0},
 	{welcomeFrame: 0},
 	{stageNumber: 0},
+	{musicPlay: 0},
 	{randomize: 0},
 	{allFrames: 0}
 ];
@@ -4513,6 +4550,8 @@ self.C3_ExpressionFuncs = [
 		() => "gameplay",
 		() => 0.2,
 		() => "Gameplay",
+		() => -10,
+		() => "click",
 		() => "moveFrame",
 		p => {
 			const n0 = p._GetNode(0);
@@ -4547,7 +4586,7 @@ self.C3_ExpressionFuncs = [
 		() => "Draw Frames",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => Math.round(f0(1, 5));
+			return () => Math.round(f0(0, 7));
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -4569,6 +4608,8 @@ self.C3_ExpressionFuncs = [
 		() => "DragDropObjects",
 		() => "finishPosition",
 		() => 0.15,
+		() => "sucess",
+		() => "error",
 		() => "startPosition",
 		() => "endGame",
 		() => 0.8,
@@ -4577,6 +4618,18 @@ self.C3_ExpressionFuncs = [
 		() => "Finish Activity Next Game",
 		() => 80,
 		() => "FinishGame",
+		() => "Music System",
+		() => "music",
+		() => "Menu",
+		() => "LevelSelect",
+		() => "levelSelector",
+		() => "menuMusic",
+		() => -15,
+		() => "congratulations",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0("gameplay1", "gameplay2", "gameplay3", "gameplay4", "gameplay5");
+		},
 		() => "Loading Game",
 		() => "Loading",
 		p => {
@@ -4587,6 +4640,11 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (and("Loading ", (f0() * 100)) + "%");
 		},
+		() => "gameplay1",
+		() => "gameplay2",
+		() => "gameplay3",
+		() => "gameplay4",
+		() => "gameplay5",
 		() => 0.95,
 		() => "Developer",
 		() => "Developer Logos",
@@ -4597,7 +4655,6 @@ self.C3_ExpressionFuncs = [
 		() => "logosVisibleTic",
 		() => "logosInvisible",
 		() => "logosInvisibleTic",
-		() => "Menu",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => ("Version: " + f0());
