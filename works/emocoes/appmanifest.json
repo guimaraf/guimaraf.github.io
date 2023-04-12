@@ -1,6 +1,6 @@
 {
-	"name": "edinJogoEmocoes",
-	"short_name": "edinJogoEmocoes",
+	"name": "Jogo das Emoções",
+	"short_name": "Jogo das Emoções",
 	"description": "Jogo das emocoes",
 	"start_url": "index.html",
 	"display": "fullscreen",
