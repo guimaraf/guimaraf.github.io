@@ -3,11 +3,6 @@
 
 const scriptsInEvents = {
 
-	async Character_Event87_Act4(runtime, localVars)
-	{
-		console.log("caralkha")
-	},
-
 	async Comum_Event88_Act2(runtime, localVars)
 	{
 		console.log('registered new player')
@@ -26,6 +21,11 @@ const scriptsInEvents = {
 	async Comum_Event92_Act3(runtime, localVars)
 	{
 		console.log('aguardou o tempo')
+	},
+
+	async Comum_Event106_Act2(runtime, localVars)
+	{
+		console.log('roda musica menu')
 	}
 
 };
