@@ -4726,6 +4726,13 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.choose,
 		C3.Behaviors.Platform.Acts.SetEnabled,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.System.Acts.LoadObjectTextures,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.System.Acts.SetLayerVisible,
+		C3.Plugins.Spritefont2.Acts.SetText,
+		C3.Plugins.Spritefont2.Exps.Text,
+		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Browser.Cnds.IsFullscreen,
 		C3.Plugins.Browser.Acts.RequestFullScreen,
 		C3.Plugins.Browser.Acts.CancelFullScreen,
@@ -4735,18 +4742,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.scrolly,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.TiledBg.Acts.Destroy,
-		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Cnds.CompareBoolVar,
-		C3.Plugins.System.Acts.SetLayerVisible,
-		C3.Plugins.Spritefont2.Acts.SetText,
-		C3.Plugins.Spritefont2.Exps.Text,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Acts.SetFunctionReturnValue,
 		C3.Plugins.System.Exps.zeropad,
 		C3.Plugins.System.Exps.left,
 		C3.Plugins.System.Exps.tokenat,
-		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.TiledBg.Acts.MoveToTop,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
@@ -4784,18 +4785,23 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.System.Exps.uppercase,
 		C3.Plugins.AJAX.Acts.Post,
-		C3.ScriptsInEvents.Comum_Event88_Act2,
-		C3.ScriptsInEvents.Comum_Event90_Act2,
-		C3.ScriptsInEvents.Comum_Event91_Act1,
+		C3.ScriptsInEvents.Comum_Event87_Act2,
+		C3.ScriptsInEvents.Comum_Event89_Act2,
+		C3.ScriptsInEvents.Comum_Event90_Act1,
 		C3.Plugins.System.Acts.WaitForPreviousActions,
-		C3.ScriptsInEvents.Comum_Event92_Act3,
+		C3.ScriptsInEvents.Comum_Event91_Act3,
+		C3.ScriptsInEvents.Comum_Event93_Act2,
+		C3.ScriptsInEvents.Comum_Event94_Act2,
+		C3.ScriptsInEvents.Comum_Event95_Act2,
+		C3.ScriptsInEvents.Comum_Event96_Act2,
+		C3.ScriptsInEvents.Comum_Event97_Act2,
 		C3.Plugins.gamepad.Cnds.OnAnyButtonDown,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Sprite.Acts.StopAnim,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.Audio.Acts.Stop,
 		C3.Plugins.Audio.Cnds.IsTagPlaying,
-		C3.ScriptsInEvents.Comum_Event106_Act2,
+		C3.ScriptsInEvents.Comum_Event112_Act2,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.Tween.Acts.TweenTwoProperties,
 		C3.Behaviors.Fade.Acts.StartFade,
@@ -4841,6 +4847,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareHeight,
 		C3.Behaviors.Tween.Acts.TweenValue,
 		C3.Plugins.Sprite.Acts.SetX,
+		C3.Plugins.Audio.Acts.Preload,
 		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Sprite.Cnds.OnAnyAnimFinished,
 		C3.Plugins.Browser.Acts.Close,
@@ -4853,6 +4860,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Acts.SetImageOffsetX,
 		C3.Plugins.TiledBg.Exps.ImageOffsetX,
 		C3.Plugins.TiledBg.Acts.SetImageOffsetY,
+		C3.Plugins.TiledBg.Acts.SetSize,
+		C3.Plugins.TiledBg.Acts.SetOpacity,
 		C3.Behaviors.Platform.Cnds.IsByWall,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout
 	];
@@ -5021,6 +5030,8 @@ self.C3_JsPropNameTable = [
 	{moveSide: 0},
 	{plat: 0},
 	{charaDown: 0},
+	{guimaraf: 0},
+	{fadeMenus: 0},
 	{jumpMap: 0},
 	{boxSwitch: 0},
 	{enemies: 0},
@@ -5040,6 +5051,7 @@ self.C3_JsPropNameTable = [
 	{countItens: 0},
 	{timePlayer: 0},
 	{currentTime: 0},
+	{urlFirebase: 0},
 	{volNumbers: 0},
 	{typeVolum: 0},
 	{distanceBubble: 0},
@@ -5060,6 +5072,7 @@ self.C3_JsPropNameTable = [
 	{musicPlay: 0},
 	{menuPosX: 0},
 	{menuPosY: 0},
+	{fadeType: 0},
 	{distanceDetect: 0}
 ];
 }
@@ -5282,6 +5295,15 @@ self.C3_ExpressionFuncs = [
 			return () => ((((n0.ExpObject()) === (10) ? 1 : 0)) ? (32) : ((-32)));
 		},
 		() => 0.6,
+		() => "Buffer Sprites",
+		() => "SpeedRun",
+		p => {
+			const n0 = p._GetNode(0);
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const v2 = p._GetNode(2).GetVar();
+			const n3 = p._GetNode(3);
+			return () => ((((n0.ExpInstVar()) === ("speedRun") ? 1 : 0)) ? (f1(v2.GetValue())) : (n3.ExpObject()));
+		},
 		() => "Debug",
 		() => "Restart Game",
 		() => "Menu",
@@ -5301,7 +5323,6 @@ self.C3_ExpressionFuncs = [
 		() => 0.2,
 		() => "Time Controll",
 		() => "level1",
-		() => "SpeedRun",
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
@@ -5313,13 +5334,6 @@ self.C3_ExpressionFuncs = [
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const n2 = p._GetNode(2);
 			return () => ((((n0.ExpInstVar()) === ("stageNumber") ? 1 : 0)) ? (and("STAGE ", f1())) : (n2.ExpObject()));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const v2 = p._GetNode(2).GetVar();
-			const n3 = p._GetNode(3);
-			return () => ((((n0.ExpInstVar()) === ("speedRun") ? 1 : 0)) ? (f1(v2.GetValue())) : (n3.ExpObject()));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -5434,6 +5448,21 @@ self.C3_ExpressionFuncs = [
 			return () => f0(v1.GetValue());
 		},
 		() => 0.5,
+		() => "https://elecruntest-default-rtdb.firebaseio.com/statisticSpeedRun.json",
+		() => 5,
+		() => "https://elecruntest-default-rtdb.firebaseio.com/statisticLevel_5.json",
+		() => 10,
+		() => "https://elecruntest-default-rtdb.firebaseio.com/statisticLevel_10.json",
+		() => 15,
+		() => "https://elecruntest-default-rtdb.firebaseio.com/statisticLevel_15.json",
+		() => 20,
+		() => "https://elecruntest-default-rtdb.firebaseio.com/statisticLevel_20.json",
+		() => "sendFirstUser",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => (and((("\n{\n\t\"" + v0.GetValue()) + "\" : "), f1(1)) + "\n}\n");
+		},
 		() => "Detect Input",
 		() => "keyboard",
 		() => "gamepad",
@@ -5452,14 +5481,13 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "music",
 		() => "menuMainTheme01",
-		() => 10,
+		() => "Loading",
 		() => "spy",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			return () => (f0(v1.GetValue()) - 25);
 		},
-		() => 20,
 		() => "itTakesAHero",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -5471,6 +5499,7 @@ self.C3_ExpressionFuncs = [
 		() => "Door End",
 		() => "enterDoor",
 		() => "groundOpen",
+		() => "openDoor",
 		() => "groundCloseFinish",
 		() => "Bobble Jump",
 		() => "full",
@@ -5554,6 +5583,7 @@ self.C3_ExpressionFuncs = [
 		() => 0.1,
 		() => 40,
 		() => "Teleport",
+		() => "teleport",
 		() => "Hold Itens",
 		() => 248,
 		() => 480,
@@ -5605,6 +5635,9 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "trampoleLong",
 		() => "finish",
+		() => "opacity",
+		() => 1.4,
+		() => "in",
 		p => {
 			const n0 = p._GetNode(0);
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -5630,13 +5663,16 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			return () => f0(f1("88,120,152", n2.ExpInstVar(), ","));
 		},
-		() => 5,
+		() => "menuMove",
+		() => "menuConfirm",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + "Confirm");
 		},
+		() => "menuCancel",
 		() => "menu",
 		() => "menuSpeed",
+		() => 3,
 		() => "MUDAR NOME",
 		p => {
 			const n0 = p._GetNode(0);
@@ -5664,18 +5700,19 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 101,
 		() => 0.08,
-		() => 3,
 		() => "enter",
 		() => 12,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + "Local");
 		},
+		() => "rankingLeft",
 		() => 11,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + "Online");
 		},
+		() => "rankingRight",
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
@@ -5756,6 +5793,18 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => (n0.ExpObject() + ((0.2 * 60) * f1()));
+		},
+		() => "Fade Menus",
+		() => "out",
+		() => "menuFade",
+		() => 272,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((((v0.GetValue()) === ("in") ? 1 : 0)) ? (0) : (100));
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((((v0.GetValue()) === ("in") ? 1 : 0)) ? (100) : (0));
 		},
 		() => "Kapar",
 		p => {
