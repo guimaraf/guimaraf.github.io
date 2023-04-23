@@ -4891,8 +4891,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Keyboard.Exps.LastKeyCode,
 		C3.Plugins.Spritefont2.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Exps.len,
-		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
 		C3.Plugins.Spritefont2.Acts.AppendText,
+		C3.Plugins.Keyboard.Exps.StringFromKeyCode,
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.TiledBg.Acts.SetImageOffsetX,
 		C3.Plugins.TiledBg.Exps.ImageOffsetX,
@@ -5354,11 +5354,11 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => ((((n0.ExpObject()) === ((-10)) ? 1 : 0)) ? ((-32)) : (32));
 		},
-		() => 48,
+		() => 40,
 		() => 32,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => ((((n0.ExpObject()) === ((-10)) ? 1 : 0)) ? ((-48)) : (48));
+			return () => ((((n0.ExpObject()) === ((-10)) ? 1 : 0)) ? ((-40)) : (40));
 		},
 		() => 24,
 		() => "Jump Cancel Polish",
@@ -5679,7 +5679,6 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpInstVar() - 4);
 		},
 		() => 0.1,
-		() => 40,
 		() => "Teleport",
 		() => "teleport",
 		() => "Hold Itens",
@@ -5703,6 +5702,7 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpInstVar() / 2);
 		},
 		() => "Button Wall",
+		() => 48,
 		() => "purplePress",
 		() => "Block Time Fall",
 		p => {
@@ -5836,6 +5836,7 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + "Cancel");
 		},
+		() => "Name Player Change",
 		() => 65,
 		() => "playerName",
 		p => {
@@ -5845,13 +5846,19 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 8,
 		p => {
-			const v0 = p._GetNode(0).GetVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
-			const f2 = p._GetNode(2).GetBoundMethod();
-			return () => (v0.GetValue() + f1(f2()));
+			return () => f0(f1());
 		},
 		() => 101,
 		() => 0.08,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const n3 = p._GetNode(3);
+			return () => f0(n1.ExpObject(), (f2(n3.ExpObject()) - 1));
+		},
 		() => "enter",
 		() => 12,
 		p => {
