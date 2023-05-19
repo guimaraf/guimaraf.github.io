@@ -21,6 +21,13 @@ let myCallback = (conteudo) => {
   }
 }
 
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+      getCep();
+      //console.log('A tecla Enter foi pressionada!');
+  }
+});
+
 let getCep = () => {
   let cep = document.getElementById('infoCep').value;
 
@@ -49,7 +56,7 @@ let getCep = () => {
         clearForm();
         alert("Formato de CEP inválido.");
     }
-  } 
+  }
   else {
     clearForm();
   }
