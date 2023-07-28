@@ -95,7 +95,7 @@
 }
 
 /*social buttons*/
-.fa-whatsapp, .fa-instagram, .fa-twitter, .fa-facebook, .fa-envelope{
+.fa-whatsapp, .fa-twitter, .fa-facebook, .fa-envelope{
     margin-top: 10px;
 	
 }
@@ -132,21 +132,6 @@ section#social a:hover {
 	bottom: 40px;
 	right: 110px;
 	background-color: lightblue;
-	color: #fff;
-	border-radius: 50px;
-	text-align: center;
-	font-size: 40px;
-	box-shadow: 1px 1px 2px #888;
-	z-index: 1000;
-}
-
-.instagran-link{
-    position: fixed;
-	width: 60px;
-	height: 60px;
-	bottom: 40px;
-	right: 110px;
-	background-color: violet;
 	color: #fff;
 	border-radius: 50px;
 	text-align: center;
