@@ -52,7 +52,13 @@
     color: red;
 }
 
-#teste
+#platformsReleased
+{
+    font-size:14pt; 
+    font-weight:bold; 
+}
+
+#pressRelease
 {
     font-size:14pt; 
     font-weight:bold; 
@@ -109,7 +115,7 @@ section#social a:hover {
 	width: 60px;
 	height: 60px;
 	bottom: 40px;
-	right: 250px;
+	right: 180px;
 	background-color: #D44638;
 	color: #fff;
 	border-radius: 50px;
@@ -124,7 +130,7 @@ section#social a:hover {
 	width: 60px;
 	height: 60px;
 	bottom: 40px;
-	right: 180px;
+	right: 110px;
 	background-color: lightblue;
 	color: #fff;
 	border-radius: 50px;
@@ -211,3 +217,4 @@ table {
   tr:first-child td {
 	background-color: #d9d9d9;
   }
+
