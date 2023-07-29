@@ -159,6 +159,7 @@ section#social a:hover {
 
 section#lastProjects img {
 	box-sizing: border-box;
+    border-radius: 8px; /* Ajuste o valor do raio para a curvatura desejada */
 }
 
 section#lastProjects img:hover {
@@ -171,6 +172,7 @@ section#lastProjects img:hover {
 
 section#projects img {
 	box-sizing: border-box;
+    border-radius: 8px; /* Ajuste o valor do raio para a curvatura desejada */
 }
 
 section#projects img:hover {
@@ -202,4 +204,3 @@ table {
   tr:first-child td {
 	background-color: #d9d9d9;
   }
-

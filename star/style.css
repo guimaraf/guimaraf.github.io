@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 60px; /* Adicionamos margem na parte inferior para dar espaço para o texto */
+  }
+  
+  .countdown {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
