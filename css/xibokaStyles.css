@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.container {
+    text-align: center;
+}
+
+#image-input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+#clear-button {
+    margin-bottom: 1em;
+}
+
+#image-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#image-list li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+#image-list li p {
+    text-align: center;
+}
