@@ -11,7 +11,7 @@ function resizeImage(image, squareResolutions, rectangularResolutions) {
         canvas.width = width;
         canvas.height = height;
         ctx.drawImage(image, 0, 0, width, height);
-        const resizedImage = canvas.toDataURL('image/jpeg');
+        const resizedImage = canvas.toDataURL('image/jpeg', 0.92); //isSquare ? 1.0 : 0.6
         const imageItem = document.createElement('li');
         // Crie um contêiner para o texto da resolução e o botão "Salvar"
         const resolutionContainer = document.createElement('div');
