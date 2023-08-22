@@ -53,13 +53,13 @@ body {
   
 .round label {
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 50%;
   cursor: pointer;
   height: 28px;
   left: 0;
   position: absolute;
-  top: 0;
+  top: -8px;
   width: 28px;
 }
   
@@ -76,7 +76,7 @@ body {
   transform: rotate(-45deg);
   width: 12px;
 }
-  
+
 .round input[type="checkbox"] {
   visibility: hidden;
 }
