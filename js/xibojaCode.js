@@ -1,17 +1,16 @@
-//const squareResolutions = [[44,44],[71,71],[75,75],[88,88],[100,100],[142,142],[150,150],[176,176],[200,200],[256,256],[284,284],[300,300],[310,310],[600,600],[620,620],[1240,1240]];
-//const rectangularResolutions = [[310,150], [620,300], [930,450], [1240,600], [2480, 1200]];
-//const construct3Icons = [[16,16],[32,32],[64,64],[114,114],[128,128],[256,256],[512,512]];
+// Create a document fragment to hold the resized images and elements
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+
+// Create a document fragment to hold the resized images and elements
+const fragment = document.createDocumentFragment();
 
 function resizeImage(image) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
     const isSquare = image.width === image.height;
-
     const resolutions = getCheckboxConstruct() ? getConstructResolutions() : isSquare ? getSquareResolutions() : getRectangularResolutions();
 
-    for (const resolution of resolutions) {
-        const [width, height] = resolution;
+    for (let i = 0; i < resolutions.length; i++) {
+        const [width, height] = resolutions[i];
         canvas.width = width;
         canvas.height = height;
 
@@ -31,10 +30,12 @@ function resizeImage(image) {
 
         const imageItem = document.createElement('li');
         const resolutionText = document.createElement('span');
+        const resolutionContainer = document.createElement('div');
         resolutionText.textContent = `${width} x ${height}`;
+        resolutionContainer.appendChild(resolutionText);
         imageItem.appendChild(resolutionText);
         const saveButton = document.createElement('button');
-        
+
         saveButton.textContent = 'Salvar';
         saveButton.addEventListener('click', () => {
             const link = document.createElement('a');
@@ -43,23 +44,28 @@ function resizeImage(image) {
             link.click();
         });
         
-        imageItem.appendChild(saveButton);
+        resolutionContainer.appendChild(saveButton);
+        imageItem.appendChild(resolutionContainer);
+        //imageItem.appendChild(saveButton);
         const imageElement = document.createElement('img');
         imageElement.src = resizedImage;
         imageItem.appendChild(imageElement);
-        
-        document.querySelector('#image-list').appendChild(imageItem);
+        fragment.appendChild(imageItem);
+
     }
 }
+
+const imageList = document.querySelector('#image-list');
 
 document.querySelector('#image-input').addEventListener('change', event => {
     const file = event.target.files[0];
     if (file) {
         const image = new Image();
-        image.src = URL.createObjectURL(file);
         image.onload = () => {
-            resizeImage(image);
+            resizeImage(image, getSquareResolutions(), getRectangularResolutions());
+            imageList.appendChild(fragment); // Append the fragment to the imageList element
         };
+        image.src = URL.createObjectURL(file); // Update the src property of the image object
     }
 });
 
@@ -73,7 +79,6 @@ const getCheckboxConstruct = () => {
     // verifica se o checkbox do Construct 2 e 3 está ativo na página
     var checkbox = document.getElementById("checkbox");
     var checkBoxVerify = checkbox.checked ? true : false;
-    console.log(checkBoxVerify)
     return checkBoxVerify;
 }
 
@@ -81,7 +86,6 @@ const getCheckInterpolate = () => {
     // verifica se o checkbox interpolação está ativo na página
     var checkbox = document.getElementById("checkboxInterpolate");
     var checkInterpolateVerify = checkbox.checked ? true : false;
-    console.log(checkInterpolateVerify)
     return checkInterpolateVerify;
 }
 
@@ -116,4 +120,3 @@ const getRectangularResolutions = () =>{
     ];
     return rectangularResolutions
 }
-
