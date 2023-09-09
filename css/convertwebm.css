@@ -1,0 +1,32 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0078e7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005cbf;
+}
+
+a {
+    text-decoration: none;
+    color: #0078e7;
+    font-size: 16px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
