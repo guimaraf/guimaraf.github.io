@@ -26,7 +26,8 @@ function resizeImage(image) {
         
         // Use a qualidade especificada ao salvar a imagem
 
-        const resizedImage = getCheckboxConstruct() ? canvas.toDataURL("image/png", 1) : canvas.toDataURL('image/jpeg', 0.92);
+        //const resizedImage = getCheckboxConstruct() ? canvas.toDataURL("image/png", 1) : canvas.toDataURL('image/jpeg', 0.92);
+        const resizedImage = canvas.toDataURL("image/png", 1);
 
         const imageItem = document.createElement('li');
         const resolutionText = document.createElement('span');
@@ -40,7 +41,8 @@ function resizeImage(image) {
         saveButton.addEventListener('click', () => {
             const link = document.createElement('a');
             link.href = resizedImage;
-            link.download = getCheckboxConstruct() ? `${width}x${height}.png` :  `${width}x${height}.jpg`;
+            //link.download = getCheckboxConstruct() ? `${width}x${height}.png` :  `${width}x${height}.jpg`;
+            link.download = `${width}x${height}.png`;
             link.click();
         });
         
@@ -107,7 +109,7 @@ const getConstructResolutions = () => {
 
 const getSquareResolutions = () =>{
     const squareResolutions = [
-        [44,44],[71,71],[75,75],[88,88],[100,100],[142,142],[150,150],
+        [44,44],[50,50],[71,71],[75,75],[88,88],[100,100],[142,142],[150,150],
         [176,176],[200,200],[256,256],[284,284],[300,300],[310,310],
         [600,600],[620,620],[1240,1240]
     ];
