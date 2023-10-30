@@ -3926,10 +3926,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.video.Acts.SetSource,
-		C3.Plugins.video.Cnds.IsPlaying,
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.Button.Cnds.CompareText,
 		C3.Plugins.video.Acts.Play,
+		C3.Plugins.video.Cnds.IsPlaying,
 		C3.Plugins.video.Acts.Pause
 	];
 };
