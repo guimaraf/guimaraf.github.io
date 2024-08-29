@@ -84,6 +84,7 @@ let updateList = () =>{
     getDolValue()
     getImage()
 
+    /*
     let contentData = ''
     let limit = 1
     
@@ -99,6 +100,7 @@ let updateList = () =>{
             limit = 1
         }
     }
+    */
 }
 
 //open json from api
