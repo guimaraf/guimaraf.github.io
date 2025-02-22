@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor para Maiúsculas</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/side-menu.css">
+    <!--link rel="stylesheet" href="css/blog/blog-old-ie.css" -->
+    <link rel="stylesheet" href="css/blog/blog.css">
+
+    <link href="css/prism/prism.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 28rem;
+            margin: 1rem;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        button {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px #2563eb;
+        }
+    </style>
+
+
+
+        
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="index.html" class="pure-menu-link">Home</a>
+                </li>
+                <li class="pure-menu-item"><a href="projects.html" class="pure-menu-link">Projects</a></li>
+                <li class="pure-menu-item"><a href="devlog.html" class="pure-menu-link">Devlog</a></li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-3-4">
+            <div>
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                <!--h1 class="content-subhead">Devlog</h1-->
+        
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <div class="container">
+                            <h1>Conversor para Maiúsculas</h1>
+                            <div>
+                                <label for="text">Digite seu texto:</label>
+                                <textarea 
+                                    id="text" 
+                                    rows="4" 
+                                    placeholder="Digite aqui..."
+                                ></textarea>
+                            </div>
+                            <button onclick="converterParaMaiusculas()">Converter para Maiúsculas</button>
+                        </div>
+                        <br>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+<script src="js/prism/prism.js"></script>
+
+<script src="js/cos.js"></script>
+
+<script>
+    function converterParaMaiusculas() {
+        const textarea = document.getElementById('text');
+        textarea.value = textarea.value.toUpperCase();
+    }
+</script>
+
+</body>
+</html>
