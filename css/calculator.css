@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.calculator-container {
+  width: 100%;
+  max-width: 360px;
+}
+
+.calculator {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calculator-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.calculator-display {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  text-align: right;
+}
+
+.calculation-history {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  height: 1.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.current-value {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 0.25rem;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.btn {
+  height: 3.5rem;
+  border-radius: 9999px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  outline: none;
+}
+
+.btn.number, .btn.decimal {
+  background-color: rgba(55, 65, 81, 0.3);
+}
+
+.btn.number:hover, .btn.decimal:hover {
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+.btn.operator {
+  background-color: rgba(217, 119, 6, 0.8);
+}
+
+.btn.operator:hover {
+  background-color: rgba(217, 119, 6, 0.9);
+}
+
+.btn.clear {
+  background-color: rgba(239, 68, 68, 0.8);
+}
+
+.btn.clear:hover {
+  background-color: rgba(239, 68, 68, 0.9);
+}
+
+.btn.backspace, .btn.percent {
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+.btn.backspace:hover, .btn.percent:hover {
+  background-color: rgba(55, 65, 81, 0.7);
+}
+
+.btn.equals {
+  background-color: rgba(217, 119, 6, 0.8);
+}
+
+.btn.equals:hover {
+  background-color: rgba(217, 119, 6, 0.9);
+}
+
+.btn.zero {
+  grid-column: span 2;
+}
