@@ -2,7 +2,6 @@ let gamepad = null;
 let gamepadIndex = null;
 let isTestRunning = false;
 let currentTestButton = null;
-let lastPressTime = 0;
 const doubleClickThreshold = 300; // ms
 
 const buttonSequence = [
@@ -25,6 +24,17 @@ const buttonSequence = [
 let currentTestIndex = 0;
 let buttonPresses = {};
 let doubleClickedButtons = new Set();
+let buttonStates = {};
+
+// Initialize button states
+buttonSequence.forEach(button => {
+    buttonStates[button.id] = {
+        isPressed: false,
+        lastPressTime: 0,
+        lastReleaseTime: 0,
+        pressCount: 0
+    };
+});
 
 window.addEventListener('gamepadconnected', (e) => {
     gamepadIndex = e.gamepad.index;
@@ -118,12 +128,37 @@ document.getElementById('startTest').addEventListener('click', () => {
         document.getElementById('startTest').textContent = 'Stop Test';
         buttonPresses = {};
         doubleClickedButtons.clear();
+        // Reset button states
+        buttonSequence.forEach(button => {
+            buttonStates[button.id] = {
+                isPressed: false,
+                lastPressTime: 0,
+                lastReleaseTime: 0,
+                pressCount: 0
+            };
+        });
         document.getElementById('test-results').classList.remove('visible');
     }
     
     updateTestInstruction();
     updateButtonPressCount();
 });
+
+function checkForDoubleClick(buttonIndex, currentTime) {
+    const state = buttonStates[buttonIndex];
+    
+    // Check if this is a new press (button was previously released)
+    if (!state.isPressed) {
+        // If we have a previous release and this press is within threshold
+        if (state.lastReleaseTime > 0 && 
+            currentTime - state.lastReleaseTime < doubleClickThreshold) {
+            return true;
+        }
+        state.lastPressTime = currentTime;
+    }
+    
+    return false;
+}
 
 function updateGamepadState() {
     if (gamepadIndex !== null) {
@@ -132,17 +167,53 @@ function updateGamepadState() {
         
         if (gamepad) {
             let pressedButtons = [];
+            const currentTime = Date.now();
             
             gamepad.buttons.forEach((button, index) => {
+                const state = buttonStates[index];
+                if (!state) return; // Skip if not a tracked button
+                
                 if (button.pressed) {
                     pressedButtons.push(`Button ${index}`);
                     document.querySelector(`[data-button="${index}"]`)?.classList.add('active');
                     
-                    if (isTestRunning) {
-                        handleTestButton(index);
+                    // Handle button press
+                    if (!state.isPressed) {
+                        if (isTestRunning && checkForDoubleClick(index, currentTime)) {
+                            const buttonElement = document.querySelector(`[data-button="${index}"]`);
+                            if (buttonElement) {
+                                buttonElement.classList.add('double-click-detected');
+                                doubleClickedButtons.add(index);
+                                setTimeout(() => {
+                                    buttonElement.classList.remove('double-click-detected');
+                                }, 500);
+                            }
+                        }
+                        
+                        if (isTestRunning && index === buttonSequence[currentTestIndex].id) {
+                            buttonPresses[index] = (buttonPresses[index] || 0) + 1;
+                            updateButtonPressCount();
+                            
+                            currentTestIndex++;
+                            
+                            if (currentTestIndex >= buttonSequence.length) {
+                                isTestRunning = false;
+                                currentTestIndex = 0;
+                                document.getElementById('startTest').textContent = 'Start Double Click Test';
+                                showTestResults();
+                            }
+                            
+                            updateTestInstruction();
+                        }
                     }
+                    state.isPressed = true;
                 } else {
                     document.querySelector(`[data-button="${index}"]`)?.classList.remove('active');
+                    // Handle button release
+                    if (state.isPressed) {
+                        state.lastReleaseTime = currentTime;
+                        state.isPressed = false;
+                    }
                 }
             });
             
@@ -153,40 +224,6 @@ function updateGamepadState() {
         }
     }
     requestAnimationFrame(updateGamepadState);
-}
-
-function handleTestButton(buttonIndex) {
-    if (buttonIndex === buttonSequence[currentTestIndex].id) {
-        const currentTime = Date.now();
-        const buttonElement = document.querySelector(`[data-button="${buttonIndex}"]`);
-        
-        // Increment press count
-        buttonPresses[buttonIndex] = (buttonPresses[buttonIndex] || 0) + 1;
-        updateButtonPressCount();
-        
-        if (currentTime - lastPressTime < doubleClickThreshold) {
-            // Visual feedback for double click
-            buttonElement.classList.add('double-click-detected');
-            doubleClickedButtons.add(buttonIndex);
-            setTimeout(() => {
-                buttonElement.classList.remove('double-click-detected');
-            }, 500);
-        }
-        
-        lastPressTime = currentTime;
-        
-        // Move to next button in sequence
-        currentTestIndex++;
-        
-        if (currentTestIndex >= buttonSequence.length) {
-            isTestRunning = false;
-            currentTestIndex = 0;
-            document.getElementById('startTest').textContent = 'Start Double Click Test';
-            showTestResults();
-        }
-        
-        updateTestInstruction();
-    }
 }
 
 updateGamepadState();
