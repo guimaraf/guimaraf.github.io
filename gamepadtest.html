@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamepad Tester</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="css/gamepadTest.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gamepad Tester</h1>
+        
+        <div id="connection-status">
+            No gamepad connected
+        </div>
+
+        <div class="pure-button-group" role="group">
+            <button id="startTest" class="pure-button pure-button-primary">Start Double Click Test</button>
+        </div>
+
+        <div id="test-instruction" class="hidden">
+            Press: <span id="current-button">None</span>
+        </div>
+
+        <div class="gamepad">
+            <div class="d-pad">
+                <div class="d-up" data-button="12">↑</div>
+                <div class="d-right" data-button="15">→</div>
+                <div class="d-down" data-button="13">↓</div>
+                <div class="d-left" data-button="14">←</div>
+            </div>
+
+            <div class="face-buttons">
+                <div class="button-y" data-button="3">Y</div>
+                <div class="button-b" data-button="1">B</div>
+                <div class="button-a" data-button="0">A</div>
+                <div class="button-x" data-button="2">X</div>
+            </div>
+
+            <div class="center-buttons">
+                <div class="button-back" data-button="8">Back</div>
+                <div class="button-start" data-button="9">Start</div>
+            </div>
+
+            <div class="shoulder-buttons">
+                <div class="button-lt" data-button="6">LT</div>
+                <div class="button-rt" data-button="7">RT</div>
+                <div class="button-lb" data-button="4">LB</div>
+                <div class="button-rb" data-button="5">RB</div>
+            </div>
+        </div>
+
+        <div id="button-presses">
+            Button press counts:
+        </div>
+
+        <div id="test-results">
+            Test Results:
+        </div>
+
+        <div id="pressed-buttons">
+            Currently pressed: None
+        </div>
+    </div>
+    <script src="js/gamepadTest.js"></script>
+</body>
+</html>

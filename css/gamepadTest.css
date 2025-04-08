@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gamepad {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+    position: relative;
+    background: #333;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.d-pad {
+    position: absolute;
+    left: 50px;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.d-pad div {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.d-up { top: 0; left: 35px; }
+.d-right { right: 0; top: 35px; }
+.d-down { bottom: 0; left: 35px; }
+.d-left { left: 0; top: 35px; }
+
+.face-buttons {
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+}
+
+.face-buttons div {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #666;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+.button-y { top: 0; left: 35px; background: #ffeb3b !important; }
+.button-b { right: 0; top: 35px; background: #f44336 !important; }
+.button-a { bottom: 0; left: 35px; background: #4caf50 !important; }
+.button-x { left: 0; top: 35px; background: #2196f3 !important; }
+
+.center-buttons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 20px;
+}
+
+.center-buttons div {
+    padding: 5px 10px;
+    background: #666;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shoulder-buttons {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+.shoulder-buttons div {
+    padding: 5px 15px;
+    background: #666;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-lt, .button-rt {
+    position: absolute;
+    top: 0;
+}
+
+.button-lt { left: 50px; }
+.button-rt { right: 50px; }
+
+.button-lb, .button-rb {
+    position: absolute;
+    top: 40px;
+}
+
+.button-lb { left: 50px; }
+.button-rb { right: 50px; }
+
+.active {
+    background: #888 !important;
+    transform: scale(0.95);
+}
+
+.next-button {
+    outline: 2px solid #fff;
+}
+
+#connection-status {
+    margin: 20px 0;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+#pressed-buttons {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+#test-instruction {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#test-instruction.hidden {
+    display: none;
+}
+
+.double-click-detected {
+    background: #ff0 !important;
+    animation: flash 0.5s;
+}
+
+@keyframes flash {
+    0% { background: #ff0 !important; }
+    100% { background: #666 !important; }
+}
+
+#button-presses {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+#test-results {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+}
+
+#test-results.visible {
+    display: block;
+}
