@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg-color-1: #000000;
+  --bg-color-2: #000509;
+  --text-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  color: var(--text-color);
+  background-color: var(--bg-color-1);
+  background-image: conic-gradient(var(--bg-color-2) 90deg,
+      transparent 90deg 180deg,
+      var(--bg-color-2) 180deg 270deg,
+      transparent 270deg);
+  background-size: 100px 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  text-shadow: 2px 2px 0px #000;
+}
+
+nav a:hover {
+  background-color: #fff;
+  color: #000;
+  text-shadow: none;
+}
+
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo-container {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  /* Extra padding to prevent drop-shadow clipping */
+  padding: 10px;
+}
+
+.logo-container::after {
+  content: "";
+  position: absolute;
+  /* Top/Left/Right/Bottom based on original image dimensions within container */
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+
+  /* Constrain the shine only to the opaque pixels of the logo */
+  -webkit-mask-image: url("IMG/logo_pufferfish.png");
+  mask-image: url("IMG/logo_pufferfish.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  /* The shine gradient itself */
+  background: linear-gradient(110deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 70%);
+  background-size: 200% 100%;
+  background-position: 150% 0;
+  transition: background-position 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.logo-container:hover::after,
+.logo-container.active-shine::after {
+  background-position: -150% 0;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.3));
+  transition: width 0.3s ease;
+}
+
+.hero h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-shadow: 4px 4px 0px #000;
+}
+
+.hero p {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.game-card {
+  border: 4px solid #fff !important;
+  border-image: none !important;
+  background-color: #212529 !important;
+  color: #fff;
+  border-radius: 20px !important;
+  /* Clips the background to match the rounded border */
+  background-clip: padding-box;
+}
+
+.game-cover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  /* Smooth rounded corners */
+}
+
+.game-cover img,
+.game-cover video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.game-cover video {
+  opacity: 0;
+}
+
+/* Handled in media queries for responsiveness */
+
+
+.platform-icons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.platform-icons img {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+}
+
+.contact-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 4px solid #fff !important;
+  border-image: none !important;
+  border-radius: 20px !important;
+  background-clip: padding-box;
+  background-color: #212529 !important;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Desktop Hover Effects */
+  .game-card:hover .game-cover img {
+    opacity: 0;
+  }
+
+  .game-card:hover .game-cover video {
+    opacity: 1;
+  }
+}
+
+/* Mobile logo sizing */
+@media (max-width: 767px) {
+  .logo-container img {
+    width: 80%;
+  }
+
+  /* Mobile Active (Centered) Effect */
+  .game-card.is-active .game-cover img {
+    opacity: 0;
+  }
+
+  .game-card.is-active .game-cover video {
+    opacity: 1;
+  }
+
+  nav a {
+    font-size: 0.6rem;
+    padding: 0.3rem;
+  }
+
+  .contact-container {
+    font-size: 0.6rem;
+  }
+
+  .contact-container a {
+    word-break: break-all;
+  }
+}
+
+@media (min-width: 1024px) {
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
