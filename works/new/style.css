@@ -119,7 +119,6 @@ section {
   }
 }
 
-.logo-container:hover::after,
 .logo-container.active-shine::after {
   animation: logo-shine 0.8s ease-in-out forwards;
 }

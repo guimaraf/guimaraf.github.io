@@ -73,13 +73,31 @@ document.querySelectorAll('.game-card').forEach(card => {
 });
 
 console.log('Pufferfish Digital Site Loaded! 🐡');
-// Mobile click support for logo shine
+// Stateful Logo Shine logic
 const logoContainer = document.querySelector(".logo-container");
 if (logoContainer) {
-    logoContainer.addEventListener("click", () => {
-        logoContainer.classList.add("active-shine");
-        setTimeout(() => {
-            logoContainer.classList.remove("active-shine");
-        }, 800); // Match CSS animation duration
+    let isShineActive = false;
+
+    const triggerShine = () => {
+        if (!isShineActive) {
+            isShineActive = true;
+            logoContainer.classList.add("active-shine");
+            // Auto-reset after animation completes
+            setTimeout(() => {
+                logoContainer.classList.remove("active-shine");
+            }, 800); // Match CSS animation duration
+        }
+    };
+
+    // Desktop hover (mouseenter)
+    logoContainer.addEventListener("mouseenter", triggerShine);
+
+    // Reset flag when mouse leaves so it can trigger again on next enter
+    logoContainer.addEventListener("mouseleave", () => {
+        isShineActive = false;
+        logoContainer.classList.remove("active-shine");
     });
+
+    // Mobile click / general click
+    logoContainer.addEventListener("click", triggerShine);
 }
