@@ -80,6 +80,6 @@ if (logoContainer) {
         logoContainer.classList.add("active-shine");
         setTimeout(() => {
             logoContainer.classList.remove("active-shine");
-        }, 600); // Match CSS transition duration
+        }, 800); // Match CSS animation duration
     });
 }

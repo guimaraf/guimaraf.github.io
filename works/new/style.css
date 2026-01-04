@@ -106,13 +106,22 @@ section {
       rgba(255, 255, 255, 0) 70%);
   background-size: 200% 100%;
   background-position: 150% 0;
-  transition: background-position 0.6s ease-in-out;
   pointer-events: none;
+}
+
+@keyframes logo-shine {
+  from {
+    background-position: 150% 0;
+  }
+
+  to {
+    background-position: -150% 0;
+  }
 }
 
 .logo-container:hover::after,
 .logo-container.active-shine::after {
-  background-position: -150% 0;
+  animation: logo-shine 0.8s ease-in-out forwards;
 }
 
 .logo-container img {
