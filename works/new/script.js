@@ -1,4 +1,5 @@
 // Smooth scrolling for navigation links
+const maxShinny = 512;
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -28,13 +29,13 @@ document.querySelectorAll('.game-card').forEach(card => {
     const video = card.querySelector('video');
     if (video) {
         card.addEventListener('mouseenter', () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth >= maxShinny) {
                 loadVideo(video);
                 video.play().catch(err => console.log('Video play interrupted:', err));
             }
         });
         card.addEventListener('mouseleave', () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth >= maxShinny) {
                 video.pause();
                 video.currentTime = 0; // Reset to start
             }
@@ -50,7 +51,7 @@ const observerOptions = {
 };
 
 const mobileObserver = new IntersectionObserver((entries) => {
-    if (window.innerWidth >= 768) return;
+    if (window.innerWidth >= maxShinny) return;
 
     entries.forEach(entry => {
         const video = entry.target.querySelector('video');
