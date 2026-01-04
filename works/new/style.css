@@ -90,8 +90,8 @@ section {
   bottom: 10px;
 
   /* Constrain the shine only to the opaque pixels of the logo */
-  -webkit-mask-image: url("IMG/logo_pufferfish.png");
-  mask-image: url("IMG/logo_pufferfish.png");
+  -webkit-mask-image: url("img/logo.png");
+  mask-image: url("img/logo.png");
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
