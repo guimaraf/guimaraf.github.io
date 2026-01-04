@@ -85,6 +85,7 @@ if (logoContainer) {
             // Auto-reset after animation completes
             setTimeout(() => {
                 logoContainer.classList.remove("active-shine");
+                isShineActive = false; // Reset flag to allow repeat triggers
             }, 800); // Match CSS animation duration
         }
     };
