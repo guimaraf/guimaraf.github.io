@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred Extract Frames</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- JSZip for client-side zipping -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+
+<body>
+
+    <div class="background-glob"></div>
+    <div class="background-glob-2"></div>
+
+    <main class="container">
+        <header class="main-header">
+            <h1>Fred Extract Frames</h1>
+            <p class="subtitle">Converte o vídeo em imagens png</p>
+        </header>
+
+        <section class="card glass-panel">
+            <!-- Step 1: Upload -->
+            <div id="upload-section" class="upload-area">
+                <input type="file" id="video-input" accept="video/mp4,video/webm,video/ogg" hidden>
+                <label for="video-input" class="upload-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                    <span>Carregar Vídeo (Máx 20MB)</span>
+                </label>
+                <p id="error-message" class="error-msg"></p>
+            </div>
+
+            <!-- Step 2: Preview & Actions -->
+            <div id="preview-section" class="hidden">
+                <div class="video-wrapper">
+                    <video id="video-preview" controls></video>
+                </div>
+
+                <div class="actions">
+                    <button id="extract-btn" class="btn primary-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                            <rect x="9" y="9" width="6" height="6" />
+                            <line x1="9" y1="1" x2="9" y2="4" />
+                            <line x1="15" y1="1" x2="15" y2="4" />
+                            <line x1="9" y1="20" x2="9" y2="23" />
+                            <line x1="15" y1="20" x2="15" y2="23" />
+                            <line x1="20" y1="9" x2="23" y2="9" />
+                            <line x1="20" y1="14" x2="23" y2="14" />
+                            <line x1="1" y1="9" x2="4" y2="9" />
+                            <line x1="1" y1="14" x2="4" y2="14" />
+                        </svg>
+                        Extrair Frames
+                    </button>
+                    <button id="reset-btn" class="btn secondary-btn">Trocar Vídeo</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Processing -->
+            <div id="processing-section" class="hidden">
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                    <p id="status-text">Iniciando...</p>
+                </div>
+            </div>
+
+            <!-- Step 4: Download -->
+            <div id="download-section" class="hidden">
+                <div class="success-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                        stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                </div>
+                <h2>Processo Concluído!</h2>
+                <button id="download-btn" class="btn success-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Baixar ZIP
+                </button>
+                <button id="new-extraction-btn" class="btn secondary-btn">Nova Extração</button>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <p>© 2026 GUIMARAF STUDIOS. ALL PIXELS RESERVED.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred Last Frame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-background"></div>
+
+    <div class="main-container">
+        <header>
+            <h1>Fred Last Frame</h1>
+            <p class="subtitle">Extrai o frame personalizado do vídeo no formato png</p>
+        </header>
+
+        <main>
+            <section class="upload-section" id="uploadSection">
+                <div class="drop-zone" id="dropZone">
+                    <span class="icon">📁</span>
+                    <p>Arraste seu vídeo aqui ou clique para importar</p>
+                    <input type="file" id="videoInput" accept="video/*" hidden>
+                </div>
+            </section>
+
+            <section class="editor-section hidden" id="editorSection">
+                <div class="video-wrapper">
+                    <video id="videoPreview" playsinline></video>
+                </div>
+
+                <div class="controls-wrapper">
+                    <div class="time-display">
+                        <span id="currentTime">00:00.00</span> / <span id="totalTime">00:00.00</span>
+                    </div>
+
+                    <input type="range" id="videoSlider" min="0" value="0" step="any" class="video-slider">
+
+                    <div class="button-group">
+                        <button id="prevFrameBtn" class="control-btn" title="Frame Anterior (-0.04s)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor"
+                                    d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                            </svg>
+                        </button>
+                        <button id="playPauseBtn" class="control-btn" title="Play/Pause">
+                            <span id="playIcon">▶</span>
+                        </button>
+                        <button id="nextFrameBtn" class="control-btn" title="Próximo Frame (+0.04s)">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button id="exportBtn" class="primary-btn">
+                        <span class="icon">⬇</span> Exportar Frame PNG
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 GUIMARAF STUDIOS. ALL PIXELS RESERVED.</p>
+        </footer>
+    </div>
+
+    <canvas id="canvas" hidden></canvas>
+    <script src="script.js"></script>
+</body>
+
+</html>
