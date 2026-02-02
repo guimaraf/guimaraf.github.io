@@ -1,5 +1,0 @@
-{
-  "name": "ClarityFlow AI",
-  "description": "Uma ferramenta inteligente para reorganizar e limpar documentos (PDF, DOCX, TXT) para máxima legibilidade usando Google Gemini.",
-  "requestFramePermissions": []
-}
