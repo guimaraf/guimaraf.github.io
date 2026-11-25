@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#050a18">
+  <title>Duels Soccer</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #050a18; overflow: hidden; overscroll-behavior: none; }
+    body { position: fixed; inset: 0; touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+    #unity-canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; background: #050a18; outline: none; }
+    #loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+               font-family: Roboto, Arial, Helvetica, sans-serif; color: #fff; pointer-events: none; }
+    #loading .title { font-size: clamp(28px, 7vw, 64px); font-weight: 900; letter-spacing: 1px; text-shadow: 0 4px 0 #000; }
+    #loading .title span { color: #ffd21e; }
+    #bar { width: min(60vw, 420px); height: 14px; border: 2px solid #fff; border-radius: 9px; overflow: hidden; }
+    #bar-fill { width: 0%; height: 100%; background: #ffd21e; transition: width .15s linear; }
+    #msg { font-size: 15px; opacity: .8; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="loading">
+    <div class="title">DUELS <span>SOCCER</span></div>
+    <div id="bar"><div id="bar-fill"></div></div>
+    <div id="msg">Loading...</div>
+  </div>
+  <script src="peerjs.min.js"></script>
+  <script src="Build/WebGL.loader.js"></script>
+  <script>
+    var canvas = document.querySelector("#unity-canvas");
+    var loading = document.querySelector("#loading");
+    var fill = document.querySelector("#bar-fill");
+    var msg = document.querySelector("#msg");
+    var config = {
+      arguments: [],
+      dataUrl: "Build/WebGL.data.unityweb",
+      frameworkUrl: "Build/WebGL.framework.js.unityweb",
+      codeUrl: "Build/WebGL.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "TicJoy",
+      productName: "Duels Soccer",
+      productVersion: "1.0",
+      matchWebGLToCanvasSize: true,
+      // phones report very high pixel ratios; rendering above 2x costs a lot for no visible gain
+      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2)
+    };
+    createUnityInstance(canvas, config, function (progress) {
+      fill.style.width = Math.round(progress * 100) + "%";
+    }).then(function (instance) {
+      loading.style.display = "none";
+      window.unityInstance = instance;
+      canvas.focus();
+    }).catch(function (message) {
+      msg.textContent = "Could not start: " + message;
+    });
+    // keep the keyboard on the game (arrow keys / space must not scroll the page)
+    window.addEventListener("keydown", function (e) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].indexOf(e.key) >= 0) e.preventDefault();
+    }, { passive: false });
+    document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  </script>
+</body>
+</html>
